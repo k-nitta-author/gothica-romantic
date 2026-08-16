@@ -2,13 +2,17 @@
 
 [ext_resource type="Script" uid="uid://ykgi3dlcw8fn" path="res://game.gd" id="1_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://d1dvs67uncing" path="res://ui/hud_layer.tscn" id="2_7jktm"]
-[ext_resource type="PackedScene" uid="uid://b4kh4lyb84gx" path="res://base_stage.tscn" id="3_feb5d"]
+[ext_resource type="PackedScene" uid="uid://clvcbegfjryqm" path="res://base_stage.tscn" id="3_feb5d"]
+[ext_resource type="Script" uid="uid://dp02cdk8r8xvl" path="res://stage/music.gd" id="5_ryrav"]
 
 [node name="Game" type="Node2D" unique_id=1406075975]
 script = ExtResource("1_fc0e3")
 
-[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1503286603]
-
 [node name="HudLayer" parent="." unique_id=489733388 instance=ExtResource("2_7jktm")]
+visible = false
 
 [node name="Stage" parent="." unique_id=1917536022 instance=ExtResource("3_feb5d")]
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1358107669]
+bus = &"Music"
+script = ExtResource("5_ryrav")
