@@ -4,3 +4,13 @@
 
 [node name="BaseActor" type="CharacterBody2D" unique_id=1016638848]
 script = ExtResource("1_8emup")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=900505443]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=90387062]
+
+[node name="anim" type="AnimationPlayer" parent="." unique_id=783902006]
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=636899970]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=2047019247]
