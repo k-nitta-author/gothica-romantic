@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://fuveg7oo6a3b"]
+
+[ext_resource type="Script" uid="uid://btwti0pobk0tl" path="res://prop/base_prop.gd" id="1_gaqq0"]
+
+[node name="BaseProp" type="Area2D" unique_id=1356046424]
+script = ExtResource("1_gaqq0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1300293945]

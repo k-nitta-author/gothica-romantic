@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://dgifgrrsayfak"]
+
+[ext_resource type="PackedScene" uid="uid://fuveg7oo6a3b" path="res://prop/base_prop.tscn" id="1_skycs"]
+
+[node name="Collectible" unique_id=1356046424 instance=ExtResource("1_skycs")]

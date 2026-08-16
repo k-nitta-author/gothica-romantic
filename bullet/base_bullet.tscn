@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://biu0bokceu48v"]
+
+[ext_resource type="Script" uid="uid://cjimgn7qd4fn2" path="res://bullet/base_bullet.gd" id="1_h1bej"]
+
+[node name="BaseBullet" type="Area2D" unique_id=483994798]
+monitorable = false
+script = ExtResource("1_h1bej")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1823953356]
