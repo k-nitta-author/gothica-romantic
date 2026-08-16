@@ -1,14 +1,69 @@
 [gd_scene format=3 uid="uid://d1dvs67uncing"]
 
 [ext_resource type="Script" uid="uid://bdcci6pdtx3ff" path="res://ui/hud_layer.gd" id="1_726iu"]
+[ext_resource type="Script" uid="uid://bslunur51i611" path="res://ui/text_box.gd" id="2_rypyx"]
+[ext_resource type="Script" uid="uid://csl2hp6jg65as" path="res://ui/dialog_box.gd" id="3_jndc6"]
 
 [node name="HudLayer" type="CanvasLayer" unique_id=489733388]
 script = ExtResource("1_726iu")
 
-[node name="PlayerHpBar" type="ProgressBar" parent="." unique_id=1347140565]
-offset_right = 4.0
-offset_bottom = 27.0
+[node name="Control" type="Control" parent="." unique_id=1389212367]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
 
-[node name="EnemyHpBar" type="ProgressBar" parent="." unique_id=607605877]
-offset_right = 4.0
-offset_bottom = 27.0
+[node name="PlayerHpBar" type="ProgressBar" parent="Control" unique_id=1347140565]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 80.0
+offset_right = 1105.0
+offset_bottom = 107.0
+
+[node name="EnemyHpBar" type="ProgressBar" parent="Control" unique_id=607605877]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 24.0
+offset_right = 1102.0
+offset_bottom = 51.0
+
+[node name="TextBox" type="Panel" parent="Control" unique_id=1478290625]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_rypyx")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/TextBox" unique_id=885210539]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DialogBox" type="Panel" parent="Control" unique_id=377229313]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_jndc6")
+
+[node name="headerLabel" type="Label" parent="Control/DialogBox" unique_id=587849126]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="bodyLabel" type="RichTextLabel" parent="Control/DialogBox" unique_id=55172585]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="Control" unique_id=1322029701]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
