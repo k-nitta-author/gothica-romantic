@@ -1,6 +1,11 @@
 class_name BaseActor
 extends CharacterBody2D
 
+@onready var anim : AnimationPlayer = $anim
+@onready var sprite : Sprite2D = $Sprite2D
+@onready var hitbox : Area2D = $Hitbox
+@onready var collision_shape: CollisionShape2D = $CollisionShape2D
+
 enum ACTOR_TYPE{
 	PLAYER,
 	ENEMY,
@@ -8,7 +13,6 @@ enum ACTOR_TYPE{
 }
 
 @export var actorType: ACTOR_TYPE
-
 @export var max_hp: int:
 	set(value):
 		max_hp = value
@@ -30,6 +34,8 @@ enum ACTOR_TYPE{
 
 @export var jump_force : float
 
+var is_flipped : bool: set = set_is_flipped
+
 var current_state : BaseState:
 	set(value):
 		current_state = value
@@ -39,6 +45,13 @@ signal has_hp_changed(actor: BaseActor, old_hp: float, new_hp: float)
 
 var stage: Stage
 
+func set_is_flipped(value: bool):
+	var old_value = is_flipped
+	is_flipped = value
+
+	if old_value != is_flipped:
+		scale.x *= -1
+
 func bind_to_hud(hudLayer: HudLayer):
 	pass
 
@@ -46,4 +59,9 @@ func bind_dependencies():
 	pass
 
 func update():
+
+	var absoluteX = abs(velocity.x)
+
+	is_flipped = (velocity.x < 0) if absoluteX > 0 else is_flipped
+
 	move_and_slide()

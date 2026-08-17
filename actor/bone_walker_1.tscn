@@ -3,6 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://bjeudo4rvmvag" path="res://actor/base_enemy.tscn" id="1_2y8y3"]
 [ext_resource type="Texture2D" uid="uid://dnb18c8cyr0nm" path="res://assets/enemies/Bone Walker.png" id="2_vl8vt"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2y8y3"]
+size = Vector2(11, 23)
+
 [sub_resource type="Animation" id="Animation_gp64u"]
 length = 0.001
 tracks/0/type = "value"
@@ -36,7 +39,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_y8pw5"]
 resource_name = "walk"
-length = 0.39999999999999997
+length = 0.4
 loop_mode = 1
 step = 0.05
 tracks/0/type = "value"
@@ -59,7 +62,17 @@ _data = {
 &"walk": SubResource("Animation_y8pw5")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vl8vt"]
+size = Vector2(51, 39)
+
 [node name="bone walker 1" unique_id=1016638848 instance=ExtResource("1_2y8y3")]
+is_active = false
+max_hp = 3
+speed = 46.0
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=900505443]
+position = Vector2(0, -12)
+shape = SubResource("RectangleShape2D_2y8y3")
 
 [node name="Sprite2D" parent="." index="1" unique_id=90387062]
 texture = ExtResource("2_vl8vt")
@@ -69,3 +82,7 @@ frame = 5
 
 [node name="anim" parent="." index="2" unique_id=783902006]
 libraries/ = SubResource("AnimationLibrary_bybph")
+
+[node name="CollisionShape2D" parent="VisionArea" parent_id_path=PackedInt32Array(1796340020) index="0" unique_id=2039586838]
+position = Vector2(0, -19.5)
+shape = SubResource("RectangleShape2D_vl8vt")

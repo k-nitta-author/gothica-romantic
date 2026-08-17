@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://c2dcoev2ns4ip" path="res://actor/player.gd" id="2_pcoxj"]
 [ext_resource type="Texture2D" uid="uid://d201blvck6tjw" path="res://assets/player/Listahl.png" id="3_mlbvo"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mp1cb"]
+
 [sub_resource type="Animation" id="Animation_k4v8y"]
 length = 0.001
 tracks/0/type = "value"
@@ -428,8 +430,17 @@ _data = {
 &"walk": SubResource("Animation_lgiv4")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vl8vt"]
+size = Vector2(22, 31)
+
 [node name="Player" unique_id=1016638848 instance=ExtResource("1_4flbx")]
 script = ExtResource("2_pcoxj")
+speed = 49.305
+jump_force = 85.0
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=900505443]
+position = Vector2(0, -15)
+shape = SubResource("CapsuleShape2D_mp1cb")
 
 [node name="Sprite2D" parent="." index="1" unique_id=90387062]
 texture = ExtResource("3_mlbvo")
@@ -439,6 +450,10 @@ vframes = 3
 
 [node name="anim" parent="." index="2" unique_id=783902006]
 libraries/ = SubResource("AnimationLibrary_qb7rd")
+
+[node name="CollisionShape2D" parent="Hitbox" parent_id_path=PackedInt32Array(636899970) index="0" unique_id=2047019247]
+position = Vector2(0, -15.5)
+shape = SubResource("RectangleShape2D_vl8vt")
 
 [node name="sword" type="Sprite2D" parent="." index="4" unique_id=1839419690]
 visible = false
