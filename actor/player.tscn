@@ -78,6 +78,18 @@ tracks/5/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("gunshot:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(16, -22)]
+}
 
 [sub_resource type="Animation" id="Animation_0bt4a"]
 resource_name = "attack"
@@ -217,6 +229,58 @@ tracks/3/keys = {
 "values": [1.5707964]
 }
 
+[sub_resource type="Animation" id="Animation_mlbvo"]
+resource_name = "duck shoot"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [8, 13, 16, 17, 8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("gunshot:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("gunshot:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("gunshot:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(16, -16)]
+}
+
 [sub_resource type="Animation" id="Animation_6d7f5"]
 resource_name = "falling"
 length = 0.5
@@ -306,6 +370,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [0, 1, 2]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("gunshot:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(16, -22)]
+}
 
 [sub_resource type="Animation" id="Animation_lgiv4"]
 resource_name = "walk"
@@ -344,6 +420,7 @@ _data = {
 &"damaged": SubResource("Animation_i37uw"),
 &"duck": SubResource("Animation_l8iyd"),
 &"duck attack": SubResource("Animation_6d5en"),
+&"duck shoot": SubResource("Animation_mlbvo"),
 &"falling": SubResource("Animation_6d7f5"),
 &"jump": SubResource("Animation_tgec7"),
 &"land": SubResource("Animation_dgncp"),
@@ -358,7 +435,7 @@ script = ExtResource("2_pcoxj")
 texture = ExtResource("3_mlbvo")
 offset = Vector2(0, -16)
 hframes = 10
-vframes = 2
+vframes = 3
 
 [node name="anim" parent="." index="2" unique_id=783902006]
 libraries/ = SubResource("AnimationLibrary_qb7rd")
@@ -374,7 +451,7 @@ region_rect = Rect2(256, 32, 16, 32)
 
 [node name="gunshot" type="Sprite2D" parent="." index="5" unique_id=562707358]
 visible = false
-position = Vector2(15, -22)
+position = Vector2(16, -22)
 rotation = 1.5707964
 texture = ExtResource("3_mlbvo")
 offset = Vector2(0, -8)
