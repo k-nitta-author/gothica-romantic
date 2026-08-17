@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://cbvhks3dybpch"]
+
+[ext_resource type="PackedScene" uid="uid://bjeudo4rvmvag" path="res://actor/base_enemy.tscn" id="1_2y8y3"]
+[ext_resource type="Texture2D" uid="uid://dnb18c8cyr0nm" path="res://assets/enemies/Bone Walker.png" id="2_vl8vt"]
+
+[sub_resource type="Animation" id="Animation_gp64u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+
+[sub_resource type="Animation" id="Animation_5fcut"]
+resource_name = "rise"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.4, 0.5, 0.55, 0.6, 0.8, 0.84999996),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [4, 3, 2, 1, 0, 7, 8, 7, 0]
+}
+
+[sub_resource type="Animation" id="Animation_y8pw5"]
+resource_name = "walk"
+length = 0.39999999999999997
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bybph"]
+_data = {
+&"RESET": SubResource("Animation_gp64u"),
+&"rise": SubResource("Animation_5fcut"),
+&"walk": SubResource("Animation_y8pw5")
+}
+
+[node name="bone walker 1" unique_id=1016638848 instance=ExtResource("1_2y8y3")]
+
+[node name="Sprite2D" parent="." index="1" unique_id=90387062]
+texture = ExtResource("2_vl8vt")
+offset = Vector2(0, -16)
+hframes = 13
+frame = 5
+
+[node name="anim" parent="." index="2" unique_id=783902006]
+libraries/ = SubResource("AnimationLibrary_bybph")
