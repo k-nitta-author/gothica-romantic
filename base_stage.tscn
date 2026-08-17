@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://bjeudo4rvmvag" path="res://actor/base_enemy.tscn" id="4_ont0r"]
 [ext_resource type="Script" uid="uid://ryiprrdaay88" path="res://stage/base_stage.gd" id="5_0x10x"]
 
+[sub_resource type="TileSet" id="TileSet_332av"]
+
 [node name="Stage" type="Node2D" unique_id=1917536022]
 script = ExtResource("5_0x10x")
 
@@ -26,5 +28,6 @@ script = ExtResource("2_5m2fl")
 script = ExtResource("3_0x10x")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1855226038]
+tile_set = SubResource("TileSet_332av")
 
 [node name="anim" type="AnimationPlayer" parent="." unique_id=1651591778]
