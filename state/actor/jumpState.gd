@@ -8,6 +8,7 @@ func enter_state():
 func update():
     state_actor.anim.play("jump")
     state_actor.velocity.y += state_actor.speed_in_air_vertical
+    state_actor.velocity.x += Input.get_axis("move_left", "move_right") * state_actor.speed_in_air_horizontal
     
     if state_actor.velocity.y >= 64:
         exit_state()

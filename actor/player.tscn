@@ -479,6 +479,7 @@ size = Vector2(22, 31)
 [node name="Player" unique_id=1016638848 instance=ExtResource("1_4flbx")]
 script = ExtResource("2_pcoxj")
 speed = 64.0
+speed_in_air_horizontal = 1.0
 speed_in_air_vertical = 6.0
 jump_force = 176.0
 selected_state = 2
