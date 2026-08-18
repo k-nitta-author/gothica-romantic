@@ -232,10 +232,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.35, 0.4),
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.35, 0.39999998),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [8, 13, 14, 15, 14, 13, 8]
+"values": [8, 13, 14, 15, 14, 8, 13]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -345,6 +345,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_tgec7"]
 resource_name = "jump"
+length = 0.5
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -356,7 +357,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [8]
+"values": [18]
 }
 
 [sub_resource type="Animation" id="Animation_dgncp"]
@@ -479,9 +480,9 @@ size = Vector2(22, 31)
 [node name="Player" unique_id=1016638848 instance=ExtResource("1_4flbx")]
 script = ExtResource("2_pcoxj")
 speed = 64.0
-speed_in_air_horizontal = 1.0
+speed_in_air_horizontal = 0.25
 speed_in_air_vertical = 6.0
-jump_force = 176.0
+jump_force = 168.0
 selected_state = 2
 jump_state = SubResource("Resource_6wgq3")
 idle_state = SubResource("Resource_u3fcg")
@@ -519,7 +520,7 @@ rotation = -0.7853982
 texture = ExtResource("3_mlbvo")
 offset = Vector2(0, -9)
 region_enabled = true
-region_rect = Rect2(256, 32, 16, 32)
+region_rect = Rect2(256, 64, 16, 32)
 
 [node name="gunshot" type="Sprite2D" parent="." index="5" unique_id=562707358]
 visible = false
@@ -529,4 +530,4 @@ texture = ExtResource("3_mlbvo")
 offset = Vector2(0, -8)
 hframes = 3
 region_enabled = true
-region_rect = Rect2(272, 32, 48, 16)
+region_rect = Rect2(272, 64, 48, 16)
