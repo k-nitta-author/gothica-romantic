@@ -1,7 +1,17 @@
 [gd_scene format=3 uid="uid://cbvhks3dybpch"]
 
 [ext_resource type="PackedScene" uid="uid://bjeudo4rvmvag" path="res://actor/base_enemy.tscn" id="1_2y8y3"]
+[ext_resource type="Script" uid="uid://cciei67yuitw5" path="res://state/actor/idleState.gd" id="2_gp64u"]
 [ext_resource type="Texture2D" uid="uid://dnb18c8cyr0nm" path="res://assets/enemies/Bone Walker.png" id="2_vl8vt"]
+[ext_resource type="Script" uid="uid://bk432aexhqpdk" path="res://state/actor/moveState.gd" id="3_5fcut"]
+
+[sub_resource type="Resource" id="Resource_lgiv4"]
+script = ExtResource("2_gp64u")
+metadata/_custom_type_script = "uid://cciei67yuitw5"
+
+[sub_resource type="Resource" id="Resource_qb7rd"]
+script = ExtResource("3_5fcut")
+metadata/_custom_type_script = "uid://bk432aexhqpdk"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2y8y3"]
 size = Vector2(11, 23)
@@ -69,6 +79,8 @@ size = Vector2(51, 39)
 is_active = false
 max_hp = 3
 speed = 46.0
+idle_state = SubResource("Resource_lgiv4")
+move_state = SubResource("Resource_qb7rd")
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=900505443]
 position = Vector2(0, -12)

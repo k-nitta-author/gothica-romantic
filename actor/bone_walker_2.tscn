@@ -1,7 +1,17 @@
 [gd_scene format=3 uid="uid://b61j80iimhqu1"]
 
 [ext_resource type="PackedScene" uid="uid://bjeudo4rvmvag" path="res://actor/base_enemy.tscn" id="1_oomqi"]
+[ext_resource type="Script" uid="uid://cciei67yuitw5" path="res://state/actor/idleState.gd" id="2_5hoc6"]
 [ext_resource type="Texture2D" uid="uid://dnb18c8cyr0nm" path="res://assets/enemies/Bone Walker.png" id="2_a8e7q"]
+[ext_resource type="Script" uid="uid://bk432aexhqpdk" path="res://state/actor/moveState.gd" id="3_awo14"]
+
+[sub_resource type="Resource" id="Resource_y8pw5"]
+script = ExtResource("2_5hoc6")
+metadata/_custom_type_script = "uid://cciei67yuitw5"
+
+[sub_resource type="Resource" id="Resource_bybph"]
+script = ExtResource("3_awo14")
+metadata/_custom_type_script = "uid://bk432aexhqpdk"
 
 [sub_resource type="Animation" id="Animation_5hoc6"]
 length = 0.001
@@ -20,7 +30,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_awo14"]
 resource_name = "walk"
-length = 0.39999999999999997
+length = 0.4
 loop_mode = 1
 step = 0.05
 tracks/0/type = "value"
@@ -43,6 +53,9 @@ _data = {
 }
 
 [node name="bone_walker_2" unique_id=1016638848 instance=ExtResource("1_oomqi")]
+is_active = false
+idle_state = SubResource("Resource_y8pw5")
+move_state = SubResource("Resource_bybph")
 
 [node name="Sprite2D" parent="." index="1" unique_id=90387062]
 texture = ExtResource("2_a8e7q")

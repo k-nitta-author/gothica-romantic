@@ -42,6 +42,7 @@ _data = {
 }
 
 [node name="crow" unique_id=1016638848 instance=ExtResource("1_fj116")]
+actorType = 0
 
 [node name="Sprite2D" parent="." index="1" unique_id=90387062]
 texture = ExtResource("2_dhd1x")

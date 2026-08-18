@@ -194,6 +194,9 @@ script = ExtResource("1_v02k8")
 
 [node name="Player" parent="ActorManager" unique_id=1016638848 instance=ExtResource("3_ont0r")]
 position = Vector2(96, 194)
+speed = 49.56
+speed_in_air_vertical = 8.0
+jump_force = 196.0
 
 [node name="Camera2D" type="Camera2D" parent="ActorManager/Player" unique_id=836156762]
 zoom = Vector2(2, 2)
@@ -204,9 +207,6 @@ speed = 113.99
 
 [node name="bone walker 1" parent="ActorManager" unique_id=757887858 instance=ExtResource("6_7df2v")]
 position = Vector2(251, 304)
-
-[node name="bone walker 2" parent="ActorManager" unique_id=2039202829 instance=ExtResource("6_7df2v")]
-position = Vector2(183, 288)
 
 [node name="PropManager" type="Node2D" parent="." unique_id=1772769532]
 script = ExtResource("2_5m2fl")

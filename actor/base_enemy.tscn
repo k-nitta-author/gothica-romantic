@@ -8,6 +8,8 @@
 script = ExtResource("2_wpd7q")
 seek_right = false
 can_see_player = false
+is_active = false
+actorType = 1
 speed = 19.655
 
 [node name="Sprite2D" parent="." index="1" unique_id=90387062]
