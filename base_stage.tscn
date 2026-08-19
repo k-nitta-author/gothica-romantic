@@ -4,10 +4,12 @@
 [ext_resource type="Script" uid="uid://cgt6sqpopcenr" path="res://prop/prop_manager.gd" id="2_5m2fl"]
 [ext_resource type="Script" uid="uid://comt54346nx8i" path="res://bullet/bullet_manager.gd" id="3_0x10x"]
 [ext_resource type="PackedScene" uid="uid://dxrsyek2feu0u" path="res://actor/player.tscn" id="3_ont0r"]
-[ext_resource type="PackedScene" uid="uid://bjeudo4rvmvag" path="res://actor/base_enemy.tscn" id="4_ont0r"]
 [ext_resource type="Script" uid="uid://ryiprrdaay88" path="res://stage/base_stage.gd" id="5_0x10x"]
 [ext_resource type="PackedScene" uid="uid://cbvhks3dybpch" path="res://actor/bone_walker_1.tscn" id="6_7df2v"]
 [ext_resource type="Texture2D" uid="uid://duhocaw05cdmt" path="res://assets/tiles/Tilesets.png" id="7_mp1cb"]
+[ext_resource type="PackedScene" uid="uid://bdhcjhqm5nrt1" path="res://prop/candle.tscn" id="8_sydhl"]
+[ext_resource type="PackedScene" uid="uid://c0mt74e0g4ia6" path="res://prop/healing_item.tscn" id="9_bgswi"]
+[ext_resource type="PackedScene" uid="uid://dtcy6guqe5887" path="res://bullet/player_bullet.tscn" id="11_bgswi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7df2v"]
 texture = ExtResource("7_mp1cb")
@@ -203,17 +205,35 @@ speed_in_air_horizontal = 0.75
 [node name="Camera2D" type="Camera2D" parent="ActorManager/Player" unique_id=836156762]
 position = Vector2(0, -38)
 
-[node name="BaseEnemy" parent="ActorManager" unique_id=1917793960 instance=ExtResource("4_ont0r")]
-position = Vector2(217, -36)
-speed = 113.99
-
 [node name="bone walker 1" parent="ActorManager" unique_id=757887858 instance=ExtResource("6_7df2v")]
 position = Vector2(163, 79)
 
 [node name="PropManager" type="Node2D" parent="." unique_id=1772769532]
 script = ExtResource("2_5m2fl")
 
+[node name="HealingItem" parent="PropManager" unique_id=1356046424 instance=ExtResource("9_bgswi")]
+position = Vector2(136, 98)
+maxHitPoints = 1
+
+[node name="Candle" parent="PropManager" unique_id=237788223 instance=ExtResource("8_sydhl")]
+position = Vector2(56, 89)
+
 [node name="BulletManager" type="Node2D" parent="." unique_id=63543608]
 script = ExtResource("3_0x10x")
+
+[node name="PlayerBullet" parent="BulletManager" unique_id=483994798 instance=ExtResource("11_bgswi")]
+position = Vector2(190, 108)
+movement_angle = 90
+speed = 89.0
+
+[node name="PlayerBullet2" parent="BulletManager" unique_id=858681188 instance=ExtResource("11_bgswi")]
+position = Vector2(169, 107)
+movement_angle = 90
+speed = 89.0
+
+[node name="PlayerBullet3" parent="BulletManager" unique_id=1954731039 instance=ExtResource("11_bgswi")]
+position = Vector2(186, 125)
+movement_angle = 90
+speed = 89.0
 
 [node name="anim" type="AnimationPlayer" parent="." unique_id=1651591778]
