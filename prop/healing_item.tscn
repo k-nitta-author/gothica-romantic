@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://c0mt74e0g4ia6"]
+
+[ext_resource type="PackedScene" uid="uid://dgifgrrsayfak" path="res://prop/collectible.tscn" id="1_oaotg"]
+[ext_resource type="Script" uid="uid://5kltbhd147ue" path="res://prop/healing_item.gd" id="2_sxlb2"]
+
+[node name="HealingItem" unique_id=1356046424 instance=ExtResource("1_oaotg")]
+script = ExtResource("2_sxlb2")
