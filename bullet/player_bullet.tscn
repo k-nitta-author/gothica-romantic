@@ -7,8 +7,7 @@
 size = Vector2(11, 12)
 
 [node name="PlayerBullet" unique_id=483994798 instance=ExtResource("1_qagro")]
-movement_angle = 80
-speed = 19.0
+speed = 320.0
 
 [node name="Sprite2D" parent="." index="0" unique_id=1823953356]
 position = Vector2(0.5000019, -1)

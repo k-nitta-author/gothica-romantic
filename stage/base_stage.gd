@@ -13,5 +13,5 @@ func _ready() -> void:
 
 func bind_dependencies(stage: Stage):
 	actorManager.bind_dependencies(stage)
-	propManager.bind_dependencies(stage)
+	#propManager.bind_dependencies(stage)
 	bulletManager.bind_dependencies(stage)
