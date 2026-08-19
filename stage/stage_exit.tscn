@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://v0cd6ctpkndj"]
+
+[ext_resource type="Script" uid="uid://ln0ckwlqxa2i" path="res://stage/stage_exit.gd" id="1_vi4eo"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_uqb0r"]
+b = Vector2(0, -64)
+
+[node name="StageExit" type="Area2D" unique_id=173771773]
+collision_layer = 0
+monitorable = false
+script = ExtResource("1_vi4eo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1011073751]
+shape = SubResource("SegmentShape2D_uqb0r")

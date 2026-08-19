@@ -8,17 +8,14 @@ const GRAVITY = 1 # determine best value later on
 @onready var music: AudioStreamPlayer = $Music
 @onready var stage: Stage = $Stage
 
-@export_file("*.tscn") var currentStageFilePath : String
+@export var next_level_scene: PackedScene
 
 func start_stage():
-	stage = load_stage(currentStageFilePath)
-	add_child(stage)
+	
+	var s = load_stage(next_level_scene)
+	add_child(s)
 
-func load_stage(file_path: String) -> Stage:
-
-	var stageFile : PackedScene = load(file_path)
-
-	return stageFile.instantiate()
+func load_stage(nextLevel: PackedScene) -> Stage: return nextLevel.instantiate()
 
 func unload_stage() -> void:
 	stage.call_deferred("queue_free")

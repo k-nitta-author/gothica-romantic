@@ -8,10 +8,21 @@ extends Node2D
 @onready var propManager = $PropManager
 @onready var bulletManager = $BulletManager
 
+signal stage_end()
+
 func _ready() -> void:
 	bind_dependencies(self)
+
+func bind_to_game(_game: Game) -> void:
+	pass
 
 func bind_dependencies(stage: Stage):
 	actorManager.bind_dependencies(stage)
 	#propManager.bind_dependencies(stage)
 	bulletManager.bind_dependencies(stage)
+
+# the process of ending the level
+# probably plays some sort of transition or music queue
+# passes up the chain to the game above the next level scene
+func end(_nextLevel: PackedScene) -> void:
+	emit_signal("stage_end")
