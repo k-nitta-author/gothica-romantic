@@ -92,6 +92,7 @@ var current_state : ActorState:
 
 signal has_died(actor: BaseActor)
 signal has_hp_changed(actor: BaseActor, old_hp: float, new_hp: float)
+signal fire_gun(bulletScene: BaseBullet, position: Vector2)
 
 var stage: Stage
 
@@ -105,8 +106,8 @@ func set_is_flipped(value: bool):
 func bind_to_hud(hudLayer: HudLayer):
 	pass
 
-func bind_dependencies():
-	pass
+func bind_dependencies(stage: Stage):
+	connect("fire_gun", stage.bulletManager.add_bullet)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if current_state != null:

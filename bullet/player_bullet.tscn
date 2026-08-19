@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dtcy6guqe5887"]
+
+[ext_resource type="PackedScene" uid="uid://biu0bokceu48v" path="res://bullet/base_bullet.tscn" id="1_qagro"]
+[ext_resource type="Texture2D" uid="uid://cbsiftecss0xm" path="res://icon.svg" id="2_nef41"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uqb0r"]
+size = Vector2(11, 12)
+
+[node name="PlayerBullet" unique_id=483994798 instance=ExtResource("1_qagro")]
+movement_angle = 80
+speed = 19.0
+
+[node name="Sprite2D" parent="." index="0" unique_id=1823953356]
+position = Vector2(0.5000019, -1)
+scale = Vector2(0.054687515, 0.0625)
+texture = ExtResource("2_nef41")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1" unique_id=1452213689]
+position = Vector2(0.5, -1)
+shape = SubResource("RectangleShape2D_uqb0r")
