@@ -3,7 +3,6 @@ extends ActorState
 
 func enter_state():
     state_actor.anim.play("RESET")
-    state_actor.velocity.y = 0
     state_actor.velocity.x = 0
 
 func exit_state(args: Dictionary = {}):
@@ -16,6 +15,8 @@ func exit_state(args: Dictionary = {}):
         state_actor.selected_state = BaseActor.STATES.DUCKING
 
 func update():
+
+    state_actor.velocity.y += state_actor.speed_in_air_vertical
 
     if Input.is_action_pressed("duck"):
         state_actor.is_ducking = true
