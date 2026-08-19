@@ -72,11 +72,13 @@ _data = {
 &"walk": SubResource("Animation_y8pw5")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gp64u"]
+size = Vector2(12, 24)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vl8vt"]
 size = Vector2(51, 39)
 
 [node name="bone walker 1" unique_id=1016638848 instance=ExtResource("1_2y8y3")]
-is_active = false
 max_hp = 3
 speed = 46.0
 idle_state = SubResource("Resource_lgiv4")
@@ -94,6 +96,10 @@ frame = 5
 
 [node name="anim" parent="." index="2" unique_id=783902006]
 libraries/ = SubResource("AnimationLibrary_bybph")
+
+[node name="CollisionShape2D" parent="Hitbox" parent_id_path=PackedInt32Array(636899970) index="0" unique_id=2047019247]
+position = Vector2(0, -12)
+shape = SubResource("RectangleShape2D_gp64u")
 
 [node name="CollisionShape2D" parent="VisionArea" parent_id_path=PackedInt32Array(1796340020) index="0" unique_id=2039586838]
 position = Vector2(0, -19.5)

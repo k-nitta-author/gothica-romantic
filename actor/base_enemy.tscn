@@ -15,6 +15,12 @@ speed = 19.655
 [node name="Sprite2D" parent="." index="1" unique_id=90387062]
 texture = ExtResource("2_ro0h5")
 
+[node name="Hitbox" parent="." index="3" unique_id=636899970]
+collision_layer = 8
+collision_mask = 14
+
 [node name="VisionArea" type="Area2D" parent="." index="4" unique_id=1796340020]
+collision_layer = 0
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VisionArea" index="0" unique_id=2039586838]

@@ -1,7 +1,13 @@
 class_name BaseBullet
 extends Area2D
 
+@export_range(0.0, 10.0, 0.1) var lifeTime: float
+
+@onready var lifeTimeCurrent: float
+
 @onready var sprite2D = $Sprite2D
+
+var isInactive: bool: set = set_is_inactive
 
 func bind_dependencies(stage: Stage):
 	pass
@@ -18,5 +24,27 @@ func bind_dependencies(stage: Stage):
 		
 @export var velocity : Vector2
 
+
+func set_is_inactive(value: bool):
+		isInactive = value
+
+		call_deferred("set", "monitorable", !value)
+		call_deferred("set", "monitoring", !value)
+
+		visible = !value
+
+func _ready() -> void:
+	connect("area_entered", on_area_entered)
+
+func on_area_entered(area: Area2D) -> void:
+	if area is BaseProp or area.owner is BaseActor:
+		isInactive = true
+
 func update(delta):
+
+	if lifeTimeCurrent >= lifeTime:
+		isInactive = true
+		
+	lifeTimeCurrent += delta
+
 	global_position += velocity * delta 

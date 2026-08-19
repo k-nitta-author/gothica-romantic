@@ -6,23 +6,11 @@ extends CharacterBody2D
 @onready var hitbox : Area2D = $Hitbox
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 
-enum ACTOR_TYPE{
-	PLAYER,
-	ENEMY,
-	SPECIAL
-}
+enum ACTOR_TYPE{ PLAYER, ENEMY, SPECIAL}
 
-enum STATES{
-	IDLE,
-	MOVING,
-	FALLLING,
-	JUMPING,
-	MELEE,
-	SHOOT,
-	DUCKING,
-	LANDING
-}
+enum STATES{ IDLE, MOVING, FALLLING, JUMPING, MELEE, SHOOT, DUCKING, LANDING }
 
+@export var isInactive: bool: set = set_is_inactive 
 @export var actorType: ACTOR_TYPE
 @export var max_hp: int:
 	set(value):
@@ -36,8 +24,15 @@ enum STATES{
 
 		emit_signal("has_hp_changed", self, old_value, current_hp)
 
+
+
 		if current_hp == 0:
 			emit_signal("has_died", self)
+
+			visible = false
+
+		else: visible = true
+			
 
 @export var speed : float
 @export var speed_in_air_horizontal: float
@@ -95,6 +90,17 @@ signal has_hp_changed(actor: BaseActor, old_hp: float, new_hp: float)
 signal fire_gun(bulletScene: BaseBullet, position: Vector2)
 
 var stage: Stage
+
+
+func set_is_inactive(value: bool):
+		isInactive = value
+
+		call_deferred("set", "monitorable", !value)
+		call_deferred("set", "monitoring", !value)
+
+		visible = !value
+
+		if isInactive: emit_signal("destroyed", self)
 
 func set_is_flipped(value: bool):
 	var old_value = is_flipped

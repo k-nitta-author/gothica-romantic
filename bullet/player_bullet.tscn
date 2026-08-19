@@ -7,6 +7,10 @@
 size = Vector2(11, 12)
 
 [node name="PlayerBullet" unique_id=483994798 instance=ExtResource("1_qagro")]
+collision_layer = 4
+collision_mask = 14
+monitorable = true
+lifeTime = 0.5
 speed = 320.0
 
 [node name="Sprite2D" parent="." index="0" unique_id=1823953356]

@@ -7,12 +7,14 @@ extends BaseActor
 @onready var visionArea : Area2D = $VisionArea
 
 func _ready() -> void:
-    hitbox.connect("body_entered", on_body_entered)
+    hitbox.connect("area_entered", on_hitbox_entered)
     visionArea.connect("area_entered", on_vision_area_entered)
     visionArea.connect("area_exited", on_vision_area_exited)
 
-func on_body_entered(body: Node2D):
-    pass
+func on_hitbox_entered(area: Area2D):
+    
+    if area is BaseBullet or area.owner is Player:
+        current_hp -= 1
 
 func on_vision_area_entered(area: Area2D):
     can_see_player = true
