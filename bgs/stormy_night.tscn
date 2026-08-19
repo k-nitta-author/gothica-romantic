@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://b8mey0wy8ctvx"]
+
+[ext_resource type="Texture2D" uid="uid://cxlcvcxlsnimq" path="res://assets/bg stuff/stormy clouds.png" id="2_kur2b"]
+[ext_resource type="Script" uid="uid://do8x1nbh5vg8c" path="res://bgs/ParallaxLayer.gd" id="2_l0lsq"]
+
+[node name="stormy night" type="Node2D" unique_id=1669905970]
+
+[node name="Parallax2D3" type="Parallax2D" parent="." unique_id=271509194]
+repeat_size = Vector2(32, 0)
+autoscroll = Vector2(32, 0)
+repeat_times = 15
+script = ExtResource("2_l0lsq")
+parallax_speed_x = 0.05
+
+[node name="StormyClouds" type="Sprite2D" parent="Parallax2D3" unique_id=96642595]
+position = Vector2(16, 28)
+texture = ExtResource("2_kur2b")
+region_enabled = true
+region_rect = Rect2(0, 24, 32, 8)
+
+[node name="Parallax2D2" type="Parallax2D" parent="." unique_id=807940083]
+scroll_offset = Vector2(8, 0)
+repeat_size = Vector2(32, 0)
+autoscroll = Vector2(32, 0)
+repeat_times = 15
+script = ExtResource("2_l0lsq")
+parallax_speed_x = 0.5
+
+[node name="StormyClouds" type="Sprite2D" parent="Parallax2D2" unique_id=459118613]
+position = Vector2(16, 18)
+texture = ExtResource("2_kur2b")
+region_enabled = true
+region_rect = Rect2(0, 16, 32, 8)
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=321274281]
+repeat_size = Vector2(32, 0)
+autoscroll = Vector2(32, 0)
+repeat_times = 15
+script = ExtResource("2_l0lsq")
+parallax_speed_x = 1.0
+
+[node name="StormyClouds" type="Sprite2D" parent="Parallax2D" unique_id=830851267]
+position = Vector2(16, 8)
+texture = ExtResource("2_kur2b")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 16)
