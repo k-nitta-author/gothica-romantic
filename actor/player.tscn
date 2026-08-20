@@ -38,6 +38,7 @@ metadata/_custom_type_script = "uid://ds6i5nv6dh4ud"
 
 [sub_resource type="Resource" id="Resource_a72po"]
 script = ExtResource("9_dgncp")
+fall_speed_multiplier = 30
 metadata/_custom_type_script = "uid://bxro0yfjng3td"
 
 [sub_resource type="Resource" id="Resource_wu1np"]
@@ -668,10 +669,11 @@ size = Vector2(4.2426405, 21.213203)
 [node name="Player" unique_id=1016638848 instance=ExtResource("1_4flbx")]
 script = ExtResource("2_pcoxj")
 bulletsMax = 100
+max_hp = 5
 speed = 64.0
-speed_in_air_horizontal = 0.25
-speed_in_air_vertical = 6.0
-jump_force = 168.0
+speed_in_air_horizontal = 48.0
+speed_in_air_vertical = 5.0
+jump_force = 150.0
 selected_state = 2
 jump_state = SubResource("Resource_6wgq3")
 idle_state = SubResource("Resource_u3fcg")

@@ -4,6 +4,7 @@ extends ActorState
 func enter_state():
     state_actor.anim.play("RESET")
     state_actor.velocity.x = 0
+    print("idle")
 
 func exit_state(args: Dictionary = {}):
 

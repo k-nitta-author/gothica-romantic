@@ -9,5 +9,5 @@ func handle_input(event: InputEvent):
             state_actor.anim.play("duck shoot")
 
     await state_actor.anim.animation_finished
-            
+
     state_actor.selected_state = BaseActor.STATES.IDLE

@@ -1,17 +1,42 @@
 class_name JumpState
 extends ActorState
 
+var has_taken_off : bool
 
 func enter_state():
     state_actor.velocity.y = -state_actor.jump_force
+    print("jump")
+
+    has_taken_off = false
+    state_actor.anim.play("jump")
+
+func handle_input(event: InputEvent):
+
+    if event.is_action_pressed("attack"):
+        state_actor.anim.play("jump attack")
+
+
+    if event.is_action_pressed("shoot"):
+        state_actor.anim.play("jump shoot")
 
 func update():
-    state_actor.anim.play("jump")
     state_actor.velocity.y += state_actor.speed_in_air_vertical
-    state_actor.velocity.x += Input.get_axis("move_left", "move_right") * state_actor.speed_in_air_horizontal
-    
+    state_actor.velocity.x = Input.get_axis("move_left", "move_right") * state_actor.speed_in_air_horizontal
+
     if state_actor.velocity.y >= 64:
         exit_state()
+
+    if !state_actor.is_on_floor():
+        has_taken_off = true
+
+    if state_actor.is_on_floor() and has_taken_off:
+        exit_state() 
 		
+
+
+
 func exit_state(_args: Dictionary = {}):
+
+    
     state_actor.selected_state = BaseActor.STATES.FALLLING
+
