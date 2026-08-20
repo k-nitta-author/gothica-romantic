@@ -7,7 +7,8 @@ extends BaseActor
 @onready var visionArea : Area2D = $VisionArea
 
 func _ready() -> void:
-    hitbox.connect("area_entered", on_hitbox_entered)
+    super()
+
     visionArea.connect("area_entered", on_vision_area_entered)
     visionArea.connect("area_exited", on_vision_area_exited)
 

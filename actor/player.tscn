@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://ds6i5nv6dh4ud" path="res://state/actor/landingState.gd" id="8_tgec7"]
 [ext_resource type="Script" uid="uid://bxro0yfjng3td" path="res://state/actor/fallingState.gd" id="9_dgncp"]
 [ext_resource type="Script" uid="uid://h2cl0j11ooth" path="res://state/actor/duckingState.gd" id="10_dgncp"]
+[ext_resource type="Script" uid="uid://dmjhev2pahl57" path="res://state/actor/damagedState.gd" id="11_8h0if"]
 
 [sub_resource type="Resource" id="Resource_6wgq3"]
 script = ExtResource("3_6d5en")
@@ -44,6 +45,9 @@ metadata/_custom_type_script = "uid://bxro0yfjng3td"
 [sub_resource type="Resource" id="Resource_wu1np"]
 script = ExtResource("10_dgncp")
 metadata/_custom_type_script = "uid://h2cl0j11ooth"
+
+[sub_resource type="Resource" id="Resource_32g7i"]
+script = ExtResource("11_8h0if")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r54av"]
 size = Vector2(10, 24.5)
@@ -146,6 +150,42 @@ tracks/7/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath(".:isRejectingInput")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath(".:can_flip")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Hitbox:monitoring")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_0bt4a"]
 resource_name = "attack"
@@ -227,6 +267,54 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [3, 12, 1, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:selected_state")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:isRejectingInput")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:can_flip")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Hitbox:monitoring")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_l8iyd"]
@@ -668,13 +756,15 @@ size = Vector2(4.2426405, 21.213203)
 
 [node name="Player" unique_id=1016638848 instance=ExtResource("1_4flbx")]
 script = ExtResource("2_pcoxj")
+isRejectingInput = false
 bulletsMax = 100
 max_hp = 5
 speed = 64.0
 speed_in_air_horizontal = 48.0
 speed_in_air_vertical = 5.0
 jump_force = 150.0
-selected_state = 2
+knockback_impulse = 62.0
+selected_state = 7
 jump_state = SubResource("Resource_6wgq3")
 idle_state = SubResource("Resource_u3fcg")
 melee_state = SubResource("Resource_sj7da")
@@ -683,6 +773,7 @@ shoot_state = SubResource("Resource_lbrtl")
 landing_state = SubResource("Resource_qws1g")
 falling_state = SubResource("Resource_a72po")
 ducking_state = SubResource("Resource_wu1np")
+damaged_state = SubResource("Resource_32g7i")
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=900505443]
 position = Vector2(0, -12.25)
@@ -698,7 +789,8 @@ vframes = 3
 libraries/ = SubResource("AnimationLibrary_qb7rd")
 
 [node name="Hitbox" parent="." index="3" unique_id=636899970]
-visible = false
+collision_mask = 8
+monitorable = false
 
 [node name="CollisionShape2D" parent="Hitbox" index="0" unique_id=2047019247]
 position = Vector2(0, -15)

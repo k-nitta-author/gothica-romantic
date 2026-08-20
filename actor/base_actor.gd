@@ -8,7 +8,7 @@ extends CharacterBody2D
 
 enum ACTOR_TYPE{ PLAYER, ENEMY, SPECIAL}
 
-enum STATES{ IDLE, MOVING, FALLLING, JUMPING, MELEE, SHOOT, DUCKING, LANDING }
+enum STATES{ IDLE, MOVING, FALLLING, JUMPING, MELEE, SHOOT, DUCKING, LANDING , DAMAGED}
 
 @export var isInactive: bool: set = set_is_inactive 
 @export var actorType: ACTOR_TYPE
@@ -38,6 +38,7 @@ enum STATES{ IDLE, MOVING, FALLLING, JUMPING, MELEE, SHOOT, DUCKING, LANDING }
 @export var speed_in_air_horizontal: float
 @export var speed_in_air_vertical: float
 @export var jump_force : float
+@export var knockback_impulse: float
 
 @export_category("States")
 
@@ -64,6 +65,8 @@ enum STATES{ IDLE, MOVING, FALLLING, JUMPING, MELEE, SHOOT, DUCKING, LANDING }
 				current_state = landing_state
 			STATES.DUCKING:
 				current_state = ducking_state
+			STATES.DAMAGED:
+				current_state = damaged_state
 
 @export var jump_state : JumpState
 @export var idle_state : IdleState
@@ -73,8 +76,10 @@ enum STATES{ IDLE, MOVING, FALLLING, JUMPING, MELEE, SHOOT, DUCKING, LANDING }
 @export var landing_state: LandingState
 @export var falling_state: FallingState
 @export var ducking_state: DuckingState
+@export var damaged_state: DamagedState
 
 var is_flipped : bool: set = set_is_flipped
+@export var can_flip: bool = true
 
 var current_state : ActorState:
 	set(value):
@@ -91,6 +96,11 @@ signal fire_gun(bulletScene: BaseBullet, position: Vector2)
 
 var stage: Stage
 
+func _ready() -> void:
+	hitbox.connect("area_entered", on_hitbox_entered)
+
+func on_hitbox_entered(area: Area2D):
+	pass
 
 func set_is_inactive(value: bool):
 		isInactive = value
@@ -103,6 +113,9 @@ func set_is_inactive(value: bool):
 		if isInactive: emit_signal("destroyed", self)
 
 func set_is_flipped(value: bool):
+
+	if !can_flip: return
+
 	var old_value = is_flipped
 	is_flipped = value
 
@@ -129,3 +142,6 @@ func update():
 	is_flipped = (velocity.x < 0) if absoluteX > 0 else is_flipped
 
 	move_and_slide()
+
+func knockback(area: Area2D) -> void:
+	pass
