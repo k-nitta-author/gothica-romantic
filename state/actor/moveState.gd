@@ -25,10 +25,10 @@ func update():
     if state_actor.is_on_floor():
         state_actor.anim.play("walk")
 
-func handle_input(event: InputEvent):
-    if event.is_action_pressed("jump"):
+func handle_input():
+    if Input.is_action_pressed("jump"):
         exit_state({"jump": true})
 
-    if event.is_action_pressed("duck"):
+    if Input.is_action_pressed("duck"):
         state_actor.is_ducking = true
         exit_state({"idle": true})

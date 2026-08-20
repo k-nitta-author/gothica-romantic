@@ -10,15 +10,13 @@ func exit_state(_args: Dictionary = {}):
 
     state_actor.selected_state = state_actor.STATES.LANDING
 
-func handle_input(event: InputEvent):
+func handle_input():
 
-    print("asd")
-
-    if event.is_action_pressed("attack"):
+    if Input.is_action_pressed("attack"):
         state_actor.anim.play("jump attack")
 
 
-    if event.is_action_pressed("shoot"):
+    if Input.is_action_pressed("shoot"):
         state_actor.anim.play("jump shoot")
 
 func update():

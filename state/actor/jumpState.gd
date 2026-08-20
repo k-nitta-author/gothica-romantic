@@ -10,18 +10,20 @@ func enter_state():
     has_taken_off = false
     state_actor.anim.play("jump")
 
-func handle_input(event: InputEvent):
+func handle_input():
 
-    if event.is_action_pressed("attack"):
+    if Input.is_action_pressed("attack"):
         state_actor.anim.play("jump attack")
 
 
-    if event.is_action_pressed("shoot"):
+    if Input.is_action_pressed("shoot"):
         state_actor.anim.play("jump shoot")
+
+    state_actor.velocity.x = Input.get_axis("move_left", "move_right") * state_actor.speed_in_air_horizontal
+
 
 func update():
     state_actor.velocity.y += state_actor.speed_in_air_vertical
-    state_actor.velocity.x = Input.get_axis("move_left", "move_right") * state_actor.speed_in_air_horizontal
 
     if state_actor.velocity.y >= 64:
         exit_state()

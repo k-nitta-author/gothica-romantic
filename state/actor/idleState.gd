@@ -3,7 +3,6 @@ extends ActorState
 
 func enter_state():
     state_actor.anim.play("RESET")
-    state_actor.velocity.x = 0
     print("idle")
 
 func exit_state(args: Dictionary = {}):
@@ -19,6 +18,8 @@ func update():
 
     state_actor.velocity.y += state_actor.speed_in_air_vertical
 
+func handle_input():
+
     if Input.is_action_pressed("duck"):
         state_actor.is_ducking = true
         state_actor.anim.play("duck")
@@ -30,10 +31,8 @@ func update():
     elif Input.is_action_pressed("shoot"):
         state_actor.anim.play("shoot")
 
-    if Input.get_axis("move_left", "move_right"):
+    if Input.is_action_pressed("move_left", true) or Input.is_action_pressed("move_right", true):
         exit_state({"move": true})
 
-func handle_input(event: InputEvent):
-
-    if event.is_action_pressed("jump"):
+    if Input.is_action_pressed("jump"):
         exit_state({"jump": true})
