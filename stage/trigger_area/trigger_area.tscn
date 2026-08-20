@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://j3myqaq8nbkq"]
+
+[ext_resource type="Script" uid="uid://cnixtu470wf7m" path="res://stage/trigger_area/trigger_area.gd" id="1_3ywhh"]
+
+[node name="TriggerArea" type="Area2D" unique_id=1107405161]
+script = ExtResource("1_3ywhh")

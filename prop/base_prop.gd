@@ -44,3 +44,7 @@ func update() -> void:
 
 func bind_dependencies(stage: Stage) -> void:
 	pass
+
+
+func on_triggered() -> void:
+	pass

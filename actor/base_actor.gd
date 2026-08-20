@@ -105,8 +105,11 @@ func on_hitbox_entered(area: Area2D):
 func set_is_inactive(value: bool):
 		isInactive = value
 
-		call_deferred("set", "monitorable", !value)
-		call_deferred("set", "monitoring", !value)
+		if !is_node_ready(): await ready
+
+		hitbox.call_deferred("set", "monitorable", !value)
+		hitbox.call_deferred("set", "monitoring", !value)
+		collision_shape.call_deferred("set", "disabled", isInactive)
 
 		visible = !value
 
@@ -128,10 +131,6 @@ func bind_to_hud(hudLayer: HudLayer):
 func bind_dependencies(stage: Stage):
 	connect("fire_gun", stage.bulletManager.add_bullet)
 
-func _unhandled_input(event: InputEvent) -> void:
-	if current_state != null:
-		current_state.handle_input(event)
-
 func update():
 
 	if current_state != null:
@@ -144,4 +143,7 @@ func update():
 	move_and_slide()
 
 func knockback(area: Area2D) -> void:
+	pass
+
+func on_triggered() -> void:
 	pass
