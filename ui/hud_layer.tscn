@@ -67,3 +67,10 @@ visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="autoSaveIcon" type="TextureRect" parent="Control" unique_id=530693163]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="anim" type="AnimationPlayer" parent="." unique_id=1362198885]

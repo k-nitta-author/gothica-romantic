@@ -2,12 +2,13 @@ class_name HudLayer
 extends CanvasLayer
 
 enum STATE {
+    START_SCREEN,
     RESUMED,
     PAUSED,
     SETTINGS,
 }
 
-@export var currentState: STATE:
+@export var currentState: STATE = STATE.START_SCREEN:
     set(value):
         currentState = value
 
@@ -23,3 +24,5 @@ enum STATE {
 @onready var enemyHpBar : ProgressBar = $Control/EnemyHpBar
 @onready var dialogBox : DialogBox = $Control/DialogBox
 @onready var textBox: TextBox = $Control/TextBox
+@onready var anim: AnimationPlayer = $anim
+@onready var autoSaveIcon: TextureRect = $Control/autoSaveIcon
