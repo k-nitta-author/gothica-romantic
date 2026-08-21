@@ -144,6 +144,9 @@ func knockback(area: Area2D) -> void:
 func bind_to_hud(hudLayer: HudLayer):
 	pass
 
+func walk() -> void: pass
+
+
 func bind_dependencies(stage: Stage):
 	connect("fire_gun", stage.bulletManager.add_bullet)
 

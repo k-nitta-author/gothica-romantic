@@ -2,7 +2,6 @@ class_name IdleState
 extends ActorState
 
 func enter_state():
-	state_actor.anim.play("RESET")
 	print("idle")
 
 func exit_state(args: Dictionary = {}):

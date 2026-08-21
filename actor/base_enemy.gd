@@ -6,7 +6,13 @@ extends BaseActor
 @export var is_active : bool
 @export var is_awake: bool: set = set_is_awake
 
+var player: Player
+
 @onready var visionArea : Area2D = $VisionArea
+
+func bind_dependencies(stage: Stage):
+
+	player = stage.get_player()
 
 func set_is_inactive(value: bool):
 	super(value)
@@ -38,11 +44,17 @@ func on_vision_area_entered(area: Area2D):
 func on_vision_area_exited(area: Area2D):
 	pass
 
+func walk() -> void:
+	velocity = Vector2(1 if seek_right else -1,0) * speed
+	anim.play("walk")
+
 func update():
 
 	if !is_active: return
 
-	#velocity = Vector2(1 if seek_right else -1,0) * speed
-
 	super()
-	
+
+	# TODO: optimize this when you can. it doesn't need to be called each frame
+	if player.is_on_floor():
+		is_flipped = player.global_position.x < global_position.x
+		seek_right = !(player.global_position.x < global_position.x)

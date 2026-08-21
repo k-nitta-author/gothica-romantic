@@ -53,6 +53,10 @@ func on_hitbox_entered(area: Area2D):
 func heal(amount: int):
 	current_hp += amount
 
+func walk() -> void:
+	velocity.x = Input.get_axis("move_left", "move_right") * speed
+	anim.play("walk")
+
 func shoot():
 	if bulletsCurrent == 0: return
 
