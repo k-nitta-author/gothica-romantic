@@ -20,7 +20,7 @@ buses/default_bus_layout="uid://wt12yqvp1cvj"
 
 [display]
 
-window/size/viewport_width=240
+window/size/viewport_width=368
 window/size/viewport_height=160
 window/stretch/mode="viewport"
 window/stretch/aspect="keep_width"

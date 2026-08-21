@@ -8,8 +8,9 @@
 [node name="stormy night" type="Node2D" unique_id=1669905970]
 
 [node name="Parallax2D3" type="Parallax2D" parent="." unique_id=271509194]
+scroll_offset = Vector2(51, 0)
 repeat_size = Vector2(32, 0)
-repeat_times = 15
+repeat_times = 22
 script = ExtResource("2_l0lsq")
 parallax_speed_x = 0.7
 
@@ -20,9 +21,9 @@ region_enabled = true
 region_rect = Rect2(0, 24, 32, 8)
 
 [node name="Parallax2D2" type="Parallax2D" parent="." unique_id=807940083]
-scroll_offset = Vector2(8, 0)
+scroll_offset = Vector2(59, 0)
 repeat_size = Vector2(32, 0)
-repeat_times = 15
+repeat_times = 22
 script = ExtResource("2_l0lsq")
 parallax_speed_x = 0.8
 
@@ -33,8 +34,9 @@ region_enabled = true
 region_rect = Rect2(0, 16, 32, 8)
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=321274281]
+scroll_offset = Vector2(51, 0)
 repeat_size = Vector2(32, 0)
-repeat_times = 15
+repeat_times = 22
 script = ExtResource("2_l0lsq")
 parallax_speed_x = 1.0
 
@@ -46,8 +48,9 @@ region_rect = Rect2(0, 0, 32, 16)
 
 [node name="Parallax2D4" type="Parallax2D" parent="." unique_id=1900673645]
 scroll_scale = Vector2(0.5, 0.85)
+scroll_offset = Vector2(19, 0)
 repeat_size = Vector2(64, 0)
-repeat_times = 15
+repeat_times = 22
 
 [node name="StormyClouds" type="Sprite2D" parent="Parallax2D4" unique_id=1923104553]
 position = Vector2(16, 93)
@@ -56,8 +59,9 @@ region_rect = Rect2(0, 0, 32, 16)
 
 [node name="Parallax2D5" type="Parallax2D" parent="." unique_id=1798159519]
 scroll_scale = Vector2(0, 0)
+scroll_offset = Vector2(24, -1)
 
 [node name="Moon" type="Sprite2D" parent="Parallax2D5" unique_id=1697203743]
 z_index = -1
-position = Vector2(10, 57)
+position = Vector2(156, 76)
 texture = ExtResource("4_l0lsq")
