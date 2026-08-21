@@ -9,13 +9,12 @@ func exit_state(_args: Dictionary = {}):
 
     state_actor.selected_state = BaseActor.STATES.IDLE
 
-func handle_input(event: InputEvent):
-
-    if event.is_action_released("duck"):
+func handle_input():
+    if Input.is_action_just_released("duck"): 
         exit_state()
 
-    if event.is_action_pressed("attack"):
+    if Input.is_action_pressed("attack"):
         state_actor.anim.play("duck attack")
 
-    if event.is_action_pressed("shoot"):
+    if Input.is_action_pressed("shoot"):
         state_actor.anim.play("duck shoot")

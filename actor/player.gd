@@ -35,6 +35,9 @@ func set_is_flipped(value: bool):
 func update() -> void:
 	super()
 
+	if current_state != null:
+		current_state.handle_input()
+
 func use_input(event: InputEvent):
 	pass
 

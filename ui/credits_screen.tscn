@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://h3xcdqrct8og"]
+
+[ext_resource type="Script" uid="uid://dvuqklk2r12uw" path="res://ui/credits_screen.gd" id="1_de18o"]
+
+[node name="CreditsScreen" type="Control" unique_id=1231522072]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_de18o")
+metadata/_edit_lock_ = true

@@ -4,7 +4,7 @@ extends Resource
 func enter_state():
 	pass
 
-func handle_input(event: InputEvent):
+func handle_input():
 	pass
 
 func update():
