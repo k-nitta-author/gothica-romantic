@@ -933,7 +933,6 @@ libraries/ = SubResource("AnimationLibrary_qb7rd")
 
 [node name="Hitbox" parent="." index="3" unique_id=636899970]
 collision_mask = 8
-monitorable = false
 
 [node name="CollisionShape2D" parent="Hitbox" index="0" unique_id=2047019247]
 position = Vector2(0, -12)

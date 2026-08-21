@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bjeudo4rvmvag"]
 
 [ext_resource type="PackedScene" uid="uid://7rqfpdtf2o7f" path="res://actor/base_actor.tscn" id="1_vaaym"]
-[ext_resource type="Texture2D" uid="uid://cbsiftecss0xm" path="res://icon.svg" id="2_ro0h5"]
 [ext_resource type="Script" uid="uid://b21fg148hm6ho" path="res://actor/base_enemy.gd" id="2_wpd7q"]
 
 [node name="BaseEnemy" unique_id=1016638848 instance=ExtResource("1_vaaym")]
@@ -9,11 +8,9 @@ script = ExtResource("2_wpd7q")
 seek_right = false
 can_see_player = false
 is_active = false
+is_awake = false
 actorType = 1
 speed = 19.655
-
-[node name="Sprite2D" parent="." index="1" unique_id=90387062]
-texture = ExtResource("2_ro0h5")
 
 [node name="Hitbox" parent="." index="3" unique_id=636899970]
 collision_layer = 8

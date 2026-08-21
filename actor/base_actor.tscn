@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://rp5sdj2ja1c5" path="res://sound effects/sound_sfx_stream.tscn" id="2_mo27s"]
 
 [node name="BaseActor" type="CharacterBody2D" unique_id=1016638848]
+collision_layer = 65
+collision_mask = 65
 script = ExtResource("1_8emup")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=900505443]

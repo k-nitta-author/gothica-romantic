@@ -28,6 +28,9 @@ func set_bullets_max(value: int) -> void:
 	bulletsCurrent = bulletsMax
 	emit_signal("on_bullets_max_change", old_value, bulletsCurrent)
 
+func _unhandled_input(event: InputEvent) -> void:
+	if current_state != null:
+		current_state.handle_input()
 
 func set_is_flipped(value: bool):	
 	super(value)
@@ -46,14 +49,6 @@ func on_hitbox_entered(area: Area2D):
 	knockback(area)
 	
 	selected_state = STATES.DAMAGED
-
-func knockback(area: Area2D) -> void:
-	var x = (1 if area.global_position.x < global_position.x else -1) * knockback_impulse
-	var y = speed_in_air_vertical * 16
-
-	velocity = Vector2(x, y)
-
-	can_flip = false
 
 func heal(amount: int):
 	current_hp += amount
