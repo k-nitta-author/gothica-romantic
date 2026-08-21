@@ -2,18 +2,19 @@
 
 [ext_resource type="Texture2D" uid="uid://cxlcvcxlsnimq" path="res://assets/bg stuff/stormy clouds.png" id="2_kur2b"]
 [ext_resource type="Script" uid="uid://do8x1nbh5vg8c" path="res://bgs/ParallaxLayer.gd" id="2_l0lsq"]
+[ext_resource type="Texture2D" uid="uid://dvl81kx00np2w" path="res://assets/bg stuff/dark mountains.png" id="3_kur2b"]
+[ext_resource type="Texture2D" uid="uid://cxqqnhhnkkk7a" path="res://assets/bg stuff/moon.png" id="4_l0lsq"]
 
 [node name="stormy night" type="Node2D" unique_id=1669905970]
 
 [node name="Parallax2D3" type="Parallax2D" parent="." unique_id=271509194]
 repeat_size = Vector2(32, 0)
-autoscroll = Vector2(32, 0)
 repeat_times = 15
 script = ExtResource("2_l0lsq")
-parallax_speed_x = 0.05
+parallax_speed_x = 0.7
 
 [node name="StormyClouds" type="Sprite2D" parent="Parallax2D3" unique_id=96642595]
-position = Vector2(16, 28)
+position = Vector2(16, 44)
 texture = ExtResource("2_kur2b")
 region_enabled = true
 region_rect = Rect2(0, 24, 32, 8)
@@ -21,26 +22,42 @@ region_rect = Rect2(0, 24, 32, 8)
 [node name="Parallax2D2" type="Parallax2D" parent="." unique_id=807940083]
 scroll_offset = Vector2(8, 0)
 repeat_size = Vector2(32, 0)
-autoscroll = Vector2(32, 0)
 repeat_times = 15
 script = ExtResource("2_l0lsq")
-parallax_speed_x = 0.5
+parallax_speed_x = 0.8
 
 [node name="StormyClouds" type="Sprite2D" parent="Parallax2D2" unique_id=459118613]
-position = Vector2(16, 18)
+position = Vector2(16, 34)
 texture = ExtResource("2_kur2b")
 region_enabled = true
 region_rect = Rect2(0, 16, 32, 8)
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=321274281]
 repeat_size = Vector2(32, 0)
-autoscroll = Vector2(32, 0)
 repeat_times = 15
 script = ExtResource("2_l0lsq")
 parallax_speed_x = 1.0
 
 [node name="StormyClouds" type="Sprite2D" parent="Parallax2D" unique_id=830851267]
-position = Vector2(16, 8)
+position = Vector2(16, 24)
 texture = ExtResource("2_kur2b")
 region_enabled = true
 region_rect = Rect2(0, 0, 32, 16)
+
+[node name="Parallax2D4" type="Parallax2D" parent="." unique_id=1900673645]
+scroll_scale = Vector2(0.5, 0.85)
+repeat_size = Vector2(64, 0)
+repeat_times = 15
+
+[node name="StormyClouds" type="Sprite2D" parent="Parallax2D4" unique_id=1923104553]
+position = Vector2(16, 93)
+texture = ExtResource("3_kur2b")
+region_rect = Rect2(0, 0, 32, 16)
+
+[node name="Parallax2D5" type="Parallax2D" parent="." unique_id=1798159519]
+scroll_scale = Vector2(0, 0)
+
+[node name="Moon" type="Sprite2D" parent="Parallax2D5" unique_id=1697203743]
+z_index = -1
+position = Vector2(10, 57)
+texture = ExtResource("4_l0lsq")

@@ -5,4 +5,4 @@ extends Parallax2D
 
 
 func _process(delta: float) -> void:
-	scroll_offset += Vector2(parallax_speed_x, parallax_speed_y)
+	scroll_offset += Vector2(parallax_speed_x, parallax_speed_y) / 2

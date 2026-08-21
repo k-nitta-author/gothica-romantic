@@ -1,0 +1,11 @@
+[gd_scene format=4 uid="uid://cfahshfar4way"]
+
+[ext_resource type="PackedScene" uid="uid://clvcbegfjryqm" path="res://stage/base_stage.tscn" id="1_onahq"]
+
+[node name="test_stage" unique_id=1917536022 instance=ExtResource("1_onahq")]
+
+[node name="TileMapLayer" parent="." index="0" unique_id=1855226038]
+tile_map_data = PackedByteArray("AAAMAAgAAAADAAAAAAALAAgAAAADAAAAAAAKAAgAAAADAAAAAAAJAAgAAAADAAAAAAAIAAgAAAADAAAAAAAHAAgAAAADAAAAAAAGAAgAAAADAAAAAAAFAAgAAAADAAAAAAAEAAgAAAADAAAAAAADAAgAAAADAAAAAAACAAgAAAADAAAAAAA=")
+
+[node name="Player" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="0" unique_id=1016638848]
+position = Vector2(120, 124)

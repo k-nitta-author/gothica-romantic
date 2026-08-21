@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://7rqfpdtf2o7f"]
 
 [ext_resource type="Script" uid="uid://cb6egv5g202ry" path="res://actor/base_actor.gd" id="1_8emup"]
+[ext_resource type="PackedScene" uid="uid://rp5sdj2ja1c5" path="res://sound effects/sound_sfx_stream.tscn" id="2_mo27s"]
 
 [node name="BaseActor" type="CharacterBody2D" unique_id=1016638848]
 script = ExtResource("1_8emup")
@@ -14,3 +15,5 @@ script = ExtResource("1_8emup")
 [node name="Hitbox" type="Area2D" parent="." unique_id=636899970]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=2047019247]
+
+[node name="sound sfx stream" parent="." unique_id=599329136 instance=ExtResource("2_mo27s")]
