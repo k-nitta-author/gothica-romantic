@@ -22,7 +22,10 @@ func set_is_awake(value: bool):
 
 	if !self.is_node_ready(): await ready
 
-	if is_awake: anim.play("rise")
+	if is_awake: 
+		if anim.has_animation("rise"): anim.play("rise")
+
+		else: selected_state = STATES.MOVING
 
 func _ready() -> void:
 	super()
