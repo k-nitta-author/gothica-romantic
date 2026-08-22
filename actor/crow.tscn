@@ -2,6 +2,25 @@
 
 [ext_resource type="PackedScene" uid="uid://dssce627lfbu1" path="res://actor/flying_enemy.tscn" id="1_fj116"]
 [ext_resource type="Texture2D" uid="uid://cfhwfbppd75dr" path="res://assets/enemies/Crow.png" id="2_dhd1x"]
+[ext_resource type="Script" uid="uid://cciei67yuitw5" path="res://state/actor/idleState.gd" id="2_h0qai"]
+[ext_resource type="Script" uid="uid://dr8yurf1hb0c" path="res://actor/crow.gd" id="2_ulv0h"]
+[ext_resource type="Script" uid="uid://b4gnx3i6umkvr" path="res://state/actor/flyState.gd" id="3_0pd04"]
+[ext_resource type="Script" uid="uid://rmir0bixb5pe" path="res://state/actor/flyingChargeState.gd" id="3_ulv0h"]
+
+[sub_resource type="Resource" id="Resource_586ph"]
+script = ExtResource("2_h0qai")
+metadata/_custom_type_script = "uid://cciei67yuitw5"
+
+[sub_resource type="Resource" id="Resource_h0qai"]
+script = ExtResource("3_ulv0h")
+metadata/_custom_type_script = "uid://rmir0bixb5pe"
+
+[sub_resource type="Resource" id="Resource_q1xjc"]
+script = ExtResource("3_0pd04")
+metadata/_custom_type_script = "uid://b4gnx3i6umkvr"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fj116"]
+size = Vector2(20, 10)
 
 [sub_resource type="Animation" id="Animation_h0qai"]
 length = 0.001
@@ -41,8 +60,27 @@ _data = {
 &"fly": SubResource("Animation_0pd04")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_586ph"]
+size = Vector2(20, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q1xjc"]
+size = Vector2(243, 50)
+
 [node name="crow" unique_id=1016638848 instance=ExtResource("1_fj116")]
-actorType = 0
+script = ExtResource("2_ulv0h")
+fly_in_loop = true
+fly_range = 128.0
+is_active = true
+is_awake = true
+max_hp = 1
+speed = 10.0
+idle_state = SubResource("Resource_586ph")
+melee_state = SubResource("Resource_h0qai")
+move_state = SubResource("Resource_q1xjc")
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=900505443]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_fj116")
 
 [node name="Sprite2D" parent="." index="1" unique_id=90387062]
 texture = ExtResource("2_dhd1x")
@@ -51,3 +89,11 @@ hframes = 3
 
 [node name="anim" parent="." index="2" unique_id=783902006]
 libraries/ = SubResource("AnimationLibrary_ulv0h")
+
+[node name="CollisionShape2D" parent="Hitbox" parent_id_path=PackedInt32Array(636899970) index="0" unique_id=2047019247]
+position = Vector2(0, -6.5)
+shape = SubResource("RectangleShape2D_586ph")
+
+[node name="CollisionShape2D" parent="VisionArea" parent_id_path=PackedInt32Array(1796340020) index="0" unique_id=2039586838]
+position = Vector2(0, 9)
+shape = SubResource("RectangleShape2D_q1xjc")

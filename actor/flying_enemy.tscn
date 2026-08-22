@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://dssce627lfbu1"]
 
 [ext_resource type="PackedScene" uid="uid://bjeudo4rvmvag" path="res://actor/base_enemy.tscn" id="1_o3mbb"]
+[ext_resource type="Script" uid="uid://n53byts25fps" path="res://actor/flying_enemy.gd" id="2_6gmiy"]
 
 [node name="FlyingEnemy" unique_id=1016638848 instance=ExtResource("1_o3mbb")]
+script = ExtResource("2_6gmiy")

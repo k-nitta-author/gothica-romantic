@@ -3,16 +3,16 @@
 [ext_resource type="PackedScene" uid="uid://bjeudo4rvmvag" path="res://actor/base_enemy.tscn" id="1_oomqi"]
 [ext_resource type="Script" uid="uid://cciei67yuitw5" path="res://state/actor/idleState.gd" id="2_5hoc6"]
 [ext_resource type="Texture2D" uid="uid://dnb18c8cyr0nm" path="res://assets/enemies/Bone Walker.png" id="2_a8e7q"]
-[ext_resource type="Script" uid="uid://bk432aexhqpdk" path="res://state/actor/moveState.gd" id="3_awo14"]
+[ext_resource type="Script" uid="uid://cgcwml08u6r0s" path="res://state/actor/walkState.gd" id="3_ua142"]
 [ext_resource type="Script" uid="uid://bxro0yfjng3td" path="res://state/actor/fallingState.gd" id="4_awo14"]
 
 [sub_resource type="Resource" id="Resource_y8pw5"]
 script = ExtResource("2_5hoc6")
 metadata/_custom_type_script = "uid://cciei67yuitw5"
 
-[sub_resource type="Resource" id="Resource_bybph"]
-script = ExtResource("3_awo14")
-metadata/_custom_type_script = "uid://bk432aexhqpdk"
+[sub_resource type="Resource" id="Resource_bor3t"]
+script = ExtResource("3_ua142")
+metadata/_custom_type_script = "uid://cgcwml08u6r0s"
 
 [sub_resource type="Resource" id="Resource_jwqhm"]
 script = ExtResource("4_awo14")
@@ -68,11 +68,12 @@ size = Vector2(28.5, 15)
 size = Vector2(66, 20)
 
 [node name="bone_walker_2" unique_id=1016638848 instance=ExtResource("1_oomqi")]
+default_state_on_awake = 0
 max_hp = 5
 speed = 23.0
 speed_in_air_vertical = 5.0
 idle_state = SubResource("Resource_y8pw5")
-move_state = SubResource("Resource_bybph")
+move_state = SubResource("Resource_bor3t")
 falling_state = SubResource("Resource_jwqhm")
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=900505443]

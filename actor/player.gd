@@ -7,6 +7,8 @@ extends BaseActor
 @onready var gunshotEffect : Sprite2D = $gunshot
 @onready var firingPoint : Marker2D = $gunshot/firingPoint
 
+@onready var eyeLevelMarker : Marker2D = $eyeLevelMarker
+
 @export var bulletsMax: int: set = set_bullets_max
 var bulletsCurrent: int: set = set_bullets_current
 
@@ -14,6 +16,8 @@ signal on_bullets_current_change(old_value: int, new_value: int)
 signal on_bullets_max_change(old_value: int, new_value: int)
 
 var is_ducking :bool
+
+func get_eye_level() -> Vector2: return eyeLevelMarker.global_position
 
 func set_bullets_current(value: int) -> void:
 
