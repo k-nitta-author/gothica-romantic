@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cb6egv5g202ry" path="res://actor/base_actor.gd" id="1_8emup"]
 [ext_resource type="PackedScene" uid="uid://rp5sdj2ja1c5" path="res://sound effects/sound_sfx_stream.tscn" id="2_mo27s"]
+[ext_resource type="FontFile" uid="uid://ckjyw0le0uxau" path="res://font/PIXELADE.TTF" id="3_ego3k"]
 
 [node name="BaseActor" type="CharacterBody2D" unique_id=1016638848]
 collision_layer = 65
@@ -21,8 +22,11 @@ script = ExtResource("1_8emup")
 [node name="sound sfx stream" parent="." unique_id=599329136 instance=ExtResource("2_mo27s")]
 
 [node name="stateLabel" type="Label" parent="." unique_id=1314498347]
-offset_top = -67.0
-offset_right = 55.0
-offset_bottom = -53.0
-theme_override_font_sizes/font_size = 7
+offset_left = -27.0
+offset_top = -55.0
+offset_right = 28.0
+offset_bottom = -41.0
+theme_override_fonts/font = ExtResource("3_ego3k")
+theme_override_font_sizes/font_size = 12
+text = "state"
 horizontal_alignment = 1
