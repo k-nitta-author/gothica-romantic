@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://d1dvs67uncing"]
 
 [ext_resource type="Script" uid="uid://bdcci6pdtx3ff" path="res://ui/hud_layer.gd" id="1_726iu"]
+[ext_resource type="Script" uid="uid://d36b1xw8r6gjq" path="res://ui/battle_control.gd" id="2_qqsrg"]
 [ext_resource type="Script" uid="uid://bslunur51i611" path="res://ui/text_box.gd" id="2_rypyx"]
 [ext_resource type="Script" uid="uid://csl2hp6jg65as" path="res://ui/dialog_box.gd" id="3_jndc6"]
-[ext_resource type="Texture2D" uid="uid://b1xt6ivtm4wdv" path="res://assets/huds/boss hp bar.png" id="4_a72po"]
-[ext_resource type="Texture2D" uid="uid://boux8qempnf06" path="res://assets/huds/player hp bar.png" id="5_qvgt7"]
+[ext_resource type="Texture2D" uid="uid://dfpk7lnh4tgnu" path="res://assets/huds/boss hp bar.png" id="4_a72po"]
+[ext_resource type="Texture2D" uid="uid://dpy52ftto78s3" path="res://assets/huds/player hp bar.png" id="5_qvgt7"]
 [ext_resource type="PackedScene" uid="uid://cc8qj44o6epf4" path="res://ui/small_label.tscn" id="6_qqsrg"]
-[ext_resource type="Texture2D" uid="uid://cwb71aabr26bb" path="res://assets/huds/bullet icon.png" id="7_qvgt7"]
+[ext_resource type="Texture2D" uid="uid://cux5di67x0q3o" path="res://assets/huds/bullet icon.png" id="7_qvgt7"]
 
 [sub_resource type="Theme" id="Theme_31cq6"]
 
@@ -34,7 +35,13 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_lock_ = true
 
-[node name="PlayerHpBar" type="ProgressBar" parent="Control" unique_id=1347140565]
+[node name="BattleControl" type="Control" parent="Control" unique_id=1733277472]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_qqsrg")
+
+[node name="PlayerHpBar" type="ProgressBar" parent="Control/BattleControl" unique_id=1347140565]
 layout_mode = 0
 offset_left = 22.0
 offset_top = 14.0
@@ -46,7 +53,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_v4n38")
 value = 100.0
 show_percentage = false
 
-[node name="EnemyHpBar" type="ProgressBar" parent="Control" unique_id=607605877]
+[node name="EnemyHpBar" type="ProgressBar" parent="Control/BattleControl" unique_id=607605877]
 layout_mode = 0
 offset_left = 277.0
 offset_top = 15.0
@@ -57,6 +64,60 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_mn2d6")
 value = 12.0
 fill_mode = 1
 show_percentage = false
+
+[node name="HpBar" type="Sprite2D" parent="Control/BattleControl" unique_id=88784077]
+position = Vector2(32, 16)
+texture = ExtResource("5_qvgt7")
+
+[node name="small label" parent="Control/BattleControl" unique_id=1048519964 instance=ExtResource("6_qqsrg")]
+layout_mode = 0
+offset_left = 21.0
+offset_top = -1.0
+offset_right = 61.0
+offset_bottom = 22.0
+text = "player"
+
+[node name="small label2" parent="Control/BattleControl" unique_id=1774139708 instance=ExtResource("6_qqsrg")]
+layout_mode = 0
+offset_left = 317.0
+offset_top = 2.0
+offset_right = 357.0
+offset_bottom = 25.0
+text = "BOSS"
+
+[node name="BossHpBar" type="Sprite2D" parent="Control/BattleControl" unique_id=513301878]
+position = Vector2(312, 16)
+texture = ExtResource("4_a72po")
+
+[node name="BulletIcon" type="Sprite2D" parent="Control/BattleControl" unique_id=422641369]
+position = Vector2(20.5, 23.5)
+rotation = 1.5707964
+texture = ExtResource("7_qvgt7")
+
+[node name="BulletIcon2" type="Sprite2D" parent="Control/BattleControl" unique_id=1666493485]
+position = Vector2(20.5, 27.5)
+rotation = 1.5707964
+texture = ExtResource("7_qvgt7")
+
+[node name="BulletIcon3" type="Sprite2D" parent="Control/BattleControl" unique_id=1590715704]
+position = Vector2(20.5, 31.5)
+rotation = 1.5707964
+texture = ExtResource("7_qvgt7")
+
+[node name="BulletIcon4" type="Sprite2D" parent="Control/BattleControl" unique_id=98813973]
+position = Vector2(20.5, 35.5)
+rotation = 1.5707964
+texture = ExtResource("7_qvgt7")
+
+[node name="BulletIcon5" type="Sprite2D" parent="Control/BattleControl" unique_id=503696310]
+position = Vector2(20.5, 39.5)
+rotation = 1.5707964
+texture = ExtResource("7_qvgt7")
+
+[node name="BulletIcon6" type="Sprite2D" parent="Control/BattleControl" unique_id=1467633494]
+position = Vector2(20.5, 43.5)
+rotation = 1.5707964
+texture = ExtResource("7_qvgt7")
 
 [node name="TextBox" type="Panel" parent="Control" unique_id=1478290625]
 visible = false
@@ -90,92 +151,28 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Panel" type="Panel" parent="Control" unique_id=1322029701]
+[node name="PauseGamePanel" type="Panel" parent="Control" unique_id=1322029701]
 visible = false
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 125.0
+offset_top = 57.0
+offset_right = 209.0
+offset_bottom = 133.0
 
-[node name="autoSaveIcon" type="TextureRect" parent="Control" unique_id=530693163]
+[node name="Label" type="Label" parent="Control/PauseGamePanel" unique_id=1417193397]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="ColorRect" type="ColorRect" parent="Control" unique_id=1510533078]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="Control" unique_id=1417193397]
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = 14.0
+offset_top = -33.0
+offset_right = 71.0
+offset_bottom = -10.0
 text = "Paused"
 
-[node name="BossHpBar" type="Sprite2D" parent="Control" unique_id=513301878]
-position = Vector2(312, 16)
-texture = ExtResource("4_a72po")
+[node name="autoSaveIcon" type="TextureRect" parent="Control" unique_id=530693163]
+visible = false
+layout_mode = 0
+offset_left = 322.0
+offset_top = 115.0
+offset_right = 362.0
+offset_bottom = 155.0
 
 [node name="anim" type="AnimationPlayer" parent="." unique_id=1362198885]
-
-[node name="HpBar" type="Sprite2D" parent="." unique_id=88784077]
-position = Vector2(32, 16)
-texture = ExtResource("5_qvgt7")
-
-[node name="small label" parent="." unique_id=1048519964 instance=ExtResource("6_qqsrg")]
-offset_left = 21.0
-offset_top = -1.0
-offset_right = 61.0
-offset_bottom = 22.0
-text = "player"
-
-[node name="small label2" parent="." unique_id=1774139708 instance=ExtResource("6_qqsrg")]
-offset_left = 317.0
-offset_top = 2.0
-offset_right = 357.0
-offset_bottom = 25.0
-text = "BOSS"
-
-[node name="BulletIcon" type="Sprite2D" parent="." unique_id=422641369]
-position = Vector2(20.5, 23.5)
-rotation = 1.5707964
-texture = ExtResource("7_qvgt7")
-
-[node name="BulletIcon2" type="Sprite2D" parent="." unique_id=1666493485]
-position = Vector2(20.5, 27.5)
-rotation = 1.5707964
-texture = ExtResource("7_qvgt7")
-
-[node name="BulletIcon3" type="Sprite2D" parent="." unique_id=1590715704]
-position = Vector2(20.5, 31.5)
-rotation = 1.5707964
-texture = ExtResource("7_qvgt7")
-
-[node name="BulletIcon4" type="Sprite2D" parent="." unique_id=98813973]
-position = Vector2(20.5, 35.5)
-rotation = 1.5707964
-texture = ExtResource("7_qvgt7")
-
-[node name="BulletIcon5" type="Sprite2D" parent="." unique_id=503696310]
-position = Vector2(20.5, 39.5)
-rotation = 1.5707964
-texture = ExtResource("7_qvgt7")
-
-[node name="BulletIcon6" type="Sprite2D" parent="." unique_id=1467633494]
-position = Vector2(20.5, 43.5)
-rotation = 1.5707964
-texture = ExtResource("7_qvgt7")

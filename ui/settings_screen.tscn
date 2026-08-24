@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dkxidum8tt7pr"]
+
+[ext_resource type="Script" uid="uid://c43dci0ih4oi7" path="res://ui/settings_screen.gd" id="1_rsjql"]
+
+[node name="SettingsScreen" type="Control" unique_id=255840193]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rsjql")

@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://e33ck7sx7a2r"]
+
+[ext_resource type="Script" uid="uid://cpt2pmqox2kal" path="res://ui/opening_screen.gd" id="1_ppqy1"]
+
+[node name="OpeningScreen" type="Control" unique_id=988760894]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ppqy1")

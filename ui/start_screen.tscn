@@ -12,49 +12,45 @@ grow_vertical = 2
 script = ExtResource("1_s6cxg")
 metadata/_edit_lock_ = true
 
+[node name="Label" type="Label" parent="." unique_id=887364444]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 32.0
+offset_right = 258.0
+offset_bottom = 55.0
+text = "Gothica Romantic"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="startButton" type="Button" parent="." unique_id=756462720]
 layout_mode = 0
-offset_left = 16.0
-offset_top = 74.0
-offset_right = 114.0
-offset_bottom = 105.0
+offset_left = 84.0
+offset_top = 77.0
+offset_right = 182.0
+offset_bottom = 108.0
 text = "Start"
 
 [node name="continueButton" type="Button" parent="." unique_id=36146547]
 layout_mode = 0
-offset_left = 16.0
-offset_top = 118.0
-offset_right = 114.0
-offset_bottom = 149.0
+offset_left = 84.0
+offset_top = 116.0
+offset_right = 182.0
+offset_bottom = 147.0
+disabled = true
 text = "Continue"
 
 [node name="settingsButton" type="Button" parent="." unique_id=1757406134]
 layout_mode = 0
-offset_left = 130.0
-offset_top = 75.0
-offset_right = 228.0
-offset_bottom = 106.0
+offset_left = 196.0
+offset_top = 77.0
+offset_right = 294.0
+offset_bottom = 108.0
 text = "Settings"
 
 [node name="exitButton" type="Button" parent="." unique_id=1266910165]
 layout_mode = 0
-offset_left = 129.0
-offset_top = 114.0
-offset_right = 227.0
-offset_bottom = 145.0
+offset_left = 199.0
+offset_top = 113.0
+offset_right = 297.0
+offset_bottom = 144.0
 text = "Exit"
-
-[node name="Label" type="Label" parent="." unique_id=887364444]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -69.0
-offset_top = -46.0
-offset_right = 69.0
-offset_bottom = -23.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Gothica Romantic"
