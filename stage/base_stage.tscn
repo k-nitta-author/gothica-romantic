@@ -201,7 +201,8 @@ texture = ExtResource("7_mp1cb")
 7:19/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_332av"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 64
+physics_layer_0/collision_mask = 64
 sources/0 = SubResource("TileSetAtlasSource_7df2v")
 
 [node name="Stage" type="Node2D" unique_id=1917536022]
@@ -215,7 +216,6 @@ script = ExtResource("1_v02k8")
 
 [node name="Player" parent="ActorManager" unique_id=1016638848 instance=ExtResource("3_ont0r")]
 position = Vector2(120, 135)
-selected_state = 2
 damaged_state = null
 
 [node name="Camera2D" type="Camera2D" parent="ActorManager/Player" unique_id=836156762]

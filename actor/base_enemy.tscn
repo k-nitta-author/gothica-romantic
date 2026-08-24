@@ -4,11 +4,14 @@
 [ext_resource type="Script" uid="uid://b21fg148hm6ho" path="res://actor/base_enemy.gd" id="2_wpd7q"]
 
 [node name="BaseEnemy" unique_id=1016638848 instance=ExtResource("1_vaaym")]
+collision_layer = 0
+collision_mask = 64
 script = ExtResource("2_wpd7q")
 seek_right = false
 can_see_player = false
 is_active = false
 is_awake = false
+default_state_on_awake = 0
 actorType = 1
 speed = 19.655
 

@@ -110,6 +110,8 @@ size = Vector2(12, 24)
 size = Vector2(170.5, 39)
 
 [node name="bone walker 1" unique_id=1016638848 instance=ExtResource("1_2y8y3")]
+collision_layer = 32
+collision_mask = 96
 script = ExtResource("2_y8pw5")
 max_hp = 3
 speed = 46.0
@@ -131,7 +133,10 @@ frame = 5
 [node name="anim" parent="." index="2" unique_id=783902006]
 libraries/ = SubResource("AnimationLibrary_bybph")
 
-[node name="CollisionShape2D" parent="Hitbox" parent_id_path=PackedInt32Array(636899970) index="0" unique_id=2047019247]
+[node name="Hitbox" parent="." index="3" unique_id=636899970]
+collision_mask = 6
+
+[node name="CollisionShape2D" parent="Hitbox" index="0" unique_id=2047019247]
 position = Vector2(0, -12)
 shape = SubResource("RectangleShape2D_gp64u")
 

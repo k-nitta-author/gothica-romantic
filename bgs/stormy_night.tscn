@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://b8mey0wy8ctvx"]
 
-[ext_resource type="Texture2D" uid="uid://cxlcvcxlsnimq" path="res://assets/bg stuff/stormy clouds.png" id="2_kur2b"]
+[ext_resource type="Texture2D" uid="uid://bc1u2dq3gx0kw" path="res://assets/bg stuff/stormy clouds.png" id="2_kur2b"]
 [ext_resource type="Script" uid="uid://do8x1nbh5vg8c" path="res://bgs/ParallaxLayer.gd" id="2_l0lsq"]
-[ext_resource type="Texture2D" uid="uid://dvl81kx00np2w" path="res://assets/bg stuff/dark mountains.png" id="3_kur2b"]
-[ext_resource type="Texture2D" uid="uid://cxqqnhhnkkk7a" path="res://assets/bg stuff/moon.png" id="4_l0lsq"]
+[ext_resource type="Texture2D" uid="uid://xput63yomxcj" path="res://assets/bg stuff/dark mountains.png" id="3_kur2b"]
+[ext_resource type="Texture2D" uid="uid://bw2i2eqv3pfhb" path="res://assets/bg stuff/moon.png" id="4_l0lsq"]
 
 [node name="stormy night" type="Node2D" unique_id=1669905970]
 z_index = -2

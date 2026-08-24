@@ -27,12 +27,12 @@ enum STATES{ IDLE, MOVING, FALLLING, JUMPING, MELEE, SHOOT, DUCKING, LANDING , D
 
 		emit_signal("has_hp_changed", self, old_value, current_hp)
 
-		if current_hp == 0:
+		if current_hp == 0 and old_value != 0:
 			emit_signal("has_died", self)
 
 			visible = false
 			isInactive = true
-			collision_layer = 65
+			collision_layer = 64
 
 		else:
 			visible = true
