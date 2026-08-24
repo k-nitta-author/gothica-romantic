@@ -6,16 +6,17 @@
 [ext_resource type="Texture2D" uid="uid://cxqqnhhnkkk7a" path="res://assets/bg stuff/moon.png" id="4_l0lsq"]
 
 [node name="stormy night" type="Node2D" unique_id=1669905970]
+z_index = -2
 
 [node name="Parallax2D3" type="Parallax2D" parent="." unique_id=271509194]
 scroll_offset = Vector2(51, 0)
 repeat_size = Vector2(32, 0)
-repeat_times = 22
+repeat_times = 23
 script = ExtResource("2_l0lsq")
 parallax_speed_x = 0.7
 
 [node name="StormyClouds" type="Sprite2D" parent="Parallax2D3" unique_id=96642595]
-position = Vector2(16, 44)
+position = Vector2(16, 41)
 texture = ExtResource("2_kur2b")
 region_enabled = true
 region_rect = Rect2(0, 24, 32, 8)
@@ -23,7 +24,7 @@ region_rect = Rect2(0, 24, 32, 8)
 [node name="Parallax2D2" type="Parallax2D" parent="." unique_id=807940083]
 scroll_offset = Vector2(59, 0)
 repeat_size = Vector2(32, 0)
-repeat_times = 22
+repeat_times = 23
 script = ExtResource("2_l0lsq")
 parallax_speed_x = 0.8
 
@@ -36,7 +37,7 @@ region_rect = Rect2(0, 16, 32, 8)
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=321274281]
 scroll_offset = Vector2(51, 0)
 repeat_size = Vector2(32, 0)
-repeat_times = 22
+repeat_times = 23
 script = ExtResource("2_l0lsq")
 parallax_speed_x = 1.0
 
@@ -50,9 +51,9 @@ region_rect = Rect2(0, 0, 32, 16)
 scroll_scale = Vector2(0.5, 0.85)
 scroll_offset = Vector2(19, 0)
 repeat_size = Vector2(64, 0)
-repeat_times = 22
+repeat_times = 23
 
-[node name="StormyClouds" type="Sprite2D" parent="Parallax2D4" unique_id=1923104553]
+[node name="mountains" type="Sprite2D" parent="Parallax2D4" unique_id=1923104553]
 position = Vector2(16, 93)
 texture = ExtResource("3_kur2b")
 region_rect = Rect2(0, 0, 32, 16)
@@ -63,5 +64,21 @@ scroll_offset = Vector2(24, -1)
 
 [node name="Moon" type="Sprite2D" parent="Parallax2D5" unique_id=1697203743]
 z_index = -1
-position = Vector2(156, 76)
+position = Vector2(172, 76)
 texture = ExtResource("4_l0lsq")
+offset = Vector2(-8, 0)
+
+[node name="Parallax2D6" type="Parallax2D" parent="." unique_id=974008255]
+z_index = -1
+scroll_scale = Vector2(0, 0)
+scroll_offset = Vector2(24, -1)
+repeat_size = Vector2(368, 0)
+repeat_times = 2
+
+[node name="ColorRect" type="ColorRect" parent="Parallax2D6" unique_id=100460167]
+z_index = -1
+offset_left = -24.0
+offset_top = 33.0
+offset_right = 344.0
+offset_bottom = 97.0
+color = Color(0, 0, 0.11764706, 1)
