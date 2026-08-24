@@ -2,8 +2,7 @@ class_name MeleeState
 extends ActorState
 
 func enter_state():
-    print("melee")
-
+    state_actor.stateLabel.text = "melee"
 
 func handle_input():
     if Input.is_action_pressed("attack"):

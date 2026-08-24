@@ -2,7 +2,8 @@ class_name LandingState
 extends ActorState
 
 func enter_state():
-	print("land")
+
+	state_actor.stateLabel.text = "land"
 
 
 func exit_state(_args: Dictionary = {}):

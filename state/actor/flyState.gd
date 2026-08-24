@@ -2,7 +2,8 @@ class_name FlyState
 extends MoveState
 
 func enter_state():
-	print("fly")
+
+	state_actor.stateLabel.text = "flying"
 
 func exit_state(args: Dictionary= {}):
 	pass

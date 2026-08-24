@@ -4,7 +4,8 @@ extends ActorState
 @export var fall_speed_multiplier : int
 
 func enter_state():
-    print("falling")
+
+    state_actor.stateLabel.text = "falling"
 
 func exit_state(_args: Dictionary = {}):
 

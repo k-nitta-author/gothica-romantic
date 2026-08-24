@@ -2,7 +2,9 @@ class_name WalkState
 extends MoveState
 
 func enter_state():
-    print("walk")
+
+    state_actor.stateLabel.text = "walk"
+
     state_actor.velocity.y = 0
     state_actor.velocity.x = 0
 

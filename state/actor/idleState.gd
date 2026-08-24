@@ -2,7 +2,7 @@ class_name IdleState
 extends ActorState
 
 func enter_state():
-	print("idle")
+	state_actor.stateLabel.text = "idle"
 
 func exit_state(args: Dictionary = {}):
 
