@@ -9,7 +9,7 @@ func _ready() -> void:
 	for nPath in triggered_entities:
 		var n = get_node(nPath)
 
-		if !(n is BaseActor or n is BaseProp): continue
+		if !(n is BaseActor or n is BaseProp or n is ActorSpawner): continue
 
 		connect("triggered", n.on_triggered)
 

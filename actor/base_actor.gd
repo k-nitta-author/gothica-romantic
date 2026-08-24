@@ -6,6 +6,9 @@ extends CharacterBody2D
 @onready var hitbox : Area2D = $Hitbox
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 
+@onready var stateLabel: Label = $stateLabel
+
+
 enum ACTOR_TYPE{ PLAYER, ENEMY, SPECIAL}
 
 enum STATES{ IDLE, MOVING, FALLLING, JUMPING, MELEE, SHOOT, DUCKING, LANDING , DAMAGED}
@@ -114,8 +117,6 @@ func set_is_inactive(value: bool):
 		hitbox.call_deferred("set", "monitorable", !value)
 		hitbox.call_deferred("set", "monitoring", !value)
 
-		print("hitbox_monitorable: ",hitbox.monitorable, "hitbox_monitoring: ", hitbox.monitoring)
-
 		collision_shape.call_deferred("set", "disabled", isInactive)
 	
 
@@ -130,6 +131,7 @@ func set_is_flipped(value: bool):
 
 	if old_value != is_flipped:
 		scale.x *= -1
+		stateLabel.scale.x *= -1
 
 func knockback(area: Area2D) -> void:
 
@@ -141,8 +143,15 @@ func knockback(area: Area2D) -> void:
 
 	can_flip = false
 
+	selected_state = STATES.DAMAGED
+
 func bind_to_hud(hudLayer: HudLayer):
 	pass
+
+func walk() -> void: pass
+
+
+func stop() -> void: velocity.x = 0
 
 func bind_dependencies(stage: Stage):
 	connect("fire_gun", stage.bulletManager.add_bullet)

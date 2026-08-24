@@ -5,7 +5,8 @@ var has_taken_off : bool
 
 func enter_state():
     state_actor.velocity.y = -state_actor.jump_force
-    print("jump")
+
+    state_actor.stateLabel.text = "jump"
 
     has_taken_off = false
     state_actor.anim.play("jump")
