@@ -226,3 +226,5 @@ script = ExtResource("2_5m2fl")
 
 [node name="BulletManager" type="Node2D" parent="." unique_id=63543608]
 script = ExtResource("3_0x10x")
+
+[node name="anim" type="AnimationPlayer" parent="." unique_id=2037312595]
