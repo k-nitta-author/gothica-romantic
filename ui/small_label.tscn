@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cc8qj44o6epf4"]
+
+[ext_resource type="FontFile" uid="uid://ckjyw0le0uxau" path="res://font/PIXELADE.TTF" id="1_3bi13"]
+
+[node name="small label" type="Label" unique_id=1048519964]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("1_3bi13")
+theme_override_font_sizes/font_size = 13
+text = "label"
