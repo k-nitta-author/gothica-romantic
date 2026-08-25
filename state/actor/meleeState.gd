@@ -4,6 +4,7 @@ extends ActorState
 func enter_state():
     state_actor.stateLabel.text = "melee"
     state_actor.anim.play("attack")
+    state_actor.velocity.x = 0
 
 
 func handle_input():
