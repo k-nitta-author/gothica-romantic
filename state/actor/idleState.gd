@@ -17,6 +17,8 @@ func update():
 
 	state_actor.velocity.y += state_actor.speed_in_air_vertical
 
+	if abs(state_actor.velocity.x) > 0: exit_state({"move": true})
+
 func handle_input():
 
 	if Input.is_action_pressed("duck"):

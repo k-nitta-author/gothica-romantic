@@ -3,6 +3,8 @@ extends ActorState
 
 func enter_state():
     state_actor.stateLabel.text = "melee"
+    state_actor.anim.play("attack")
+
 
 func handle_input():
     if Input.is_action_pressed("attack"):

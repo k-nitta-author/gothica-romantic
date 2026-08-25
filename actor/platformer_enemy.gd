@@ -1,4 +1,4 @@
-extends "res://actor/base_enemy.gd"
+extends BaseEnemy
 
 
 func update():

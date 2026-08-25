@@ -158,6 +158,8 @@ func bind_dependencies(stage: Stage):
 
 func update():
 
+	if isInactive: return 
+
 	if current_state != null:
 		current_state.update()
 

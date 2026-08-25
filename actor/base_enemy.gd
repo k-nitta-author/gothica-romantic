@@ -1,3 +1,4 @@
+class_name BaseEnemy
 extends BaseActor
 
 @export_category("Activity")
@@ -5,6 +6,12 @@ extends BaseActor
 @export var can_see_player : bool
 @export var is_active : bool
 @export var is_awake: bool: set = set_is_awake
+
+@export_category("combat")
+@export var max_melee_range : float = 100
+@export var max_shoot_range : float = 100
+
+@export var melee_limit : float = 100
 
 var player: Player
 
@@ -56,12 +63,36 @@ func on_vision_area_exited(area: Area2D):
 
 func walk() -> void:
 	velocity = Vector2(1 if seek_right else -1,0) * speed
+
 	anim.play("walk")
+
+	attack_if_possible()
 
 func attack() -> void:
 	is_attacking = true
 
+	selected_state = BaseActor.STATES.MELEE
+
 func update_seek_right() -> void: pass
+
+func has_player_in_melee_range() -> bool:
+	return self.global_position.distance_to(player.global_position) < max_melee_range
+
+func has_player_in_shoot_range() -> bool:
+	return self.global_position.distance_to(player.global_position) < max_shoot_range
+
+func attack_if_possible() -> void:
+
+	if has_player_in_melee_range() and anim.has_animation("attack"): attack()
+
+	else: BaseActor.STATES.IDLE
+
+func shoot_if_possible() -> void:
+
+	if has_player_in_shoot_range(): shoot()
+
+
+func shoot(): pass
 
 func update():
 

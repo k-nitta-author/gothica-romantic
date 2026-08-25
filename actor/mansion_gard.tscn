@@ -1,10 +1,29 @@
 [gd_scene format=3 uid="uid://blmm78fcbvph3"]
 
 [ext_resource type="PackedScene" uid="uid://bjeudo4rvmvag" path="res://actor/base_enemy.tscn" id="1_2fg5m"]
-[ext_resource type="Texture2D" uid="uid://dfrlphkvl6n5m" path="res://assets/enemies/mansion guard.png" id="2_v5mtr"]
+[ext_resource type="Script" uid="uid://cciei67yuitw5" path="res://state/actor/idleState.gd" id="2_4gx5r"]
+[ext_resource type="Script" uid="uid://bxthdcpdc3xyu" path="res://actor/platformer_enemy.gd" id="2_prpt8"]
+[ext_resource type="Texture2D" uid="uid://j66n6ob6fxvp" path="res://assets/enemies/mansion guard.png" id="2_v5mtr"]
 [ext_resource type="AudioStream" uid="uid://sorepoioavl7" path="res://assets/sound/sfx/noise1.wav" id="3_21pae"]
+[ext_resource type="Script" uid="uid://hhc8ylq4nvxy" path="res://state/actor/meleeState.gd" id="3_k0wlm"]
+[ext_resource type="Script" uid="uid://cgcwml08u6r0s" path="res://state/actor/walkState.gd" id="4_iplda"]
 [ext_resource type="AudioStream" uid="uid://bywpsp2cs0s0s" path="res://assets/sound/sfx/noise3.wav" id="4_prpt8"]
-[ext_resource type="AudioStream" uid="uid://df1h6nx8fss84" path="res://assets/sound/sfx/noise4.wav" id="5_wdtfm"]
+[ext_resource type="AudioStream" uid="uid://bfqls0skfob01" path="res://assets/sound/sfx/noise4.wav" id="5_wdtfm"]
+
+[sub_resource type="Resource" id="Resource_prpt8"]
+script = ExtResource("2_4gx5r")
+metadata/_custom_type_script = "uid://cciei67yuitw5"
+
+[sub_resource type="Resource" id="Resource_wdtfm"]
+script = ExtResource("3_k0wlm")
+metadata/_custom_type_script = "uid://hhc8ylq4nvxy"
+
+[sub_resource type="Resource" id="Resource_k0wlm"]
+script = ExtResource("4_iplda")
+metadata/_custom_type_script = "uid://cgcwml08u6r0s"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5mb4p"]
+size = Vector2(16, 24)
 
 [sub_resource type="Animation" id="Animation_sflhr"]
 length = 0.001
@@ -43,6 +62,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:selected_state")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_21pae"]
@@ -124,6 +155,18 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 1, 1.25, 1.5, 1.8000001)
 }
 tracks/3/use_blend = true
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:selected_state")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_prpt8"]
 resource_name = "idle"
@@ -257,8 +300,29 @@ _data = {
 &"walk": SubResource("Animation_wdtfm")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_21pae"]
+size = Vector2(20, 29)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_prpt8"]
+size = Vector2(128, 64)
+
 [node name="mansion gard" unique_id=1016638848 instance=ExtResource("1_2fg5m")]
-default_state_on_awake = 0
+script = ExtResource("2_prpt8")
+can_see_player = true
+is_active = true
+max_melee_range = 50.0
+max_shoot_range = 100.0
+melee_limit = 100.0
+default_state_on_awake = 1
+max_hp = 5
+speed = 16.0
+idle_state = SubResource("Resource_prpt8")
+melee_state = SubResource("Resource_wdtfm")
+move_state = SubResource("Resource_k0wlm")
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=900505443]
+position = Vector2(0, -12)
+shape = SubResource("RectangleShape2D_5mb4p")
 
 [node name="Sprite2D" parent="." index="1" unique_id=90387062]
 texture = ExtResource("2_v5mtr")
@@ -276,6 +340,14 @@ region_rect = Rect2(192, 0, 16, 32)
 
 [node name="anim" parent="." index="2" unique_id=783902006]
 libraries/ = SubResource("AnimationLibrary_4gx5r")
+
+[node name="CollisionShape2D" parent="Hitbox" parent_id_path=PackedInt32Array(636899970) index="0" unique_id=2047019247]
+position = Vector2(0, -14.5)
+shape = SubResource("RectangleShape2D_21pae")
+
+[node name="CollisionShape2D" parent="VisionArea" parent_id_path=PackedInt32Array(1796340020) index="0" unique_id=2039586838]
+position = Vector2(0, -32)
+shape = SubResource("RectangleShape2D_prpt8")
 
 [node name="sound sfx stream" parent="." index="5" unique_id=599329136]
 volume_db = -5.0
