@@ -1,0 +1,280 @@
+[gd_scene format=3 uid="uid://blmm78fcbvph3"]
+
+[ext_resource type="PackedScene" uid="uid://bjeudo4rvmvag" path="res://actor/base_enemy.tscn" id="1_2fg5m"]
+[ext_resource type="Texture2D" uid="uid://dfrlphkvl6n5m" path="res://assets/enemies/mansion guard.png" id="2_v5mtr"]
+[ext_resource type="AudioStream" uid="uid://sorepoioavl7" path="res://assets/sound/sfx/noise1.wav" id="3_21pae"]
+[ext_resource type="AudioStream" uid="uid://bywpsp2cs0s0s" path="res://assets/sound/sfx/noise3.wav" id="4_prpt8"]
+[ext_resource type="AudioStream" uid="uid://df1h6nx8fss84" path="res://assets/sound/sfx/noise4.wav" id="5_wdtfm"]
+
+[sub_resource type="Animation" id="Animation_sflhr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/weapon:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-6, -14)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D/weapon:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_21pae"]
+resource_name = "attack"
+length = 2.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 1, 1.5, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 4, 5, 4, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/weapon:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 1, 1.0500001, 1.2, 1.25, 1.5, 1.8000001),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(0, -12.000001), Vector2(0, -11), Vector2(-1.9999998, -12.000001), Vector2(16, -15), Vector2(14, -15), Vector2(6, -15), Vector2(5, -15), Vector2(0, -11), Vector2(-1, -10)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D/weapon:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 1, 1.0500001, 1.2, 1.25, 1.5, 1.8000001),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [-4.4505897, -4.4505897, -4.4505897, 1.5707964, 1.5707964, 1.5707964, 1.5707964, -4.4505897, 1.5707964]
+}
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("sound sfx stream")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.3,
+"stream": ExtResource("3_21pae")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.3,
+"stream": ExtResource("3_21pae")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.3,
+"stream": ExtResource("3_21pae")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_prpt8")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.3,
+"stream": ExtResource("3_21pae")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.3,
+"stream": ExtResource("3_21pae")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.3,
+"stream": ExtResource("3_21pae")
+}],
+"times": PackedFloat32Array(0, 0.2, 0.4, 1, 1.25, 1.5, 1.8000001)
+}
+tracks/3/use_blend = true
+
+[sub_resource type="Animation" id="Animation_prpt8"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/weapon:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(6, -14), Vector2(6, -13)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D/weapon:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0.0, 0.0]
+}
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("sound sfx stream")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_wdtfm")
+}],
+"times": PackedFloat32Array(0.5)
+}
+tracks/3/use_blend = true
+
+[sub_resource type="Animation" id="Animation_wdtfm"]
+resource_name = "walk"
+length = 1.2
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/weapon:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.90000004),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(0, -10), Vector2(5, -13), Vector2(2.3841858e-07, -10), Vector2(5, -13)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D/weapon:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.3089969]
+}
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("sound sfx stream")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.3,
+"stream": ExtResource("3_21pae")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.3,
+"stream": ExtResource("3_21pae")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.3,
+"stream": ExtResource("3_21pae")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.3,
+"stream": ExtResource("3_21pae")
+}],
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.90000004)
+}
+tracks/3/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4gx5r"]
+_data = {
+&"RESET": SubResource("Animation_sflhr"),
+&"attack": SubResource("Animation_21pae"),
+&"idle": SubResource("Animation_prpt8"),
+&"walk": SubResource("Animation_wdtfm")
+}
+
+[node name="mansion guard" unique_id=1016638848 instance=ExtResource("1_2fg5m")]
+
+[node name="Sprite2D" parent="." index="1" unique_id=90387062]
+texture = ExtResource("2_v5mtr")
+offset = Vector2(0, -16)
+hframes = 6
+region_enabled = true
+region_rect = Rect2(0, 0, 192, 32)
+
+[node name="weapon" type="Sprite2D" parent="Sprite2D" index="0" unique_id=457477143]
+position = Vector2(-6, -14)
+texture = ExtResource("2_v5mtr")
+offset = Vector2(0, -3)
+region_enabled = true
+region_rect = Rect2(192, 0, 16, 32)
+
+[node name="anim" parent="." index="2" unique_id=783902006]
+libraries/ = SubResource("AnimationLibrary_4gx5r")
+
+[node name="sound sfx stream" parent="." index="5" unique_id=599329136]
+volume_db = -5.0

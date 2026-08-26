@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://bllpl6pb7ms8a"]
+
+[ext_resource type="Texture2D" uid="uid://x6s8pagps2mh" path="res://assets/bg stuff/misty clouds.png" id="1_jq1fy"]
+[ext_resource type="Texture2D" uid="uid://cxqqnhhnkkk7a" path="res://assets/bg stuff/moon.png" id="1_yn3cy"]
+[ext_resource type="Texture2D" uid="uid://c8ag8y6unfx71" path="res://assets/bg stuff/misty mountains.png" id="2_lhmo3"]
+[ext_resource type="Texture2D" uid="uid://caxy8vmk18ykq" path="res://assets/bg stuff/bg trees misty.png" id="3_s6q0d"]
+
+[node name="misty night" type="Node2D" unique_id=1559336620]
+
+[node name="Parallax2D6" type="Parallax2D" parent="." unique_id=1094536135]
+scroll_scale = Vector2(0, 0)
+
+[node name="ColorRect" type="ColorRect" parent="Parallax2D6" unique_id=559812432]
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 448.0
+offset_bottom = 208.0
+color = Color(0.0070888866, 0, 0.17411476, 1)
+
+[node name="Parallax2D7" type="Parallax2D" parent="." unique_id=1801683091]
+scroll_scale = Vector2(0, 0.8)
+
+[node name="moon" type="Sprite2D" parent="Parallax2D7" unique_id=1876283401]
+position = Vector2(184, 72)
+texture = ExtResource("1_yn3cy")
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=753181362]
+repeat_size = Vector2(32, 0)
+autoscroll = Vector2(8, 0)
+repeat_times = 23
+
+[node name="clouds" type="Sprite2D" parent="Parallax2D" unique_id=683912243]
+position = Vector2(16, -48)
+texture = ExtResource("1_jq1fy")
+region_enabled = true
+region_rect = Rect2(0, -112, 32, 128)
+
+[node name="Parallax2D2" type="Parallax2D" parent="." unique_id=600763205]
+scroll_scale = Vector2(0.8, 1)
+repeat_size = Vector2(32, 0)
+autoscroll = Vector2(12, 0)
+repeat_times = 23
+
+[node name="clouds2" type="Sprite2D" parent="Parallax2D2" unique_id=1700062499]
+position = Vector2(16, 18)
+texture = ExtResource("1_jq1fy")
+region_enabled = true
+region_rect = Rect2(0, 16, 32, 8)
+
+[node name="Parallax2D3" type="Parallax2D" parent="." unique_id=1622706228]
+scroll_scale = Vector2(0.6, 1)
+repeat_size = Vector2(32, 0)
+autoscroll = Vector2(16, 0)
+repeat_times = 23
+
+[node name="clouds3" type="Sprite2D" parent="Parallax2D3" unique_id=333007394]
+position = Vector2(16, 26)
+texture = ExtResource("1_jq1fy")
+region_enabled = true
+region_rect = Rect2(0, 24, 32, 8)
+
+[node name="Parallax2D4" type="Parallax2D" parent="." unique_id=738712761]
+scroll_scale = Vector2(0.6, 1)
+repeat_size = Vector2(64, 0)
+repeat_times = 23
+
+[node name="MistyMountains" type="Sprite2D" parent="Parallax2D4" unique_id=1054059270]
+position = Vector2(32, 80)
+texture = ExtResource("2_lhmo3")
+
+[node name="Parallax2D5" type="Parallax2D" parent="." unique_id=1532154335]
+scroll_scale = Vector2(0.9, 1)
+repeat_size = Vector2(32, 0)
+repeat_times = 23
+
+[node name="BgTreesMisty" type="Sprite2D" parent="Parallax2D5" unique_id=1476349358]
+position = Vector2(16, 136)
+texture = ExtResource("3_s6q0d")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 104)
