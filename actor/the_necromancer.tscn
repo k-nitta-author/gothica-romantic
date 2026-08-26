@@ -1,7 +1,31 @@
 [gd_scene format=3 uid="uid://cg2dccirlmy4g"]
 
 [ext_resource type="PackedScene" uid="uid://bjeudo4rvmvag" path="res://actor/base_enemy.tscn" id="1_u8ngf"]
-[ext_resource type="Texture2D" uid="uid://b8ff5iwaroiem" path="res://assets/enemies/The Necromancer.png" id="2_kabjl"]
+[ext_resource type="Script" uid="uid://bbtssto6och2k" path="res://actor/the_necromancer.gd" id="2_73qie"]
+[ext_resource type="Texture2D" uid="uid://dlinjvje6qbhk" path="res://assets/enemies/The Necromancer.png" id="2_kabjl"]
+[ext_resource type="Script" uid="uid://cciei67yuitw5" path="res://state/actor/idleState.gd" id="3_gulix"]
+[ext_resource type="Script" uid="uid://hhc8ylq4nvxy" path="res://state/actor/meleeState.gd" id="4_kwd8c"]
+[ext_resource type="Script" uid="uid://cgcwml08u6r0s" path="res://state/actor/walkState.gd" id="5_fkvp5"]
+[ext_resource type="Script" uid="uid://bunbdgovyilxk" path="res://state/actor/shootState.gd" id="6_ya0f1"]
+
+[sub_resource type="Resource" id="Resource_7jktm"]
+script = ExtResource("3_gulix")
+metadata/_custom_type_script = "uid://cciei67yuitw5"
+
+[sub_resource type="Resource" id="Resource_ryrav"]
+script = ExtResource("4_kwd8c")
+animation_name = "spin attack"
+metadata/_custom_type_script = "uid://hhc8ylq4nvxy"
+
+[sub_resource type="Resource" id="Resource_j5wjh"]
+script = ExtResource("5_fkvp5")
+metadata/_custom_type_script = "uid://cgcwml08u6r0s"
+
+[sub_resource type="Resource" id="Resource_vef74"]
+script = ExtResource("6_ya0f1")
+metadata/_custom_type_script = "uid://bunbdgovyilxk"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_onahq"]
 
 [sub_resource type="Animation" id="Animation_oumla"]
 length = 0.001
@@ -87,6 +111,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [3, 4, 6, 7, 6, 7, 6, 7, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 7, 6, 4, 3, 2, 0]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:selected_state")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(6),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
 
 [sub_resource type="Animation" id="Animation_73qie"]
 resource_name = "walk"
@@ -126,8 +162,26 @@ _data = {
 &"walk": SubResource("Animation_73qie")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_73qie"]
+size = Vector2(16, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gulix"]
+size = Vector2(128, 64)
+
 [node name="The Necromancer" unique_id=1016638848 instance=ExtResource("1_u8ngf")]
-max_hp = 15
+script = ExtResource("2_73qie")
+can_see_player = true
+is_active = true
+max_melee_range = 100.0
+max_shoot_range = 100.0
+melee_limit = 100.0
+default_state_on_awake = 1
+max_hp = 10
+selected_state = 1
+idle_state = SubResource("Resource_7jktm")
+melee_state = SubResource("Resource_ryrav")
+move_state = SubResource("Resource_j5wjh")
+shoot_state = SubResource("Resource_vef74")
 
 [node name="ColorRect" type="ColorRect" parent="." index="0" unique_id=1640993562]
 visible = false
@@ -136,6 +190,10 @@ offset_top = -34.0
 offset_right = 47.0
 offset_bottom = 6.0
 color = Color(0.24386898, 0.24386895, 0.24386895, 1)
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=900505443]
+position = Vector2(1, -10)
+shape = SubResource("RectangleShape2D_onahq")
 
 [node name="Sprite2D" parent="." index="2" unique_id=90387062]
 texture = ExtResource("2_kabjl")
@@ -146,3 +204,11 @@ frame = 1
 
 [node name="anim" parent="." index="3" unique_id=783902006]
 libraries/ = SubResource("AnimationLibrary_gulix")
+
+[node name="CollisionShape2D" parent="Hitbox" parent_id_path=PackedInt32Array(636899970) index="0" unique_id=2047019247]
+position = Vector2(0, -12)
+shape = SubResource("RectangleShape2D_73qie")
+
+[node name="CollisionShape2D" parent="VisionArea" parent_id_path=PackedInt32Array(1796340020) index="0" unique_id=2039586838]
+position = Vector2(1, -32)
+shape = SubResource("RectangleShape2D_gulix")

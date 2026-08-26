@@ -21,9 +21,12 @@ func bind_dependencies(stage: Stage):
 	set(value):
 		speed = value
 		velocity = Vector2.UP.rotated(deg_to_rad(movement_angle)) * speed
+
+@export var bullet_gravity: float:
+	set(value):
+		bullet_gravity = value
 		
 @export var velocity : Vector2
-
 
 func set_is_inactive(value: bool):
 		isInactive = value
@@ -33,7 +36,19 @@ func set_is_inactive(value: bool):
 
 		visible = !value
 
+# based on the equation used in this video:
+# https://www.youtube.com/watch?v=MklBo7c3_4Q
+func calculate_angle_to_reach_x(distance: float, grav: float, speed: float) -> float:
+
+	var theta =  asin(distance * gravity / pow(speed, 2)) / 2
+
+	return theta 
+
 func _ready() -> void:
+
+	print(calculate_angle_to_reach_x(25, 9.8, 30))	
+
+
 	connect("area_entered", on_area_entered)
 
 func on_area_entered(area: Area2D) -> void:
@@ -46,5 +61,7 @@ func update(delta):
 		isInactive = true
 		
 	lifeTimeCurrent += delta
+
+	velocity.y += bullet_gravity
 
 	global_position += velocity * delta 

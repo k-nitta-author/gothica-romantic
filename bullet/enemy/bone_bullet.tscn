@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://twkdx826uwnk"]
+
+[ext_resource type="PackedScene" uid="uid://40g6jm0jhmbr" path="res://bullet/enemy_bullet.tscn" id="1_ycivr"]
+
+[node name="BoneBullet" unique_id=483994798 instance=ExtResource("1_ycivr")]
