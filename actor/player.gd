@@ -22,7 +22,7 @@ func get_eye_level() -> Vector2: return eyeLevelMarker.global_position
 func set_bullets_current(value: int) -> void:
 
 	var old_value = bulletsCurrent
-	bulletsCurrent = value
+	bulletsCurrent = clamp(value, 0, bulletsMax)
 	emit_signal("on_bullets_current_change", old_value, bulletsCurrent)
 
 func set_bullets_max(value: int) -> void:
@@ -50,6 +50,8 @@ func use_input(event: InputEvent):
 
 func on_hitbox_entered(area: Area2D):
 	
+	current_hp -= 1
+
 	knockback(area)
 	
 	selected_state = STATES.DAMAGED

@@ -50,15 +50,16 @@ offset_bottom = 18.0
 theme = SubResource("Theme_31cq6")
 theme_override_styles/background = SubResource("StyleBoxFlat_55bvo")
 theme_override_styles/fill = SubResource("StyleBoxFlat_v4n38")
-value = 100.0
+max_value = 8.0
+value = 8.0
 show_percentage = false
 
 [node name="EnemyHpBar" type="ProgressBar" parent="Control/BattleControl" unique_id=607605877]
 layout_mode = 0
-offset_left = 277.0
-offset_top = 15.0
-offset_right = 336.0
-offset_bottom = 19.0
+offset_left = 181.0
+offset_top = 21.0
+offset_right = 240.0
+offset_bottom = 25.0
 theme_override_styles/background = SubResource("StyleBoxFlat_v86tg")
 theme_override_styles/fill = SubResource("StyleBoxFlat_mn2d6")
 value = 12.0
@@ -79,14 +80,14 @@ text = "player"
 
 [node name="small label2" parent="Control/BattleControl" unique_id=1774139708 instance=ExtResource("6_qqsrg")]
 layout_mode = 0
-offset_left = 317.0
-offset_top = 2.0
-offset_right = 357.0
-offset_bottom = 25.0
+offset_left = 225.0
+offset_top = 4.0
+offset_right = 265.0
+offset_bottom = 27.0
 text = "BOSS"
 
 [node name="BossHpBar" type="Sprite2D" parent="Control/BattleControl" unique_id=513301878]
-position = Vector2(312, 16)
+position = Vector2(216, 22)
 texture = ExtResource("4_a72po")
 
 [node name="BulletIcon" type="Sprite2D" parent="Control/BattleControl" unique_id=422641369]

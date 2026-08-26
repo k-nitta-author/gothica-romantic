@@ -83,7 +83,8 @@ func has_player_in_shoot_range() -> bool:
 
 func attack_if_possible() -> void:
 
-	if has_player_in_melee_range() and anim.has_animation("attack"): attack()
+	if has_player_in_melee_range():
+		attack()
 
 	else: BaseActor.STATES.IDLE
 

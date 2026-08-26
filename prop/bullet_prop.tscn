@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dm5vcf468tpcc"]
+
+[ext_resource type="PackedScene" uid="uid://fuveg7oo6a3b" path="res://prop/base_prop.tscn" id="1_cmgd8"]
+[ext_resource type="Script" uid="uid://byj4780u3bn2t" path="res://prop/bullet_prop.gd" id="2_ekax6"]
+
+[node name="bulletProp" unique_id=1356046424 instance=ExtResource("1_cmgd8")]
+script = ExtResource("2_ekax6")

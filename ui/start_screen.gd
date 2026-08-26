@@ -9,10 +9,10 @@ signal start_level(from_beginning)
 
 func _ready() -> void:
 
-    startButton.connect("pressed", start_game)
-    loadButton.connect("pressed", load_game)
-    settingsButton.connect("pressed", settings_menu)
-    exitButton.connect("pressed", exit_game)
+	startButton.connect("pressed", start_game)
+	loadButton.connect("pressed", load_game)
+	settingsButton.connect("pressed", settings_menu)
+	exitButton.connect("pressed", exit_game)
 
 func start_game() -> void: emit_signal("start_level", false)
 
