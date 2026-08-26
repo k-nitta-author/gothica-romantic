@@ -9,14 +9,20 @@ extends Node2D
 @onready var bulletManager = $BulletManager
 
 @onready var player = $ActorManager.player
+@onready var stage_exit = $StageExit
+
+var game: Game
 
 signal stage_end()
 
 func _ready() -> void:
 	bind_dependencies(self)
+	
+	
 
-func bind_to_game(_game: Game) -> void:
-	pass
+func bind_to_game(game: Game) -> void:
+	self.game = game
+	# stage_exit.connect("player_exited", game.on_player_exited)
 
 func get_player() -> Player: return player
 

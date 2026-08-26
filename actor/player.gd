@@ -50,6 +50,8 @@ func use_input(event: InputEvent):
 
 func on_hitbox_entered(area: Area2D):
 	
+	current_hp -= 1
+
 	knockback(area)
 	
 	selected_state = STATES.DAMAGED
