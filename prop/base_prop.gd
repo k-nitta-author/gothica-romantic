@@ -4,6 +4,7 @@ extends Area2D
 @onready var sprite2D = $Sprite2D
 @onready var collisionShape = $CollisionShape2D
 @onready var anim = $anim
+@onready var eyeLevelMarker : Marker2D = $eyeLevelMarker
 
 @export var isInactive: bool: set = set_is_inactive 
 
@@ -19,6 +20,7 @@ var hitPoints : int:
 		isInactive = (hitPoints == 0)            
 
 signal destroyed(prop: BaseProp)
+func get_eye_level() -> Vector2: return eyeLevelMarker.global_position
 
 func set_is_inactive(value: bool):
 		isInactive = value

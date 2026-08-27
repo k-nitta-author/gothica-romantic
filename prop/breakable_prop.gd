@@ -1,3 +1,4 @@
+class_name BreakableProp
 extends BaseProp
 
 func OnAreaEntered(area: Area2D) -> void:

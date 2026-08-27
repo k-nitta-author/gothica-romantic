@@ -5,7 +5,7 @@ extends CharacterBody2D
 @onready var sprite : Sprite2D = $Sprite2D
 @onready var hitbox : Area2D = $Hitbox
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
-
+@onready var eyeLevelMarker : Marker2D = $eyeLevelMarker
 @onready var stateLabel: Label = $stateLabel
 
 
@@ -105,6 +105,8 @@ var stage: Stage
 
 func _ready() -> void:
 	hitbox.connect("area_entered", on_hitbox_entered)
+
+func get_eye_level() -> Vector2: return eyeLevelMarker.global_position
 
 func on_hitbox_entered(area: Area2D):
 	pass

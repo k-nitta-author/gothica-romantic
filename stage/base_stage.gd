@@ -18,8 +18,6 @@ signal stage_end()
 func _ready() -> void:
 	bind_dependencies(self)
 	
-	
-
 func bind_to_game(game: Game) -> void:
 	self.game = game
 	# stage_exit.connect("player_exited", game.on_player_exited)
@@ -39,3 +37,21 @@ func end(_nextLevel: PackedScene) -> void:
 
 func spawn_actor(actorScene: PackedScene) -> void:
 	actorManager.add_child(actorScene.instantiate())
+
+func spawn_collectible(node: Node) -> void:
+
+	randomize()
+
+	var random_number := randi_range(0, 6)
+
+	var drop : int
+
+	if random_number == 1: drop = propManager.DROPS.HP
+
+	elif random_number == 2: drop = propManager.DROPS.BULLET
+
+	else: drop = propManager.DROPS.NONE
+
+	var dropPos : Vector2 = node.get_eye_level()
+	
+	propManager.add_collectible(drop, dropPos)

@@ -1034,5 +1034,5 @@ region_rect = Rect2(272, 64, 48, 16)
 
 [node name="firingPoint" type="Marker2D" parent="gunshot" index="0" unique_id=889340305]
 
-[node name="eyeLevelMarker" type="Marker2D" parent="." index="7" unique_id=1699393768]
-position = Vector2(0, -12)
+[node name="eyeLevelMarker" parent="." index="8" unique_id=701200731]
+position = Vector2(0, -23)

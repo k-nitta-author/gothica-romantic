@@ -30,3 +30,5 @@ theme_override_fonts/font = ExtResource("3_ego3k")
 theme_override_font_sizes/font_size = 12
 text = "state"
 horizontal_alignment = 1
+
+[node name="eyeLevelMarker" type="Marker2D" parent="." unique_id=701200731]

@@ -12,3 +12,5 @@ script = ExtResource("1_gaqq0")
 [node name="anim" type="AnimationPlayer" parent="." unique_id=1178016984]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=377356270]
+
+[node name="eyeLevelMarker" type="Marker2D" parent="." unique_id=684929539]

@@ -6,6 +6,8 @@ extends Node2D
 func bind_dependencies(stage: Stage) -> void:
     for c in get_children():
         c.bind_dependencies(stage)
+        c.connect("has_died", stage.spawn_collectible)
+        
 
 func _physics_process(_delta: float) -> void:
     
