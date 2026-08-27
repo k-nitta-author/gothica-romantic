@@ -12,10 +12,12 @@
 [ext_resource type="Script" uid="uid://bxro0yfjng3td" path="res://state/actor/fallingState.gd" id="9_dgncp"]
 [ext_resource type="Script" uid="uid://h2cl0j11ooth" path="res://state/actor/duckingState.gd" id="10_dgncp"]
 [ext_resource type="Script" uid="uid://dmjhev2pahl57" path="res://state/actor/damagedState.gd" id="11_8h0if"]
-[ext_resource type="AudioStream" uid="uid://bfqls0skfob01" path="res://assets/sound/sfx/noise4.wav" id="13_tdps2"]
-[ext_resource type="AudioStream" uid="uid://de0kw06ma6nbc" path="res://assets/sound/sfx/Jump.wav" id="14_pn5yv"]
-[ext_resource type="AudioStream" uid="uid://6q8nfp46cg64" path="res://assets/sound/sfx/Land.wav" id="15_pn5yv"]
-[ext_resource type="AudioStream" uid="uid://bwg3uhkaa8j4g" path="res://assets/sound/sfx/Shoot.wav" id="16_tdps2"]
+[ext_resource type="AudioStream" uid="uid://df1h6nx8fss84" path="res://assets/sound/sfx/noise4.wav" id="13_tdps2"]
+[ext_resource type="AudioStream" uid="uid://p4bvugqvkaqe" path="res://assets/sound/sfx/Jump.wav" id="14_pn5yv"]
+[ext_resource type="AudioStream" uid="uid://sorepoioavl7" path="res://assets/sound/sfx/noise1.wav" id="15_8f5w4"]
+[ext_resource type="AudioStream" uid="uid://cwjmqvf8xdyb2" path="res://assets/sound/sfx/beep1.wav" id="15_joq28"]
+[ext_resource type="AudioStream" uid="uid://dgx1b3lx8f568" path="res://assets/sound/sfx/Land.wav" id="15_pn5yv"]
+[ext_resource type="AudioStream" uid="uid://cbsgnr1o3nkq6" path="res://assets/sound/sfx/Shoot.wav" id="16_tdps2"]
 
 [sub_resource type="Resource" id="Resource_6wgq3"]
 script = ExtResource("3_6d5en")
@@ -202,6 +204,30 @@ tracks/11/keys = {
 "update": 1,
 "values": [7]
 }
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("glass shards:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("glass shards:frame")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_0bt4a"]
 resource_name = "attack"
@@ -361,6 +387,74 @@ tracks/5/keys = {
 "method": &"stop"
 }]
 }
+
+[sub_resource type="Animation" id="Animation_mm62y"]
+resource_name = "drink"
+length = 1.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.3, 0.55, 0.65, 0.9, 1, 1.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [20, 21, 22, 21, 22, 23, 24, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("glass shards:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.25, 1.45),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("glass shards:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.25, 1.3000001, 1.35, 1.4000001),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("sound sfx stream")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.4,
+"stream": ExtResource("15_8f5w4")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.03,
+"stream": ExtResource("15_joq28")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.03,
+"stream": ExtResource("15_joq28")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("13_tdps2")
+}],
+"times": PackedFloat32Array(0.25, 0.3499999, 0.65, 1.25)
+}
+tracks/3/use_blend = true
 
 [sub_resource type="Animation" id="Animation_l8iyd"]
 resource_name = "duck"
@@ -943,6 +1037,7 @@ _data = {
 &"RESET": SubResource("Animation_k4v8y"),
 &"attack": SubResource("Animation_0bt4a"),
 &"damaged": SubResource("Animation_i37uw"),
+&"drink": SubResource("Animation_mm62y"),
 &"duck": SubResource("Animation_l8iyd"),
 &"duck attack": SubResource("Animation_6d5en"),
 &"duck shoot": SubResource("Animation_mlbvo"),
@@ -991,7 +1086,7 @@ shape = SubResource("RectangleShape2D_r54av")
 texture = ExtResource("3_mlbvo")
 offset = Vector2(0, -16)
 hframes = 10
-vframes = 3
+vframes = 4
 
 [node name="anim" parent="." index="2" unique_id=783902006]
 libraries/ = SubResource("AnimationLibrary_qb7rd")
@@ -1010,7 +1105,7 @@ rotation = -0.7853982
 texture = ExtResource("3_mlbvo")
 offset = Vector2(0, -9)
 region_enabled = true
-region_rect = Rect2(256, 64, 16, 32)
+region_rect = Rect2(224, 96, 16, 32)
 
 [node name="Area2D" type="Area2D" parent="sword" index="0" unique_id=1501864340]
 collision_layer = 2
@@ -1030,9 +1125,18 @@ texture = ExtResource("3_mlbvo")
 offset = Vector2(0, -8)
 hframes = 3
 region_enabled = true
-region_rect = Rect2(272, 64, 48, 16)
+region_rect = Rect2(240, 96, 48, 16)
 
 [node name="firingPoint" type="Marker2D" parent="gunshot" index="0" unique_id=889340305]
 
 [node name="eyeLevelMarker" parent="." index="8" unique_id=701200731]
 position = Vector2(0, -23)
+
+[node name="glass shards" type="Sprite2D" parent="." index="9" unique_id=1956933719]
+visible = false
+position = Vector2(7, -16)
+texture = ExtResource("3_mlbvo")
+hframes = 2
+vframes = 2
+region_enabled = true
+region_rect = Rect2(288, 96, 32, 32)

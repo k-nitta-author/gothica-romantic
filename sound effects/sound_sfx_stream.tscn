@@ -1,4 +1,6 @@
 [gd_scene format=3 uid="uid://rp5sdj2ja1c5"]
 
-[node name="sound sfx stream" type="AudioStreamPlayer" unique_id=599329136]
+[node name="sound sfx stream" type="AudioStreamPlayer2D" unique_id=1454780779]
+max_distance = 250.0
+attenuation = 2.0
 bus = &"Sfx"

@@ -4,10 +4,11 @@
 [ext_resource type="Script" uid="uid://d36b1xw8r6gjq" path="res://ui/battle_control.gd" id="2_qqsrg"]
 [ext_resource type="Script" uid="uid://bslunur51i611" path="res://ui/text_box.gd" id="2_rypyx"]
 [ext_resource type="Script" uid="uid://csl2hp6jg65as" path="res://ui/dialog_box.gd" id="3_jndc6"]
-[ext_resource type="Texture2D" uid="uid://dfpk7lnh4tgnu" path="res://assets/huds/boss hp bar.png" id="4_a72po"]
-[ext_resource type="Texture2D" uid="uid://dpy52ftto78s3" path="res://assets/huds/player hp bar.png" id="5_qvgt7"]
+[ext_resource type="Texture2D" uid="uid://b1xt6ivtm4wdv" path="res://assets/huds/boss hp bar.png" id="4_a72po"]
+[ext_resource type="Texture2D" uid="uid://boux8qempnf06" path="res://assets/huds/player hp bar.png" id="5_qvgt7"]
 [ext_resource type="PackedScene" uid="uid://cc8qj44o6epf4" path="res://ui/small_label.tscn" id="6_qqsrg"]
-[ext_resource type="Texture2D" uid="uid://cux5di67x0q3o" path="res://assets/huds/bullet icon.png" id="7_qvgt7"]
+[ext_resource type="Texture2D" uid="uid://cwb71aabr26bb" path="res://assets/huds/bullet icon.png" id="7_qvgt7"]
+[ext_resource type="Texture2D" uid="uid://bdhgkw3n4jrpd" path="res://assets/items/potion.png" id="9_b0kcy"]
 
 [sub_resource type="Theme" id="Theme_31cq6"]
 
@@ -68,10 +69,10 @@ text = "player"
 
 [node name="EnemyHpBar" type="ProgressBar" parent="Control/BattleControl" unique_id=607605877]
 layout_mode = 0
-offset_left = 181.0
-offset_top = 21.0
-offset_right = 240.0
-offset_bottom = 25.0
+offset_left = 174.0
+offset_top = 14.0
+offset_right = 233.0
+offset_bottom = 18.0
 theme_override_styles/background = SubResource("StyleBoxFlat_v86tg")
 theme_override_styles/fill = SubResource("StyleBoxFlat_mn2d6")
 value = 100.0
@@ -79,16 +80,17 @@ fill_mode = 1
 show_percentage = false
 
 [node name="BossHpBar" type="Sprite2D" parent="Control/BattleControl" unique_id=513301878]
-position = Vector2(216, 22)
+position = Vector2(209, 15)
 texture = ExtResource("4_a72po")
 
 [node name="small label2" parent="Control/BattleControl/BossHpBar" unique_id=1774139708 instance=ExtResource("6_qqsrg")]
-offset_left = -38.0
-offset_top = -20.0
-offset_right = 33.0
-offset_bottom = 3.0
+offset_left = -44.0
+offset_top = -14.0
+offset_right = 27.0
+offset_bottom = 9.0
 text = "BOSS"
 horizontal_alignment = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="BulletIcon" type="Sprite2D" parent="Control/BattleControl" unique_id=422641369]
 position = Vector2(20.5, 23.5)
@@ -177,3 +179,15 @@ offset_right = 362.0
 offset_bottom = 155.0
 
 [node name="anim" type="AnimationPlayer" parent="." unique_id=1362198885]
+
+[node name="Potion" type="Sprite2D" parent="." unique_id=591023594]
+position = Vector2(60, 16)
+texture = ExtResource("9_b0kcy")
+
+[node name="Potion2" type="Sprite2D" parent="." unique_id=1646237814]
+position = Vector2(73, 16)
+texture = ExtResource("9_b0kcy")
+
+[node name="Potion3" type="Sprite2D" parent="." unique_id=1962352209]
+position = Vector2(86, 16)
+texture = ExtResource("9_b0kcy")

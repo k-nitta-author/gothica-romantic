@@ -5,8 +5,8 @@
 [node name="PropCollidable" type="StaticBody2D" unique_id=760342094]
 script = ExtResource("1_4t3n4")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2109195582]
-
 [node name="anim" type="AnimationPlayer" parent="." unique_id=1267973547]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=599111812]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2109195582]
