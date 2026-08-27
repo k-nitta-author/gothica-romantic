@@ -17,7 +17,9 @@ signal stage_end()
 
 func _ready() -> void:
 	bind_dependencies(self)
-	
+
+func get_boss() -> Array: return actorManager.get_bosses()
+
 func bind_to_game(game: Game) -> void:
 	self.game = game
 	# stage_exit.connect("player_exited", game.on_player_exited)

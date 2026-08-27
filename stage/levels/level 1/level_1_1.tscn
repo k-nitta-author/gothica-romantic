@@ -5,8 +5,7 @@
 [ext_resource type="Script" uid="uid://dmjhev2pahl57" path="res://state/actor/damagedState.gd" id="3_2rrgm"]
 [ext_resource type="PackedScene" uid="uid://cjaxcaolry5mi" path="res://prop/camp_fire.tscn" id="3_7e248"]
 [ext_resource type="PackedScene" uid="uid://cbvhks3dybpch" path="res://actor/bone_walker_1.tscn" id="4_m6153"]
-[ext_resource type="PackedScene" uid="uid://d1dvs67uncing" path="res://ui/hud_layer.tscn" id="6_jetdb"]
-[ext_resource type="AudioStream" uid="uid://dcmdarilvcsha" path="res://assets/sound/music/Dead of Night.ogg" id="7_ox7i6"]
+[ext_resource type="AudioStream" uid="uid://v8dj0t38kwey" path="res://assets/sound/music/Dead of Night.ogg" id="7_ox7i6"]
 
 [sub_resource type="Resource" id="Resource_pn5yv"]
 script = ExtResource("3_2rrgm")
@@ -37,31 +36,25 @@ position_smoothing_speed = 7.0
 position = Vector2(430, 144)
 collision_layer = 65
 collision_mask = 65
+is_boss = false
 seek_right = true
 can_see_player = true
 is_active = true
-max_melee_range = 100.0
-max_shoot_range = 100.0
-melee_limit = 100.0
 default_state_on_awake = 1
 
 [node name="bone walker 2" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="2" unique_id=1095212542 instance=ExtResource("4_m6153")]
 position = Vector2(482, 144)
 collision_layer = 65
 collision_mask = 65
+is_boss = false
 seek_right = true
 can_see_player = true
 is_active = true
-max_melee_range = 100.0
-max_shoot_range = 100.0
-melee_limit = 100.0
 default_state_on_awake = 1
 
 [node name="camp fire" parent="." index="5" unique_id=403609203 instance=ExtResource("3_7e248")]
 position = Vector2(456, 144)
 
-[node name="HudLayer" parent="." index="7" unique_id=489733388 instance=ExtResource("6_jetdb")]
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="8" unique_id=1690000137]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="7" unique_id=1690000137]
 stream = ExtResource("7_ox7i6")
 autoplay = true

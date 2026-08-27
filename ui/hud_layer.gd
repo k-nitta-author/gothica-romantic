@@ -22,6 +22,7 @@ enum STATE {
 
 @onready var playerHpBar : ProgressBar = $Control/BattleControl/PlayerHpBar
 @onready var enemyHpBar : ProgressBar = $Control/BattleControl/EnemyHpBar
+@onready var battleControl : Control = $Control/BattleControl
 @onready var dialogBox : DialogBox = $Control/DialogBox
 
 @onready var bulletBar: Array[Node] = [
@@ -41,6 +42,11 @@ func bind_to_player(p: Player):
 	p.connect("has_hp_changed", update_hp_bar)
 	p.connect("on_bullets_current_change", update_bullet_bar)
 
+
+func bind_boss(bosses: Array):
+
+	for b in bosses: battleControl.bind_boss_hp_bar(b)
+	
 
 func update_bullet_bar(old_value: int, bulletsCurrent: int):
 

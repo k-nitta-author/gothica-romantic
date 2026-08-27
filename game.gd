@@ -29,6 +29,7 @@ func on_start_level(from_beginning: bool) -> void:
 	add_child(stage)
 	hudLayer.visible = true
 	hudLayer.bind_to_player(stage.player)
+	hudLayer.bind_boss(stage.get_boss())
 
 
 # polls the current game state to supply data to the save file

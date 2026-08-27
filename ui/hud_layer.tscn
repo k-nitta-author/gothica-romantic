@@ -54,18 +54,6 @@ max_value = 8.0
 value = 8.0
 show_percentage = false
 
-[node name="EnemyHpBar" type="ProgressBar" parent="Control/BattleControl" unique_id=607605877]
-layout_mode = 0
-offset_left = 181.0
-offset_top = 21.0
-offset_right = 240.0
-offset_bottom = 25.0
-theme_override_styles/background = SubResource("StyleBoxFlat_v86tg")
-theme_override_styles/fill = SubResource("StyleBoxFlat_mn2d6")
-value = 12.0
-fill_mode = 1
-show_percentage = false
-
 [node name="HpBar" type="Sprite2D" parent="Control/BattleControl" unique_id=88784077]
 position = Vector2(32, 16)
 texture = ExtResource("5_qvgt7")
@@ -78,17 +66,29 @@ offset_right = 61.0
 offset_bottom = 22.0
 text = "player"
 
-[node name="small label2" parent="Control/BattleControl" unique_id=1774139708 instance=ExtResource("6_qqsrg")]
+[node name="EnemyHpBar" type="ProgressBar" parent="Control/BattleControl" unique_id=607605877]
 layout_mode = 0
-offset_left = 225.0
-offset_top = 4.0
-offset_right = 265.0
-offset_bottom = 27.0
-text = "BOSS"
+offset_left = 181.0
+offset_top = 21.0
+offset_right = 240.0
+offset_bottom = 25.0
+theme_override_styles/background = SubResource("StyleBoxFlat_v86tg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_mn2d6")
+value = 100.0
+fill_mode = 1
+show_percentage = false
 
 [node name="BossHpBar" type="Sprite2D" parent="Control/BattleControl" unique_id=513301878]
 position = Vector2(216, 22)
 texture = ExtResource("4_a72po")
+
+[node name="small label2" parent="Control/BattleControl/BossHpBar" unique_id=1774139708 instance=ExtResource("6_qqsrg")]
+offset_left = -38.0
+offset_top = -20.0
+offset_right = 33.0
+offset_bottom = 3.0
+text = "BOSS"
+horizontal_alignment = 2
 
 [node name="BulletIcon" type="Sprite2D" parent="Control/BattleControl" unique_id=422641369]
 position = Vector2(20.5, 23.5)

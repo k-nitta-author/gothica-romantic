@@ -1,11 +1,14 @@
 class_name BaseEnemy
 extends BaseActor
 
+@export var is_boss : bool
+
 @export_category("Activity")
 @export var seek_right : bool # if true, the enemy seeks the right
 @export var can_see_player : bool
 @export var is_active : bool
 @export var is_awake: bool: set = set_is_awake
+
 
 @export_category("combat")
 @export var max_melee_range : float = 100
