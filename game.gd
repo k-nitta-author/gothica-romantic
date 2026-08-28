@@ -20,17 +20,23 @@ var player_hp: int
 func _ready() -> void:
 	start_screen.connect("start_level", on_start_level )
 
+
 func on_start_level(from_beginning: bool) -> void:
 
-	start_screen.queue_free()
+	if from_beginning:
+		start_screen.show_save_game_modal()
 
-	stage = load_stage(next_level_scene)
-	stage.bind_to_game(self)
-	add_child(stage)
-	hudLayer.visible = true
-	hudLayer.bind_to_player(stage.player)
-	hudLayer.bind_boss(stage.get_boss())
+	else:
+		start_screen.queue_free()
+	
+		stage = load_stage(next_level_scene)
+		stage.bind_to_game(self)
+		
+		add_child(stage)
 
+		hudLayer.visible = true
+		hudLayer.bind_to_player(stage.player)
+		hudLayer.bind_boss(stage.get_boss())
 
 # polls the current game state to supply data to the save file
 func poll_game_state() -> Dictionary:
@@ -52,7 +58,6 @@ func on_player_exited(next_level_scene: PackedScene):
 	stage.bind_to_game(self)
 
 func start_stage():
-	
 	var s = load_stage(next_level_scene)
 	add_child(s)
 
@@ -62,9 +67,7 @@ func unload_stage() -> void:
 	stage.call_deferred("queue_free")
 	stage = null
 
-
 func _unhandled_input(event: InputEvent) -> void:
-
 	if event.is_action("fullScreen"):
 		if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)

@@ -12,6 +12,9 @@ signal on_clicked
 func _ready() -> void:
 	connect("gui_input", on_gui_input)
 
+func on_gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		emit_signal("on_clicked")
 
 func setup(newIdx: int, save_data: SaveDataRef) -> void:
 	idx = newIdx 
