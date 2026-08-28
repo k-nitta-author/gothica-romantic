@@ -34,7 +34,6 @@ enum STATES{ IDLE, MOVING, FALLLING, JUMPING, MELEE, SHOOT, DUCKING, LANDING , D
 			visible = false
 			isInactive = true
 			collision_layer = 64
-			soundSfxStream.stop()
 
 		else:
 			visible = true
@@ -126,6 +125,7 @@ func set_is_inactive(value: bool):
 
 		collision_shape.call_deferred("set", "disabled", isInactive)
 	
+		if value == false:  soundSfxStream.stop()
 
 		visible = !value
 

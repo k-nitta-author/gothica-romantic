@@ -42,12 +42,23 @@ limit_bottom = 144
 
 [node name="furnace man" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="1" unique_id=372477578 instance=ExtResource("3_pgrgf")]
 position = Vector2(872, 112)
+collision_layer = 64
 
-[node name="napkin ghost" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="2" unique_id=1318862050 instance=ExtResource("5_tha66")]
-position = Vector2(504, 112)
-
-[node name="napkin ghost2" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="3" unique_id=1950225576 instance=ExtResource("5_tha66")]
+[node name="napkin ghost2" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="2" unique_id=1950225576 instance=ExtResource("5_tha66")]
 position = Vector2(608, 112)
+isInactive = false
+actorType = 0
+max_hp = 4
+selected_state = 0
+is_flipped = false
+
+[node name="napkin ghost" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="3" unique_id=1352103192 instance=ExtResource("5_tha66")]
+position = Vector2(492, 112)
+isInactive = false
+actorType = 0
+max_hp = 4
+selected_state = 0
+is_flipped = false
 
 [node name="HudLayer" parent="." index="7" unique_id=489733388 instance=ExtResource("4_lbtnf")]
 
