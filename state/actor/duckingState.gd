@@ -7,10 +7,11 @@ func enter_state():
 
 func exit_state(_args: Dictionary = {}):
 
+    state_actor.anim.play("walk")
     state_actor.selected_state = BaseActor.STATES.IDLE
 
 func handle_input():
-    if Input.is_action_just_released("duck"): 
+    if Input.is_action_just_released("duck"):
         exit_state()
 
     if Input.is_action_pressed("attack"):

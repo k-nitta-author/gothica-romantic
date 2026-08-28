@@ -1,3 +1,4 @@
+@tool
 class_name BaseEnemy
 extends BaseActor
 
@@ -11,8 +12,8 @@ extends BaseActor
 
 
 @export_category("combat")
-@export var max_melee_range : float = 100
-@export var max_shoot_range : float = 100
+@export_range(0.0, 1000, 1.0) var max_melee_range : float = 100: set = set_max_melee_range
+@export_range(0.0, 1000, 1.0) var max_shoot_range : float = 100: set = set_max_shoot_range
 
 @export var melee_limit : float = 100
 
@@ -20,11 +21,27 @@ var player: Player
 
 signal turn_around
 
-var is_attacking: bool
-
 @onready var visionArea : Area2D = $VisionArea
 
 @export var default_state_on_awake : BaseActor.STATES
+
+
+func set_max_melee_range(value: float):
+	max_melee_range = value
+	queue_redraw()
+
+func set_max_shoot_range(value: float):
+	max_shoot_range = value
+	queue_redraw()
+
+func _draw() -> void:
+
+	if Engine.is_editor_hint():
+		draw_line(Vector2(max_shoot_range, -100), Vector2(max_shoot_range, 0), Color.GREEN)
+		draw_line(Vector2(-max_shoot_range, -100), Vector2(-max_shoot_range, 0), Color.GREEN)
+
+		draw_line(Vector2(max_melee_range, -100), Vector2(max_melee_range, 0), Color.RED)
+		draw_line(Vector2(-max_melee_range, -100), Vector2(-max_melee_range, 0), Color.RED)
 
 func bind_dependencies(stage: Stage):
 
@@ -67,9 +84,12 @@ func on_vision_area_exited(area: Area2D):
 func walk() -> void:
 	velocity = Vector2(1 if seek_right else -1,0) * speed
 
-	anim.play("walk")
-
+	shoot_if_possible()
 	attack_if_possible()
+
+	if is_attacking or is_shooting: return
+
+	anim.play("walk")
 
 func attack() -> void:
 	is_attacking = true
@@ -93,10 +113,14 @@ func attack_if_possible() -> void:
 
 func shoot_if_possible() -> void:
 
-	if has_player_in_shoot_range(): shoot()
+	if has_player_in_shoot_range():
+		shoot()
+
+	else: BaseActor.STATES.IDLE
 
 
-func shoot(): pass
+func shoot():
+	is_shooting = true
 
 func update():
 

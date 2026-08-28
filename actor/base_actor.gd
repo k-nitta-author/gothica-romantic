@@ -7,6 +7,7 @@ extends CharacterBody2D
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 @onready var eyeLevelMarker : Marker2D = $eyeLevelMarker
 @onready var stateLabel: Label = $stateLabel
+@onready var soundSfxStream: AudioStreamPlayer2D = $"sound sfx stream"
 
 
 enum ACTOR_TYPE{ PLAYER, ENEMY, SPECIAL}
@@ -33,6 +34,7 @@ enum STATES{ IDLE, MOVING, FALLLING, JUMPING, MELEE, SHOOT, DUCKING, LANDING , D
 			visible = false
 			isInactive = true
 			collision_layer = 64
+			soundSfxStream.stop()
 
 		else:
 			visible = true
@@ -102,6 +104,9 @@ signal has_hp_changed(actor: BaseActor, old_hp: float, new_hp: float)
 signal fire_gun(bulletScene: BaseBullet, position: Vector2)
 
 var stage: Stage
+
+var is_attacking: bool
+var is_shooting: bool
 
 func _ready() -> void:
 	hitbox.connect("area_entered", on_hitbox_entered)

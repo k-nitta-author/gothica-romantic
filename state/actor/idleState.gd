@@ -3,6 +3,8 @@ extends ActorState
 
 func enter_state():
 	state_actor.stateLabel.text = "idle"
+	state_actor.is_attacking = false
+	state_actor.is_shooting = false
 
 func exit_state(args: Dictionary = {}):
 
@@ -17,7 +19,8 @@ func update():
 
 	state_actor.velocity.y += state_actor.speed_in_air_vertical
 
-	if abs(state_actor.velocity.x) > 0: exit_state({"move": true})
+	if abs(state_actor.velocity.x) > 0: 
+		exit_state({"move": true})
 
 func handle_input():
 

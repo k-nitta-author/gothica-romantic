@@ -1,3 +1,4 @@
+@tool
 extends "res://actor/base_enemy.gd"
 
 @export var fly_in_loop: bool
