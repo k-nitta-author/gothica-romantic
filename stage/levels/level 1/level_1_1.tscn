@@ -2,14 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://clvcbegfjryqm" path="res://stage/base_stage.tscn" id="1_0hsla"]
 [ext_resource type="PackedScene" uid="uid://b8mey0wy8ctvx" path="res://bgs/stormy_night.tscn" id="2_vumbh"]
-[ext_resource type="Script" uid="uid://dmjhev2pahl57" path="res://state/actor/damagedState.gd" id="3_2rrgm"]
 [ext_resource type="PackedScene" uid="uid://cjaxcaolry5mi" path="res://prop/camp_fire.tscn" id="3_7e248"]
 [ext_resource type="PackedScene" uid="uid://cbvhks3dybpch" path="res://actor/bone_walker_1.tscn" id="4_m6153"]
 [ext_resource type="AudioStream" uid="uid://dcmdarilvcsha" path="res://assets/sound/music/Dead of Night.ogg" id="7_ox7i6"]
-
-[sub_resource type="Resource" id="Resource_pn5yv"]
-script = ExtResource("3_2rrgm")
-metadata/_custom_type_script = "uid://dmjhev2pahl57"
 
 [node name="level_1-1" unique_id=1917536022 instance=ExtResource("1_0hsla")]
 
@@ -20,8 +15,6 @@ tile_map_data = PackedByteArray("AAACAAkAAAADAAsAAAADAAkAAAADAAsAAAAEAAkAAAADAAs
 
 [node name="Player" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="0" unique_id=1016638848]
 collision_layer = 65
-knockback_impulse = 62.0
-damaged_state = SubResource("Resource_pn5yv")
 
 [node name="Camera2D" parent="ActorManager/Player" index="10" unique_id=836156762]
 limit_left = 0

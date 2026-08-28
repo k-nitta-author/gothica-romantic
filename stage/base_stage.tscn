@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://comt54346nx8i" path="res://bullet/bullet_manager.gd" id="3_0x10x"]
 [ext_resource type="PackedScene" uid="uid://dxrsyek2feu0u" path="res://actor/player.tscn" id="3_ont0r"]
 [ext_resource type="Script" uid="uid://ryiprrdaay88" path="res://stage/base_stage.gd" id="5_0x10x"]
+[ext_resource type="Script" uid="uid://dmjhev2pahl57" path="res://state/actor/damagedState.gd" id="5_8ytu5"]
 [ext_resource type="PackedScene" uid="uid://v0cd6ctpkndj" path="res://stage/stage_exit.tscn" id="7_0k35k"]
 [ext_resource type="Texture2D" uid="uid://duhocaw05cdmt" path="res://assets/tiles/Tilesets.png" id="7_mp1cb"]
 
@@ -286,8 +287,8 @@ texture = ExtResource("7_mp1cb")
 9:11/0 = 0
 9:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 10:11/0 = 0
+10:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 11:11/0 = 0
-11:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 12:11/0 = 0
 12:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 8:12/0 = 0
@@ -342,11 +343,39 @@ texture = ExtResource("7_mp1cb")
 9:19/0 = 0
 10:19/0 = 0
 11:19/0 = 0
+8:20/0 = 0
+8:20/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+9:20/0 = 0
+9:20/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+12:18/0 = 0
+12:19/0 = 0
+12:19/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+12:20/0 = 0
+11:20/0 = 0
+10:20/0 = 0
+8:26/0 = 0
+8:27/0 = 0
+8:28/0 = 0
+8:29/0 = 0
+9:29/0 = 0
+9:28/0 = 0
+9:27/0 = 0
+9:26/0 = 0
+10:26/0 = 0
+10:27/0 = 0
+10:28/0 = 0
+10:29/0 = 0
+13:11/0 = 0
+13:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_332av"]
 physics_layer_0/collision_layer = 64
 physics_layer_0/collision_mask = 64
 sources/0 = SubResource("TileSetAtlasSource_7df2v")
+
+[sub_resource type="Resource" id="Resource_2rrgm"]
+script = ExtResource("5_8ytu5")
+metadata/_custom_type_script = "uid://dmjhev2pahl57"
 
 [node name="Stage" type="Node2D" unique_id=1917536022]
 script = ExtResource("5_0x10x")
@@ -359,7 +388,7 @@ script = ExtResource("1_v02k8")
 
 [node name="Player" parent="ActorManager" unique_id=1016638848 instance=ExtResource("3_ont0r")]
 position = Vector2(120, 135)
-damaged_state = null
+damaged_state = SubResource("Resource_2rrgm")
 
 [node name="Camera2D" type="Camera2D" parent="ActorManager/Player" unique_id=836156762]
 position = Vector2(0, -55)

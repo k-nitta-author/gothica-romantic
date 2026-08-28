@@ -52,8 +52,9 @@ metadata/_custom_type_script = "uid://bxro0yfjng3td"
 script = ExtResource("10_dgncp")
 metadata/_custom_type_script = "uid://h2cl0j11ooth"
 
-[sub_resource type="Resource" id="Resource_32g7i"]
+[sub_resource type="Resource" id="Resource_xhyqv"]
 script = ExtResource("11_8h0if")
+metadata/_custom_type_script = "uid://dmjhev2pahl57"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r54av"]
 size = Vector2(10, 24.5)
@@ -1076,7 +1077,7 @@ shoot_state = SubResource("Resource_lbrtl")
 landing_state = SubResource("Resource_qws1g")
 falling_state = SubResource("Resource_a72po")
 ducking_state = SubResource("Resource_wu1np")
-damaged_state = SubResource("Resource_32g7i")
+damaged_state = SubResource("Resource_xhyqv")
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=900505443]
 position = Vector2(0, -12.25)
