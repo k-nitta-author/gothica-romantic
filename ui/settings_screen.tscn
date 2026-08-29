@@ -28,7 +28,7 @@ offset_right = 153.0
 offset_bottom = 23.0
 text = "Settings"
 
-[node name="HSlider" type="HSlider" parent="." unique_id=329242019]
+[node name="volumeSlider" type="HSlider" parent="." unique_id=329242019]
 layout_mode = 0
 offset_left = 104.0
 offset_top = 60.0
@@ -43,7 +43,7 @@ offset_right = 91.0
 offset_bottom = 78.0
 text = "volume"
 
-[node name="HSlider3" type="HSlider" parent="." unique_id=1055554211]
+[node name="masterVolumeSlider" type="HSlider" parent="." unique_id=1055554211]
 layout_mode = 0
 offset_left = 105.0
 offset_top = 41.0
@@ -58,7 +58,7 @@ offset_right = 90.0
 offset_bottom = 60.0
 text = "master"
 
-[node name="HSlider2" type="HSlider" parent="." unique_id=442486104]
+[node name="musicVolumeSlider" type="HSlider" parent="." unique_id=442486104]
 layout_mode = 0
 offset_left = 104.0
 offset_top = 79.0
@@ -73,7 +73,7 @@ offset_right = 91.0
 offset_bottom = 99.0
 text = "music"
 
-[node name="Button" type="Button" parent="." unique_id=1335785577]
+[node name="backButton" type="Button" parent="." unique_id=1335785577]
 layout_mode = 0
 offset_left = 105.0
 offset_top = 105.0

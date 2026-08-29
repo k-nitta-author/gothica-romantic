@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bm0uo02cuowty" path="res://ui/start_screen.gd" id="1_s6cxg"]
 [ext_resource type="Theme" uid="uid://bysunrkf7sfea" path="res://ui/main style theme.tres" id="2_igmpp"]
-[ext_resource type="Texture2D" uid="uid://duy6t1vhcfgs4" path="res://assets/start screen/logo.png" id="3_a8ycg"]
+[ext_resource type="Texture2D" uid="uid://bk541w0bradds" path="res://assets/start screen/logo.png" id="3_a8ycg"]
 [ext_resource type="PackedScene" uid="uid://b8mey0wy8ctvx" path="res://bgs/stormy_night.tscn" id="4_7pkrh"]
 
 [node name="StartScreen" type="Control" unique_id=1958838420]
@@ -14,16 +14,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_s6cxg")
 metadata/_edit_lock_ = true
-
-[node name="Label" type="Label" parent="." unique_id=887364444]
-layout_mode = 0
-offset_left = -123.0
-offset_top = 70.0
-offset_right = 15.0
-offset_bottom = 93.0
-text = "Gothica Romantic"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="startButton" type="Button" parent="." unique_id=756462720]
 layout_mode = 0
