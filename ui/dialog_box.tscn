@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://carswg5f74xjc"]
+
+[ext_resource type="Script" uid="uid://csl2hp6jg65as" path="res://ui/dialog_box.gd" id="1_m0eb4"]
+
+[node name="DialogBox" type="Panel" unique_id=1979808780]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_m0eb4")
+
+[node name="headerLabel" type="Label" parent="." unique_id=1532363175]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="bodyLabel" type="RichTextLabel" parent="." unique_id=735650042]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0

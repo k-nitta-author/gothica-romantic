@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://l2wrvv5rcbby"]
+
+[ext_resource type="Script" uid="uid://bslunur51i611" path="res://ui/text_box.gd" id="1_kta3i"]
+
+[node name="TextBox" type="Panel" unique_id=583456037]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 13.0
+offset_top = 14.0
+offset_right = -8.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kta3i")
+
+[node name="richTextLabel" type="RichTextLabel" parent="." unique_id=448710969]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 31.0
+offset_top = 14.0
+offset_right = -27.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+visible_characters = 0
+visible_ratio = 0.0

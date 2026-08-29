@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://bykeopgsphe82"]
+
+[ext_resource type="Script" uid="uid://bun2nrcuenwjq" path="res://ui/pause_game_panel.gd" id="1_shtin"]
+
+[node name="PauseGamePanel" type="Panel" unique_id=657634054]
+visible = false
+offset_left = 65.0
+offset_top = 29.0
+offset_right = 186.0
+offset_bottom = 132.0
+script = ExtResource("1_shtin")
+
+[node name="Label" type="Label" parent="." unique_id=2116902481]
+layout_mode = 0
+offset_left = 13.0
+offset_top = -24.0
+offset_right = 70.0
+offset_bottom = -1.0
+text = "Paused"
+
+[node name="resumeButton" type="Button" parent="." unique_id=217073554]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 4.0
+offset_right = 93.0
+offset_bottom = 35.0
+text = "resume"
+
+[node name="settingsButton" type="Button" parent="." unique_id=1493454951]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 33.0
+offset_right = 97.0
+offset_bottom = 64.0
+text = "settings"
+
+[node name="mainMenuButton" type="Button" parent="." unique_id=915232398]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 64.0
+offset_right = 108.0
+offset_bottom = 95.0
+text = "main menu"
+
+[node name="quitMenuButton" type="Button" parent="." unique_id=1011550740]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 90.0
+offset_right = 110.0
+offset_bottom = 121.0
+text = "quit"

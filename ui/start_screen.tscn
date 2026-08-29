@@ -57,3 +57,5 @@ position = Vector2(160, 72)
 texture = ExtResource("3_a8ycg")
 
 [node name="stormy night" parent="." unique_id=1669905970 instance=ExtResource("4_7pkrh")]
+
+[node name="anim" type="AnimationPlayer" parent="." unique_id=978254349]

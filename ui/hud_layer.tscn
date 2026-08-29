@@ -2,13 +2,14 @@
 
 [ext_resource type="Script" uid="uid://bdcci6pdtx3ff" path="res://ui/hud_layer.gd" id="1_726iu"]
 [ext_resource type="Script" uid="uid://d36b1xw8r6gjq" path="res://ui/battle_control.gd" id="2_qqsrg"]
-[ext_resource type="Script" uid="uid://bslunur51i611" path="res://ui/text_box.gd" id="2_rypyx"]
-[ext_resource type="Script" uid="uid://csl2hp6jg65as" path="res://ui/dialog_box.gd" id="3_jndc6"]
-[ext_resource type="Texture2D" uid="uid://b1xt6ivtm4wdv" path="res://assets/huds/boss hp bar.png" id="4_a72po"]
-[ext_resource type="Texture2D" uid="uid://boux8qempnf06" path="res://assets/huds/player hp bar.png" id="5_qvgt7"]
+[ext_resource type="Texture2D" uid="uid://dfpk7lnh4tgnu" path="res://assets/huds/boss hp bar.png" id="4_a72po"]
+[ext_resource type="Texture2D" uid="uid://dpy52ftto78s3" path="res://assets/huds/player hp bar.png" id="5_qvgt7"]
 [ext_resource type="PackedScene" uid="uid://cc8qj44o6epf4" path="res://ui/small_label.tscn" id="6_qqsrg"]
-[ext_resource type="Texture2D" uid="uid://cwb71aabr26bb" path="res://assets/huds/bullet icon.png" id="7_qvgt7"]
+[ext_resource type="PackedScene" uid="uid://l2wrvv5rcbby" path="res://ui/text_box/text_box.tscn" id="7_b0kcy"]
+[ext_resource type="Texture2D" uid="uid://cux5di67x0q3o" path="res://assets/huds/bullet icon.png" id="7_qvgt7"]
+[ext_resource type="PackedScene" uid="uid://carswg5f74xjc" path="res://ui/dialog_box.tscn" id="8_sov1n"]
 [ext_resource type="Texture2D" uid="uid://bdhgkw3n4jrpd" path="res://assets/items/potion.png" id="9_b0kcy"]
+[ext_resource type="PackedScene" uid="uid://bykeopgsphe82" path="res://ui/pause_game_panel.tscn" id="9_xem2t"]
 
 [sub_resource type="Theme" id="Theme_31cq6"]
 
@@ -122,53 +123,44 @@ position = Vector2(20.5, 43.5)
 rotation = 1.5707964
 texture = ExtResource("7_qvgt7")
 
-[node name="TextBox" type="Panel" parent="Control" unique_id=1478290625]
-visible = false
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("2_rypyx")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Control/TextBox" unique_id=885210539]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="DialogBox" type="Panel" parent="Control" unique_id=377229313]
-visible = false
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("3_jndc6")
-
-[node name="headerLabel" type="Label" parent="Control/DialogBox" unique_id=587849126]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="bodyLabel" type="RichTextLabel" parent="Control/DialogBox" unique_id=55172585]
-layout_mode = 0
+[node name="potionIcons" type="Control" parent="Control/BattleControl" unique_id=1463632478]
+anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="PauseGamePanel" type="Panel" parent="Control" unique_id=1322029701]
-visible = false
-layout_mode = 0
-offset_left = 125.0
-offset_top = 57.0
-offset_right = 209.0
-offset_bottom = 133.0
+[node name="Potion" type="Sprite2D" parent="Control/BattleControl/potionIcons" unique_id=591023594]
+position = Vector2(60, 16)
+texture = ExtResource("9_b0kcy")
 
-[node name="Label" type="Label" parent="Control/PauseGamePanel" unique_id=1417193397]
+[node name="Potion2" type="Sprite2D" parent="Control/BattleControl/potionIcons" unique_id=1646237814]
+position = Vector2(73, 16)
+texture = ExtResource("9_b0kcy")
+
+[node name="Potion3" type="Sprite2D" parent="Control/BattleControl/potionIcons" unique_id=1962352209]
+position = Vector2(86, 16)
+texture = ExtResource("9_b0kcy")
+
+[node name="TextBox" parent="Control" unique_id=583456037 instance=ExtResource("7_b0kcy")]
 layout_mode = 0
-offset_left = 14.0
-offset_top = -33.0
-offset_right = 71.0
-offset_bottom = -10.0
-text = "Paused"
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="DialogBox" parent="Control" unique_id=1979808780 instance=ExtResource("8_sov1n")]
+layout_mode = 0
+
+[node name="PauseGamePanel" parent="Control" unique_id=657634054 instance=ExtResource("9_xem2t")]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 121.0
+offset_bottom = 103.0
 
 [node name="autoSaveIcon" type="TextureRect" parent="Control" unique_id=530693163]
 visible = false
@@ -179,15 +171,3 @@ offset_right = 362.0
 offset_bottom = 155.0
 
 [node name="anim" type="AnimationPlayer" parent="." unique_id=1362198885]
-
-[node name="Potion" type="Sprite2D" parent="." unique_id=591023594]
-position = Vector2(60, 16)
-texture = ExtResource("9_b0kcy")
-
-[node name="Potion2" type="Sprite2D" parent="." unique_id=1646237814]
-position = Vector2(73, 16)
-texture = ExtResource("9_b0kcy")
-
-[node name="Potion3" type="Sprite2D" parent="." unique_id=1962352209]
-position = Vector2(86, 16)
-texture = ExtResource("9_b0kcy")
