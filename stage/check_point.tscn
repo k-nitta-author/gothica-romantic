@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://4deh472dcfn7"]
+
+[ext_resource type="Script" uid="uid://bkc12p7jnadq4" path="res://stage/check_point.gd" id="1_a1tgc"]
+[ext_resource type="PackedScene" uid="uid://rp5sdj2ja1c5" path="res://sound effects/sound_sfx_stream.tscn" id="2_x7ef5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uqb0r"]
+size = Vector2(20, 31.5)
+
+[node name="CheckPoint" type="Node2D" unique_id=651535832]
+script = ExtResource("1_a1tgc")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=199416028]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1093435606]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_uqb0r")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=48736686]
+
+[node name="anim" type="AnimationPlayer" parent="." unique_id=1895625401]
+
+[node name="soundSfxStream" parent="." unique_id=1454780779 instance=ExtResource("2_x7ef5")]

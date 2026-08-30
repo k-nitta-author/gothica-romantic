@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://dmjhev2pahl57" path="res://state/actor/damagedState.gd" id="5_8ytu5"]
 [ext_resource type="PackedScene" uid="uid://v0cd6ctpkndj" path="res://stage/stage_exit.tscn" id="7_0k35k"]
 [ext_resource type="Texture2D" uid="uid://duhocaw05cdmt" path="res://assets/tiles/Tilesets.png" id="7_mp1cb"]
+[ext_resource type="Script" uid="uid://ylkbae7fwvfe" path="res://stage/check_point_manager.gd" id="8_lk3ft"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7df2v"]
 texture = ExtResource("7_mp1cb")
@@ -388,6 +389,7 @@ script = ExtResource("1_v02k8")
 
 [node name="Player" parent="ActorManager" unique_id=1016638848 instance=ExtResource("3_ont0r")]
 position = Vector2(120, 135)
+max_potion_count = 0
 damaged_state = SubResource("Resource_2rrgm")
 
 [node name="Camera2D" type="Camera2D" parent="ActorManager/Player" unique_id=836156762]
@@ -398,6 +400,9 @@ script = ExtResource("2_5m2fl")
 
 [node name="BulletManager" type="Node2D" parent="." unique_id=63543608]
 script = ExtResource("3_0x10x")
+
+[node name="CheckPointManager" type="Node2D" parent="." unique_id=961724693]
+script = ExtResource("8_lk3ft")
 
 [node name="anim" type="AnimationPlayer" parent="." unique_id=2037312595]
 
