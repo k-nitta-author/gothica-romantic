@@ -47,14 +47,19 @@ func poll_game_state() -> Dictionary:
 		"current_player_hp": player_hp
 	}
 
-func on_player_exited(next_level_scene: PackedScene):
-	var next_level := next_level_scene.instantiate()
+func on_player_exited(new_next_level_scene: PackedScene):
+
+	if new_next_level_scene == null: return  
+
+	var next_level := new_next_level_scene.instantiate()
 	
 	var old_stage := stage
 	old_stage.queue_free()
 
 	stage = next_level
-	add_child(stage)
+
+	call_deferred("add_child", stage)
+
 	stage.bind_to_game(self)
 
 func start_stage():

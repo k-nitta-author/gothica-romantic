@@ -4,10 +4,13 @@ extends Node2D
 @onready var tileMapLayer = $TileMapLayer
 @onready var anim : AnimationPlayer = $anim
 
+# declare all managers
 @onready var actorManager = $ActorManager
 @onready var propManager = $PropManager
 @onready var bulletManager = $BulletManager
+@onready var checkPointManager = $CheckPointManager
 
+# get reference to singular noedes
 @onready var player = $ActorManager.player
 @onready var stage_exit = $StageExit
 
@@ -18,18 +21,23 @@ signal stage_end()
 func _ready() -> void:
 	bind_dependencies(self)
 
+# get the current boss
 func get_boss() -> Array: return actorManager.get_bosses()
+
+# get the current player
+func get_player() -> Player: return player
 
 func bind_to_game(game: Game) -> void:
 	self.game = game
-	# stage_exit.connect("player_exited", game.on_player_exited)
+	await ready
+	stage_exit.connect("player_exited", game.on_player_exited)
 
-func get_player() -> Player: return player
-
+# bind self and necessary references to the various managers
 func bind_dependencies(stage: Stage):
 	actorManager.bind_dependencies(stage)
 	#propManager.bind_dependencies(stage)
 	bulletManager.bind_dependencies(stage)
+	checkPointManager.bind_dependencies(stage)
 
 # the process of ending the level
 # probably plays some sort of transition or music queue
@@ -37,9 +45,14 @@ func bind_dependencies(stage: Stage):
 func end(_nextLevel: PackedScene) -> void:
 	emit_signal("stage_end")
 
+# spawn actor
 func spawn_actor(actorScene: PackedScene) -> void:
 	actorManager.add_child(actorScene.instantiate())
 
+# spawn a given effect at this location
+func spawn_effects(effect: Node2D) -> void: pass
+
+# called when a breakable prop or enemy is destroyed
 func spawn_collectible(node: Node) -> void:
 
 	randomize()
