@@ -19,6 +19,7 @@ var game: Game
 signal stage_end()
 
 func _ready() -> void:
+
 	bind_dependencies(self)
 
 # get the current boss
@@ -70,3 +71,7 @@ func spawn_collectible(node: Node) -> void:
 	var dropPos : Vector2 = node.get_eye_level()
 	
 	propManager.add_collectible(drop, dropPos)
+
+# called when player passes checkpoint
+func on_player_checkpoint_activated(checkpointIdx: int) -> void:
+	pass
