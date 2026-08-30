@@ -1,8 +1,9 @@
 [gd_resource type="Theme" format=3 uid="uid://bysunrkf7sfea"]
 
 [ext_resource type="FontFile" uid="uid://ckjyw0le0uxau" path="res://font/PIXELADE.TTF" id="1_3bgld"]
+[ext_resource type="FontFile" uid="uid://cgbf6rvj8worq" path="res://font/tallpixelfont.ttf" id="1_dervu"]
 
 [resource]
-Button/font_sizes/font_size = 13
-Button/fonts/font = ExtResource("1_3bgld")
+Button/font_sizes/font_size = 9
+Button/fonts/font = ExtResource("1_dervu")
 Label/fonts/font = ExtResource("1_3bgld")

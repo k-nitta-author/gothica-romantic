@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://dam2cxs8um8t1"]
+
+[ext_resource type="Texture2D" uid="uid://cpcu1sqr438lq" path="res://assets/effects/sharp splatter.png" id="1_joan7"]
+
+[sub_resource type="Animation" id="Animation_2hao6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_eeefv"]
+resource_name = "anim"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ggph8"]
+_data = {
+&"RESET": SubResource("Animation_2hao6"),
+&"anim": SubResource("Animation_eeefv")
+}
+
+[node name="slash spatter" type="Sprite2D" unique_id=2136193067]
+visible = false
+texture = ExtResource("1_joan7")
+offset = Vector2(14, 0)
+hframes = 4
+
+[node name="anim" type="AnimationPlayer" parent="." unique_id=1627169518]
+libraries/ = SubResource("AnimationLibrary_ggph8")
+autoplay = &"anim"

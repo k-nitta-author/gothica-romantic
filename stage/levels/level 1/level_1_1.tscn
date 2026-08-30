@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b8mey0wy8ctvx" path="res://bgs/stormy_night.tscn" id="2_vumbh"]
 [ext_resource type="PackedScene" uid="uid://cjaxcaolry5mi" path="res://prop/camp_fire.tscn" id="3_7e248"]
 [ext_resource type="PackedScene" uid="uid://cbvhks3dybpch" path="res://actor/bone_walker_1.tscn" id="4_m6153"]
+[ext_resource type="PackedScene" uid="uid://cejgdevefhlot" path="res://actor/skulker.tscn" id="6_jetdb"]
 [ext_resource type="AudioStream" uid="uid://dcmdarilvcsha" path="res://assets/sound/music/Dead of Night.ogg" id="7_ox7i6"]
 
 [node name="level_1-1" unique_id=1917536022 instance=ExtResource("1_0hsla")]
@@ -33,23 +34,21 @@ is_boss = true
 seek_right = true
 can_see_player = true
 is_active = true
-max_melee_range = 100.0
-max_shoot_range = 100.0
-melee_limit = 100.0
 default_state_on_awake = 1
 
 [node name="bone walker 2" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="2" unique_id=1095212542 instance=ExtResource("4_m6153")]
 position = Vector2(482, 144)
 collision_layer = 65
 collision_mask = 65
-is_boss = false
 seek_right = true
 can_see_player = true
 is_active = true
-max_melee_range = 100.0
-max_shoot_range = 100.0
-melee_limit = 100.0
 default_state_on_awake = 1
+
+[node name="Skulker" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="3" unique_id=263792944 instance=ExtResource("6_jetdb")]
+position = Vector2(272, 144)
+can_see_player = true
+selected_state = 1
 
 [node name="camp fire" parent="." index="5" unique_id=403609203 instance=ExtResource("3_7e248")]
 position = Vector2(456, 144)
