@@ -8,7 +8,7 @@ extends CharacterBody2D
 @onready var eyeLevelMarker : Marker2D = $eyeLevelMarker
 @onready var stateLabel: Label = $stateLabel
 @onready var soundSfxStream: AudioStreamPlayer2D = $"sound sfx stream"
-
+@onready var attackRay: RayCast2D = $attackRay
 
 enum ACTOR_TYPE{ PLAYER, ENEMY, SPECIAL}
 
@@ -102,6 +102,8 @@ signal has_died(actor: BaseActor)
 signal has_hp_changed(actor: BaseActor, old_hp: float, new_hp: float)
 signal fire_gun(bulletScene: BaseBullet, position: Vector2)
 
+signal attacked_at_point(collision_point, flipped)
+
 var stage: Stage
 
 var is_attacking: bool
@@ -112,7 +114,7 @@ func _ready() -> void:
 
 func get_eye_level() -> Vector2: return eyeLevelMarker.global_position
 
-func on_hitbox_entered(area: Area2D):
+func on_hitbox_entered(_area: Area2D):
 	pass
 
 func set_is_inactive(value: bool):
@@ -152,15 +154,22 @@ func knockback(area: Area2D) -> void:
 
 	selected_state = STATES.DAMAGED
 
-func bind_to_hud(hudLayer: HudLayer):
+
+func bind_to_hud(_hudLayer: HudLayer):
 	pass
 
 func walk() -> void: pass
 
+func attack() -> void: pass
+
+func notify_attack_connection() -> void:
+	
+	if !attackRay.is_colliding(): return
+	emit_signal("attacked_at_point", attackRay.get_collision_point(), is_flipped)
 
 func stop() -> void: velocity.x = 0
 
-func bind_dependencies(stage: Stage):
+func bind_dependencies(_stage: Stage):
 	connect("fire_gun", stage.bulletManager.add_bullet)
 
 func update():

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bjjv01r2sxehu"]
 
-[ext_resource type="Texture2D" uid="uid://g0t43o1i6ehu" path="res://assets/effects/hard splatter.png" id="1_umlpd"]
+[ext_resource type="Texture2D" uid="uid://blbmyicgi3stg" path="res://assets/effects/hard splatter.png" id="1_umlpd"]
 
 [sub_resource type="Animation" id="Animation_po2ak"]
 length = 0.001
@@ -58,3 +58,4 @@ frame = 1
 
 [node name="anim" type="AnimationPlayer" parent="." unique_id=138429905]
 libraries/ = SubResource("AnimationLibrary_ltckw")
+autoplay = &"anim"

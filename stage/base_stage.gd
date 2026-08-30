@@ -14,6 +14,9 @@ extends Node2D
 @onready var player = $ActorManager.player
 @onready var stage_exit = $StageExit
 
+@onready var shoot_splatter = preload("uid://bjjv01r2sxehu")
+@onready var slash_splatter = preload("uid://dam2cxs8um8t1")
+
 var game: Game
 
 signal stage_end()
@@ -28,7 +31,7 @@ func get_boss() -> Array: return actorManager.get_bosses()
 # get the current player
 func get_player() -> Player: return player
 
-func bind_to_game(game: Game) -> void:
+func bind_to_game(_game: Game) -> void:
 	self.game = game
 	await ready
 	stage_exit.connect("player_exited", game.on_player_exited)
@@ -51,7 +54,17 @@ func spawn_actor(actorScene: PackedScene) -> void:
 	actorManager.add_child(actorScene.instantiate())
 
 # spawn a given effect at this location
-func spawn_effects(effect: Node2D) -> void: pass
+func spawn_effects(pos: Vector2, is_flipped: int) -> void:
+
+	var splatter = slash_splatter.instantiate()
+
+	splatter.global_position = pos
+
+	if !is_flipped:
+
+		splatter.scale.x  *= -1
+
+	add_child(splatter)
 
 # called when a breakable prop or enemy is destroyed
 func spawn_collectible(node: Node) -> void:
@@ -73,5 +86,5 @@ func spawn_collectible(node: Node) -> void:
 	propManager.add_collectible(drop, dropPos)
 
 # called when player passes checkpoint
-func on_player_checkpoint_activated(checkpointIdx: int) -> void:
+func on_player_checkpoint_activated(_checkpointIdx: int) -> void:
 	pass

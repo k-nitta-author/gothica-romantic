@@ -8,6 +8,7 @@ func bind_dependencies(stage: Stage) -> void:
     for c in get_children():
         c.bind_dependencies(stage)
         c.connect("has_died", stage.spawn_collectible)
+        c.connect("attacked_at_point", stage.spawn_effects)
 
         if c is BaseEnemy and c.is_boss: bosses.append(c)
 
