@@ -52,7 +52,6 @@ _data = {
 
 [node name="shoot splatter" type="Sprite2D" unique_id=391401877]
 texture = ExtResource("1_umlpd")
-offset = Vector2(10, 0)
 hframes = 4
 frame = 1
 

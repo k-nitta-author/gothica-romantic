@@ -7,10 +7,14 @@ extends Area2D
 
 @onready var sprite2D = $Sprite2D
 
+
+signal notify_attack_connection(collision_point: Vector2, flipped: bool, type: Stage.SPLATTER)
+
 var isInactive: bool: set = set_is_inactive
 
 func bind_dependencies(stage: Stage):
-	pass
+
+	connect("notify_attack_connection", stage.spawn_effects)
 
 @export_range(0, 360, 1.0) var movement_angle : int:
 	set(value):
@@ -45,15 +49,15 @@ func calculate_angle_to_reach_x(distance: float, grav: float, speed: float) -> f
 	return theta 
 
 func _ready() -> void:
-
-	print(calculate_angle_to_reach_x(25, 9.8, 30))	
-
-
 	connect("area_entered", on_area_entered)
 
 func on_area_entered(area: Area2D) -> void:
 	if area is BaseProp or area.owner is BaseActor:
 		isInactive = true
+
+		var collision_point := self.global_position
+
+		emit_signal("notify_attack_connection", collision_point, self.velocity.y < 0, Stage.SPLATTER.SHOOT)
 
 func update(delta):
 

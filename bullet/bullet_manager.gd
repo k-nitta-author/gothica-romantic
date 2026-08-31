@@ -1,15 +1,19 @@
 extends Node2D
 
 @onready var children := get_children()
+var stage
 
 func add_bullet(bullet: BaseBullet, pos: Vector2) -> void:
-	
+
 	var b : BaseBullet = bullet
 	b.global_position = pos
+	b.bind_dependencies(stage)
 	add_child(b)
 	children.append(b)
+	
+func bind_dependencies(s: Stage):	
+	stage = s
 
-func bind_dependencies(stage: Stage):
 	for c in children:
 		c.bind_dependencies(stage)
 

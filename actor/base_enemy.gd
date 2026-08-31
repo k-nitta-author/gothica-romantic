@@ -1,4 +1,3 @@
-@tool
 class_name BaseEnemy
 extends BaseActor
 
@@ -25,7 +24,6 @@ signal turn_around
 
 @export var default_state_on_awake : BaseActor.STATES
 
-
 func set_max_melee_range(value: float):
 	max_melee_range = value
 	queue_redraw()
@@ -43,9 +41,9 @@ func _draw() -> void:
 		draw_line(Vector2(max_melee_range, -100), Vector2(max_melee_range, 0), Color.RED)
 		draw_line(Vector2(-max_melee_range, -100), Vector2(-max_melee_range, 0), Color.RED)
 
-func bind_dependencies(stage: Stage):
+func bind_dependencies(s: Stage):
 
-	player = stage.get_player()
+	player = s.get_player()
 
 func set_is_inactive(value: bool):
 	super(value)
@@ -72,13 +70,12 @@ func on_hitbox_entered(area: Area2D):
 	if area is BaseBullet or area.owner is Player:
 		current_hp -= 1
 
-func on_vision_area_entered(area: Area2D):
-
+func on_vision_area_entered(_area: Area2D):
 	can_see_player = true
 	is_active = true
 	is_awake = true
 	
-func on_vision_area_exited(area: Area2D):
+func on_vision_area_exited(_area: Area2D):
 	pass
 
 func walk() -> void:
@@ -92,32 +89,30 @@ func walk() -> void:
 	anim.play("walk")
 
 func attack() -> void:
+	super()
 	is_attacking = true
 
 	selected_state = BaseActor.STATES.MELEE
 
 func update_seek_right() -> void: pass
 
-func has_player_in_melee_range() -> bool:
-	return self.global_position.distance_to(player.global_position) < max_melee_range
+func has_player_in_melee_range() -> bool: return self.global_position.distance_to(player.global_position) < max_melee_range
 
-func has_player_in_shoot_range() -> bool:
-	return self.global_position.distance_to(player.global_position) < max_shoot_range
+func has_player_in_shoot_range() -> bool: return self.global_position.distance_to(player.global_position) < max_shoot_range
 
 func attack_if_possible() -> void:
 
 	if has_player_in_melee_range():
 		attack()
 
-	else: BaseActor.STATES.IDLE
+	else: selected_state = BaseActor.STATES.IDLE
 
 func shoot_if_possible() -> void:
 
 	if has_player_in_shoot_range():
 		shoot()
 
-	else: BaseActor.STATES.IDLE
-
+	else: selected_state = BaseActor.STATES.IDLE
 
 func shoot():
 	is_shooting = true

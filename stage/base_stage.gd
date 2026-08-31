@@ -1,6 +1,8 @@
 class_name Stage
 extends Node2D
 
+enum SPLATTER {SHOOT, SLASH}
+
 @onready var tileMapLayer = $TileMapLayer
 @onready var anim : AnimationPlayer = $anim
 
@@ -54,9 +56,13 @@ func spawn_actor(actorScene: PackedScene) -> void:
 	actorManager.add_child(actorScene.instantiate())
 
 # spawn a given effect at this location
-func spawn_effects(pos: Vector2, is_flipped: int) -> void:
+func spawn_effects(pos: Vector2, is_flipped: int, splatter_type: SPLATTER) -> void:
 
-	var splatter = slash_splatter.instantiate()
+	var splatter
+
+	match splatter_type:
+		SPLATTER.SLASH: splatter = slash_splatter.instantiate()
+		SPLATTER.SHOOT: splatter = shoot_splatter.instantiate()
 
 	splatter.global_position = pos
 

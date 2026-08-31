@@ -102,7 +102,7 @@ signal has_died(actor: BaseActor)
 signal has_hp_changed(actor: BaseActor, old_hp: float, new_hp: float)
 signal fire_gun(bulletScene: BaseBullet, position: Vector2)
 
-signal attacked_at_point(collision_point, flipped)
+signal attacked_at_point(collision_point, flipped, splatter_type)
 
 var stage: Stage
 
@@ -165,12 +165,12 @@ func attack() -> void: pass
 func notify_attack_connection() -> void:
 	
 	if !attackRay.is_colliding(): return
-	emit_signal("attacked_at_point", attackRay.get_collision_point(), is_flipped)
+	emit_signal("attacked_at_point", attackRay.get_collision_point(), is_flipped, stage.SPLATTER.SLASH)
 
 func stop() -> void: velocity.x = 0
 
-func bind_dependencies(_stage: Stage):
-	connect("fire_gun", stage.bulletManager.add_bullet)
+func bind_dependencies(s: Stage):
+	connect("fire_gun", s.bulletManager.add_bullet)
 
 func update():
 

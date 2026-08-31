@@ -7,13 +7,24 @@
 collision_layer = 0
 collision_mask = 64
 script = ExtResource("2_wpd7q")
+is_boss = false
 seek_right = false
 can_see_player = false
 is_active = false
 is_awake = false
+max_melee_range = 100.0
+max_shoot_range = 100.0
+melee_limit = 100.0
 default_state_on_awake = 0
+isInactive = Object(RayCast2D,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"oversampling_with_scale":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, 0),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"enabled":true,"exclude_parent":true,"target_position":Vector2(84, 0),"collision_mask":1,"hit_from_inside":false,"collide_with_areas":false,"collide_with_bodies":true,"script":null)
+
 actorType = 1
 speed = 19.655
+selected_state = null
+is_flipped = null
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=900505443]
+disabled = true
 
 [node name="Hitbox" parent="." index="3" unique_id=636899970]
 collision_layer = 8

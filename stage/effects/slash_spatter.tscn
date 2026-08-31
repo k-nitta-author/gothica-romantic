@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dam2cxs8um8t1"]
 
-[ext_resource type="Texture2D" uid="uid://cpcu1sqr438lq" path="res://assets/effects/sharp splatter.png" id="1_joan7"]
+[ext_resource type="Texture2D" uid="uid://d2ewbho0cb8w2" path="res://assets/effects/sharp splatter.png" id="1_joan7"]
 
 [sub_resource type="Animation" id="Animation_2hao6"]
 length = 0.001
