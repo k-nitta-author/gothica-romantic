@@ -34,7 +34,7 @@ func get_boss() -> Array: return actorManager.get_bosses()
 func get_player() -> Player: return player
 
 func bind_to_game(_game: Game) -> void:
-	self.game = game
+	self.game = _game
 	await ready
 	stage_exit.connect("player_exited", game.on_player_exited)
 

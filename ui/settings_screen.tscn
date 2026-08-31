@@ -1,14 +1,11 @@
 [gd_scene format=3 uid="uid://dkxidum8tt7pr"]
 
 [ext_resource type="Script" uid="uid://c43dci0ih4oi7" path="res://ui/settings_screen.gd" id="1_rsjql"]
+[ext_resource type="Theme" uid="uid://bysunrkf7sfea" path="res://ui/main style theme.tres" id="2_7yjx2"]
 
 [node name="SettingsScreen" type="Control" unique_id=255840193]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
 script = ExtResource("1_rsjql")
 metadata/_edit_lock_ = true
 
@@ -17,9 +14,12 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -3.0
+offset_right = 257.0
+offset_bottom = 148.0
 grow_horizontal = 2
 grow_vertical = 2
-metadata/_edit_lock_ = true
+theme = ExtResource("2_7yjx2")
 
 [node name="settingsLabel" type="Label" parent="." unique_id=1615604737]
 layout_mode = 0

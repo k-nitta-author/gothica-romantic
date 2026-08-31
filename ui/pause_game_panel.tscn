@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://bykeopgsphe82"]
 
 [ext_resource type="Script" uid="uid://bun2nrcuenwjq" path="res://ui/pause_game_panel.gd" id="1_shtin"]
+[ext_resource type="PackedScene" uid="uid://dkxidum8tt7pr" path="res://ui/settings_screen.tscn" id="2_g8vnp"]
 
 [node name="PauseGamePanel" type="Panel" unique_id=657634054]
-visible = false
 offset_left = 65.0
 offset_top = 29.0
 offset_right = 186.0
@@ -49,3 +49,11 @@ offset_top = 90.0
 offset_right = 110.0
 offset_bottom = 121.0
 text = "quit"
+
+[node name="SettingsScreen" parent="." unique_id=255840193 instance=ExtResource("2_g8vnp")]
+visible = false
+layout_mode = 1
+offset_left = -67.0
+offset_top = -29.0
+offset_right = -67.0
+offset_bottom = -29.0

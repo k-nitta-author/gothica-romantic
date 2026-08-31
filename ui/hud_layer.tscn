@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://d1dvs67uncing"]
 
 [ext_resource type="Script" uid="uid://bdcci6pdtx3ff" path="res://ui/hud_layer.gd" id="1_726iu"]
+[ext_resource type="Theme" uid="uid://bysunrkf7sfea" path="res://ui/main style theme.tres" id="2_ljwg0"]
 [ext_resource type="Script" uid="uid://d36b1xw8r6gjq" path="res://ui/battle_control.gd" id="2_qqsrg"]
 [ext_resource type="Texture2D" uid="uid://dfpk7lnh4tgnu" path="res://assets/huds/boss hp bar.png" id="4_a72po"]
 [ext_resource type="Texture2D" uid="uid://dpy52ftto78s3" path="res://assets/huds/player hp bar.png" id="5_qvgt7"]
 [ext_resource type="PackedScene" uid="uid://cc8qj44o6epf4" path="res://ui/small_label.tscn" id="6_qqsrg"]
 [ext_resource type="PackedScene" uid="uid://l2wrvv5rcbby" path="res://ui/text_box/text_box.tscn" id="7_b0kcy"]
 [ext_resource type="Texture2D" uid="uid://cux5di67x0q3o" path="res://assets/huds/bullet icon.png" id="7_qvgt7"]
+[ext_resource type="Script" uid="uid://canj802yjtvgt" path="res://ui/potion_icons.gd" id="7_xem2t"]
 [ext_resource type="PackedScene" uid="uid://carswg5f74xjc" path="res://ui/dialog_box.tscn" id="8_sov1n"]
 [ext_resource type="Texture2D" uid="uid://bdhgkw3n4jrpd" path="res://assets/items/potion.png" id="9_b0kcy"]
 [ext_resource type="PackedScene" uid="uid://bykeopgsphe82" path="res://ui/pause_game_panel.tscn" id="9_xem2t"]
@@ -35,6 +37,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_ljwg0")
 metadata/_edit_lock_ = true
 
 [node name="BattleControl" type="Control" parent="Control" unique_id=1733277472]
@@ -127,6 +130,7 @@ texture = ExtResource("7_qvgt7")
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("7_xem2t")
 
 [node name="Potion" type="Sprite2D" parent="Control/BattleControl/potionIcons" unique_id=591023594]
 position = Vector2(60, 16)
@@ -156,11 +160,12 @@ grow_vertical = 1
 layout_mode = 0
 
 [node name="PauseGamePanel" parent="Control" unique_id=657634054 instance=ExtResource("9_xem2t")]
+visible = false
 layout_mode = 0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 121.0
-offset_bottom = 103.0
+offset_left = 74.0
+offset_top = 1.0
+offset_right = 195.0
+offset_bottom = 140.0
 
 [node name="autoSaveIcon" type="TextureRect" parent="Control" unique_id=530693163]
 visible = false
