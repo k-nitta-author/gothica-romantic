@@ -66,9 +66,7 @@ func spawn_effects(pos: Vector2, is_flipped: int, splatter_type: SPLATTER) -> vo
 
 	splatter.global_position = pos
 
-	if !is_flipped:
-
-		splatter.scale.x  *= -1
+	if !is_flipped: splatter.scale.x  *= -1
 
 	add_child(splatter)
 

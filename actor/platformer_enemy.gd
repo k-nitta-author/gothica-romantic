@@ -1,4 +1,3 @@
-@tool
 class_name PlatformerEnemy
 extends BaseEnemy
 
@@ -10,8 +9,6 @@ func update():
 		update_seek_right()
 
 	super()
-
-
 
 func update_seek_right() -> void:
 	seek_right = !(player.global_position.x < global_position.x)

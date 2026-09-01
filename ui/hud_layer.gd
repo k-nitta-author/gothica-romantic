@@ -14,6 +14,7 @@ enum STATE {
 
 		match currentState:
 			STATE.RESUMED:
+				battleControl.visible = true
 				pauseGamePanel.visible = false
 				get_tree().paused = false
 			STATE.PAUSED:
@@ -22,6 +23,7 @@ enum STATE {
 			STATE.SETTINGS:
 				pass
 			STATE.START_SCREEN:
+				battleControl.visible = false
 				get_start_screen().visible = true
 
 @onready var playerHpBar : ProgressBar = $Control/BattleControl/PlayerHpBar
@@ -61,12 +63,13 @@ func on_game_paused() -> void:
 func bind_to_player(p: Player):
 	p.connect("has_hp_changed", update_hp_bar)
 	p.connect("on_bullets_current_change", update_bullet_bar)
+	p.connect("on_potions_current_change", $Control/BattleControl/potionIcons.update_potion_icons)
 
 func bind_boss(bosses: Array): for b in bosses: battleControl.bind_boss_hp_bar(b)
 
 func get_start_screen() -> Control: return $Control/StartScreen
 
-func update_bullet_bar(old_value: int, bulletsCurrent: int):
+func update_bullet_bar(_old_value: int, bulletsCurrent: int):
 
 	var bulletBarIdx := bulletsCurrent - 1
 

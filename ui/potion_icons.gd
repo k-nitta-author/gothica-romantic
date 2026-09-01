@@ -10,6 +10,4 @@ func update_potion_icons(_old_value: int, potionsCurrent: int):
 
 	potionIconsArray[potionIconsArrayIdx].visible = true
 
-	for i in range(6):
-
-		potionIconsArray[i].visible = i < potionsCurrent
+	for i in range(potionIconsArray.size()): potionIconsArray[i].visible = i < potionsCurrent

@@ -15,6 +15,6 @@ func toggle_boss_hp_bar_visible() -> void:
 	BossHpBar.visible = true
 	BossHpProgressBar.visible = true
 
-func update_boss_hp_bar(actor: BaseActor, old_hp: float, new_hp: float) -> void:
+func update_boss_hp_bar(_actor: BaseActor, _old_hp: float, new_hp: float) -> void:
 	BossHpProgressBar.value = new_hp
 	BossHpBar.visible = new_hp != 0

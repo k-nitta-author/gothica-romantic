@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dxrsyek2feu0u"]
 
 [ext_resource type="PackedScene" uid="uid://7rqfpdtf2o7f" path="res://actor/base_actor.tscn" id="1_4flbx"]
+[ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/hitFlashShader.gdshader" id="2_8f5w4"]
 [ext_resource type="Script" uid="uid://c2dcoev2ns4ip" path="res://actor/player.gd" id="2_pcoxj"]
 [ext_resource type="Script" uid="uid://wqfwvdiwfsfk" path="res://state/actor/jumpState.gd" id="3_6d5en"]
 [ext_resource type="Texture2D" uid="uid://d201blvck6tjw" path="res://assets/player/Listahl.png" id="3_mlbvo"]
@@ -12,12 +13,16 @@
 [ext_resource type="Script" uid="uid://bxro0yfjng3td" path="res://state/actor/fallingState.gd" id="9_dgncp"]
 [ext_resource type="Script" uid="uid://h2cl0j11ooth" path="res://state/actor/duckingState.gd" id="10_dgncp"]
 [ext_resource type="Script" uid="uid://dmjhev2pahl57" path="res://state/actor/damagedState.gd" id="11_8h0if"]
-[ext_resource type="AudioStream" uid="uid://df1h6nx8fss84" path="res://assets/sound/sfx/noise4.wav" id="13_tdps2"]
-[ext_resource type="AudioStream" uid="uid://p4bvugqvkaqe" path="res://assets/sound/sfx/Jump.wav" id="14_pn5yv"]
+[ext_resource type="AudioStream" uid="uid://bfqls0skfob01" path="res://assets/sound/sfx/noise4.wav" id="13_tdps2"]
+[ext_resource type="AudioStream" uid="uid://de0kw06ma6nbc" path="res://assets/sound/sfx/Jump.wav" id="14_pn5yv"]
 [ext_resource type="AudioStream" uid="uid://sorepoioavl7" path="res://assets/sound/sfx/noise1.wav" id="15_8f5w4"]
 [ext_resource type="AudioStream" uid="uid://cwjmqvf8xdyb2" path="res://assets/sound/sfx/beep1.wav" id="15_joq28"]
-[ext_resource type="AudioStream" uid="uid://dgx1b3lx8f568" path="res://assets/sound/sfx/Land.wav" id="15_pn5yv"]
-[ext_resource type="AudioStream" uid="uid://cbsgnr1o3nkq6" path="res://assets/sound/sfx/Shoot.wav" id="16_tdps2"]
+[ext_resource type="AudioStream" uid="uid://6q8nfp46cg64" path="res://assets/sound/sfx/Land.wav" id="15_pn5yv"]
+[ext_resource type="AudioStream" uid="uid://bwg3uhkaa8j4g" path="res://assets/sound/sfx/Shoot.wav" id="16_tdps2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mm62y"]
+shader = ExtResource("2_8f5w4")
+shader_parameter/active = false
 
 [sub_resource type="Resource" id="Resource_6wgq3"]
 script = ExtResource("3_6d5en")
@@ -229,6 +234,30 @@ tracks/13/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("attackRay:target_position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(28, 0)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("attackRay:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -14)]
+}
 
 [sub_resource type="Animation" id="Animation_0bt4a"]
 resource_name = "attack"
@@ -309,6 +338,44 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0.25)
 }
 tracks/5/use_blend = true
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("attackRay:target_position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(31, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("attackRay:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -19)]
+}
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath(".")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.26923963),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"notify_attack_connection"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_i37uw"]
 resource_name = "damaged"
@@ -553,6 +620,44 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0.099999994)
 }
 tracks/5/use_blend = true
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("attackRay:target_position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.08),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(28, 0), Vector2(28, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("attackRay:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -14)]
+}
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath(".")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.25357997),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"notify_attack_connection"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_mlbvo"]
 resource_name = "duck shoot"
@@ -751,6 +856,20 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0.099999994)
 }
 tracks/4/use_blend = true
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.35),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"notify_attack_connection"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_wsrbu"]
 resource_name = "jump shoot"
@@ -1058,9 +1177,11 @@ size = Vector2(12, 18)
 size = Vector2(4.2426405, 21.213203)
 
 [node name="Player" unique_id=1016638848 instance=ExtResource("1_4flbx")]
+material = SubResource("ShaderMaterial_mm62y")
 collision_layer = 1
 script = ExtResource("2_pcoxj")
 isRejectingInput = false
+max_potion_count = 3
 bulletsMax = 6
 max_hp = 8
 speed = 64.0
@@ -1115,7 +1236,7 @@ monitoring = false
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="sword/Area2D" index="0" unique_id=2086626779]
-position = Vector2(-0.70710564, -11.313707)
+position = Vector2(-2, -11)
 shape = SubResource("RectangleShape2D_uqb0r")
 
 [node name="gunshot" type="Sprite2D" parent="." index="5" unique_id=562707358]
@@ -1141,3 +1262,10 @@ hframes = 2
 vframes = 2
 region_enabled = true
 region_rect = Rect2(288, 96, 32, 32)
+
+[node name="attackRay" parent="." index="10" unique_id=2030597821]
+position = Vector2(0, -14)
+target_position = Vector2(28, 0)
+collision_mask = 8
+collide_with_areas = true
+collide_with_bodies = false

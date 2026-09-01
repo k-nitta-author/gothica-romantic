@@ -24,9 +24,10 @@ enum STATES{ IDLE, MOVING, FALLLING, JUMPING, MELEE, SHOOT, DUCKING, LANDING , D
 @onready var current_hp: int:
 	set(value):
 		var old_value = current_hp
-		current_hp = value
+		current_hp = clamp(value, 0, max_hp)
 
-		emit_signal("has_hp_changed", self, old_value, current_hp)
+		if current_hp != old_value:
+			emit_signal("has_hp_changed", self, old_value, current_hp)
 
 		if current_hp == 0 and old_value != 0:
 			emit_signal("has_died", self)
