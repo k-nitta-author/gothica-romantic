@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bi6m6ljvjtkfq"]
 
 [ext_resource type="Script" uid="uid://bm0uo02cuowty" path="res://ui/start_screen.gd" id="1_s6cxg"]
-[ext_resource type="Theme" uid="uid://bysunrkf7sfea" path="res://ui/main style theme.tres" id="2_igmpp"]
 [ext_resource type="Texture2D" uid="uid://bk541w0bradds" path="res://assets/start screen/logo.png" id="3_a8ycg"]
 [ext_resource type="PackedScene" uid="uid://b8mey0wy8ctvx" path="res://bgs/stormy_night.tscn" id="4_7pkrh"]
 
@@ -21,7 +20,6 @@ offset_left = 16.0
 offset_top = 32.0
 offset_right = 64.0
 offset_bottom = 54.0
-theme = ExtResource("2_igmpp")
 text = "Start"
 
 [node name="continueButton" type="Button" parent="." unique_id=36146547]
@@ -30,8 +28,6 @@ offset_left = 16.0
 offset_top = 56.0
 offset_right = 64.0
 offset_bottom = 78.0
-theme = ExtResource("2_igmpp")
-disabled = true
 text = "Continue"
 
 [node name="settingsButton" type="Button" parent="." unique_id=1757406134]
@@ -40,7 +36,6 @@ offset_left = 16.0
 offset_top = 80.0
 offset_right = 64.0
 offset_bottom = 102.0
-theme = ExtResource("2_igmpp")
 text = "Settings"
 
 [node name="exitButton" type="Button" parent="." unique_id=1266910165]
@@ -49,7 +44,6 @@ offset_left = 16.0
 offset_top = 104.0
 offset_right = 64.0
 offset_bottom = 126.0
-theme = ExtResource("2_igmpp")
 text = "Exit"
 
 [node name="Logo" type="Sprite2D" parent="." unique_id=748768369]

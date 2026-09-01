@@ -22,7 +22,7 @@ enum STATE {
 			STATE.SETTINGS:
 				pass
 			STATE.START_SCREEN:
-				pass
+				get_start_screen().visible = true
 
 @onready var playerHpBar : ProgressBar = $Control/BattleControl/PlayerHpBar
 @onready var enemyHpBar : ProgressBar = $Control/BattleControl/EnemyHpBar
@@ -43,14 +43,28 @@ enum STATE {
 
 @onready var pauseGamePanel = $Control/PauseGamePanel
 
+var game
+
 func _ready() -> void:
-	pauseGamePanel.connect("return_to_previous_screen", pauseGamePanel.hide)
+	pauseGamePanel.connect("return_to_previous_screen", on_game_paused)
+	pauseGamePanel.connect("return_to_main_menu", on_main_menu)
+
+func bind_game(g: Game) -> void:
+	game = g
+
+func on_main_menu() -> void: game.unload_stage()
+
+func on_game_paused() -> void:
+	pauseGamePanel.hide()
+	get_tree().paused = false
 
 func bind_to_player(p: Player):
 	p.connect("has_hp_changed", update_hp_bar)
 	p.connect("on_bullets_current_change", update_bullet_bar)
 
 func bind_boss(bosses: Array): for b in bosses: battleControl.bind_boss_hp_bar(b)
+
+func get_start_screen() -> Control: return $Control/StartScreen
 
 func update_bullet_bar(old_value: int, bulletsCurrent: int):
 
@@ -68,8 +82,10 @@ func update_hp_bar(_actor: BaseActor, _old_value: int, current_hp: int):
 
 func _unhandled_input(event: InputEvent) -> void:
 
-	if event.is_action_pressed("pause") and currentState != STATE.START_SCREEN:
-		if currentState != STATE.PAUSED:
+	if currentState == STATE.START_SCREEN: return
+
+	if event.is_action_pressed("pause"):
+		if currentState == STATE.RESUMED:
 			currentState = STATE.PAUSED
 		else:
 			currentState = STATE.RESUMED

@@ -31,7 +31,9 @@ func on_settings_clicked() -> void:
 	settingsScreen.show()
 
 # called when the main menu button is clicked
-func on_main_menu_clicked() -> void: emit_signal("return_to_main_menu")
+func on_main_menu_clicked() -> void:
+	visible = false
+	emit_signal("return_to_main_menu")
 
 # called when the quit button is clicked
 func on_quit_clicked() -> void: get_tree().quit()

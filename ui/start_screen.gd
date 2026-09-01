@@ -26,7 +26,6 @@ func _ready() -> void:
 # show the save game modal
 func show_save_game_modal() -> void:
 	save_game_modal = save_game_modal_scene.instantiate()
-	save_game_modal.connect("return_to_previous_screen", on_quit_save_game_modal)
 	add_child(save_game_modal)
 
 # remove the save game modal
@@ -49,7 +48,9 @@ func hide_save_game_modal() -> void: save_game_modal.queue_free()
 func start_game() -> void: emit_signal("start_level", false)
 
 # called when the load game button
-func load_game() -> void: emit_signal("start_level", true)
+func load_game() -> void:
+	emit_signal("start_level", true)
+	show_save_game_modal()
 
 # called when the settings button is clicked
 func settings_menu() -> void: show_settings_modal()
