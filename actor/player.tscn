@@ -64,6 +64,10 @@ metadata/_custom_type_script = "uid://dmjhev2pahl57"
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r54av"]
 size = Vector2(10, 24.5)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8f5w4"]
+shader = ExtResource("2_8f5w4")
+shader_parameter/active = false
+
 [sub_resource type="Animation" id="Animation_k4v8y"]
 length = 0.001
 tracks/0/type = "value"
@@ -257,6 +261,18 @@ tracks/15/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, -14)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Sprite2D:material:shader_parameter/active")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_0bt4a"]
@@ -454,6 +470,18 @@ tracks/5/keys = {
 "args": [],
 "method": &"stop"
 }]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sprite2D:material:shader_parameter/active")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true, false]
 }
 
 [sub_resource type="Animation" id="Animation_mm62y"]
@@ -1205,6 +1233,7 @@ position = Vector2(0, -12.25)
 shape = SubResource("RectangleShape2D_r54av")
 
 [node name="Sprite2D" parent="." index="1" unique_id=90387062]
+material = SubResource("ShaderMaterial_8f5w4")
 texture = ExtResource("3_mlbvo")
 offset = Vector2(0, -16)
 hframes = 10

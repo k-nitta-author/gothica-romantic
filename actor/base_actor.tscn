@@ -1,8 +1,13 @@
 [gd_scene format=3 uid="uid://7rqfpdtf2o7f"]
 
 [ext_resource type="Script" uid="uid://cb6egv5g202ry" path="res://actor/base_actor.gd" id="1_8emup"]
+[ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/hitFlashShader.gdshader" id="2_cnu00"]
 [ext_resource type="PackedScene" uid="uid://rp5sdj2ja1c5" path="res://sound effects/sound_sfx_stream.tscn" id="2_mo27s"]
 [ext_resource type="FontFile" uid="uid://ckjyw0le0uxau" path="res://font/PIXELADE.TTF" id="3_ego3k"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sffo0"]
+shader = ExtResource("2_cnu00")
+shader_parameter/active = false
 
 [node name="BaseActor" type="CharacterBody2D" unique_id=1016638848]
 collision_layer = 65
@@ -12,6 +17,7 @@ script = ExtResource("1_8emup")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=900505443]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=90387062]
+material = SubResource("ShaderMaterial_sffo0")
 
 [node name="anim" type="AnimationPlayer" parent="." unique_id=783902006]
 

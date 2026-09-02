@@ -6,9 +6,9 @@ extends BaseActor
 @export_category("Activity")
 @export var seek_right : bool # if true, the enemy seeks the right
 @export var can_see_player : bool
-@export var is_active : bool
-@export var is_awake: bool: set = set_is_awake
-
+@export var is_active : bool # if active, it can move and be interacted with
+@export var is_awake: bool: set = set_is_awake # if it's awake, it can move and in relation to the player
+@export var is_stunned : bool 
 
 @export_category("combat")
 @export_range(0.0, 1000, 1.0) var max_melee_range : float = 100: set = set_max_melee_range
@@ -31,6 +31,8 @@ func set_max_melee_range(value: float):
 func set_max_shoot_range(value: float):
 	max_shoot_range = value
 	queue_redraw()
+
+func hit_stun() -> void: anim.play("hitStun")
 
 func _draw() -> void:
 

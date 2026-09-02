@@ -163,6 +163,8 @@ func walk() -> void: pass
 
 func attack() -> void: pass
 
+func hit_stun() -> void: pass
+
 func notify_attack_connection() -> void:
 	
 	if !attackRay.is_colliding(): return
