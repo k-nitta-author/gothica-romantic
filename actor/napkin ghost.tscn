@@ -5,10 +5,12 @@
 [ext_resource type="Script" uid="uid://cciei67yuitw5" path="res://state/actor/idleState.gd" id="3_d4q1i"]
 [ext_resource type="Script" uid="uid://hhc8ylq4nvxy" path="res://state/actor/meleeState.gd" id="4_br832"]
 [ext_resource type="Script" uid="uid://cgcwml08u6r0s" path="res://state/actor/walkState.gd" id="5_j5ccv"]
-[ext_resource type="Texture2D" uid="uid://n4al035w1as4" path="res://assets/enemies/napkin ghost.png" id="6_aknlt"]
+[ext_resource type="Texture2D" uid="uid://beerfc1nmxjcs" path="res://assets/enemies/napkin ghost.png" id="6_aknlt"]
+[ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/hitFlashShader.gdshader" id="6_d4q1i"]
 [ext_resource type="AudioStream" uid="uid://sorepoioavl7" path="res://assets/sound/sfx/noise1.wav" id="7_o47k4"]
 [ext_resource type="AudioStream" uid="uid://bh44qmiakul2t" path="res://assets/sound/sfx/noise2.wav" id="8_70nrs"]
 [ext_resource type="AudioStream" uid="uid://camxc30dnre2w" path="res://assets/sound/sfx/noise5.wav" id="9_udfjv"]
+[ext_resource type="Animation" uid="uid://dc4oqu1m6whdy" path="res://actor/damaged.res" id="11_br832"]
 
 [sub_resource type="Resource" id="Resource_rndk0"]
 script = ExtResource("3_d4q1i")
@@ -24,6 +26,11 @@ metadata/_custom_type_script = "uid://cgcwml08u6r0s"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_82ly2"]
 size = Vector2(10, 16)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j5ccv"]
+resource_local_to_scene = true
+shader = ExtResource("6_d4q1i")
+shader_parameter/active = false
 
 [sub_resource type="Animation" id="Animation_mkbk3"]
 length = 0.001
@@ -186,6 +193,7 @@ tracks/1/keys = {
 _data = {
 &"RESET": SubResource("Animation_mkbk3"),
 &"attack": SubResource("Animation_u2dha"),
+&"damaged": ExtResource("11_br832"),
 &"idle": SubResource("Animation_82ly2"),
 &"walk": SubResource("Animation_6lntw")
 }
@@ -198,24 +206,24 @@ size = Vector2(64, 20)
 
 [node name="napkin ghost" unique_id=1016638848 instance=ExtResource("1_oj4j1")]
 script = ExtResource("2_tjqsx")
-is_boss = false
 can_see_player = true
 is_active = true
-max_melee_range = 100.0
-max_shoot_range = 100.0
-melee_limit = 100.0
+max_melee_range = 31.0
 default_state_on_awake = 1
-max_hp = 4
+actorType = false
 speed = 6.0
+selected_state = null
 idle_state = SubResource("Resource_rndk0")
 melee_state = SubResource("Resource_5x4kg")
 move_state = SubResource("Resource_sxcph")
+is_flipped = null
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=900505443]
 position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_82ly2")
 
 [node name="Sprite2D" parent="." index="1" unique_id=90387062]
+material = SubResource("ShaderMaterial_j5ccv")
 texture = ExtResource("6_aknlt")
 offset = Vector2(0, -16)
 hframes = 12

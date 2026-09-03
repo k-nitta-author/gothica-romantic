@@ -49,6 +49,8 @@ enum STATES{ IDLE, MOVING, FALLLING, JUMPING, MELEE, SHOOT, DUCKING, LANDING , D
 
 @export_category("States")
 
+var previous_state : STATES
+
 @export var selected_state : STATES:
 	set(value):
 		selected_state = value

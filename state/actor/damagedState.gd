@@ -4,5 +4,11 @@ extends ActorState
 func enter_state():
     state_actor.stateLabel.text = "damaged"
 
+    # TODO: fix this when you can 
+    if state_actor.anim.has_animation("damaged"):
+        state_actor.anim.stop()
+        state_actor.anim.play("damaged")
+
 func update():
-    state_actor.anim.play("damaged")
+    pass
+    

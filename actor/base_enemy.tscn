@@ -2,9 +2,15 @@
 
 [ext_resource type="PackedScene" uid="uid://7rqfpdtf2o7f" path="res://actor/base_actor.tscn" id="1_vaaym"]
 [ext_resource type="Script" uid="uid://b21fg148hm6ho" path="res://actor/base_enemy.gd" id="2_wpd7q"]
+[ext_resource type="Script" uid="uid://dmjhev2pahl57" path="res://state/actor/damagedState.gd" id="3_sffo0"]
 [ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/hitFlashShader.gdshader" id="3_wpd7q"]
+[ext_resource type="Animation" uid="uid://dc4oqu1m6whdy" path="res://actor/damaged.res" id="5_0wmbo"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_sffo0"]
+[sub_resource type="Resource" id="Resource_wpd7q"]
+script = ExtResource("3_sffo0")
+metadata/_custom_type_script = "uid://dmjhev2pahl57"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wpd7q"]
 resource_local_to_scene = true
 shader = ExtResource("3_wpd7q")
 shader_parameter/active = false
@@ -23,27 +29,23 @@ tracks/0/keys = {
 "update": 1,
 "values": [false]
 }
-
-[sub_resource type="Animation" id="Animation_ro0h5"]
-resource_name = "hitStun"
-length = 1.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:material:shader_parameter/active")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:is_stunned")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true, false, true]
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wpd7q"]
 _data = {
 &"RESET": SubResource("Animation_0wmbo"),
-&"hitStun": SubResource("Animation_ro0h5")
+&"damaged": ExtResource("5_0wmbo")
 }
 
 [node name="BaseEnemy" unique_id=1016638848 instance=ExtResource("1_vaaym")]
@@ -55,18 +57,21 @@ seek_right = false
 can_see_player = false
 is_active = false
 is_awake = false
+is_stunned = true
 max_melee_range = 100.0
 max_shoot_range = 100.0
 melee_limit = 100.0
 default_state_on_awake = 0
 actorType = 1
 speed = 19.655
+selected_state = 1
+damaged_state = SubResource("Resource_wpd7q")
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=900505443]
 disabled = true
 
 [node name="Sprite2D" parent="." index="1" unique_id=90387062]
-material = SubResource("ShaderMaterial_sffo0")
+material = SubResource("ShaderMaterial_wpd7q")
 
 [node name="anim" parent="." index="2" unique_id=783902006]
 libraries/ = SubResource("AnimationLibrary_wpd7q")

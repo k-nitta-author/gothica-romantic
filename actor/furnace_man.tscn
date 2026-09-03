@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bjeudo4rvmvag" path="res://actor/base_enemy.tscn" id="1_krpn3"]
 [ext_resource type="Script" uid="uid://cciei67yuitw5" path="res://state/actor/idleState.gd" id="2_0bsn1"]
 [ext_resource type="Script" uid="uid://bxthdcpdc3xyu" path="res://actor/platformer_enemy.gd" id="2_7p7yn"]
-[ext_resource type="Texture2D" uid="uid://dcgappb8ubh2v" path="res://assets/enemies/furnace man.png" id="2_hhll4"]
+[ext_resource type="Texture2D" uid="uid://ckka64hc6amhp" path="res://assets/enemies/furnace man.png" id="2_hhll4"]
 [ext_resource type="Script" uid="uid://hhc8ylq4nvxy" path="res://state/actor/meleeState.gd" id="3_7p7yn"]
 [ext_resource type="Texture2D" uid="uid://i53odyie8gpx" path="res://assets/effects/green flame.png" id="3_m3y58"]
 [ext_resource type="AudioStream" uid="uid://bywpsp2cs0s0s" path="res://assets/sound/sfx/noise3.wav" id="3_ouhma"]
@@ -12,7 +12,9 @@
 [ext_resource type="Script" uid="uid://cgcwml08u6r0s" path="res://state/actor/walkState.gd" id="4_rdtyo"]
 [ext_resource type="AudioStream" uid="uid://bh44qmiakul2t" path="res://assets/sound/sfx/noise2.wav" id="5_iammg"]
 [ext_resource type="Script" uid="uid://bunbdgovyilxk" path="res://state/actor/shootState.gd" id="5_rmx4m"]
-[ext_resource type="AudioStream" uid="uid://df1h6nx8fss84" path="res://assets/sound/sfx/noise4.wav" id="6_i8cqh"]
+[ext_resource type="AudioStream" uid="uid://bfqls0skfob01" path="res://assets/sound/sfx/noise4.wav" id="6_i8cqh"]
+[ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/hitFlashShader.gdshader" id="7_rmx4m"]
+[ext_resource type="Animation" uid="uid://dc4oqu1m6whdy" path="res://actor/damaged.res" id="12_qisoe"]
 
 [sub_resource type="Resource" id="Resource_b8ab5"]
 script = ExtResource("2_0bsn1")
@@ -32,6 +34,11 @@ metadata/_custom_type_script = "uid://bunbdgovyilxk"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pgrgf"]
 size = Vector2(16, 33)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8n8ub"]
+resource_local_to_scene = true
+shader = ExtResource("7_rmx4m")
+shader_parameter/active = false
 
 [sub_resource type="Animation" id="Animation_a7mri"]
 length = 0.001
@@ -867,6 +874,7 @@ tracks/3/use_blend = true
 _data = {
 &"RESET": SubResource("Animation_a7mri"),
 &"attack": SubResource("Animation_4cpvn"),
+&"damaged": ExtResource("12_qisoe"),
 &"idle": SubResource("Animation_ouhma"),
 &"shoot": SubResource("Animation_vnp8y"),
 &"walk": SubResource("Animation_iammg")
@@ -880,17 +888,14 @@ size = Vector2(176, 20)
 
 [node name="furnace man" unique_id=1016638848 instance=ExtResource("1_krpn3")]
 script = ExtResource("2_7p7yn")
-is_boss = false
 can_see_player = true
 is_active = true
 is_awake = true
 max_melee_range = 200.0
 max_shoot_range = 350.0
-melee_limit = 100.0
 default_state_on_awake = 1
 max_hp = 8
 speed = 8.0
-selected_state = 1
 idle_state = SubResource("Resource_b8ab5")
 melee_state = SubResource("Resource_cqtiu")
 move_state = SubResource("Resource_bwp0q")
@@ -901,6 +906,7 @@ position = Vector2(3, -17)
 shape = SubResource("RectangleShape2D_pgrgf")
 
 [node name="Sprite2D" parent="." index="1" unique_id=90387062]
+material = SubResource("ShaderMaterial_8n8ub")
 texture = ExtResource("2_hhll4")
 offset = Vector2(0, -24)
 hframes = 7

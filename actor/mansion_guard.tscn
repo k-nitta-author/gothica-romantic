@@ -1,14 +1,16 @@
-[gd_scene format=3 uid="uid://d1reqh87cs7um"]
+[gd_scene format=3 uid="uid://blmm78fcbvph3"]
 
 [ext_resource type="PackedScene" uid="uid://bjeudo4rvmvag" path="res://actor/base_enemy.tscn" id="1_2fg5m"]
 [ext_resource type="Script" uid="uid://cciei67yuitw5" path="res://state/actor/idleState.gd" id="2_4gx5r"]
 [ext_resource type="Script" uid="uid://bxthdcpdc3xyu" path="res://actor/platformer_enemy.gd" id="2_prpt8"]
-[ext_resource type="Texture2D" uid="uid://dfrlphkvl6n5m" path="res://assets/enemies/mansion guard.png" id="2_v5mtr"]
+[ext_resource type="Texture2D" uid="uid://j66n6ob6fxvp" path="res://assets/enemies/mansion guard.png" id="2_v5mtr"]
 [ext_resource type="AudioStream" uid="uid://sorepoioavl7" path="res://assets/sound/sfx/noise1.wav" id="3_21pae"]
 [ext_resource type="Script" uid="uid://hhc8ylq4nvxy" path="res://state/actor/meleeState.gd" id="3_k0wlm"]
 [ext_resource type="Script" uid="uid://cgcwml08u6r0s" path="res://state/actor/walkState.gd" id="4_iplda"]
 [ext_resource type="AudioStream" uid="uid://bywpsp2cs0s0s" path="res://assets/sound/sfx/noise3.wav" id="4_prpt8"]
-[ext_resource type="AudioStream" uid="uid://df1h6nx8fss84" path="res://assets/sound/sfx/noise4.wav" id="5_wdtfm"]
+[ext_resource type="AudioStream" uid="uid://bfqls0skfob01" path="res://assets/sound/sfx/noise4.wav" id="5_wdtfm"]
+[ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/hitFlashShader.gdshader" id="6_88kek"]
+[ext_resource type="Animation" uid="uid://dc4oqu1m6whdy" path="res://actor/damaged.res" id="10_7f71k"]
 
 [sub_resource type="Resource" id="Resource_prpt8"]
 script = ExtResource("2_4gx5r")
@@ -25,6 +27,11 @@ metadata/_custom_type_script = "uid://cgcwml08u6r0s"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5mb4p"]
 size = Vector2(16, 24)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4le2c"]
+resource_local_to_scene = true
+shader = ExtResource("6_88kek")
+shader_parameter/active = false
 
 [sub_resource type="Animation" id="Animation_sflhr"]
 length = 0.001
@@ -321,6 +328,7 @@ tracks/3/use_blend = true
 _data = {
 &"RESET": SubResource("Animation_sflhr"),
 &"attack": SubResource("Animation_21pae"),
+&"damaged": ExtResource("10_7f71k"),
 &"idle": SubResource("Animation_prpt8"),
 &"walk": SubResource("Animation_wdtfm")
 }
@@ -333,15 +341,13 @@ size = Vector2(128, 64)
 
 [node name="mansion guard" unique_id=1016638848 instance=ExtResource("1_2fg5m")]
 script = ExtResource("2_prpt8")
-is_boss = false
 can_see_player = true
 is_active = true
 max_melee_range = 30.0
-max_shoot_range = 100.0
-melee_limit = 100.0
 default_state_on_awake = 1
 max_hp = 5
 speed = 16.0
+selected_state = 0
 idle_state = SubResource("Resource_prpt8")
 melee_state = SubResource("Resource_wdtfm")
 move_state = SubResource("Resource_k0wlm")
@@ -351,6 +357,7 @@ position = Vector2(0, -12)
 shape = SubResource("RectangleShape2D_5mb4p")
 
 [node name="Sprite2D" parent="." index="1" unique_id=90387062]
+material = SubResource("ShaderMaterial_4le2c")
 texture = ExtResource("2_v5mtr")
 offset = Vector2(0, -16)
 hframes = 6

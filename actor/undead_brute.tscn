@@ -1,7 +1,33 @@
 [gd_scene format=3 uid="uid://btvp3b55r1riw"]
 
 [ext_resource type="PackedScene" uid="uid://bjeudo4rvmvag" path="res://actor/base_enemy.tscn" id="1_x0yvw"]
+[ext_resource type="Script" uid="uid://cgcwml08u6r0s" path="res://state/actor/walkState.gd" id="2_1dmjd"]
 [ext_resource type="Texture2D" uid="uid://dfyaedoqrj7uq" path="res://assets/enemies/Undead Brute.png" id="2_dsw75"]
+[ext_resource type="Script" uid="uid://cciei67yuitw5" path="res://state/actor/idleState.gd" id="2_u74of"]
+[ext_resource type="Script" uid="uid://bunbdgovyilxk" path="res://state/actor/shootState.gd" id="3_u74of"]
+[ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/hitFlashShader.gdshader" id="5_2hqow"]
+[ext_resource type="Animation" uid="uid://dc4oqu1m6whdy" path="res://actor/damaged.res" id="7_e2do6"]
+
+[sub_resource type="Resource" id="Resource_eqrin"]
+script = ExtResource("2_u74of")
+metadata/_custom_type_script = "uid://cciei67yuitw5"
+
+[sub_resource type="Resource" id="Resource_x0yvw"]
+script = ExtResource("2_1dmjd")
+metadata/_custom_type_script = "uid://cgcwml08u6r0s"
+
+[sub_resource type="Resource" id="Resource_dsw75"]
+script = ExtResource("3_u74of")
+metadata/_custom_type_script = "uid://bunbdgovyilxk"
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_q1xjc"]
+a = Vector2(-8, 0)
+b = Vector2(8, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yc1xk"]
+resource_local_to_scene = true
+shader = ExtResource("5_2hqow")
+shader_parameter/active = false
 
 [sub_resource type="Animation" id="Animation_1dmjd"]
 length = 0.001
@@ -73,14 +99,31 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e2do6"]
 _data = {
 &"RESET": SubResource("Animation_1dmjd"),
+&"damaged": ExtResource("7_e2do6"),
 &"scream": SubResource("Animation_u74of"),
 &"shoot": SubResource("Animation_eqrin"),
 &"walk": SubResource("Animation_2hqow")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x0yvw"]
+size = Vector2(16, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dsw75"]
+size = Vector2(128, 64)
+
 [node name="undead_brute" unique_id=1016638848 instance=ExtResource("1_x0yvw")]
+can_see_player = true
+default_state_on_awake = 1
+max_hp = 6
+idle_state = SubResource("Resource_eqrin")
+move_state = SubResource("Resource_x0yvw")
+shoot_state = SubResource("Resource_dsw75")
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=900505443]
+shape = SubResource("SegmentShape2D_q1xjc")
 
 [node name="Sprite2D" parent="." index="1" unique_id=90387062]
+material = SubResource("ShaderMaterial_yc1xk")
 texture = ExtResource("2_dsw75")
 offset = Vector2(0, -16)
 hframes = 7
@@ -88,3 +131,11 @@ vframes = 2
 
 [node name="anim" parent="." index="2" unique_id=783902006]
 libraries/ = SubResource("AnimationLibrary_e2do6")
+
+[node name="CollisionShape2D" parent="Hitbox" parent_id_path=PackedInt32Array(636899970) index="0" unique_id=2047019247]
+position = Vector2(0, -11)
+shape = SubResource("RectangleShape2D_x0yvw")
+
+[node name="CollisionShape2D" parent="VisionArea" parent_id_path=PackedInt32Array(1796340020) index="0" unique_id=2039586838]
+position = Vector2(0, -32)
+shape = SubResource("RectangleShape2D_dsw75")

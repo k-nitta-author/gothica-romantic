@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://hhc8ylq4nvxy" path="res://state/actor/meleeState.gd" id="4_kwd8c"]
 [ext_resource type="Script" uid="uid://cgcwml08u6r0s" path="res://state/actor/walkState.gd" id="5_fkvp5"]
 [ext_resource type="Script" uid="uid://bunbdgovyilxk" path="res://state/actor/shootState.gd" id="6_ya0f1"]
+[ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/hitFlashShader.gdshader" id="7_kwd8c"]
+[ext_resource type="Animation" uid="uid://dc4oqu1m6whdy" path="res://actor/damaged.res" id="9_fkvp5"]
 
 [sub_resource type="Resource" id="Resource_7jktm"]
 script = ExtResource("3_gulix")
@@ -26,6 +28,11 @@ script = ExtResource("6_ya0f1")
 metadata/_custom_type_script = "uid://bunbdgovyilxk"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onahq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ya0f1"]
+resource_local_to_scene = true
+shader = ExtResource("7_kwd8c")
+shader_parameter/active = false
 
 [sub_resource type="Animation" id="Animation_oumla"]
 length = 0.001
@@ -158,6 +165,7 @@ tracks/1/keys = {
 _data = {
 &"RESET": SubResource("Animation_oumla"),
 &"cast": SubResource("Animation_lqr6f"),
+&"damaged": ExtResource("9_fkvp5"),
 &"spin attack": SubResource("Animation_0okp3"),
 &"walk": SubResource("Animation_73qie")
 }
@@ -172,12 +180,8 @@ size = Vector2(128, 64)
 script = ExtResource("2_73qie")
 can_see_player = true
 is_active = true
-max_melee_range = 100.0
-max_shoot_range = 100.0
-melee_limit = 100.0
 default_state_on_awake = 1
 max_hp = 10
-selected_state = 1
 idle_state = SubResource("Resource_7jktm")
 melee_state = SubResource("Resource_ryrav")
 move_state = SubResource("Resource_j5wjh")
@@ -196,6 +200,7 @@ position = Vector2(1, -10)
 shape = SubResource("RectangleShape2D_onahq")
 
 [node name="Sprite2D" parent="." index="2" unique_id=90387062]
+material = SubResource("ShaderMaterial_ya0f1")
 texture = ExtResource("2_kabjl")
 offset = Vector2(0, -16)
 hframes = 10

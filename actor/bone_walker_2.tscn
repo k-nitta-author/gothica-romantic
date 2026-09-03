@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://dnb18c8cyr0nm" path="res://assets/enemies/Bone Walker.png" id="2_a8e7q"]
 [ext_resource type="Script" uid="uid://cgcwml08u6r0s" path="res://state/actor/walkState.gd" id="3_ua142"]
 [ext_resource type="Script" uid="uid://bxro0yfjng3td" path="res://state/actor/fallingState.gd" id="4_awo14"]
+[ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/hitFlashShader.gdshader" id="5_5xplo"]
+[ext_resource type="Animation" uid="uid://dc4oqu1m6whdy" path="res://actor/damaged.res" id="7_e652v"]
 
 [sub_resource type="Resource" id="Resource_y8pw5"]
 script = ExtResource("2_5hoc6")
@@ -21,6 +23,11 @@ metadata/_custom_type_script = "uid://bxro0yfjng3td"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q1xjc"]
 size = Vector2(20, 10)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bum77"]
+resource_local_to_scene = true
+shader = ExtResource("5_5xplo")
+shader_parameter/active = true
 
 [sub_resource type="Animation" id="Animation_5hoc6"]
 length = 0.001
@@ -58,6 +65,7 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ua142"]
 _data = {
 &"RESET": SubResource("Animation_5hoc6"),
+&"damaged": ExtResource("7_e652v"),
 &"walk": SubResource("Animation_awo14")
 }
 
@@ -68,7 +76,6 @@ size = Vector2(28.5, 15)
 size = Vector2(66, 20)
 
 [node name="bone_walker_2" unique_id=1016638848 instance=ExtResource("1_oomqi")]
-default_state_on_awake = 0
 max_hp = 5
 speed = 23.0
 speed_in_air_vertical = 5.0
@@ -81,6 +88,7 @@ position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_q1xjc")
 
 [node name="Sprite2D" parent="." index="1" unique_id=90387062]
+material = SubResource("ShaderMaterial_bum77")
 texture = ExtResource("2_a8e7q")
 offset = Vector2(0, -16)
 hframes = 2

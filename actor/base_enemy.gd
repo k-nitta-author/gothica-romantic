@@ -71,6 +71,7 @@ func on_hitbox_entered(area: Area2D):
 	
 	if area is BaseBullet or area.owner is Player:
 		current_hp -= 1
+		selected_state = STATES.DAMAGED
 
 func on_vision_area_entered(_area: Area2D):
 	can_see_player = true

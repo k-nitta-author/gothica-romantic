@@ -2,6 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://bjeudo4rvmvag" path="res://actor/base_enemy.tscn" id="1_qaj22"]
 [ext_resource type="Texture2D" uid="uid://8bftnp5k8jdr" path="res://assets/enemies/mansion grounds keeper.png" id="2_52qai"]
+[ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/hitFlashShader.gdshader" id="2_vjeca"]
+[ext_resource type="Animation" uid="uid://dc4oqu1m6whdy" path="res://actor/damaged.res" id="4_vjeca"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4pava"]
+resource_local_to_scene = true
+shader = ExtResource("2_vjeca")
+shader_parameter/active = false
 
 [sub_resource type="Animation" id="Animation_qaj22"]
 length = 0.001
@@ -218,17 +225,15 @@ tracks/1/keys = {
 _data = {
 &"RESET": SubResource("Animation_qaj22"),
 &"attack": SubResource("Animation_52qai"),
+&"damaged": ExtResource("4_vjeca"),
 &"idle": SubResource("Animation_vjeca"),
 &"walk": SubResource("Animation_4pava")
 }
 
 [node name="mansion grounds keeper" unique_id=1016638848 instance=ExtResource("1_qaj22")]
-is_boss = false
-max_melee_range = 100.0
-max_shoot_range = 100.0
-melee_limit = 100.0
 
 [node name="Sprite2D" parent="." index="1" unique_id=90387062]
+material = SubResource("ShaderMaterial_4pava")
 texture = ExtResource("2_52qai")
 offset = Vector2(0, -24)
 hframes = 8

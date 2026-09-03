@@ -6,6 +6,8 @@
 [ext_resource type="Script" uid="uid://dr8yurf1hb0c" path="res://actor/crow.gd" id="2_ulv0h"]
 [ext_resource type="Script" uid="uid://b4gnx3i6umkvr" path="res://state/actor/flyState.gd" id="3_0pd04"]
 [ext_resource type="Script" uid="uid://rmir0bixb5pe" path="res://state/actor/flyingChargeState.gd" id="3_ulv0h"]
+[ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/hitFlashShader.gdshader" id="6_dcuvm"]
+[ext_resource type="Animation" uid="uid://dc4oqu1m6whdy" path="res://actor/damaged.res" id="8_tqso1"]
 
 [sub_resource type="Resource" id="Resource_586ph"]
 script = ExtResource("2_h0qai")
@@ -21,6 +23,11 @@ metadata/_custom_type_script = "uid://b4gnx3i6umkvr"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fj116"]
 size = Vector2(20, 10)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l3v6p"]
+resource_local_to_scene = true
+shader = ExtResource("6_dcuvm")
+shader_parameter/active = false
 
 [sub_resource type="Animation" id="Animation_h0qai"]
 length = 0.001
@@ -57,6 +64,7 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ulv0h"]
 _data = {
 &"RESET": SubResource("Animation_h0qai"),
+&"damaged": ExtResource("8_tqso1"),
 &"fly": SubResource("Animation_0pd04")
 }
 
@@ -83,6 +91,7 @@ position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_fj116")
 
 [node name="Sprite2D" parent="." index="1" unique_id=90387062]
+material = SubResource("ShaderMaterial_l3v6p")
 texture = ExtResource("2_dhd1x")
 offset = Vector2(0, -6)
 hframes = 3

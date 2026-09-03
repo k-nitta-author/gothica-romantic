@@ -1,7 +1,14 @@
 [gd_scene format=3 uid="uid://dpgoikpggg3ox"]
 
 [ext_resource type="PackedScene" uid="uid://bjeudo4rvmvag" path="res://actor/base_enemy.tscn" id="1_5vvxa"]
-[ext_resource type="Texture2D" uid="uid://cp7gaqoixcyg3" path="res://assets/enemies/The Countess.png" id="2_rjxko"]
+[ext_resource type="Texture2D" uid="uid://dag24a0foiugu" path="res://assets/enemies/The Countess.png" id="2_rjxko"]
+[ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/hitFlashShader.gdshader" id="2_wjf8b"]
+[ext_resource type="Animation" uid="uid://dc4oqu1m6whdy" path="res://actor/damaged.res" id="4_xo63i"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o8nu8"]
+resource_local_to_scene = true
+shader = ExtResource("2_wjf8b")
+shader_parameter/active = false
 
 [sub_resource type="Animation" id="Animation_wjf8b"]
 length = 0.001
@@ -691,6 +698,7 @@ tracks/6/keys = {
 _data = {
 &"RESET": SubResource("Animation_wjf8b"),
 &"attack": SubResource("Animation_xo63i"),
+&"damaged": ExtResource("4_xo63i"),
 &"high jump": SubResource("Animation_5vvxa"),
 &"jump back attack": SubResource("Animation_o8nu8"),
 &"walk": SubResource("Animation_usipw")
@@ -699,12 +707,11 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gjj6f"]
 
 [node name="The Countess" unique_id=1016638848 instance=ExtResource("1_5vvxa")]
-is_boss = false
-max_melee_range = 100.0
-max_shoot_range = 100.0
-melee_limit = 100.0
+max_melee_range = 62.0
+max_shoot_range = 257.0
 
 [node name="Sprite2D" parent="." index="1" unique_id=90387062]
+material = SubResource("ShaderMaterial_o8nu8")
 position = Vector2(24, -56)
 texture = ExtResource("2_rjxko")
 offset = Vector2(0, -16)

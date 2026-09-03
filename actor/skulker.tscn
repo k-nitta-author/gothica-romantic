@@ -3,12 +3,14 @@
 [ext_resource type="PackedScene" uid="uid://bjeudo4rvmvag" path="res://actor/base_enemy.tscn" id="1_ncfk3"]
 [ext_resource type="Script" uid="uid://bxthdcpdc3xyu" path="res://actor/platformer_enemy.gd" id="2_jlisl"]
 [ext_resource type="Script" uid="uid://cciei67yuitw5" path="res://state/actor/idleState.gd" id="2_qgspr"]
-[ext_resource type="Texture2D" uid="uid://btsiwhusq78xv" path="res://assets/enemies/Skulker.png" id="2_r53kt"]
+[ext_resource type="Texture2D" uid="uid://bgyfatwo2qou" path="res://assets/enemies/Skulker.png" id="2_r53kt"]
 [ext_resource type="AudioStream" uid="uid://sorepoioavl7" path="res://assets/sound/sfx/noise1.wav" id="3_dd8rf"]
 [ext_resource type="Script" uid="uid://hhc8ylq4nvxy" path="res://state/actor/meleeState.gd" id="3_jlisl"]
 [ext_resource type="Script" uid="uid://cgcwml08u6r0s" path="res://state/actor/walkState.gd" id="4_a2gub"]
 [ext_resource type="AudioStream" uid="uid://bh44qmiakul2t" path="res://assets/sound/sfx/noise2.wav" id="4_qgspr"]
 [ext_resource type="AudioStream" uid="uid://camxc30dnre2w" path="res://assets/sound/sfx/noise5.wav" id="5_jlisl"]
+[ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/hitFlashShader.gdshader" id="6_am63j"]
+[ext_resource type="Animation" uid="uid://dc4oqu1m6whdy" path="res://actor/damaged.res" id="11_fakrx"]
 
 [sub_resource type="Resource" id="Resource_fm07x"]
 script = ExtResource("2_qgspr")
@@ -24,6 +26,11 @@ metadata/_custom_type_script = "uid://cgcwml08u6r0s"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jetdb"]
 size = Vector2(12, 12)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pj3ty"]
+resource_local_to_scene = true
+shader = ExtResource("6_am63j")
+shader_parameter/active = true
 
 [sub_resource type="Animation" id="Animation_a2gub"]
 length = 0.001
@@ -186,6 +193,7 @@ tracks/1/use_blend = true
 _data = {
 &"RESET": SubResource("Animation_a2gub"),
 &"attack": SubResource("Animation_am63j"),
+&"damaged": ExtResource("11_fakrx"),
 &"idle": SubResource("Animation_fakrx"),
 &"walk": SubResource("Animation_pj3ty")
 }
@@ -198,11 +206,9 @@ size = Vector2(128, 20)
 
 [node name="Skulker" unique_id=1016638848 instance=ExtResource("1_ncfk3")]
 script = ExtResource("2_jlisl")
-is_boss = false
 can_see_player = true
 is_active = true
 max_melee_range = 144.0
-max_shoot_range = 100.0
 melee_limit = 34.0
 default_state_on_awake = 1
 max_hp = 2
@@ -216,6 +222,7 @@ position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_jetdb")
 
 [node name="Sprite2D" parent="." index="1" unique_id=90387062]
+material = SubResource("ShaderMaterial_pj3ty")
 texture = ExtResource("2_r53kt")
 offset = Vector2(0, -8)
 hframes = 8
