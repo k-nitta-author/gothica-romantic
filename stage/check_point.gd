@@ -6,11 +6,12 @@ extends Node2D
 @onready var soundSfxStream : AudioStreamPlayer2D = $soundSfxStream
 @onready var anim : AnimationPlayer = $anim
 
+var idx : int
+
 signal player_activated_checkpoint
 
-func _ready() -> void:
-
-    area2d.connect("area_entered", on_area_entered)
+func _ready() -> void: area2d.connect("area_entered", on_area_entered)
 
 func on_area_entered(_area: Area2D) -> void:
-    emit_signal("player_activated_checkpoint")
+    area2d.call_deferred("set", "monitoring", false)
+    emit_signal("player_activated_checkpoint", idx)

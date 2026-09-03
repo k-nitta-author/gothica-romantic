@@ -19,9 +19,12 @@ enum SPLATTER {SHOOT, SLASH}
 @onready var shoot_splatter = preload("uid://bjjv01r2sxehu")
 @onready var slash_splatter = preload("uid://dam2cxs8um8t1")
 
+var current_checkpoint_idx : int
+
 var game: Game
 
 signal stage_end()
+signal notify_save()
 
 func _ready() -> void:
 
@@ -37,13 +40,15 @@ func bind_to_game(_game: Game) -> void:
 	self.game = _game
 	await ready
 	stage_exit.connect("player_exited", game.on_player_exited)
+	checkPointManager.bind_dependencies(self, _game)
+
+	connect("notify_save", game.save)
 
 # bind self and necessary references to the various managers
 func bind_dependencies(stage: Stage):
 	actorManager.bind_dependencies(stage)
 	#propManager.bind_dependencies(stage)
 	bulletManager.bind_dependencies(stage)
-	checkPointManager.bind_dependencies(stage)
 
 # the process of ending the level
 # probably plays some sort of transition or music queue
@@ -91,4 +96,7 @@ func spawn_collectible(node: Node) -> void:
 
 # called when player passes checkpoint
 func on_player_checkpoint_activated(_checkpointIdx: int) -> void:
-	pass
+	current_checkpoint_idx = _checkpointIdx
+
+	print(_checkpointIdx)
+	emit_signal("notify_save")
