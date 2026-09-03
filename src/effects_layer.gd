@@ -1,7 +1,10 @@
+class_name EffectsLayer
 extends CanvasLayer
 
 @onready var transitionSurface : ColorRect = $transitionSurface
 @onready var anim : AnimationPlayer = $anim
+
+signal transition_finished
 
 # the different trans types
 enum TRANS {
@@ -13,8 +16,13 @@ enum TRANS {
     IRIS_IN
 }
 
+func _ready() -> void:
+    anim.connect("animation_finished", _on_anim_finished)
+
+func _on_anim_finished(_anim_name: String) -> void: emit_signal("transition_finished")
+
 # plays the transition for the effects layer
-func play_transition(trans_type: TRANS) -> void: 
+func play_transition(trans_type: TRANS, reverse: bool = false) -> void: 
 
     # map chosen TRANS type with corresponding animation
     const anim_dict = {
@@ -27,4 +35,4 @@ func play_transition(trans_type: TRANS) -> void:
         }
 
     # play animation itself
-    anim.play(anim_dict[trans_type])
+    anim.play(anim_dict[trans_type], -1, 1.0 if !reverse else -1.0, reverse)

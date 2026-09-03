@@ -19,6 +19,9 @@ enum SPLATTER {SHOOT, SLASH}
 @onready var shoot_splatter = preload("uid://bjjv01r2sxehu")
 @onready var slash_splatter = preload("uid://dam2cxs8um8t1")
 
+@export var transition_in : EffectsLayer.TRANS
+@export var transition_out : EffectsLayer.TRANS
+
 var current_checkpoint_idx : int
 
 var game: Game
@@ -28,6 +31,7 @@ signal notify_save()
 
 func _ready() -> void:
 
+	start()
 	bind_dependencies(self)
 
 # get the current boss
@@ -39,7 +43,7 @@ func get_player() -> Player: return player
 func bind_to_game(_game: Game) -> void:
 	self.game = _game
 	await ready
-	stage_exit.connect("player_exited", game.on_player_exited)
+	stage_exit.connect("player_exited", end)
 	checkPointManager.bind_dependencies(self, _game)
 
 	connect("notify_save", game.save)
@@ -50,11 +54,26 @@ func bind_dependencies(stage: Stage):
 	propManager.bind_dependencies(stage)
 	bulletManager.bind_dependencies(stage)
 
+# the process of starting the level
+func start() -> void:
+	game.effectLayer.play_transition(transition_in, true)
+
+	await game.effectLayer.transition_finished
+
+	actorManager.can_update = true
+
 # the process of ending the level
 # probably plays some sort of transition or music queue
 # passes up the chain to the game above the next level scene
-func end(_nextLevel: PackedScene) -> void:
-	emit_signal("stage_end")
+func end(nextLevel: PackedScene) -> void:
+
+	actorManager.can_update = false
+
+	game.effectLayer.play_transition(transition_out)
+
+	await game.effectLayer.transition_finished
+
+	game.on_stage_end(nextLevel)
 
 # spawn actor
 func spawn_actor(actorScene: PackedScene) -> void:

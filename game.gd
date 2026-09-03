@@ -8,6 +8,7 @@ const GRAVITY = 1 # determine best value later on
 @onready var music: AudioStreamPlayer = $Music
 @onready var stage: Stage = self.get_node_or_null("Stage")
 @onready var saveManager : SaveManager = $SaveManager
+@onready var effectLayer : EffectsLayer = $EffectsLayer
 
 @export var next_level_scene: PackedScene
 @onready var start_screen : Control = $HudLayer.get_start_screen()
@@ -91,7 +92,7 @@ func poll_game_state() -> Dictionary:
 		"current_checkpoint_idx": stage.current_checkpoint_idx
 	}
 
-func on_player_exited(new_next_level_scene: PackedScene):
+func on_stage_end(new_next_level_scene: PackedScene):
 
 	if new_next_level_scene == null: return  
 

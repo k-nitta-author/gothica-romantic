@@ -4,6 +4,8 @@ extends Node2D
 @onready var player := $Player
 @onready var bosses : Array
 
+var can_update := false
+
 func bind_dependencies(stage: Stage) -> void:
 	for c in get_children():
 		c.bind_dependencies(stage)
@@ -16,6 +18,8 @@ func get_bosses() -> Array: return bosses
 
 func _physics_process(_delta: float) -> void:
 	
+	if !can_update: return
+
 	for c in children:
 		c.update()
 

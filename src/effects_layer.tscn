@@ -9,7 +9,7 @@ shader_parameter/use_sprite_alpha = true
 shader_parameter/use_transition_texture = false
 shader_parameter/transition_type = 2
 shader_parameter/position = Vector2(0, 0)
-shader_parameter/invert = false
+shader_parameter/invert = true
 shader_parameter/grid_size = Vector2(-1, 1)
 shader_parameter/rotation_angle = 0.0
 shader_parameter/global_x_mirror = false
@@ -373,7 +373,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.50534403, 0.5053441, 0.50534403, 1)
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
 
 [node name="anim" type="AnimationPlayer" parent="." unique_id=259818251]
 libraries/ = SubResource("AnimationLibrary_8rjfw")
