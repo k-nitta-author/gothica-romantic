@@ -30,6 +30,7 @@ enum STATE {
 @onready var enemyHpBar : ProgressBar = $Control/BattleControl/EnemyHpBar
 @onready var battleControl : Control = $Control/BattleControl
 @onready var dialogBox : DialogBox = $Control/DialogBox
+@onready var startScreen = $Control/StartScreen
 
 @onready var bulletBar: Array[Node] = [
 	$Control/BattleControl/BulletIcon,
@@ -48,11 +49,14 @@ enum STATE {
 var game
 
 func _ready() -> void:
+
 	pauseGamePanel.connect("return_to_previous_screen", on_game_paused)
 	pauseGamePanel.connect("return_to_main_menu", on_main_menu)
 
 func bind_game(g: Game) -> void:
 	game = g
+
+	startScreen.bind_to_game(game)
 
 func on_main_menu() -> void: game.unload_stage()
 

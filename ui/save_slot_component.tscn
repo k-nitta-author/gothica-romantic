@@ -3,25 +3,34 @@
 [ext_resource type="Script" uid="uid://c6nwg5r1ye30e" path="res://ui/save_slot_component.gd" id="1_uvvr5"]
 
 [node name="SaveSlotComponent" type="Panel" unique_id=815052190]
-custom_minimum_size = Vector2(48, 0)
-offset_right = 40.0
+custom_minimum_size = Vector2(72, 0)
+offset_right = 93.0
 offset_bottom = 140.0
 script = ExtResource("1_uvvr5")
 
 [node name="dateLabel" type="Label" parent="." unique_id=621928309]
 layout_mode = 0
-offset_top = 27.0
-offset_right = 48.0
-offset_bottom = 50.0
+offset_left = 11.0
+offset_top = 35.0
+offset_right = 59.0
+offset_bottom = 58.0
+theme_override_font_sizes/font_size = 14
+text = "date"
 
 [node name="playTimeLabel" type="Label" parent="." unique_id=2128510837]
 layout_mode = 0
-offset_top = 27.0
-offset_right = 256.0
-offset_bottom = 50.0
+offset_left = 12.0
+offset_top = 55.0
+offset_right = 268.0
+offset_bottom = 78.0
+theme_override_font_sizes/font_size = 14
+text = "playtime"
 
 [node name="placeLabel" type="Label" parent="." unique_id=1899460821]
 layout_mode = 0
-offset_top = 27.0
-offset_right = 256.0
-offset_bottom = 50.0
+offset_left = 11.0
+offset_top = 14.0
+offset_right = 52.0
+offset_bottom = 37.0
+theme_override_font_sizes/font_size = 14
+text = "place"

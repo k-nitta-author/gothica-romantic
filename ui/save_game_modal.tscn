@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dy0j84bmvhox2"]
 
+[ext_resource type="Theme" uid="uid://bysunrkf7sfea" path="res://ui/main style theme.tres" id="1_fx5ra"]
 [ext_resource type="Script" uid="uid://daesx47xlna8j" path="res://ui/save_game_modal.gd" id="1_ukcik"]
 [ext_resource type="PackedScene" uid="uid://dgw3l1rhnlqfr" path="res://ui/save_slot_component.tscn" id="2_3xrog"]
 
@@ -9,15 +10,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_fx5ra")
 script = ExtResource("1_ukcik")
 
 [node name="Label" type="Label" parent="." unique_id=1740634932]
 layout_mode = 0
-offset_left = 74.0
-offset_top = 4.0
-offset_right = 174.0
-offset_bottom = 27.0
+offset_left = 44.0
+offset_top = 9.0
+offset_right = 202.0
+offset_bottom = 32.0
 text = "saved games"
+horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=556676517]
 layout_mode = 1
@@ -26,27 +29,21 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -102.0
-offset_top = -41.0
-offset_right = 102.0
-offset_bottom = 42.0
+offset_left = -128.0
+offset_top = -45.0
+offset_right = 126.0
+offset_bottom = 47.0
 grow_horizontal = 2
 grow_vertical = 2
+alignment = 1
 
 [node name="SaveSlotComponent" parent="HBoxContainer" unique_id=815052190 instance=ExtResource("2_3xrog")]
-visible = false
 layout_mode = 2
 
 [node name="SaveSlotComponent2" parent="HBoxContainer" unique_id=187994934 instance=ExtResource("2_3xrog")]
-visible = false
 layout_mode = 2
 
 [node name="SaveSlotComponent3" parent="HBoxContainer" unique_id=26800749 instance=ExtResource("2_3xrog")]
-visible = false
-layout_mode = 2
-
-[node name="SaveSlotComponent4" parent="HBoxContainer" unique_id=754908069 instance=ExtResource("2_3xrog")]
-visible = false
 layout_mode = 2
 
 [node name="backButton" type="Button" parent="." unique_id=1027829045]

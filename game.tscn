@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" uid="uid://ykgi3dlcw8fn" path="res://game.gd" id="1_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://d1dvs67uncing" path="res://ui/hud_layer.tscn" id="2_7jktm"]
-[ext_resource type="PackedScene" uid="uid://b2c0bt83nmkeu" path="res://stage/levels/level 1/level_1_1.tscn" id="2_ryrav"]
+[ext_resource type="PackedScene" uid="uid://cfahshfar4way" path="res://stage/test_stage.tscn" id="2_ryrav"]
 [ext_resource type="Script" uid="uid://dp02cdk8r8xvl" path="res://stage/music.gd" id="5_ryrav"]
+[ext_resource type="PackedScene" uid="uid://dyxbfga0yqv50" path="res://src/effects_layer.tscn" id="6_eow3j"]
 [ext_resource type="Script" uid="uid://bj3k0r4t6324k" path="res://src/save_manager.gd" id="6_ryrav"]
 
 [node name="Game" type="Node2D" unique_id=1406075975]
@@ -19,3 +20,6 @@ script = ExtResource("5_ryrav")
 
 [node name="SaveManager" type="Node" parent="." unique_id=624165964]
 script = ExtResource("6_ryrav")
+
+[node name="EffectsLayer" parent="." unique_id=1117040007 instance=ExtResource("6_eow3j")]
+visible = false

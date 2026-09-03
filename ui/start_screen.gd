@@ -17,6 +17,11 @@ var save_game_modal_scene : PackedScene = preload("uid://dy0j84bmvhox2")
 var settings_modal
 var settings_modal_scene : PackedScene = preload("uid://dkxidum8tt7pr")
 
+var game : Game
+
+func bind_to_game(g: Game) -> void:
+	game = g
+
 func _ready() -> void:
 	startButton.connect("pressed", start_game)
 	loadButton.connect("pressed", load_game)
@@ -26,7 +31,10 @@ func _ready() -> void:
 # show the save game modal
 func show_save_game_modal() -> void:
 	save_game_modal = save_game_modal_scene.instantiate()
+	save_game_modal.bind_to_game(game)
+	save_game_modal.connect("return_to_previous_screen", hide)
 	add_child(save_game_modal)
+	save_game_modal.setup()
 
 # remove the save game modal
 func on_quit_save_game_modal() -> void:
