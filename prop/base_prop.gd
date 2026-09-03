@@ -20,6 +20,8 @@ var hitPoints : int:
 		isInactive = (hitPoints == 0)            
 
 signal destroyed(prop: BaseProp)
+
+
 func get_eye_level() -> Vector2: return eyeLevelMarker.global_position
 
 func set_is_inactive(value: bool):

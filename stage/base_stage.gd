@@ -47,7 +47,7 @@ func bind_to_game(_game: Game) -> void:
 # bind self and necessary references to the various managers
 func bind_dependencies(stage: Stage):
 	actorManager.bind_dependencies(stage)
-	#propManager.bind_dependencies(stage)
+	propManager.bind_dependencies(stage)
 	bulletManager.bind_dependencies(stage)
 
 # the process of ending the level

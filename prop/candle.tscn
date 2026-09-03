@@ -10,7 +10,7 @@ size = Vector2(20, 131)
 [node name="Candle" unique_id=1356046424 instance=ExtResource("1_ssiki")]
 collision_layer = 15
 script = ExtResource("2_asgu3")
-maxHitPoints = 10
+maxHitPoints = 2
 
 [node name="Sprite2D" parent="." index="0" unique_id=1300293945]
 position = Vector2(1.9073486e-06, 0.5)
