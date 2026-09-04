@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bllat1tlnco27"]
+
+[ext_resource type="PackedScene" uid="uid://tdxb2ot2hw3k" path="res://prop/collidable/prop_collidable.tscn" id="1_30gb3"]
+[ext_resource type="Script" uid="uid://2olstl8htnyy" path="res://prop/collidable/enemy_gate.gd" id="2_yuisd"]
+
+[sub_resource type="Animation" id="Animation_d2whk"]
+resource_name = "open"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j541n"]
+_data = {
+&"open": SubResource("Animation_d2whk")
+}
+
+[node name="EnemyGate" unique_id=760342094 instance=ExtResource("1_30gb3")]
+script = ExtResource("2_yuisd")
+
+[node name="anim" parent="." index="0" unique_id=1267973547]
+libraries/ = SubResource("AnimationLibrary_j541n")
