@@ -31,7 +31,10 @@ signal notify_save()
 
 func _ready() -> void:
 
+	# start the level
 	start()
+	
+	# bind all dependencies as necessary
 	bind_dependencies(self)
 
 # get the current boss
@@ -40,8 +43,11 @@ func get_boss() -> Array: return actorManager.get_bosses()
 # get the current player
 func get_player() -> Player: return player
 
+# bind relevant variables to the stage
 func bind_to_game(_game: Game) -> void:
 	self.game = _game
+
+	# variables that can only be bound on ready
 	await ready
 	stage_exit.connect("player_exited", end)
 	checkPointManager.bind_dependencies(self, _game)
@@ -57,6 +63,7 @@ func bind_dependencies(stage: Stage):
 # the process of starting the level
 func start() -> void:
 
+	# mandatory null check
 	if game != null:
 		game.effectLayer.play_transition(transition_in, true)
 
@@ -98,7 +105,7 @@ func spawn_effects(pos: Vector2, is_flipped: int, splatter_type: SPLATTER) -> vo
 
 # called when a breakable prop or enemy is destroyed
 func spawn_collectible(node: Node) -> void:
-
+	
 	randomize()
 
 	var random_number := randi_range(0, 6)
