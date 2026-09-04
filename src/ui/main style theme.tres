@@ -1,5 +1,6 @@
 [gd_resource type="Theme" format=3 uid="uid://bysunrkf7sfea"]
 
+[ext_resource type="FontFile" uid="uid://cgbf6rvj8worq" path="res://assets/font/tallpixelfont.ttf" id="1_dervu"]
 [ext_resource type="Texture2D" uid="uid://cgw8k35he2iqp" path="res://assets/huds/ui box.png" id="3_2fov2"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ljwg0"]
@@ -12,6 +13,6 @@ region_rect = Rect2(0, 0, 19, 19)
 
 [resource]
 Button/font_sizes/font_size = 9
-Button/fonts/font = null
+Button/fonts/font = ExtResource("1_dervu")
 Label/fonts/font = null
 Panel/styles/panel = SubResource("StyleBoxTexture_ljwg0")
