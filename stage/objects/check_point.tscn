@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://4deh472dcfn7"]
 
-[ext_resource type="Script" uid="uid://bkc12p7jnadq4" path="res://stage/check_point.gd" id="1_a1tgc"]
+[ext_resource type="Script" uid="uid://bkc12p7jnadq4" path="res://stage/objects/check_point.gd" id="1_a1tgc"]
 [ext_resource type="PackedScene" uid="uid://rp5sdj2ja1c5" path="res://src/sound effects/sound_sfx_stream.tscn" id="2_x7ef5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uqb0r"]

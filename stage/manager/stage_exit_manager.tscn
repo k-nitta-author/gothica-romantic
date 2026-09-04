@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dx44ejs8xswrj"]
 
-[ext_resource type="Script" uid="uid://baccrf6gxrwkb" path="res://stage/stage_exit_manager.gd" id="1_dcu0v"]
+[ext_resource type="Script" uid="uid://baccrf6gxrwkb" path="res://stage/manager/stage_exit_manager.gd" id="1_dcu0v"]
 
 [node name="StageExitManager" type="Node2D" unique_id=667242629]
 script = ExtResource("1_dcu0v")
