@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://clvcbegfjryqm" path="res://stage/base_stage.tscn" id="1_tq471"]
 [ext_resource type="PackedScene" uid="uid://b8mey0wy8ctvx" path="res://bgs/stormy_night.tscn" id="2_o4ec1"]
 [ext_resource type="PackedScene" uid="uid://dlxrbqfmcgb5o" path="res://actor/furnace_man.tscn" id="3_pgrgf"]
-[ext_resource type="PackedScene" uid="uid://d1dvs67uncing" path="res://ui/hud_layer.tscn" id="4_lbtnf"]
 [ext_resource type="PackedScene" uid="uid://du7igv1lr7o57" path="res://actor/napkin ghost.tscn" id="5_tha66"]
 
 [node name="level_3-1" unique_id=1917536022 instance=ExtResource("1_tq471")]
@@ -34,7 +33,7 @@ tile_map_data = PackedByteArray("AAAJAAgAAAAIABIAAAAJAAcAAAAKABEAAAAKAAcAAAAKABE
 [node name="Player" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="0" unique_id=1016638848]
 position = Vector2(128, 112)
 
-[node name="Camera2D" parent="ActorManager/Player" index="10" unique_id=836156762]
+[node name="Camera2D" parent="ActorManager/Player" index="11" unique_id=836156762]
 position = Vector2(0, -40)
 limit_left = 0
 limit_top = 0
@@ -46,7 +45,6 @@ collision_layer = 64
 
 [node name="napkin ghost2" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="2" unique_id=1950225576 instance=ExtResource("5_tha66")]
 position = Vector2(608, 112)
-isInactive = false
 actorType = 0
 max_hp = 4
 selected_state = 0
@@ -54,12 +52,9 @@ is_flipped = false
 
 [node name="napkin ghost" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="3" unique_id=1352103192 instance=ExtResource("5_tha66")]
 position = Vector2(492, 112)
-isInactive = false
 actorType = 0
 max_hp = 4
 selected_state = 0
 is_flipped = false
-
-[node name="HudLayer" parent="." index="7" unique_id=489733388 instance=ExtResource("4_lbtnf")]
 
 [editable path="stormy night"]

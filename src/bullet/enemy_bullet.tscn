@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://40g6jm0jhmbr"]
 
-[ext_resource type="PackedScene" uid="uid://biu0bokceu48v" path="res://bullet/base_bullet.tscn" id="1_71nad"]
+[ext_resource type="PackedScene" uid="uid://biu0bokceu48v" path="res://src/bullet/base_bullet.tscn" id="1_71nad"]
 [ext_resource type="Texture2D" uid="uid://cbsiftecss0xm" path="res://icon.svg" id="2_54h3y"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uqb0r"]

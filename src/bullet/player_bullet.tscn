@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dtcy6guqe5887"]
 
-[ext_resource type="Script" uid="uid://cjimgn7qd4fn2" path="res://bullet/base_bullet.gd" id="1_qagro"]
+[ext_resource type="Script" uid="uid://cjimgn7qd4fn2" path="res://src/bullet/base_bullet.gd" id="1_qagro"]
 [ext_resource type="Texture2D" uid="uid://d201blvck6tjw" path="res://assets/player/Listahl.png" id="2_qagro"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uqb0r"]

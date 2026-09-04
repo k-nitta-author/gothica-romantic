@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bjeudo4rvmvag" path="res://actor/base_enemy.tscn" id="1_x0yvw"]
 [ext_resource type="Script" uid="uid://cgcwml08u6r0s" path="res://state/actor/walkState.gd" id="2_1dmjd"]
 [ext_resource type="Texture2D" uid="uid://dfyaedoqrj7uq" path="res://assets/enemies/Undead Brute.png" id="2_dsw75"]
-[ext_resource type="PackedScene" uid="uid://cexsvxva0lwox" path="res://bullet/enemy/goo_bullet.tscn" id="2_e2do6"]
+[ext_resource type="PackedScene" uid="uid://cexsvxva0lwox" path="res://src/bullet/enemy/goo_bullet.tscn" id="2_e2do6"]
 [ext_resource type="Script" uid="uid://cciei67yuitw5" path="res://state/actor/idleState.gd" id="2_u74of"]
 [ext_resource type="Script" uid="uid://bxthdcpdc3xyu" path="res://actor/platformer_enemy.gd" id="2_yc1xk"]
 [ext_resource type="Script" uid="uid://bunbdgovyilxk" path="res://state/actor/shootState.gd" id="3_u74of"]
@@ -27,7 +27,7 @@ metadata/_custom_type_script = "uid://bunbdgovyilxk"
 a = Vector2(-8, 0)
 b = Vector2(8, 0)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_2hqow"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yc1xk"]
 resource_local_to_scene = true
 shader = ExtResource("5_2hqow")
 shader_parameter/active = false
@@ -164,7 +164,7 @@ shoot_state = SubResource("Resource_dsw75")
 shape = SubResource("SegmentShape2D_q1xjc")
 
 [node name="Sprite2D" parent="." index="1" unique_id=90387062]
-material = SubResource("ShaderMaterial_2hqow")
+material = SubResource("ShaderMaterial_yc1xk")
 texture = ExtResource("2_dsw75")
 offset = Vector2(0, -16)
 hframes = 7

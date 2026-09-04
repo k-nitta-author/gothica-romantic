@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cjaxcaolry5mi" path="res://prop/camp_fire.tscn" id="3_7e248"]
 [ext_resource type="PackedScene" uid="uid://cbvhks3dybpch" path="res://actor/bone_walker_1.tscn" id="4_m6153"]
 [ext_resource type="PackedScene" uid="uid://cejgdevefhlot" path="res://actor/skulker.tscn" id="6_jetdb"]
-[ext_resource type="AudioStream" uid="uid://dcmdarilvcsha" path="res://assets/sound/music/Dead of Night.ogg" id="7_ox7i6"]
+[ext_resource type="AudioStream" uid="uid://v8dj0t38kwey" path="res://assets/sound/music/Dead of Night.ogg" id="7_ox7i6"]
 
 [node name="level_1-1" unique_id=1917536022 instance=ExtResource("1_0hsla")]
 
