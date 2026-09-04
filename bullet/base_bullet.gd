@@ -30,7 +30,7 @@ func bind_dependencies(stage: Stage):
 	set(value):
 		bullet_gravity = value
 		
-@export var velocity : Vector2
+var velocity : Vector2
 
 func set_is_inactive(value: bool):
 		isInactive = value
@@ -42,9 +42,9 @@ func set_is_inactive(value: bool):
 
 # based on the equation used in this video:
 # https://www.youtube.com/watch?v=MklBo7c3_4Q
-func calculate_angle_to_reach_x(distance: float, grav: float, speed: float) -> float:
+func calculate_angle_to_reach_x(distance: float, grav: float, spd: float) -> float:
 
-	var theta =  asin(distance * gravity / pow(speed, 2)) / 2
+	var theta =  asin(distance * grav / pow(spd, 2)) / 2
 
 	return theta 
 

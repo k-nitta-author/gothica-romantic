@@ -3,7 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://bjeudo4rvmvag" path="res://actor/base_enemy.tscn" id="1_x0yvw"]
 [ext_resource type="Script" uid="uid://cgcwml08u6r0s" path="res://state/actor/walkState.gd" id="2_1dmjd"]
 [ext_resource type="Texture2D" uid="uid://dfyaedoqrj7uq" path="res://assets/enemies/Undead Brute.png" id="2_dsw75"]
+[ext_resource type="PackedScene" uid="uid://cexsvxva0lwox" path="res://bullet/enemy/goo_bullet.tscn" id="2_e2do6"]
 [ext_resource type="Script" uid="uid://cciei67yuitw5" path="res://state/actor/idleState.gd" id="2_u74of"]
+[ext_resource type="Script" uid="uid://bxthdcpdc3xyu" path="res://actor/platformer_enemy.gd" id="2_yc1xk"]
 [ext_resource type="Script" uid="uid://bunbdgovyilxk" path="res://state/actor/shootState.gd" id="3_u74of"]
 [ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/hitFlashShader.gdshader" id="5_2hqow"]
 [ext_resource type="Animation" uid="uid://dc4oqu1m6whdy" path="res://actor/damaged.res" id="7_e2do6"]
@@ -18,13 +20,14 @@ metadata/_custom_type_script = "uid://cgcwml08u6r0s"
 
 [sub_resource type="Resource" id="Resource_dsw75"]
 script = ExtResource("3_u74of")
+stops_actor = true
 metadata/_custom_type_script = "uid://bunbdgovyilxk"
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_q1xjc"]
 a = Vector2(-8, 0)
 b = Vector2(8, 0)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_yc1xk"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2hqow"]
 resource_local_to_scene = true
 shader = ExtResource("5_2hqow")
 shader_parameter/active = false
@@ -77,6 +80,38 @@ tracks/0/keys = {
 "update": 1,
 "values": [0, 1, 2, 5, 6, 7, 8, 9, 10, 11, 12, 13, 12, 9, 10, 8, 2]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.09, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [],
+"method": &"stop"
+}, {
+"args": [],
+"method": &"fire"
+}, {
+"args": [],
+"method": &"go"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:selected_state")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_2hqow"]
 resource_name = "walk"
@@ -112,9 +147,15 @@ size = Vector2(16, 26)
 size = Vector2(128, 64)
 
 [node name="undead_brute" unique_id=1016638848 instance=ExtResource("1_x0yvw")]
+script = ExtResource("2_yc1xk")
 can_see_player = true
+is_stunned = false
+shoot_bullet = ExtResource("2_e2do6")
+max_melee_range = 64.0
 default_state_on_awake = 1
 max_hp = 6
+speed = 40.0
+selected_state = 0
 idle_state = SubResource("Resource_eqrin")
 move_state = SubResource("Resource_x0yvw")
 shoot_state = SubResource("Resource_dsw75")
@@ -123,7 +164,7 @@ shoot_state = SubResource("Resource_dsw75")
 shape = SubResource("SegmentShape2D_q1xjc")
 
 [node name="Sprite2D" parent="." index="1" unique_id=90387062]
-material = SubResource("ShaderMaterial_yc1xk")
+material = SubResource("ShaderMaterial_2hqow")
 texture = ExtResource("2_dsw75")
 offset = Vector2(0, -16)
 hframes = 7
@@ -139,3 +180,6 @@ shape = SubResource("RectangleShape2D_x0yvw")
 [node name="CollisionShape2D" parent="VisionArea" parent_id_path=PackedInt32Array(1796340020) index="0" unique_id=2039586838]
 position = Vector2(0, -32)
 shape = SubResource("RectangleShape2D_dsw75")
+
+[node name="firingPoint" parent="." index="9" unique_id=698667958]
+position = Vector2(0, -28)

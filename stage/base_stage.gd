@@ -56,9 +56,11 @@ func bind_dependencies(stage: Stage):
 
 # the process of starting the level
 func start() -> void:
-	game.effectLayer.play_transition(transition_in, true)
 
-	await game.effectLayer.transition_finished
+	if game != null:
+		game.effectLayer.play_transition(transition_in, true)
+
+		await game.effectLayer.transition_finished
 
 	actorManager.can_update = true
 

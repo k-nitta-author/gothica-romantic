@@ -10,7 +10,7 @@
 script = ExtResource("3_sffo0")
 metadata/_custom_type_script = "uid://dmjhev2pahl57"
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_wpd7q"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0wmbo"]
 resource_local_to_scene = true
 shader = ExtResource("3_wpd7q")
 shader_parameter/active = false
@@ -58,6 +58,7 @@ can_see_player = false
 is_active = false
 is_awake = false
 is_stunned = true
+shoot_bullet = null
 max_melee_range = 100.0
 max_shoot_range = 100.0
 melee_limit = 100.0
@@ -71,7 +72,7 @@ damaged_state = SubResource("Resource_wpd7q")
 disabled = true
 
 [node name="Sprite2D" parent="." index="1" unique_id=90387062]
-material = SubResource("ShaderMaterial_wpd7q")
+material = SubResource("ShaderMaterial_0wmbo")
 
 [node name="anim" parent="." index="2" unique_id=783902006]
 libraries/ = SubResource("AnimationLibrary_wpd7q")
@@ -85,3 +86,5 @@ collision_layer = 0
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VisionArea" index="0" unique_id=2039586838]
+
+[node name="firingPoint" type="Marker2D" parent="." index="9" unique_id=698667958]

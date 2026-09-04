@@ -3,3 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://40g6jm0jhmbr" path="res://bullet/enemy_bullet.tscn" id="1_ibll5"]
 
 [node name="GooBullet" unique_id=483994798 instance=ExtResource("1_ibll5")]
+lifeTime = 5.0
+speed = 80.0
+bullet_gravity = 0.4
+
+[node name="Sprite2D" parent="." index="0" unique_id=1823953356]
+position = Vector2(1, -2)
+scale = Vector2(0.171875, 0.17187499)

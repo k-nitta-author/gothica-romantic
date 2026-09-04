@@ -174,6 +174,10 @@ func notify_attack_connection() -> void:
 
 func stop() -> void: velocity.x = 0
 
+
+func go() -> void: velocity.x = 0
+	
+
 func bind_dependencies(s: Stage):
 	connect("fire_gun", s.bulletManager.add_bullet)
 

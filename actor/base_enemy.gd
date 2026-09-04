@@ -11,6 +11,7 @@ extends BaseActor
 @export var is_stunned : bool 
 
 @export_category("combat")
+@export var shoot_bullet : PackedScene
 @export_range(0.0, 1000, 1.0) var max_melee_range : float = 100: set = set_max_melee_range
 @export_range(0.0, 1000, 1.0) var max_shoot_range : float = 100: set = set_max_shoot_range
 
@@ -19,6 +20,8 @@ extends BaseActor
 var player: Player
 
 signal turn_around
+
+@onready var firingPoint : Marker2D = $firingPoint
 
 @onready var visionArea : Area2D = $VisionArea
 
@@ -44,6 +47,7 @@ func _draw() -> void:
 		draw_line(Vector2(-max_melee_range, -100), Vector2(-max_melee_range, 0), Color.RED)
 
 func bind_dependencies(s: Stage):
+	super(s)
 
 	player = s.get_player()
 
@@ -91,11 +95,10 @@ func walk() -> void:
 
 	anim.play("walk")
 
-func attack() -> void:
-	super()
-	is_attacking = true
 
-	selected_state = BaseActor.STATES.MELEE
+func go() -> void:
+	velocity = Vector2(1 if seek_right else -1,0) * speed
+
 
 func update_seek_right() -> void: pass
 
@@ -105,20 +108,38 @@ func has_player_in_shoot_range() -> bool: return self.global_position.distance_t
 
 func attack_if_possible() -> void:
 
-	if has_player_in_melee_range():
-		attack()
+	if melee_state == null or is_attacking: return
+
+	if has_player_in_melee_range(): attack()
 
 	else: selected_state = BaseActor.STATES.IDLE
 
+func attack() -> void:
+	super()
+	is_attacking = true
+
+	selected_state = BaseActor.STATES.MELEE
+
 func shoot_if_possible() -> void:
 
-	if has_player_in_shoot_range():
-		shoot()
+	if shoot_state == null or is_shooting: return
+
+	if has_player_in_shoot_range(): shoot()
 
 	else: selected_state = BaseActor.STATES.IDLE
 
 func shoot():
 	is_shooting = true
+	selected_state = BaseActor.STATES.SHOOT
+
+
+func fire() -> void:
+
+	var new_bullet: BaseBullet = shoot_bullet.instantiate()
+	new_bullet.movement_angle = 270 if is_flipped else 90
+
+	emit_signal("fire_gun", new_bullet, firingPoint.global_position)
+
 
 func update():
 

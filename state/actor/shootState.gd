@@ -1,7 +1,7 @@
 class_name ShootState
 extends ActorState
 
-@export var animation_name := "attack"
+@export var animation_name := "shoot"
 @export var stops_actor : bool
 
 func enter_state():
@@ -11,8 +11,7 @@ func enter_state():
 
     state_actor.anim.play(animation_name)
 
-    if stops_actor: 
-        state_actor.velocity.x = 0
+    if stops_actor: state_actor.stop()
 
 func handle_input():
     if Input.is_action_pressed("shoot"):
