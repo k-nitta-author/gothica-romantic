@@ -1,8 +1,6 @@
 [gd_resource type="Theme" format=3 uid="uid://bysunrkf7sfea"]
 
-[ext_resource type="FontFile" path="res://font/PIXELADE.TTF" id="1_3bgld"]
-[ext_resource type="FontFile" path="res://font/tallpixelfont.ttf" id="1_dervu"]
-[ext_resource type="Texture2D" uid="uid://bfdoiikxo5gws" path="res://assets/huds/ui box.png" id="3_2fov2"]
+[ext_resource type="Texture2D" uid="uid://cgw8k35he2iqp" path="res://assets/huds/ui box.png" id="3_2fov2"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ljwg0"]
 texture = ExtResource("3_2fov2")
@@ -14,6 +12,6 @@ region_rect = Rect2(0, 0, 19, 19)
 
 [resource]
 Button/font_sizes/font_size = 9
-Button/fonts/font = ExtResource("1_dervu")
-Label/fonts/font = ExtResource("1_3bgld")
+Button/fonts/font = null
+Label/fonts/font = null
 Panel/styles/panel = SubResource("StyleBoxTexture_ljwg0")

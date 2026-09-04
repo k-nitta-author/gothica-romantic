@@ -7,7 +7,7 @@ func enter_state():
     # TODO: fix this when you can 
     if state_actor.anim.has_animation("damaged"):
         state_actor.anim.stop()
-        state_actor.anim.play("damaged")
+        state_actor.anim.call_deferred("play", "damaged")
 
 func update():
     pass
