@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://dam2cxs8um8t1"]
 
-[ext_resource type="Texture2D" uid="uid://d2ewbho0cb8w2" path="res://assets/effects/sharp splatter.png" id="1_joan7"]
+[ext_resource type="Texture2D" uid="uid://cpcu1sqr438lq" path="res://assets/effects/sharp splatter.png" id="1_joan7"]
+[ext_resource type="PackedScene" uid="uid://rp5sdj2ja1c5" path="res://sound effects/sound_sfx_stream.tscn" id="2_eeefv"]
+[ext_resource type="AudioStream" uid="uid://dbj5jeiwy6nku" path="res://assets/sound/sfx/enemy hurt1.wav" id="2_ggph8"]
 
 [sub_resource type="Animation" id="Animation_2hao6"]
 length = 0.001
@@ -56,6 +58,21 @@ tracks/1/keys = {
 "update": 1,
 "values": [true, false]
 }
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("sound sfx stream")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("2_ggph8")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/2/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ggph8"]
 _data = {
@@ -72,3 +89,8 @@ hframes = 4
 [node name="anim" type="AnimationPlayer" parent="." unique_id=1627169518]
 libraries/ = SubResource("AnimationLibrary_ggph8")
 autoplay = &"anim"
+
+[node name="sound sfx stream" parent="." unique_id=1454780779 instance=ExtResource("2_eeefv")]
+volume_db = 5.0
+pitch_scale = 0.65
+autoplay = true

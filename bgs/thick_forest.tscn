@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://dxgj28dy554j"]
+
+[ext_resource type="Texture2D" uid="uid://cxqqnhhnkkk7a" path="res://assets/bg stuff/moon.png" id="1_81lwd"]
+[ext_resource type="Texture2D" uid="uid://bprs4mualig25" path="res://assets/bg stuff/snowy mountains.png" id="1_ajsaf"]
+[ext_resource type="Texture2D" uid="uid://c1t4xqa2a60ag" path="res://assets/bg stuff/thick forest.png" id="1_mk76c"]
+[ext_resource type="Texture2D" uid="uid://dv421s4yiye3o" path="res://assets/bg stuff/fluffy clouds.png" id="2_7tygc"]
+[ext_resource type="Texture2D" uid="uid://dalp2xxnumxvi" path="res://assets/bg stuff/snow tree.png" id="5_bsfwp"]
+
+[node name="thick forest" type="Node2D" unique_id=435501734]
+
+[node name="Parallax2D2" type="Parallax2D" parent="." unique_id=679999455]
+repeat_size = Vector2(256, 144)
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Parallax2D2" unique_id=1291253358]
+offset_right = 256.0
+offset_bottom = 144.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="Parallax2D4" type="Parallax2D" parent="." unique_id=274505777]
+scroll_scale = Vector2(0, 0)
+
+[node name="Moon" type="Sprite2D" parent="Parallax2D4" unique_id=562878974]
+position = Vector2(128, 30)
+texture = ExtResource("1_81lwd")
+
+[node name="Parallax2D5" type="Parallax2D" parent="." unique_id=531409788]
+scroll_scale = Vector2(0, 1)
+repeat_size = Vector2(160, 0)
+autoscroll = Vector2(-18, 0)
+repeat_times = 5
+
+[node name="FluffyClouds" type="Sprite2D" parent="Parallax2D5" unique_id=2118326808]
+position = Vector2(44, 48)
+scale = Vector2(1.8333334, 1)
+texture = ExtResource("2_7tygc")
+region_enabled = true
+region_rect = Rect2(0, 0, 48, 16)
+
+[node name="Parallax2D6" type="Parallax2D" parent="." unique_id=2063515830]
+scroll_scale = Vector2(0, 1)
+repeat_size = Vector2(160, 0)
+autoscroll = Vector2(-8, 0)
+repeat_times = 5
+
+[node name="FluffyClouds" type="Sprite2D" parent="Parallax2D6" unique_id=638245647]
+position = Vector2(112, 56)
+texture = ExtResource("2_7tygc")
+region_enabled = true
+region_rect = Rect2(0, 16, 80, 16)
+
+[node name="Parallax2D3" type="Parallax2D" parent="." unique_id=1901829959]
+scroll_scale = Vector2(0.1, 1)
+repeat_size = Vector2(48, 0)
+autoscroll = Vector2(-16, 0)
+repeat_times = 9
+
+[node name="SnowyMountains" type="Sprite2D" parent="Parallax2D3" unique_id=1199812770]
+position = Vector2(0, 80)
+texture = ExtResource("1_ajsaf")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 64)
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1823202950]
+scroll_scale = Vector2(0.8, 1)
+repeat_size = Vector2(96, 0)
+autoscroll = Vector2(-96, 0)
+repeat_times = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=1119854278]
+position = Vector2(64, 96)
+texture = ExtResource("1_mk76c")
+region_enabled = true
+region_rect = Rect2(0, 0, 96, 128)
+
+[node name="Parallax2D7" type="Parallax2D" parent="." unique_id=131274880]
+scroll_scale = Vector2(0.75, 1)
+repeat_size = Vector2(544, 0)
+autoscroll = Vector2(-64, 0)
+repeat_times = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D7" unique_id=1186313595]
+position = Vector2(32, 80)
+texture = ExtResource("5_bsfwp")
+region_rect = Rect2(0, 0, 96, 128)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Parallax2D7" unique_id=1138382677]
+position = Vector2(288, 88)
+texture = ExtResource("5_bsfwp")
+region_rect = Rect2(0, 0, 96, 128)
