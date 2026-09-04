@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cc8qj44o6epf4"]
 
-[ext_resource type="FontFile" uid="uid://ckjyw0le0uxau" path="res://font/PIXELADE.TTF" id="1_3bi13"]
-[ext_resource type="Theme" uid="uid://bysunrkf7sfea" path="res://ui/main style theme.tres" id="1_88jeb"]
+[ext_resource type="FontFile" uid="uid://ckjyw0le0uxau" path="res://assets/font/PIXELADE.TTF" id="1_3bi13"]
+[ext_resource type="Theme" uid="uid://bysunrkf7sfea" path="res://src/ui/main style theme.tres" id="1_88jeb"]
 
 [node name="small label" type="Label" unique_id=1048519964]
 offset_right = 40.0

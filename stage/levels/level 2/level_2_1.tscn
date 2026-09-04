@@ -1,9 +1,9 @@
 [gd_scene format=4 uid="uid://dtaigf80ow478"]
 
 [ext_resource type="PackedScene" uid="uid://clvcbegfjryqm" path="res://stage/base_stage.tscn" id="1_kq2bg"]
-[ext_resource type="PackedScene" uid="uid://bllpl6pb7ms8a" path="res://bgs/misty_night.tscn" id="2_amcxk"]
-[ext_resource type="PackedScene" uid="uid://d1reqh87cs7um" path="res://actor/mansion_guard.tscn" id="3_bu0j4"]
-[ext_resource type="Script" uid="uid://dmjhev2pahl57" path="res://state/actor/damagedState.gd" id="4_adc2o"]
+[ext_resource type="PackedScene" uid="uid://bllpl6pb7ms8a" path="res://src/bgs/misty_night.tscn" id="2_amcxk"]
+[ext_resource type="PackedScene" uid="uid://blmm78fcbvph3" path="res://actor/mansion_guard.tscn" id="3_bu0j4"]
+[ext_resource type="Script" uid="uid://dmjhev2pahl57" path="res://src/state/actor/damagedState.gd" id="4_adc2o"]
 
 [sub_resource type="Resource" id="Resource_bubq1"]
 script = ExtResource("4_adc2o")

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dgw3l1rhnlqfr"]
 
-[ext_resource type="Script" uid="uid://c6nwg5r1ye30e" path="res://ui/save_slot_component.gd" id="1_uvvr5"]
+[ext_resource type="Script" uid="uid://c6nwg5r1ye30e" path="res://src/ui/save_slot_component.gd" id="1_uvvr5"]
 
 [node name="SaveSlotComponent" type="Panel" unique_id=815052190]
 custom_minimum_size = Vector2(72, 0)

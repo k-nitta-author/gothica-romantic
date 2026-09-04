@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://e33ck7sx7a2r"]
 
-[ext_resource type="Script" uid="uid://cpt2pmqox2kal" path="res://ui/opening_screen.gd" id="1_ppqy1"]
+[ext_resource type="Script" uid="uid://cpt2pmqox2kal" path="res://src/ui/opening_screen.gd" id="1_ppqy1"]
 
 [node name="OpeningScreen" type="Control" unique_id=988760894]
 layout_mode = 3

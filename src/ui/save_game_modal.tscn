@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dy0j84bmvhox2"]
 
-[ext_resource type="Theme" uid="uid://bysunrkf7sfea" path="res://ui/main style theme.tres" id="1_fx5ra"]
-[ext_resource type="Script" uid="uid://daesx47xlna8j" path="res://ui/save_game_modal.gd" id="1_ukcik"]
-[ext_resource type="PackedScene" uid="uid://dgw3l1rhnlqfr" path="res://ui/save_slot_component.tscn" id="2_3xrog"]
+[ext_resource type="Theme" uid="uid://bysunrkf7sfea" path="res://src/ui/main style theme.tres" id="1_fx5ra"]
+[ext_resource type="Script" uid="uid://daesx47xlna8j" path="res://src/ui/save_game_modal.gd" id="1_ukcik"]
+[ext_resource type="PackedScene" uid="uid://dgw3l1rhnlqfr" path="res://src/ui/save_slot_component.tscn" id="2_3xrog"]
 
 [node name="SaveGameModal" type="Panel" unique_id=1456774094]
 anchors_preset = 15

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dlq0odq54nr0e"]
 
-[ext_resource type="Script" uid="uid://bn0ux2fw3lwc8" path="res://npc/base_npc.gd" id="1_qjylp"]
+[ext_resource type="Script" uid="uid://bn0ux2fw3lwc8" path="res://src/npc/base_npc.gd" id="1_qjylp"]
 
 [node name="BaseNPC" type="Node2D" unique_id=542130944]
 script = ExtResource("1_qjylp")

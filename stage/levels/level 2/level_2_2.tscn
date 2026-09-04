@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://cpwbt7yquk82i"]
 
 [ext_resource type="PackedScene" uid="uid://clvcbegfjryqm" path="res://stage/base_stage.tscn" id="1_fv2o2"]
-[ext_resource type="PackedScene" uid="uid://bllpl6pb7ms8a" path="res://bgs/misty_night.tscn" id="2_034x8"]
+[ext_resource type="PackedScene" uid="uid://bllpl6pb7ms8a" path="res://src/bgs/misty_night.tscn" id="2_034x8"]
 [ext_resource type="PackedScene" uid="uid://tmdcfkhofvlc" path="res://prop/collidable/mansion_flame_statue.tscn" id="3_xt3gr"]
 
 [node name="level_2-2" unique_id=1917536022 instance=ExtResource("1_fv2o2")]

@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://b2c0bt83nmkeu"]
 
 [ext_resource type="PackedScene" uid="uid://clvcbegfjryqm" path="res://stage/base_stage.tscn" id="1_0hsla"]
-[ext_resource type="PackedScene" uid="uid://b8mey0wy8ctvx" path="res://bgs/stormy_night.tscn" id="2_vumbh"]
+[ext_resource type="PackedScene" uid="uid://b8mey0wy8ctvx" path="res://src/bgs/stormy_night.tscn" id="2_vumbh"]
 [ext_resource type="PackedScene" uid="uid://cjaxcaolry5mi" path="res://prop/camp_fire.tscn" id="3_7e248"]
 [ext_resource type="PackedScene" uid="uid://cbvhks3dybpch" path="res://actor/bone_walker_1.tscn" id="4_m6153"]
 [ext_resource type="PackedScene" uid="uid://cejgdevefhlot" path="res://actor/skulker.tscn" id="6_jetdb"]

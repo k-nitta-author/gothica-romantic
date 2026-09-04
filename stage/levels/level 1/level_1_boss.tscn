@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://clvcbegfjryqm" path="res://stage/base_stage.tscn" id="1_xtong"]
 [ext_resource type="PackedScene" uid="uid://cg2dccirlmy4g" path="res://actor/the_necromancer.tscn" id="2_7ubya"]
-[ext_resource type="PackedScene" uid="uid://b8mey0wy8ctvx" path="res://bgs/stormy_night.tscn" id="2_jn7rt"]
+[ext_resource type="PackedScene" uid="uid://b8mey0wy8ctvx" path="res://src/bgs/stormy_night.tscn" id="2_jn7rt"]
 
 [node name="level 1 boss" unique_id=1917536022 instance=ExtResource("1_xtong")]
 

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://l2wrvv5rcbby"]
 
-[ext_resource type="Script" uid="uid://bslunur51i611" path="res://ui/text_box.gd" id="1_kta3i"]
+[ext_resource type="Script" uid="uid://bslunur51i611" path="res://src/ui/text_box.gd" id="1_kta3i"]
 
 [node name="TextBox" type="Panel" unique_id=583456037]
 anchors_preset = 15

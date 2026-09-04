@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://cwp3ianxub75d"]
 
 [ext_resource type="PackedScene" uid="uid://clvcbegfjryqm" path="res://stage/base_stage.tscn" id="1_tq471"]
-[ext_resource type="PackedScene" uid="uid://b8mey0wy8ctvx" path="res://bgs/stormy_night.tscn" id="2_o4ec1"]
+[ext_resource type="PackedScene" uid="uid://b8mey0wy8ctvx" path="res://src/bgs/stormy_night.tscn" id="2_o4ec1"]
 [ext_resource type="PackedScene" uid="uid://dlxrbqfmcgb5o" path="res://actor/furnace_man.tscn" id="3_pgrgf"]
 [ext_resource type="PackedScene" uid="uid://du7igv1lr7o57" path="res://actor/napkin ghost.tscn" id="5_tha66"]
 

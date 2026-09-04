@@ -1,9 +1,9 @@
 [gd_scene format=4 uid="uid://by85cuupa4bsh"]
 
 [ext_resource type="PackedScene" uid="uid://clvcbegfjryqm" path="res://stage/base_stage.tscn" id="1_0w63r"]
-[ext_resource type="PackedScene" uid="uid://b8mey0wy8ctvx" path="res://bgs/stormy_night.tscn" id="2_jny3t"]
+[ext_resource type="PackedScene" uid="uid://b8mey0wy8ctvx" path="res://src/bgs/stormy_night.tscn" id="2_jny3t"]
 [ext_resource type="PackedScene" uid="uid://cbvhks3dybpch" path="res://actor/bone_walker_1.tscn" id="3_80i3g"]
-[ext_resource type="Texture2D" uid="uid://d2tn3bky06tl1" path="res://assets/bg stuff/bg trees spooky.png" id="3_bykgl"]
+[ext_resource type="Texture2D" uid="uid://wrtqnjnu8qbu" path="res://assets/bg stuff/bg trees spooky.png" id="3_bykgl"]
 [ext_resource type="PackedScene" uid="uid://b61j80iimhqu1" path="res://actor/bone_walker_2.tscn" id="4_bykgl"]
 
 [node name="level_1-3" unique_id=1917536022 instance=ExtResource("1_0w63r")]

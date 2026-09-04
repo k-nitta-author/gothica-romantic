@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://bfqls0skfob01" path="res://assets/sound/sfx/noise4.wav" id="3_m2tos"]
 [ext_resource type="AudioStream" uid="uid://sorepoioavl7" path="res://assets/sound/sfx/noise1.wav" id="4_fc8sx"]
 [ext_resource type="Texture2D" uid="uid://brvxu2pf06xk3" path="res://assets/enemies/mansion flame statue.png" id="5_hfuv6"]
-[ext_resource type="PackedScene" uid="uid://rp5sdj2ja1c5" path="res://sound effects/sound_sfx_stream.tscn" id="6_rye42"]
+[ext_resource type="PackedScene" uid="uid://rp5sdj2ja1c5" path="res://src/sound effects/sound_sfx_stream.tscn" id="6_rye42"]
 
 [sub_resource type="Animation" id="Animation_hicfs"]
 length = 0.001

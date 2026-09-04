@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bykeopgsphe82"]
 
-[ext_resource type="Script" uid="uid://bun2nrcuenwjq" path="res://ui/pause_game_panel.gd" id="1_shtin"]
-[ext_resource type="PackedScene" uid="uid://dkxidum8tt7pr" path="res://ui/settings_screen.tscn" id="2_g8vnp"]
+[ext_resource type="Script" uid="uid://bun2nrcuenwjq" path="res://src/ui/pause_game_panel.gd" id="1_shtin"]
+[ext_resource type="PackedScene" uid="uid://dkxidum8tt7pr" path="res://src/ui/settings_screen.tscn" id="2_g8vnp"]
 
 [node name="PauseGamePanel" type="Panel" unique_id=657634054]
 offset_left = 65.0

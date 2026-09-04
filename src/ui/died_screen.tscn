@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://doo0jtrqthdcn"]
 
-[ext_resource type="Script" uid="uid://dx7n7fy5g40hu" path="res://ui/died_screen.gd" id="1_us0d3"]
+[ext_resource type="Script" uid="uid://dx7n7fy5g40hu" path="res://src/ui/died_screen.gd" id="1_us0d3"]
 
 [node name="diedScreen" type="Control" unique_id=2121825508]
 visible = false
