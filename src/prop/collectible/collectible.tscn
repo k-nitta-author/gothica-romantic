@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dgifgrrsayfak"]
+
+[ext_resource type="PackedScene" uid="uid://fuveg7oo6a3b" path="res://src/prop/base_prop.tscn" id="1_skycs"]
+[ext_resource type="Script" uid="uid://bwg4hh2br7n0l" path="res://src/prop/collectible/collectible.gd" id="2_hbg7c"]
+[ext_resource type="Texture2D" uid="uid://cbsiftecss0xm" path="res://icon.svg" id="3_il366"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_il366"]
+size = Vector2(15, 13)
+
+[node name="Collectible" unique_id=1356046424 instance=ExtResource("1_skycs")]
+collision_layer = 3
+collision_mask = 71
+monitorable = false
+script = ExtResource("2_hbg7c")
+fall_speed = 100
+
+[node name="Sprite2D" parent="." index="0" unique_id=1300293945]
+position = Vector2(1.9073486e-06, -0.5)
+scale = Vector2(0.109375015, 0.101562515)
+texture = ExtResource("3_il366")
+
+[node name="CollisionShape2D" parent="." index="2" unique_id=377356270]
+shape = SubResource("RectangleShape2D_il366")

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://clvcbegfjryqm" path="res://stage/base_stage.tscn" id="1_k4au7"]
 [ext_resource type="PackedScene" uid="uid://b8mey0wy8ctvx" path="res://src/bgs/stormy_night.tscn" id="2_sh3qs"]
-[ext_resource type="PackedScene" uid="uid://btvp3b55r1riw" path="res://actor/undead_brute.tscn" id="3_7ih23"]
+[ext_resource type="PackedScene" uid="uid://btvp3b55r1riw" path="res://actor/enemy/undead_brute.tscn" id="3_7ih23"]
 
 [node name="level_1-2" unique_id=1917536022 instance=ExtResource("1_k4au7")]
 

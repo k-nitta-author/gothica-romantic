@@ -1,5 +1,5 @@
 @tool
-extends "res://actor/base_enemy.gd"
+extends BaseEnemy
 
 @export var fly_in_loop: bool
 @export var fly_range: float

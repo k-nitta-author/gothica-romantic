@@ -24,7 +24,7 @@ metadata/_custom_type_script = "uid://b4gnx3i6umkvr"
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fj116"]
 size = Vector2(20, 10)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_l3v6p"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dcuvm"]
 resource_local_to_scene = true
 shader = ExtResource("6_dcuvm")
 shader_parameter/active = false
@@ -91,7 +91,7 @@ position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_fj116")
 
 [node name="Sprite2D" parent="." index="1" unique_id=90387062]
-material = SubResource("ShaderMaterial_l3v6p")
+material = SubResource("ShaderMaterial_dcuvm")
 texture = ExtResource("2_dhd1x")
 offset = Vector2(0, -6)
 hframes = 3

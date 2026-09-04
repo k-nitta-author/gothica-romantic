@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://fuveg7oo6a3b"]
+
+[ext_resource type="Script" uid="uid://btwti0pobk0tl" path="res://src/prop/base_prop.gd" id="1_gaqq0"]
+
+[node name="BaseProp" type="Area2D" unique_id=1356046424]
+collision_layer = 2
+collision_mask = 6
+script = ExtResource("1_gaqq0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1300293945]
+
+[node name="anim" type="AnimationPlayer" parent="." unique_id=1178016984]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=377356270]
+
+[node name="eyeLevelMarker" type="Marker2D" parent="." unique_id=684929539]

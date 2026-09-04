@@ -1,7 +1,16 @@
 [gd_scene format=3 uid="uid://dssce627lfbu1"]
 
-[ext_resource type="PackedScene" uid="uid://bjeudo4rvmvag" path="res://actor/base_enemy.tscn" id="1_o3mbb"]
+[ext_resource type="PackedScene" uid="uid://bjeudo4rvmvag" path="res://actor/enemy/base_enemy.tscn" id="1_o3mbb"]
 [ext_resource type="Script" uid="uid://n53byts25fps" path="res://actor/flying_enemy.gd" id="2_6gmiy"]
+[ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/hitFlashShader.gdshader" id="3_u58xt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yor5b"]
+resource_local_to_scene = true
+shader = ExtResource("3_u58xt")
+shader_parameter/active = false
 
 [node name="FlyingEnemy" unique_id=1016638848 instance=ExtResource("1_o3mbb")]
 script = ExtResource("2_6gmiy")
+
+[node name="Sprite2D" parent="." index="1" unique_id=90387062]
+material = SubResource("ShaderMaterial_yor5b")

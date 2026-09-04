@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://bqub13c7l7msc"]
+
+[ext_resource type="PackedScene" uid="uid://fuveg7oo6a3b" path="res://src/prop/base_prop.tscn" id="1_tasos"]
+
+[node name="WinObject" unique_id=1356046424 instance=ExtResource("1_tasos")]

@@ -22,6 +22,8 @@ enum SPLATTER {SHOOT, SLASH}
 @export var transition_in : EffectsLayer.TRANS
 @export var transition_out : EffectsLayer.TRANS
 
+@onready var stageCamera : Camera2D
+
 var current_checkpoint_idx : int
 
 var game: Game
@@ -126,5 +128,4 @@ func spawn_collectible(node: Node) -> void:
 func on_player_checkpoint_activated(_checkpointIdx: int) -> void:
 	current_checkpoint_idx = _checkpointIdx
 
-	print(_checkpointIdx)
 	emit_signal("notify_save")

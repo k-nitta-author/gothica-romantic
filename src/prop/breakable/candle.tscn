@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bdhcjhqm5nrt1"]
+
+[ext_resource type="PackedScene" uid="uid://fuveg7oo6a3b" path="res://src/prop/base_prop.tscn" id="1_ssiki"]
+[ext_resource type="Script" uid="uid://38qvlss38ol6" path="res://src/prop/breakable/breakable_prop.gd" id="2_asgu3"]
+[ext_resource type="Texture2D" uid="uid://cbsiftecss0xm" path="res://icon.svg" id="2_cs3c0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t5ut4"]
+size = Vector2(20, 131)
+
+[node name="Candle" unique_id=1356046424 instance=ExtResource("1_ssiki")]
+collision_layer = 15
+script = ExtResource("2_asgu3")
+maxHitPoints = 2
+
+[node name="Sprite2D" parent="." index="0" unique_id=1300293945]
+position = Vector2(1.9073486e-06, 0.5)
+scale = Vector2(0.078124985, 1.0078125)
+texture = ExtResource("2_cs3c0")
+
+[node name="CollisionShape2D" parent="." index="2" unique_id=377356270]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_t5ut4")
