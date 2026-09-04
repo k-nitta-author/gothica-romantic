@@ -14,6 +14,7 @@ enum STATE {
 
 		match currentState:
 			STATE.RESUMED:
+				startScreen.visible = false
 				battleControl.visible = true
 				pauseGamePanel.visible = false
 				get_tree().paused = false
@@ -24,7 +25,7 @@ enum STATE {
 				pass
 			STATE.START_SCREEN:
 				battleControl.visible = false
-				get_start_screen().visible = true
+				startScreen.visible = true
 
 @onready var playerHpBar : ProgressBar = $Control/BattleControl/PlayerHpBar
 @onready var enemyHpBar : ProgressBar = $Control/BattleControl/EnemyHpBar
