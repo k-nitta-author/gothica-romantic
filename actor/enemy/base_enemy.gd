@@ -8,7 +8,6 @@ extends BaseActor
 @export var can_see_player : bool
 @export var is_active : bool # if active, it can move and be interacted with
 @export var is_awake: bool: set = set_is_awake # if it's awake, it can move and in relation to the player
-@export var is_stunned : bool 
 
 @export_category("combat")
 @export var shoot_bullet : PackedScene
@@ -61,7 +60,7 @@ func set_is_awake(value: bool):
 	if !self.is_node_ready(): await ready
 
 	if is_awake and is_awake != old_value: 
-		if anim.has_animation("rise"): anim.play("rise")
+		if anim.has_animation("awaken"): anim.play("awaken")
 
 		else: selected_state = default_state_on_awake
 
@@ -86,7 +85,6 @@ func on_vision_area_exited(_area: Area2D):
 	pass
 
 func walk() -> void:
-	velocity = Vector2(1 if seek_right else -1,0) * speed
 
 	shoot_if_possible()
 	attack_if_possible()
@@ -95,10 +93,12 @@ func walk() -> void:
 
 	anim.play("walk")
 
+func stop() -> void:
+	current_speed = 0
+	velocity.x = 0
 
-func go() -> void:
-	velocity = Vector2(1 if seek_right else -1,0) * speed
-
+func go() -> void:	
+	current_speed = speed
 
 func update_seek_right() -> void: pass
 
@@ -132,7 +132,6 @@ func shoot():
 	is_shooting = true
 	selected_state = BaseActor.STATES.SHOOT
 
-
 func fire() -> void:
 
 	var new_bullet: BaseBullet = shoot_bullet.instantiate()
@@ -140,10 +139,10 @@ func fire() -> void:
 
 	emit_signal("fire_gun", new_bullet, firingPoint.global_position)
 
-
 func update():
+	
+	velocity = Vector2((1 if seek_right else -1) * current_speed, 0)
 
-	if !is_active: return
+	if !is_active or Engine.is_editor_hint(): return
 
 	super()
-	is_flipped = player.global_position.x < global_position.x

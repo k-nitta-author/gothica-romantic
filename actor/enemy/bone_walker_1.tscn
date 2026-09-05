@@ -25,7 +25,7 @@ metadata/_custom_type_script = "uid://bxro0yfjng3td"
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2y8y3"]
 size = Vector2(11, 23)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_n3j8v"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xecny"]
 resource_local_to_scene = true
 shader = ExtResource("6_n3j8v")
 shader_parameter/active = false
@@ -58,7 +58,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_5fcut"]
-resource_name = "rise"
+resource_name = "awaken"
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -106,8 +106,8 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bybph"]
 _data = {
 &"RESET": SubResource("Animation_gp64u"),
+&"awaken": SubResource("Animation_5fcut"),
 &"damaged": ExtResource("8_c6dpo"),
-&"rise": SubResource("Animation_5fcut"),
 &"walk": SubResource("Animation_y8pw5")
 }
 
@@ -121,20 +121,21 @@ size = Vector2(170.5, 39)
 collision_layer = 32
 collision_mask = 96
 script = ExtResource("2_y8pw5")
-is_stunned = false
 max_hp = 3
 speed = 32.0
 speed_in_air_vertical = 5.0
+selected_state = 0
 idle_state = SubResource("Resource_lgiv4")
 move_state = SubResource("Resource_5fcut")
 falling_state = SubResource("Resource_gp64u")
+is_stunned = false
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=900505443]
 position = Vector2(0, -12)
 shape = SubResource("RectangleShape2D_2y8y3")
 
 [node name="Sprite2D" parent="." index="1" unique_id=90387062]
-material = SubResource("ShaderMaterial_n3j8v")
+material = SubResource("ShaderMaterial_xecny")
 texture = ExtResource("2_vl8vt")
 offset = Vector2(0, -16)
 hframes = 13

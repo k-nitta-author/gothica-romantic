@@ -2,11 +2,9 @@ class_name WalkState
 extends MoveState
 
 func enter_state():
-
+    state_actor.anim.play("walk")
     state_actor.stateLabel.text = "walk"
 
-    state_actor.velocity.y = 0
-    state_actor.velocity.x = 0
 
 func exit_state(args: Dictionary= {}):
 
@@ -20,11 +18,11 @@ func exit_state(args: Dictionary= {}):
     if args.get("fall", null) == true:
         state_actor.selected_state = BaseActor.STATES.FALLLING
 
-
 func update():
+
     state_actor.walk()
 
-    state_actor.velocity.y += state_actor.speed_in_air_vertical
+    state_actor.velocity.y += state_actor.speed_in_air_vertical    
 
     if state_actor.velocity.x == 0: exit_state({"idle": true})
 

@@ -55,6 +55,10 @@ func set_bullets_max(value: int) -> void:
 	bulletsCurrent = bulletsMax
 	emit_signal("on_bullets_max_change", old_value, bulletsCurrent)
 
+func has_gotten_up() -> bool:
+	if is_on_floor(): return true
+	else: return false
+
 func _unhandled_input(_event: InputEvent) -> void:
 	if current_state != null:
 		current_state.handle_input()

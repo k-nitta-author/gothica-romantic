@@ -41,11 +41,13 @@ enum STATES{ IDLE, MOVING, FALLLING, JUMPING, MELEE, SHOOT, DUCKING, LANDING , D
 			isInactive = false
 			
 @export_category("Physics")
-@export var speed : float
+@export var speed : float: set = set_speed
 @export var speed_in_air_horizontal: float
 @export var speed_in_air_vertical: float
 @export var jump_force : float
 @export var knockback_impulse: float
+
+var current_speed : float # whenever speed is changed, set this
 
 @export_category("States")
 
@@ -53,9 +55,13 @@ var previous_state : STATES
 
 @export var selected_state : STATES:
 	set(value):
+
+		var old_state = selected_state
 		selected_state = value
 
 		if (!self.is_node_ready()): await self.ready
+
+		if old_state == selected_state: return
 
 		match selected_state:
 			STATES.IDLE:
@@ -91,6 +97,8 @@ var previous_state : STATES
 @export_category("Misc")
 @export var is_flipped : bool: set = set_is_flipped
 @export var can_flip: bool = true
+@export var is_stunned : bool 
+
 
 var current_state : ActorState:
 	set(value):
@@ -111,6 +119,10 @@ var stage: Stage
 
 var is_attacking: bool
 var is_shooting: bool
+
+func set_speed(value: float) -> void:
+	current_speed = speed
+	speed = value
 
 func _ready() -> void:
 	hitbox.connect("area_entered", on_hitbox_entered)
@@ -172,11 +184,10 @@ func notify_attack_connection() -> void:
 	if !attackRay.is_colliding(): return
 	emit_signal("attacked_at_point", attackRay.get_collision_point(), is_flipped, stage.SPLATTER.SLASH)
 
-func stop() -> void: velocity.x = 0
 
+func stop() -> void: pass
 
-func go() -> void: velocity.x = 0
-	
+func go() -> void: velocity.x = 0	
 
 func bind_dependencies(s: Stage):
 	connect("fire_gun", s.bulletManager.add_bullet)

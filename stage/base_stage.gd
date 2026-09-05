@@ -39,6 +39,27 @@ func _ready() -> void:
 	# bind all dependencies as necessary
 	bind_dependencies(self)
 
+# creates a temporary camera at a given position
+func add_temporary_camera_at(pos: Vector2i) -> Camera2D:
+
+	# initialize
+	stageCamera = Camera2D.new()
+
+	# set up relevant members for the camera
+	stageCamera.anchor_mode = Camera2D.ANCHOR_MODE_FIXED_TOP_LEFT
+	stageCamera.limit_left = pos.x
+	stageCamera.limit_right = pos.x + Window.size.x
+
+	return stageCamera
+
+# kill and reset the current camera to player's camera
+func kill_temporary_camera() -> void:
+	stageCamera.queue_free()
+	stageCamera = $ActorManager/Player/Camera2D
+
+func get_current_camera() -> Camera2D:
+	return $ActorManager/ActorManager/Player/Camera2D
+
 # get the current boss
 func get_boss() -> Array: return actorManager.get_bosses()
 

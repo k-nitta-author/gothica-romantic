@@ -10,7 +10,7 @@
 script = ExtResource("3_sffo0")
 metadata/_custom_type_script = "uid://dmjhev2pahl57"
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0wmbo"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_crbdt"]
 resource_local_to_scene = true
 shader = ExtResource("3_wpd7q")
 shader_parameter/active = false
@@ -72,7 +72,7 @@ damaged_state = SubResource("Resource_wpd7q")
 disabled = true
 
 [node name="Sprite2D" parent="." index="1" unique_id=90387062]
-material = SubResource("ShaderMaterial_0wmbo")
+material = SubResource("ShaderMaterial_crbdt")
 
 [node name="anim" parent="." index="2" unique_id=783902006]
 libraries/ = SubResource("AnimationLibrary_wpd7q")

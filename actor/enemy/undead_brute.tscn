@@ -27,7 +27,7 @@ metadata/_custom_type_script = "uid://bunbdgovyilxk"
 a = Vector2(-8, 0)
 b = Vector2(8, 0)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_yc1xk"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_076yb"]
 resource_local_to_scene = true
 shader = ExtResource("5_2hqow")
 shader_parameter/active = false
@@ -48,7 +48,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_u74of"]
-resource_name = "scream"
+resource_name = "awaken"
 length = 2.0
 step = 0.05
 tracks/0/type = "value"
@@ -134,8 +134,8 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e2do6"]
 _data = {
 &"RESET": SubResource("Animation_1dmjd"),
+&"awaken": SubResource("Animation_u74of"),
 &"damaged": ExtResource("7_e2do6"),
-&"scream": SubResource("Animation_u74of"),
 &"shoot": SubResource("Animation_eqrin"),
 &"walk": SubResource("Animation_2hqow")
 }
@@ -149,7 +149,6 @@ size = Vector2(128, 64)
 [node name="undead_brute" unique_id=1016638848 instance=ExtResource("1_x0yvw")]
 script = ExtResource("2_yc1xk")
 can_see_player = true
-is_stunned = false
 shoot_bullet = ExtResource("2_e2do6")
 max_melee_range = 64.0
 default_state_on_awake = 1
@@ -159,12 +158,13 @@ selected_state = 0
 idle_state = SubResource("Resource_eqrin")
 move_state = SubResource("Resource_x0yvw")
 shoot_state = SubResource("Resource_dsw75")
+is_stunned = false
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=900505443]
 shape = SubResource("SegmentShape2D_q1xjc")
 
 [node name="Sprite2D" parent="." index="1" unique_id=90387062]
-material = SubResource("ShaderMaterial_yc1xk")
+material = SubResource("ShaderMaterial_076yb")
 texture = ExtResource("2_dsw75")
 offset = Vector2(0, -16)
 hframes = 7
