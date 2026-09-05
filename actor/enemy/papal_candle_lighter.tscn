@@ -2,9 +2,26 @@
 
 [ext_resource type="PackedScene" uid="uid://bthmcawypnud2" path="res://actor/enemy/platformer_enemy.tscn" id="1_8cd1t"]
 [ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/hitFlashShader.gdshader" id="2_8mtvx"]
+[ext_resource type="Script" uid="uid://cciei67yuitw5" path="res://src/state/actor/idleState.gd" id="2_kgpfa"]
 [ext_resource type="Texture2D" uid="uid://ijggc5fv6f86" path="res://assets/enemies/papal candle lighter.png" id="3_b74l3"]
+[ext_resource type="Script" uid="uid://hhc8ylq4nvxy" path="res://src/state/actor/meleeState.gd" id="3_r2i4i"]
+[ext_resource type="Script" uid="uid://cgcwml08u6r0s" path="res://src/state/actor/walkState.gd" id="4_gdcpg"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ugmfi"]
+[sub_resource type="Resource" id="Resource_senlp"]
+script = ExtResource("2_kgpfa")
+metadata/_custom_type_script = "uid://cciei67yuitw5"
+
+[sub_resource type="Resource" id="Resource_yy3ao"]
+script = ExtResource("3_r2i4i")
+metadata/_custom_type_script = "uid://hhc8ylq4nvxy"
+
+[sub_resource type="Resource" id="Resource_3n4se"]
+script = ExtResource("4_gdcpg")
+metadata/_custom_type_script = "uid://cgcwml08u6r0s"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5mb4p"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t7m8i"]
 resource_local_to_scene = true
 shader = ExtResource("2_8mtvx")
 shader_parameter/active = false
@@ -395,10 +412,24 @@ _data = {
 &"walk": SubResource("Animation_88wb6")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cp1rc"]
+size = Vector2(20, 35)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t7m8i"]
+size = Vector2(152.25, 57)
+
 [node name="papal candle lighter" unique_id=1016638848 instance=ExtResource("1_8cd1t")]
+idle_state = SubResource("Resource_senlp")
+melee_state = SubResource("Resource_yy3ao")
+move_state = SubResource("Resource_3n4se")
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=900505443]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_5mb4p")
+disabled = false
 
 [node name="Sprite2D" parent="." index="1" unique_id=90387062]
-material = SubResource("ShaderMaterial_ugmfi")
+material = SubResource("ShaderMaterial_t7m8i")
 texture = ExtResource("3_b74l3")
 offset = Vector2(0, -24)
 hframes = 4
@@ -407,6 +438,14 @@ region_rect = Rect2(0, 0, 128, 48)
 
 [node name="anim" parent="." index="2" unique_id=783902006]
 libraries/ = SubResource("AnimationLibrary_acbxy")
+
+[node name="CollisionShape2D" parent="Hitbox" parent_id_path=PackedInt32Array(636899970) index="0" unique_id=2047019247]
+position = Vector2(0, -17.5)
+shape = SubResource("RectangleShape2D_cp1rc")
+
+[node name="CollisionShape2D" parent="VisionArea" parent_id_path=PackedInt32Array(1796340020) index="0" unique_id=2039586838]
+position = Vector2(0, -29)
+shape = SubResource("RectangleShape2D_t7m8i")
 
 [node name="lantern" type="Sprite2D" parent="." index="9" unique_id=52474029]
 position = Vector2(10, -11)

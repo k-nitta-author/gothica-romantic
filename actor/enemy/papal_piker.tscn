@@ -1,16 +1,37 @@
 [gd_scene format=4 uid="uid://dyhfxktgfaktb"]
 
 [ext_resource type="PackedScene" uid="uid://bthmcawypnud2" path="res://actor/enemy/platformer_enemy.tscn" id="1_2vapg"]
+[ext_resource type="Script" uid="uid://cciei67yuitw5" path="res://src/state/actor/idleState.gd" id="2_f5tfu"]
 [ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/hitFlashShader.gdshader" id="2_hosvh"]
 [ext_resource type="Texture2D" uid="uid://dtkw2v0by5v2v" path="res://assets/enemies/papal piker.png" id="3_eoyng"]
+[ext_resource type="Script" uid="uid://hhc8ylq4nvxy" path="res://src/state/actor/meleeState.gd" id="3_xiud8"]
 [ext_resource type="AudioStream" uid="uid://bh44qmiakul2t" path="res://assets/sound/sfx/noise2.wav" id="4_5yl3h"]
+[ext_resource type="Script" uid="uid://cgcwml08u6r0s" path="res://src/state/actor/walkState.gd" id="4_iycyw"]
 [ext_resource type="AudioStream" uid="uid://bfqls0skfob01" path="res://assets/sound/sfx/noise4.wav" id="5_q7omp"]
+[ext_resource type="Script" uid="uid://bunbdgovyilxk" path="res://src/state/actor/shootState.gd" id="5_wu274"]
 [ext_resource type="AudioStream" uid="uid://sorepoioavl7" path="res://assets/sound/sfx/noise1.wav" id="6_uvqxr"]
+[ext_resource type="Animation" uid="uid://dc4oqu1m6whdy" path="res://actor/damaged.res" id="10_xiud8"]
+
+[sub_resource type="Resource" id="Resource_abmyv"]
+script = ExtResource("2_f5tfu")
+metadata/_custom_type_script = "uid://cciei67yuitw5"
+
+[sub_resource type="Resource" id="Resource_8411b"]
+script = ExtResource("3_xiud8")
+metadata/_custom_type_script = "uid://hhc8ylq4nvxy"
+
+[sub_resource type="Resource" id="Resource_fsbhl"]
+script = ExtResource("4_iycyw")
+metadata/_custom_type_script = "uid://cgcwml08u6r0s"
+
+[sub_resource type="Resource" id="Resource_f5tfu"]
+script = ExtResource("5_wu274")
+metadata/_custom_type_script = "uid://bunbdgovyilxk"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pdxo5"]
 size = Vector2(16, 26)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_5yl3h"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7s3t3"]
 resource_local_to_scene = true
 shader = ExtResource("2_hosvh")
 shader_parameter/active = false
@@ -339,6 +360,7 @@ tracks/3/keys = {
 _data = {
 &"RESET": SubResource("Animation_q7omp"),
 &"attack": SubResource("Animation_uvqxr"),
+&"damaged": ExtResource("10_xiud8"),
 &"shoot": SubResource("Animation_5qtv3"),
 &"walk": SubResource("Animation_pdxo5")
 }
@@ -350,13 +372,20 @@ size = Vector2(20, 32)
 size = Vector2(192, 20)
 
 [node name="papal piker" unique_id=1016638848 instance=ExtResource("1_2vapg")]
+can_see_player = true
+max_hp = 6
+speed = 30.0
+idle_state = SubResource("Resource_abmyv")
+melee_state = SubResource("Resource_8411b")
+move_state = SubResource("Resource_fsbhl")
+shoot_state = SubResource("Resource_f5tfu")
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=900505443]
 position = Vector2(0, -13)
 shape = SubResource("RectangleShape2D_pdxo5")
 
 [node name="Sprite2D" parent="." index="1" unique_id=90387062]
-material = SubResource("ShaderMaterial_5yl3h")
+material = SubResource("ShaderMaterial_7s3t3")
 texture = ExtResource("3_eoyng")
 offset = Vector2(0, -24)
 hframes = 11

@@ -29,7 +29,7 @@ metadata/_custom_type_script = "uid://bunbdgovyilxk"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onahq"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ya0f1"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8lf15"]
 resource_local_to_scene = true
 shader = ExtResource("7_kwd8c")
 shader_parameter/active = false
@@ -62,7 +62,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_lqr6f"]
-resource_name = "cast"
+resource_name = "shoot"
 length = 1.5
 step = 0.05
 tracks/0/type = "value"
@@ -164,8 +164,8 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gulix"]
 _data = {
 &"RESET": SubResource("Animation_oumla"),
-&"cast": SubResource("Animation_lqr6f"),
 &"damaged": ExtResource("9_fkvp5"),
+&"shoot": SubResource("Animation_lqr6f"),
 &"spin attack": SubResource("Animation_0okp3"),
 &"walk": SubResource("Animation_73qie")
 }
@@ -200,7 +200,7 @@ position = Vector2(1, -10)
 shape = SubResource("RectangleShape2D_onahq")
 
 [node name="Sprite2D" parent="." index="2" unique_id=90387062]
-material = SubResource("ShaderMaterial_ya0f1")
+material = SubResource("ShaderMaterial_8lf15")
 texture = ExtResource("2_kabjl")
 offset = Vector2(0, -16)
 hframes = 10

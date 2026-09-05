@@ -1,7 +1,39 @@
 [gd_scene format=3 uid="uid://ctd4kyqrp1s6l"]
 
 [ext_resource type="PackedScene" uid="uid://bthmcawypnud2" path="res://actor/enemy/platformer_enemy.tscn" id="1_5wlpe"]
+[ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/hitFlashShader.gdshader" id="2_5f6hq"]
 [ext_resource type="Texture2D" uid="uid://bhd4l5o50wxak" path="res://assets/enemies/The Director.png" id="2_dq0x4"]
+[ext_resource type="Script" uid="uid://cciei67yuitw5" path="res://src/state/actor/idleState.gd" id="2_pku2g"]
+[ext_resource type="Script" uid="uid://hhc8ylq4nvxy" path="res://src/state/actor/meleeState.gd" id="3_xlkoo"]
+[ext_resource type="Script" uid="uid://cgcwml08u6r0s" path="res://src/state/actor/walkState.gd" id="4_g35jg"]
+[ext_resource type="Script" uid="uid://bunbdgovyilxk" path="res://src/state/actor/shootState.gd" id="5_ubxil"]
+[ext_resource type="Animation" uid="uid://dc4oqu1m6whdy" path="res://actor/damaged.res" id="8_xlkoo"]
+
+[sub_resource type="Resource" id="Resource_5f6hq"]
+script = ExtResource("2_pku2g")
+metadata/_custom_type_script = "uid://cciei67yuitw5"
+
+[sub_resource type="Resource" id="Resource_hw4bp"]
+script = ExtResource("3_xlkoo")
+animation_name = "attack2"
+metadata/_custom_type_script = "uid://hhc8ylq4nvxy"
+
+[sub_resource type="Resource" id="Resource_5xrtv"]
+script = ExtResource("4_g35jg")
+metadata/_custom_type_script = "uid://cgcwml08u6r0s"
+
+[sub_resource type="Resource" id="Resource_b1om1"]
+script = ExtResource("5_ubxil")
+animation_name = "attack"
+metadata/_custom_type_script = "uid://bunbdgovyilxk"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_senlp"]
+size = Vector2(96, 52)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hw4bp"]
+resource_local_to_scene = true
+shader = ExtResource("2_5f6hq")
+shader_parameter/active = false
 
 [sub_resource type="Animation" id="Animation_5wlpe"]
 length = 0.001
@@ -459,18 +491,32 @@ _data = {
 &"RESET": SubResource("Animation_5wlpe"),
 &"attack": SubResource("Animation_dq0x4"),
 &"attack2": SubResource("Animation_pcsc7"),
+&"damaged": ExtResource("8_xlkoo"),
 &"walk": SubResource("Animation_hv00g")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5f6hq"]
+size = Vector2(97, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5xrtv"]
+size = Vector2(207, 100)
+
 [node name="The Director" unique_id=1016638848 instance=ExtResource("1_5wlpe")]
-isInactive = false
+can_see_player = true
+default_state_on_awake = 1
 selected_state = 0
-is_flipped = false
+idle_state = SubResource("Resource_5f6hq")
+melee_state = SubResource("Resource_hw4bp")
+move_state = SubResource("Resource_5xrtv")
+shoot_state = SubResource("Resource_b1om1")
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=900505443]
+position = Vector2(-12, -28)
+shape = SubResource("RectangleShape2D_senlp")
 disabled = false
 
 [node name="Sprite2D" parent="." index="1" unique_id=90387062]
+material = SubResource("ShaderMaterial_hw4bp")
 position = Vector2(3, -54)
 texture = ExtResource("2_dq0x4")
 offset = Vector2(0, -24)
@@ -481,6 +527,14 @@ region_rect = Rect2(0, 0, 512, 96)
 
 [node name="anim" parent="." index="2" unique_id=783902006]
 libraries/ = SubResource("AnimationLibrary_pcsc7")
+
+[node name="CollisionShape2D" parent="Hitbox" parent_id_path=PackedInt32Array(636899970) index="0" unique_id=2047019247]
+position = Vector2(-12.5, -50)
+shape = SubResource("RectangleShape2D_5f6hq")
+
+[node name="CollisionShape2D" parent="VisionArea" parent_id_path=PackedInt32Array(1796340020) index="0" unique_id=2039586838]
+position = Vector2(0, -50)
+shape = SubResource("RectangleShape2D_5xrtv")
 
 [node name="stateLabel" parent="." index="6" unique_id=1314498347]
 offset_left = -29.0

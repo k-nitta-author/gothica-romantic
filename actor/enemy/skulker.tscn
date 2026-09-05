@@ -27,10 +27,10 @@ metadata/_custom_type_script = "uid://cgcwml08u6r0s"
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jetdb"]
 size = Vector2(12, 12)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_pj3ty"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ctxv2"]
 resource_local_to_scene = true
 shader = ExtResource("6_am63j")
-shader_parameter/active = true
+shader_parameter/active = false
 
 [sub_resource type="Animation" id="Animation_a2gub"]
 length = 0.001
@@ -216,13 +216,14 @@ speed = 32.0
 idle_state = SubResource("Resource_fm07x")
 melee_state = SubResource("Resource_ncy6i")
 move_state = SubResource("Resource_2l2ga")
+is_stunned = false
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=900505443]
 position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_jetdb")
 
 [node name="Sprite2D" parent="." index="1" unique_id=90387062]
-material = SubResource("ShaderMaterial_pj3ty")
+material = SubResource("ShaderMaterial_ctxv2")
 texture = ExtResource("2_r53kt")
 offset = Vector2(0, -8)
 hframes = 8
