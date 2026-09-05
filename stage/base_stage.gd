@@ -22,7 +22,7 @@ enum SPLATTER {SHOOT, SLASH}
 @export var transition_in : EffectsLayer.TRANS
 @export var transition_out : EffectsLayer.TRANS
 
-@onready var stageCamera : Camera2D
+@onready var stageCamera : Camera2D = $Camera2D
 
 var current_checkpoint_idx : int
 
@@ -38,27 +38,6 @@ func _ready() -> void:
 	
 	# bind all dependencies as necessary
 	bind_dependencies(self)
-
-# creates a temporary camera at a given position
-func add_temporary_camera_at(pos: Vector2i) -> Camera2D:
-
-	# initialize
-	stageCamera = Camera2D.new()
-
-	# set up relevant members for the camera
-	stageCamera.anchor_mode = Camera2D.ANCHOR_MODE_FIXED_TOP_LEFT
-	stageCamera.limit_left = pos.x
-	stageCamera.limit_right = pos.x + Window.size.x
-
-	return stageCamera
-
-# kill and reset the current camera to player's camera
-func kill_temporary_camera() -> void:
-	stageCamera.queue_free()
-	stageCamera = $ActorManager/Player/Camera2D
-
-func get_current_camera() -> Camera2D:
-	return $ActorManager/ActorManager/Player/Camera2D
 
 # get the current boss
 func get_boss() -> Array: return actorManager.get_bosses()
@@ -82,6 +61,7 @@ func bind_dependencies(stage: Stage):
 	actorManager.bind_dependencies(stage)
 	propManager.bind_dependencies(stage)
 	bulletManager.bind_dependencies(stage)
+	stageCamera.bind_dependencies(stage)
 
 # the process of starting the level
 func start() -> void:
@@ -150,3 +130,7 @@ func on_player_checkpoint_activated(_checkpointIdx: int) -> void:
 	current_checkpoint_idx = _checkpointIdx
 
 	emit_signal("notify_save")
+
+
+func _physics_process(delta: float) -> void:
+	stageCamera.update()

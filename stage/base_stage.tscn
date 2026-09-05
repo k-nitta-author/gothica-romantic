@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dko0wkmi8werb" path="res://stage/manager/actor_manager.gd" id="1_v02k8"]
 [ext_resource type="Script" uid="uid://cgt6sqpopcenr" path="res://stage/manager/prop_manager.gd" id="2_5m2fl"]
 [ext_resource type="Script" uid="uid://comt54346nx8i" path="res://stage/manager/bullet_manager.gd" id="3_0x10x"]
+[ext_resource type="Script" uid="uid://deuob81fl0d5d" path="res://stage/camera_2d.gd" id="3_c4gdh"]
 [ext_resource type="PackedScene" uid="uid://dxrsyek2feu0u" path="res://actor/player/player.tscn" id="3_ont0r"]
 [ext_resource type="Script" uid="uid://ryiprrdaay88" path="res://stage/base_stage.gd" id="5_0x10x"]
 [ext_resource type="Script" uid="uid://dmjhev2pahl57" path="res://src/state/actor/damagedState.gd" id="5_8ytu5"]
@@ -592,6 +593,10 @@ script = ExtResource("5_0x10x")
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1855226038]
 tile_set = SubResource("TileSet_332av")
 
+[node name="Camera2D" type="Camera2D" parent="." unique_id=836156762]
+position = Vector2(120, 80)
+script = ExtResource("3_c4gdh")
+
 [node name="ActorManager" type="Node2D" parent="." unique_id=411187778]
 script = ExtResource("1_v02k8")
 
@@ -599,9 +604,6 @@ script = ExtResource("1_v02k8")
 position = Vector2(120, 135)
 max_potion_count = 0
 damaged_state = SubResource("Resource_2rrgm")
-
-[node name="Camera2D" type="Camera2D" parent="ActorManager/Player" unique_id=836156762]
-position = Vector2(0, -55)
 
 [node name="PropManager" type="Node2D" parent="." unique_id=1772769532]
 script = ExtResource("2_5m2fl")
