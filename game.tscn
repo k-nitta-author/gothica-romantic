@@ -15,6 +15,7 @@ next_level_scene = ExtResource("2_ryrav")
 process_mode = 3
 
 [node name="EffectsLayer" parent="." unique_id=1117040007 instance=ExtResource("6_eow3j")]
+process_mode = 3
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=1358107669]
 bus = &"Music"

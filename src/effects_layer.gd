@@ -19,7 +19,8 @@ enum TRANS {
 func _ready() -> void:
     anim.connect("animation_finished", _on_anim_finished)
 
-func _on_anim_finished(_anim_name: String) -> void: emit_signal("transition_finished")
+func _on_anim_finished(_anim_name: String) -> void:
+    emit_signal("transition_finished")
 
 # plays the transition for the effects layer
 func play_transition(trans_type: TRANS, reverse: bool = false) -> void: 

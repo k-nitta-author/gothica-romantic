@@ -14,13 +14,5 @@ tile_map_data = PackedByteArray("AAABAAgAAAACAAgAAAABAAkAAAACAAkAAAAAAAgAAAABAAg
 [node name="Player" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="0" unique_id=1016638848]
 position = Vector2(144, 96)
 
-[node name="Camera2D" parent="ActorManager/Player" index="7" unique_id=836156762]
-limit_left = 0
-limit_top = 0
-limit_bottom = 160
-limit_smoothed = true
-position_smoothing_enabled = true
-position_smoothing_speed = 7.0
-
 [node name="undead_brute" parent="." index="6" unique_id=2093287887 instance=ExtResource("3_7ih23")]
 position = Vector2(2272, 128)

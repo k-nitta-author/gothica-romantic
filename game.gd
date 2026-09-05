@@ -43,7 +43,6 @@ func update_next_level(next: PackedScene) -> void: next_level_scene = next
 
 func start_game() -> void:
 	start_screen.hide()
-	
 	# set up stage
 	stage = load_stage(next_level_scene)
 	stage.bind_to_game(self)
@@ -55,6 +54,7 @@ func start_game() -> void:
 	hudLayer.currentState = hudLayer.STATE.RESUMED
 	hudLayer.bind_to_player(stage.player)
 	hudLayer.bind_boss(stage.get_boss())
+
 
 	save()
 
@@ -72,9 +72,13 @@ func unload_stage() -> void:
 func on_start_level(from_beginning: bool) -> void:
 
 	if from_beginning:
+
 		start_screen.show_save_game_modal()
 
 	else:
+		
+		effectLayer.play_transition(EffectsLayer.TRANS.WIPE_UP)
+		await effectLayer.transition_finished
 		
 		start_game()
 		save()

@@ -595,6 +595,8 @@ tile_set = SubResource("TileSet_332av")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=836156762]
 position = Vector2(120, 80)
+limit_left = 0
+limit_bottom = 160
 script = ExtResource("3_c4gdh")
 
 [node name="ActorManager" type="Node2D" parent="." unique_id=411187778]

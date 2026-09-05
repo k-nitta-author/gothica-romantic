@@ -47,6 +47,8 @@ enum STATE {
 
 @onready var pauseGamePanel = $Control/PauseGamePanel
 
+var effectLayer: EffectsLayer
+
 var game
 
 func _ready() -> void:
@@ -58,8 +60,17 @@ func bind_game(g: Game) -> void:
 	game = g
 
 	startScreen.bind_to_game(game)
+	effectLayer = game.effectLayer
 
-func on_main_menu() -> void: game.unload_stage()
+func on_main_menu() -> void:
+	
+	effectLayer.play_transition(EffectsLayer.TRANS.WIPE_UP)
+
+	await effectLayer.transition_finished
+
+	game.unload_stage()
+
+	effectLayer.play_transition(EffectsLayer.TRANS.WIPE_UP, true)
 
 func on_game_paused() -> void:
 	pauseGamePanel.hide()
