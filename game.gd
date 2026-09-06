@@ -4,6 +4,7 @@ extends Node2D
 const GRID_SIZE = 16 # potentially subject to change
 const GRAVITY = 1 # determine best value later on
 
+# intialize child variables
 @onready var hudLayer = $HudLayer
 @onready var music: AudioStreamPlayer = $Music
 @onready var stage: Stage = self.get_node_or_null("Stage")
@@ -13,6 +14,7 @@ const GRAVITY = 1 # determine best value later on
 @export var next_level_scene: PackedScene
 @onready var start_screen : Control = $HudLayer.get_start_screen()
 
+# the current_save_index
 var current_save_idx := 1
 
 # saveable data
@@ -25,6 +27,7 @@ func _ready() -> void:
 	start_screen.connect("start_level", on_start_level)
 	hudLayer.bind_game(self)
 
+# sets the current save file that the game is considering
 func set_current_save(idx: int) -> void: 
 
 	current_save_idx = idx
@@ -41,6 +44,7 @@ func save_handler(f: FileAccess): f.store_string(JSON.stringify(poll_game_state(
 
 func update_next_level(next: PackedScene) -> void: next_level_scene = next
 
+# starts the game
 func start_game() -> void:
 	start_screen.hide()
 	# set up stage
@@ -55,25 +59,23 @@ func start_game() -> void:
 	hudLayer.bind_to_player(stage.player)
 	hudLayer.bind_boss(stage.get_boss())
 
-
 	save()
 
-func start_stage():
-	var s = load_stage(next_level_scene)
-	add_child(s)
+# start the stage
+func start_stage(): add_child(load_stage(next_level_scene))
 
 func load_stage(nextLevel: PackedScene) -> Stage: return nextLevel.instantiate()
 
+# unloads the currently running stage
 func unload_stage() -> void:
 	stage.call_deferred("queue_free")
 	stage = null
 	hudLayer.currentState = hudLayer.STATE.START_SCREEN
 
+# called whenever the start level signal
 func on_start_level(from_beginning: bool) -> void:
 
-	if from_beginning:
-
-		start_screen.show_save_game_modal()
+	if from_beginning: start_screen.show_save_game_modal()
 
 	else:
 		
@@ -96,6 +98,7 @@ func poll_game_state() -> Dictionary:
 		"current_checkpoint_idx": stage.current_checkpoint_idx
 	}
 
+# called whenever the loaded stage ends
 func on_stage_end(new_next_level_scene: PackedScene):
 
 	if new_next_level_scene == null: return  
@@ -109,9 +112,11 @@ func on_stage_end(new_next_level_scene: PackedScene):
 	call_deferred("add_child", stage)
 	stage.bind_to_game(self)
 
-
-
+# the unhandled input
 func _unhandled_input(event: InputEvent) -> void:
+
+	# called whenever the fullscreen button is pressed
+	# toggles the fullscreen setting to true
 	if event.is_action("fullScreen"):
 		if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)

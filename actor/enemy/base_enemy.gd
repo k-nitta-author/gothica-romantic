@@ -102,15 +102,23 @@ func go() -> void:
 
 func update_seek_right() -> void: pass
 
-func has_player_in_melee_range() -> bool: return self.global_position.distance_to(player.global_position) < max_melee_range
+func has_player_in_melee_range() -> bool:
+	var distance = self.global_position.distance_to(player.global_position) 
+	
+	return max_shoot_range > max_melee_range and max_melee_range  > distance
 
-func has_player_in_shoot_range() -> bool: return self.global_position.distance_to(player.global_position) < max_shoot_range
+func has_player_in_shoot_range() -> bool:
+	
+	var distance = self.global_position.distance_to(player.global_position) 
+	
+	return max_melee_range < distance and distance  < max_shoot_range
 
 func attack_if_possible() -> void:
 
-	if melee_state == null or is_attacking: return
+	if melee_state == null or is_attacking or is_shooting: return
 
-	if has_player_in_melee_range(): attack()
+	if has_player_in_melee_range():
+		attack()
 
 	else: selected_state = BaseActor.STATES.IDLE
 
@@ -122,7 +130,7 @@ func attack() -> void:
 
 func shoot_if_possible() -> void:
 
-	if shoot_state == null or is_shooting: return
+	if shoot_state == null or is_shooting or is_attacking: return
 
 	if has_player_in_shoot_range(): shoot()
 

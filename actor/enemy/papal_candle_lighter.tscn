@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ijggc5fv6f86" path="res://assets/enemies/papal candle lighter.png" id="3_b74l3"]
 [ext_resource type="Script" uid="uid://hhc8ylq4nvxy" path="res://src/state/actor/meleeState.gd" id="3_r2i4i"]
 [ext_resource type="Script" uid="uid://cgcwml08u6r0s" path="res://src/state/actor/walkState.gd" id="4_gdcpg"]
+[ext_resource type="Animation" uid="uid://dc4oqu1m6whdy" path="res://actor/damaged.res" id="7_r2i4i"]
 
 [sub_resource type="Resource" id="Resource_senlp"]
 script = ExtResource("2_kgpfa")
@@ -21,10 +22,10 @@ metadata/_custom_type_script = "uid://cgcwml08u6r0s"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5mb4p"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_t7m8i"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gdcpg"]
 resource_local_to_scene = true
 shader = ExtResource("2_8mtvx")
-shader_parameter/active = false
+shader_parameter/active = true
 
 [sub_resource type="Animation" id="Animation_y4tsd"]
 length = 0.001
@@ -408,6 +409,7 @@ tracks/2/keys = {
 _data = {
 &"RESET": SubResource("Animation_y4tsd"),
 &"attack": SubResource("Animation_7fr48"),
+&"damaged": ExtResource("7_r2i4i"),
 &"idle": SubResource("Animation_gmgfc"),
 &"walk": SubResource("Animation_88wb6")
 }
@@ -429,7 +431,7 @@ shape = SubResource("RectangleShape2D_5mb4p")
 disabled = false
 
 [node name="Sprite2D" parent="." index="1" unique_id=90387062]
-material = SubResource("ShaderMaterial_t7m8i")
+material = SubResource("ShaderMaterial_gdcpg")
 texture = ExtResource("3_b74l3")
 offset = Vector2(0, -24)
 hframes = 4

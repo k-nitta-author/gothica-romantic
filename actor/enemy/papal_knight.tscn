@@ -16,6 +16,7 @@ metadata/_custom_type_script = "uid://cciei67yuitw5"
 
 [sub_resource type="Resource" id="Resource_yy3ao"]
 script = ExtResource("3_inpl4")
+stops_actor = true
 metadata/_custom_type_script = "uid://hhc8ylq4nvxy"
 
 [sub_resource type="Resource" id="Resource_3n4se"]
@@ -24,7 +25,7 @@ metadata/_custom_type_script = "uid://cgcwml08u6r0s"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d6s6i"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_d6s6i"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_inpl4"]
 resource_local_to_scene = true
 shader = ExtResource("2_7rkme")
 shader_parameter/active = false
@@ -288,7 +289,7 @@ size = Vector2(163.875, 38)
 
 [node name="papal knight" unique_id=1016638848 instance=ExtResource("1_accsr")]
 can_see_player = true
-max_melee_range = 128.0
+max_melee_range = 90.0
 default_state_on_awake = 1
 max_hp = 8
 speed = 25.0
@@ -302,7 +303,7 @@ position = Vector2(0, -10)
 shape = SubResource("RectangleShape2D_d6s6i")
 
 [node name="Sprite2D" parent="." index="1" unique_id=90387062]
-material = SubResource("ShaderMaterial_d6s6i")
+material = SubResource("ShaderMaterial_inpl4")
 texture = ExtResource("3_8xb32")
 offset = Vector2(0, -24)
 hframes = 11

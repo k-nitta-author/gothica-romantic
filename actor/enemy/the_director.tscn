@@ -30,7 +30,7 @@ metadata/_custom_type_script = "uid://bunbdgovyilxk"
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_senlp"]
 size = Vector2(96, 52)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_hw4bp"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xlkoo"]
 resource_local_to_scene = true
 shader = ExtResource("2_5f6hq")
 shader_parameter/active = false
@@ -503,7 +503,10 @@ size = Vector2(207, 100)
 
 [node name="The Director" unique_id=1016638848 instance=ExtResource("1_5wlpe")]
 can_see_player = true
+max_melee_range = 41.0
+max_shoot_range = 247.0
 default_state_on_awake = 1
+speed = 10.0
 selected_state = 0
 idle_state = SubResource("Resource_5f6hq")
 melee_state = SubResource("Resource_hw4bp")
@@ -516,7 +519,7 @@ shape = SubResource("RectangleShape2D_senlp")
 disabled = false
 
 [node name="Sprite2D" parent="." index="1" unique_id=90387062]
-material = SubResource("ShaderMaterial_hw4bp")
+material = SubResource("ShaderMaterial_xlkoo")
 position = Vector2(3, -54)
 texture = ExtResource("2_dq0x4")
 offset = Vector2(0, -24)

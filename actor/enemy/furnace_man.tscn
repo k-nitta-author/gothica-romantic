@@ -35,7 +35,7 @@ metadata/_custom_type_script = "uid://bunbdgovyilxk"
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pgrgf"]
 size = Vector2(16, 33)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_8n8ub"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kj688"]
 resource_local_to_scene = true
 shader = ExtResource("7_rmx4m")
 shader_parameter/active = false
@@ -612,7 +612,7 @@ tracks/1/path = NodePath("arm1:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.6, 0.65000004, 2, 2.05, 4),
+"times": PackedFloat32Array(0, 0.6, 0.65000004, 2, 2.05, 2.99),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [Vector2(-10, -22), Vector2(-14, -31), Vector2(-14, -33), Vector2(-9, -23), Vector2(-9, -20), Vector2(12, -22)]
@@ -648,7 +648,7 @@ tracks/4/path = NodePath("arm1:rotation")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(4),
+"times": PackedFloat32Array(2.99),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0.0]
@@ -890,9 +890,8 @@ size = Vector2(176, 20)
 script = ExtResource("2_7p7yn")
 can_see_player = true
 is_active = true
-is_awake = true
-max_melee_range = 200.0
-max_shoot_range = 350.0
+max_melee_range = 80.0
+max_shoot_range = 491.0
 default_state_on_awake = 1
 max_hp = 8
 speed = 8.0
@@ -906,7 +905,7 @@ position = Vector2(3, -17)
 shape = SubResource("RectangleShape2D_pgrgf")
 
 [node name="Sprite2D" parent="." index="1" unique_id=90387062]
-material = SubResource("ShaderMaterial_8n8ub")
+material = SubResource("ShaderMaterial_kj688")
 texture = ExtResource("2_hhll4")
 offset = Vector2(0, -24)
 hframes = 7
