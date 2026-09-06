@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://k7hwpleofqsj"]
 
-[ext_resource type="Script" uid="uid://d36b1xw8r6gjq" path="res://src/ui/battle_control.gd" id="1_6g7v8"]
+[ext_resource type="Script" uid="uid://d36b1xw8r6gjq" path="res://src/ui/hud/battle_control.gd" id="1_6g7v8"]
 [ext_resource type="Texture2D" uid="uid://dpy52ftto78s3" path="res://assets/huds/player hp bar.png" id="2_g1tik"]
 [ext_resource type="PackedScene" uid="uid://cc8qj44o6epf4" path="res://src/ui/small_label.tscn" id="3_6b2uh"]
 [ext_resource type="Texture2D" uid="uid://dfpk7lnh4tgnu" path="res://assets/huds/boss hp bar.png" id="4_vlqhy"]
 [ext_resource type="Texture2D" uid="uid://cux5di67x0q3o" path="res://assets/huds/bullet icon.png" id="5_eoylg"]
-[ext_resource type="Script" uid="uid://canj802yjtvgt" path="res://src/ui/potion_icons.gd" id="6_0cetq"]
+[ext_resource type="Script" uid="uid://canj802yjtvgt" path="res://src/ui/hud/potion_icons.gd" id="6_0cetq"]
 [ext_resource type="Texture2D" uid="uid://bdhgkw3n4jrpd" path="res://assets/items/potion.png" id="7_k6igi"]
 
 [sub_resource type="Theme" id="Theme_31cq6"]
