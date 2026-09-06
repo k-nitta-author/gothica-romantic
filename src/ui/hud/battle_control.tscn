@@ -80,36 +80,6 @@ text = "BOSS"
 horizontal_alignment = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="BulletIcon" type="Sprite2D" parent="." unique_id=1987951325]
-position = Vector2(20.5, 23.5)
-rotation = 1.5707964
-texture = ExtResource("5_eoylg")
-
-[node name="BulletIcon2" type="Sprite2D" parent="." unique_id=1858920658]
-position = Vector2(20.5, 27.5)
-rotation = 1.5707964
-texture = ExtResource("5_eoylg")
-
-[node name="BulletIcon3" type="Sprite2D" parent="." unique_id=714744708]
-position = Vector2(20.5, 31.5)
-rotation = 1.5707964
-texture = ExtResource("5_eoylg")
-
-[node name="BulletIcon4" type="Sprite2D" parent="." unique_id=147421589]
-position = Vector2(20.5, 35.5)
-rotation = 1.5707964
-texture = ExtResource("5_eoylg")
-
-[node name="BulletIcon5" type="Sprite2D" parent="." unique_id=1783473834]
-position = Vector2(20.5, 39.5)
-rotation = 1.5707964
-texture = ExtResource("5_eoylg")
-
-[node name="BulletIcon6" type="Sprite2D" parent="." unique_id=177333348]
-position = Vector2(20.5, 43.5)
-rotation = 1.5707964
-texture = ExtResource("5_eoylg")
-
 [node name="potionIcons" type="Control" parent="." unique_id=1451406595]
 anchors_preset = 0
 offset_right = 40.0
@@ -127,3 +97,38 @@ texture = ExtResource("7_k6igi")
 [node name="Potion3" type="Sprite2D" parent="potionIcons" unique_id=1406610566]
 position = Vector2(86, 16)
 texture = ExtResource("7_k6igi")
+
+[node name="Control" type="Control" parent="." unique_id=246874798]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BulletIcon" type="Sprite2D" parent="Control" unique_id=1987951325]
+position = Vector2(20.5, 23.5)
+rotation = 1.5707964
+texture = ExtResource("5_eoylg")
+
+[node name="BulletIcon2" type="Sprite2D" parent="Control" unique_id=1858920658]
+position = Vector2(20.5, 27.5)
+rotation = 1.5707964
+texture = ExtResource("5_eoylg")
+
+[node name="BulletIcon3" type="Sprite2D" parent="Control" unique_id=714744708]
+position = Vector2(20.5, 31.5)
+rotation = 1.5707964
+texture = ExtResource("5_eoylg")
+
+[node name="BulletIcon4" type="Sprite2D" parent="Control" unique_id=147421589]
+position = Vector2(20.5, 35.5)
+rotation = 1.5707964
+texture = ExtResource("5_eoylg")
+
+[node name="BulletIcon5" type="Sprite2D" parent="Control" unique_id=1783473834]
+position = Vector2(20.5, 39.5)
+rotation = 1.5707964
+texture = ExtResource("5_eoylg")
+
+[node name="BulletIcon6" type="Sprite2D" parent="Control" unique_id=177333348]
+position = Vector2(20.5, 43.5)
+rotation = 1.5707964
+texture = ExtResource("5_eoylg")
