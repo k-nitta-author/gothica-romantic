@@ -57,7 +57,6 @@ seek_right = false
 can_see_player = false
 is_active = false
 is_awake = false
-is_stunned = true
 shoot_bullet = null
 max_melee_range = 100.0
 max_shoot_range = 100.0
@@ -65,8 +64,10 @@ melee_limit = 100.0
 default_state_on_awake = 0
 actorType = 1
 speed = 19.655
+speed_in_air_vertical = 1.0
 selected_state = 1
 damaged_state = SubResource("Resource_wpd7q")
+is_stunned = true
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=900505443]
 disabled = true

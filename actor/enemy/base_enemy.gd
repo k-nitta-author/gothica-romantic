@@ -120,8 +120,6 @@ func attack_if_possible() -> void:
 	if has_player_in_melee_range():
 		attack()
 
-	else: selected_state = BaseActor.STATES.IDLE
-
 func attack() -> void:
 	super()
 	is_attacking = true
@@ -133,8 +131,6 @@ func shoot_if_possible() -> void:
 	if shoot_state == null or is_shooting or is_attacking: return
 
 	if has_player_in_shoot_range(): shoot()
-
-	else: selected_state = BaseActor.STATES.IDLE
 
 func shoot():
 	is_shooting = true

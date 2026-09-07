@@ -12,7 +12,7 @@ extends CharacterBody2D
 
 enum ACTOR_TYPE{ PLAYER, ENEMY, SPECIAL}
 
-enum STATES{ IDLE, MOVING, FALLLING, JUMPING, MELEE, SHOOT, DUCKING, LANDING , DAMAGED}
+enum STATES{ IDLE, MOVING, JUMPING, FALLLING, MELEE, SHOOT, DUCKING, LANDING , DAMAGED}
 
 @export var isInactive: bool: set = set_is_inactive 
 @export var actorType: ACTOR_TYPE
@@ -61,6 +61,8 @@ var previous_state : STATES
 
 		if (!self.is_node_ready()): await self.ready
 
+		print("acotr: ", name," old state: ",old_state, " new_state: ", selected_state)
+
 		if old_state == selected_state: return
 
 		match selected_state:
@@ -102,9 +104,12 @@ var previous_state : STATES
 
 var current_state : ActorState:
 	set(value):
+		var old_value = current_state
 		current_state = value
 
-		if current_state == null: return
+		if current_state == null:
+			current_state = old_value
+			return
 
 		current_state.set_up(self)
 		current_state.enter_state()
@@ -132,7 +137,7 @@ func get_eye_level() -> Vector2: return eyeLevelMarker.global_position
 func on_hitbox_entered(_area: Area2D):
 	pass
 
-func set_is_inactive(value: bool):
+func set_is_inactive(value: bool) -> void:
 		isInactive = value
 
 		if !is_node_ready(): await ready
@@ -181,13 +186,14 @@ func hit_stun() -> void: pass
 
 func notify_attack_connection() -> void:
 	
-	if !attackRay.is_colliding(): return
+	if !attackRay.is_colliding() or attackRay.get_collider().owner.isInactive: return
+
 	emit_signal("attacked_at_point", attackRay.get_collision_point(), is_flipped, stage.SPLATTER.SLASH)
 
 
 func stop() -> void: pass
 
-func go() -> void: velocity.x = 0	
+func go() -> void: pass
 
 func bind_dependencies(s: Stage):
 	connect("fire_gun", s.bulletManager.add_bullet)
