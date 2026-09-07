@@ -50,7 +50,7 @@ metadata/_custom_type_script = "uid://ds6i5nv6dh4ud"
 
 [sub_resource type="Resource" id="Resource_a72po"]
 script = ExtResource("9_dgncp")
-fall_speed_multiplier = 30
+fall_speed_multiplier = 1
 metadata/_custom_type_script = "uid://bxro0yfjng3td"
 
 [sub_resource type="Resource" id="Resource_wu1np"]

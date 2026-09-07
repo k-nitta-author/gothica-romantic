@@ -137,14 +137,12 @@ func shoot():
 	selected_state = BaseActor.STATES.SHOOT
 
 func fire() -> void:
-
 	var new_bullet: BaseBullet = shoot_bullet.instantiate()
 	new_bullet.movement_angle = 270 if is_flipped else 90
 
 	emit_signal("fire_gun", new_bullet, firingPoint.global_position)
 
 func update():
-	
 	velocity = Vector2((1 if seek_right else -1) * current_speed, 0)
 
 	if !is_active or Engine.is_editor_hint(): return

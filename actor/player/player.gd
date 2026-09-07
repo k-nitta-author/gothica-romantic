@@ -32,6 +32,14 @@ signal on_potions_current_change(old_value: int, new_value: int)
 
 var is_ducking :bool
 
+func attack() -> void:
+	anim.play("attack")
+	$sword/Area2D/CollisionShape2D.set_deferred("disabled", false)
+
+# overrides the base method
+func cease_attack() -> void:
+	$sword/Area2D/CollisionShape2D.set_deferred("disabled", true)
+
 # sets the current number of potions; clamps value to between 0 and max_potion_count
 func set_current_potion_count(value: int) -> void:
 

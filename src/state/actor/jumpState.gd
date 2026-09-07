@@ -11,11 +11,14 @@ func enter_state():
     has_taken_off = false
     state_actor.anim.play("jump")
 
+func exit_state() -> void:
+    state_actor.cease_attack()
+
 func handle_input():
 
     if Input.is_action_pressed("attack"):
         state_actor.anim.play("jump attack")
-
+        state_actor.attack()
 
     if Input.is_action_pressed("shoot"):
         state_actor.anim.play("jump shoot")
@@ -26,20 +29,7 @@ func handle_input():
 func update():
     state_actor.velocity.y += state_actor.speed_in_air_vertical
 
-    if state_actor.velocity.y >= 64:
-        exit_state()
-
     if !state_actor.is_on_floor():
         has_taken_off = true
 
-    if state_actor.is_on_floor() and has_taken_off:
-        exit_state() 
-		
-
-
-
-func exit_state(_args: Dictionary = {}):
-
-    
-    state_actor.selected_state = BaseActor.STATES.FALLLING
-
+        if has_taken_off: state_actor.selected_state = BaseActor.STATES.FALLLING

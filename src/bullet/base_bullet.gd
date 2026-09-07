@@ -4,9 +4,7 @@ extends Area2D
 @export_range(0.0, 10.0, 0.1) var lifeTime: float
 
 @onready var lifeTimeCurrent: float
-
 @onready var sprite2D = $Sprite2D
-
 
 signal notify_attack_connection(collision_point: Vector2, flipped: bool, type: Stage.SPLATTER)
 

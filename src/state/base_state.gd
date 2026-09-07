@@ -10,5 +10,5 @@ func handle_input():
 func update():
 	pass
 
-func exit_state(_args: Dictionary ={}):
+func exit_state():
 	pass

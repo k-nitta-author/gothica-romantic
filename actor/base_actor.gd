@@ -61,8 +61,6 @@ var previous_state : STATES
 
 		if (!self.is_node_ready()): await self.ready
 
-		print("acotr: ", name," old state: ",old_state, " new_state: ", selected_state)
-
 		if old_state == selected_state: return
 
 		match selected_state:
@@ -101,15 +99,18 @@ var previous_state : STATES
 @export var can_flip: bool = true
 @export var is_stunned : bool 
 
-
 var current_state : ActorState:
 	set(value):
-		var old_value = current_state
+		var old_state = current_state
 		current_state = value
 
-		if current_state == null:
-			current_state = old_value
+		if current_state == old_state: return
+
+		if value == null:
+			current_state = old_state
 			return
+
+		if old_state != null: old_state.exit_state()
 
 		current_state.set_up(self)
 		current_state.enter_state()
@@ -134,8 +135,7 @@ func _ready() -> void:
 
 func get_eye_level() -> Vector2: return eyeLevelMarker.global_position
 
-func on_hitbox_entered(_area: Area2D):
-	pass
+func on_hitbox_entered(_area: Area2D) -> void: pass
 
 func set_is_inactive(value: bool) -> void:
 		isInactive = value
@@ -174,26 +174,27 @@ func knockback(area: Area2D) -> void:
 
 	selected_state = STATES.DAMAGED
 
-
-func bind_to_hud(_hudLayer: HudLayer):
-	pass
+func bind_to_hud(_hudLayer: HudLayer) -> void: pass
 
 func walk() -> void: pass
 
 func attack() -> void: pass
 
+func cease_attack() -> void: pass
+
 func hit_stun() -> void: pass
+
+func jump() -> void: pass
+
+func stop() -> void: pass
+
+func go() -> void: pass
 
 func notify_attack_connection() -> void:
 	
 	if !attackRay.is_colliding() or attackRay.get_collider().owner.isInactive: return
 
 	emit_signal("attacked_at_point", attackRay.get_collision_point(), is_flipped, stage.SPLATTER.SLASH)
-
-
-func stop() -> void: pass
-
-func go() -> void: pass
 
 func bind_dependencies(s: Stage):
 	connect("fire_gun", s.bulletManager.add_bullet)
