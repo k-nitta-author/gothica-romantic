@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bjeudo4rvmvag" path="res://actor/enemy/base_enemy.tscn" id="1_o3mbb"]
 [ext_resource type="Script" uid="uid://n53byts25fps" path="res://actor/flying_enemy.gd" id="2_6gmiy"]
-[ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/hitFlashShader.gdshader" id="3_u58xt"]
+[ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/shader/hitFlashShader.gdshader" id="3_u58xt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yor5b"]
 resource_local_to_scene = true

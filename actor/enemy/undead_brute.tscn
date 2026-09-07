@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://cciei67yuitw5" path="res://src/state/actor/idleState.gd" id="2_u74of"]
 [ext_resource type="Script" uid="uid://bxthdcpdc3xyu" path="res://actor/enemy/platformer_enemy.gd" id="2_yc1xk"]
 [ext_resource type="Script" uid="uid://bunbdgovyilxk" path="res://src/state/actor/shootState.gd" id="3_u74of"]
-[ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/hitFlashShader.gdshader" id="5_2hqow"]
+[ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/shader/hitFlashShader.gdshader" id="5_2hqow"]
 [ext_resource type="Animation" uid="uid://dc4oqu1m6whdy" path="res://actor/damaged.res" id="7_e2do6"]
 
 [sub_resource type="Resource" id="Resource_eqrin"]

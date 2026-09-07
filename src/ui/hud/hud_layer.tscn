@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://d1dvs67uncing"]
 
 [ext_resource type="Script" uid="uid://bdcci6pdtx3ff" path="res://src/ui/hud/hud_layer.gd" id="1_726iu"]
-[ext_resource type="Theme" uid="uid://bysunrkf7sfea" path="res://src/ui/main style theme.tres" id="2_ljwg0"]
+[ext_resource type="Theme" uid="uid://bysunrkf7sfea" path="res://src/ui/theme/main style theme.tres" id="2_ljwg0"]
 [ext_resource type="PackedScene" uid="uid://k7hwpleofqsj" path="res://src/ui/hud/battle_control.tscn" id="3_7rq8x"]
 [ext_resource type="PackedScene" uid="uid://l2wrvv5rcbby" path="res://src/ui/text_box/text_box.tscn" id="7_b0kcy"]
 [ext_resource type="PackedScene" uid="uid://carswg5f74xjc" path="res://src/ui/text_box/dialog_box.tscn" id="8_sov1n"]
-[ext_resource type="PackedScene" uid="uid://bykeopgsphe82" path="res://src/ui/pause_game_panel.tscn" id="9_xem2t"]
-[ext_resource type="PackedScene" uid="uid://bi6m6ljvjtkfq" path="res://src/ui/start_screen.tscn" id="13_r5yew"]
+[ext_resource type="PackedScene" uid="uid://bykeopgsphe82" path="res://src/ui/pause_screen/pause_game_panel.tscn" id="9_xem2t"]
+[ext_resource type="PackedScene" uid="uid://bi6m6ljvjtkfq" path="res://src/ui/start_screen/start_screen.tscn" id="13_r5yew"]
 
 [node name="HudLayer" type="CanvasLayer" unique_id=489733388]
 script = ExtResource("1_726iu")

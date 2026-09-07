@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ctd4kyqrp1s6l"]
 
 [ext_resource type="PackedScene" uid="uid://bthmcawypnud2" path="res://actor/enemy/platformer_enemy.tscn" id="1_5wlpe"]
-[ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/hitFlashShader.gdshader" id="2_5f6hq"]
+[ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/shader/hitFlashShader.gdshader" id="2_5f6hq"]
 [ext_resource type="Texture2D" uid="uid://bhd4l5o50wxak" path="res://assets/enemies/The Director.png" id="2_dq0x4"]
 [ext_resource type="Script" uid="uid://cciei67yuitw5" path="res://src/state/actor/idleState.gd" id="2_pku2g"]
 [ext_resource type="Script" uid="uid://hhc8ylq4nvxy" path="res://src/state/actor/meleeState.gd" id="3_xlkoo"]

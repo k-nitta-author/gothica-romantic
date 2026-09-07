@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://7rqfpdtf2o7f"]
 
 [ext_resource type="Script" uid="uid://cb6egv5g202ry" path="res://actor/base_actor.gd" id="1_8emup"]
-[ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/hitFlashShader.gdshader" id="2_cnu00"]
+[ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/shader/hitFlashShader.gdshader" id="2_cnu00"]
 [ext_resource type="PackedScene" uid="uid://rp5sdj2ja1c5" path="res://src/sound effects/sound_sfx_stream.tscn" id="2_mo27s"]
 [ext_resource type="FontFile" uid="uid://ckjyw0le0uxau" path="res://assets/font/PIXELADE.TTF" id="3_ego3k"]
 

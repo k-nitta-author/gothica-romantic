@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://cgcwml08u6r0s" path="res://src/state/actor/walkState.gd" id="4_iplda"]
 [ext_resource type="AudioStream" uid="uid://bywpsp2cs0s0s" path="res://assets/sound/sfx/noise3.wav" id="4_prpt8"]
 [ext_resource type="AudioStream" uid="uid://bfqls0skfob01" path="res://assets/sound/sfx/noise4.wav" id="5_wdtfm"]
-[ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/hitFlashShader.gdshader" id="6_88kek"]
+[ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/shader/hitFlashShader.gdshader" id="6_88kek"]
 [ext_resource type="Animation" uid="uid://dc4oqu1m6whdy" path="res://actor/damaged.res" id="10_7f71k"]
 
 [sub_resource type="Resource" id="Resource_prpt8"]

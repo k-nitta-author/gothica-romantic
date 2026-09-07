@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://clmrwyoew55ep"]
 
 [ext_resource type="PackedScene" uid="uid://bthmcawypnud2" path="res://actor/enemy/platformer_enemy.tscn" id="1_accsr"]
-[ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/hitFlashShader.gdshader" id="2_7rkme"]
+[ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/shader/hitFlashShader.gdshader" id="2_7rkme"]
 [ext_resource type="Script" uid="uid://cciei67yuitw5" path="res://src/state/actor/idleState.gd" id="2_r0x20"]
 [ext_resource type="Texture2D" uid="uid://do2r6q65abhqj" path="res://assets/enemies/papal knight.png" id="3_8xb32"]
 [ext_resource type="Script" uid="uid://hhc8ylq4nvxy" path="res://src/state/actor/meleeState.gd" id="3_inpl4"]

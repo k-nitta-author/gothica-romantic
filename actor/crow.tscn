@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://dr8yurf1hb0c" path="res://actor/crow.gd" id="2_ulv0h"]
 [ext_resource type="Script" uid="uid://b4gnx3i6umkvr" path="res://src/state/actor/flyState.gd" id="3_0pd04"]
 [ext_resource type="Script" uid="uid://rmir0bixb5pe" path="res://src/state/actor/flyingChargeState.gd" id="3_ulv0h"]
-[ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/hitFlashShader.gdshader" id="6_dcuvm"]
+[ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/shader/hitFlashShader.gdshader" id="6_dcuvm"]
 [ext_resource type="Animation" uid="uid://dc4oqu1m6whdy" path="res://actor/damaged.res" id="8_tqso1"]
 
 [sub_resource type="Resource" id="Resource_586ph"]

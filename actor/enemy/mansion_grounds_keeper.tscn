@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://8bftnp5k8jdr" path="res://assets/enemies/mansion grounds keeper.png" id="2_52qai"]
 [ext_resource type="Script" uid="uid://bxthdcpdc3xyu" path="res://actor/enemy/platformer_enemy.gd" id="2_77u8q"]
 [ext_resource type="Script" uid="uid://cciei67yuitw5" path="res://src/state/actor/idleState.gd" id="2_anqdg"]
-[ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/hitFlashShader.gdshader" id="2_vjeca"]
+[ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/shader/hitFlashShader.gdshader" id="2_vjeca"]
 [ext_resource type="Script" uid="uid://hhc8ylq4nvxy" path="res://src/state/actor/meleeState.gd" id="3_77u8q"]
 [ext_resource type="Script" uid="uid://cgcwml08u6r0s" path="res://src/state/actor/walkState.gd" id="4_n1vko"]
 [ext_resource type="Animation" uid="uid://dc4oqu1m6whdy" path="res://actor/damaged.res" id="4_vjeca"]

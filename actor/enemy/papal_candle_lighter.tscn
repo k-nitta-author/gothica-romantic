@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cryxl3bh7p8dj"]
 
 [ext_resource type="PackedScene" uid="uid://bthmcawypnud2" path="res://actor/enemy/platformer_enemy.tscn" id="1_8cd1t"]
-[ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/hitFlashShader.gdshader" id="2_8mtvx"]
+[ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/shader/hitFlashShader.gdshader" id="2_8mtvx"]
 [ext_resource type="Script" uid="uid://cciei67yuitw5" path="res://src/state/actor/idleState.gd" id="2_kgpfa"]
 [ext_resource type="Texture2D" uid="uid://ijggc5fv6f86" path="res://assets/enemies/papal candle lighter.png" id="3_b74l3"]
 [ext_resource type="Script" uid="uid://hhc8ylq4nvxy" path="res://src/state/actor/meleeState.gd" id="3_r2i4i"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bjeudo4rvmvag" path="res://actor/enemy/base_enemy.tscn" id="1_tcqml"]
 [ext_resource type="Script" uid="uid://bxthdcpdc3xyu" path="res://actor/enemy/platformer_enemy.gd" id="2_7kgjq"]
-[ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/hitFlashShader.gdshader" id="3_oiip2"]
+[ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/shader/hitFlashShader.gdshader" id="3_oiip2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_oiip2"]
 resource_local_to_scene = true
