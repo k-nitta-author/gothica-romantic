@@ -1,15 +1,15 @@
 [gd_scene format=3 uid="uid://clvcbegfjryqm"]
 
-[ext_resource type="Script" uid="uid://dko0wkmi8werb" path="res://stage/manager/actor_manager.gd" id="1_v02k8"]
-[ext_resource type="Script" uid="uid://cgt6sqpopcenr" path="res://stage/manager/prop_manager.gd" id="2_5m2fl"]
-[ext_resource type="Script" uid="uid://comt54346nx8i" path="res://stage/manager/bullet_manager.gd" id="3_0x10x"]
-[ext_resource type="Script" uid="uid://deuob81fl0d5d" path="res://stage/camera_2d.gd" id="3_c4gdh"]
+[ext_resource type="Script" uid="uid://dko0wkmi8werb" path="res://src/stage/manager/actor_manager.gd" id="1_v02k8"]
+[ext_resource type="Script" uid="uid://cgt6sqpopcenr" path="res://src/stage/manager/prop_manager.gd" id="2_5m2fl"]
+[ext_resource type="Script" uid="uid://comt54346nx8i" path="res://src/stage/manager/bullet_manager.gd" id="3_0x10x"]
+[ext_resource type="Script" uid="uid://deuob81fl0d5d" path="res://src/stage/camera_2d.gd" id="3_c4gdh"]
 [ext_resource type="PackedScene" uid="uid://dxrsyek2feu0u" path="res://actor/player/player.tscn" id="3_ont0r"]
-[ext_resource type="Script" uid="uid://ryiprrdaay88" path="res://stage/base_stage.gd" id="5_0x10x"]
+[ext_resource type="Script" uid="uid://ryiprrdaay88" path="res://src/stage/base_stage.gd" id="5_0x10x"]
 [ext_resource type="Script" uid="uid://dmjhev2pahl57" path="res://src/state/actor/damagedState.gd" id="5_8ytu5"]
-[ext_resource type="PackedScene" uid="uid://v0cd6ctpkndj" path="res://stage/objects/stage_exit.tscn" id="7_0k35k"]
+[ext_resource type="PackedScene" uid="uid://v0cd6ctpkndj" path="res://src/stage/objects/stage_exit.tscn" id="7_0k35k"]
 [ext_resource type="Texture2D" uid="uid://duhocaw05cdmt" path="res://assets/tiles/Tilesets.png" id="7_mp1cb"]
-[ext_resource type="Script" uid="uid://ylkbae7fwvfe" path="res://stage/manager/check_point_manager.gd" id="8_lk3ft"]
+[ext_resource type="Script" uid="uid://ylkbae7fwvfe" path="res://src/stage/manager/check_point_manager.gd" id="8_lk3ft"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7df2v"]
 texture = ExtResource("7_mp1cb")

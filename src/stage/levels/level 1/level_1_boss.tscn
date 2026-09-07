@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://36m5j1tpq0j2"]
 
-[ext_resource type="PackedScene" uid="uid://clvcbegfjryqm" path="res://stage/base_stage.tscn" id="1_xtong"]
+[ext_resource type="PackedScene" uid="uid://clvcbegfjryqm" path="res://src/stage/base_stage.tscn" id="1_xtong"]
 [ext_resource type="PackedScene" uid="uid://cg2dccirlmy4g" path="res://actor/enemy/the_necromancer.tscn" id="2_7ubya"]
 [ext_resource type="PackedScene" uid="uid://b8mey0wy8ctvx" path="res://src/bgs/stormy_night.tscn" id="2_jn7rt"]
 

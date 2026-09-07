@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://lih51qc7nuh6"]
 
-[ext_resource type="PackedScene" uid="uid://clvcbegfjryqm" path="res://stage/base_stage.tscn" id="1_k4au7"]
+[ext_resource type="PackedScene" uid="uid://clvcbegfjryqm" path="res://src/stage/base_stage.tscn" id="1_k4au7"]
 [ext_resource type="PackedScene" uid="uid://b8mey0wy8ctvx" path="res://src/bgs/stormy_night.tscn" id="2_sh3qs"]
 [ext_resource type="PackedScene" uid="uid://btvp3b55r1riw" path="res://actor/enemy/undead_brute.tscn" id="3_7ih23"]
 
