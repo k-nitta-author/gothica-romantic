@@ -40,7 +40,12 @@ func set_current_save(idx: int) -> void:
 func save() -> void: saveManager.create_save_file(current_save_idx, save_handler) # create save file and update as needed
 
 # save file handler callback function 
-func save_handler(f: FileAccess): f.store_string(JSON.stringify(poll_game_state()))
+func save_handler(f: FileAccess):
+	f.store_string(
+		JSON.stringify(
+			saveManager.poll_game_state(stage)
+			)	
+		)
 
 func update_next_level(next: PackedScene) -> void: next_level_scene = next
 
@@ -62,7 +67,7 @@ func start_game() -> void:
 	save()
 
 # start the stage
-func start_stage(): add_child(load_stage(next_level_scene))
+func start_stage() -> void: add_child(load_stage(next_level_scene))
 
 func load_stage(nextLevel: PackedScene) -> Stage: return nextLevel.instantiate()
 
@@ -85,21 +90,8 @@ func on_start_level(from_beginning: bool) -> void:
 		start_game()
 		save()
 
-
-# polls the current game state to supply data to the save file
-func poll_game_state() -> Dictionary:
-	return {
-		"current_stage_number": 1,
-		"place": stage.scene_file_path,
-		"current_player_hp": stage.get_player().max_hp,
-		"save_date": Time.get_date_string_from_system(),
-		"play_time": 0,
-		"play_time_start": Time.get_datetime_string_from_system(),
-		"current_checkpoint_idx": stage.current_checkpoint_idx
-	}
-
 # called whenever the loaded stage ends
-func on_stage_end(new_next_level_scene: PackedScene):
+func on_stage_end(new_next_level_scene: PackedScene) -> void:
 
 	if new_next_level_scene == null: return  
 

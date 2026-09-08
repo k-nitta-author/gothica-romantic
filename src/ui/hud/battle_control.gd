@@ -4,14 +4,25 @@ extends Control
 @onready var BossHpBarLabel = $"BossHpBar/small label2"
 @onready var BossHpProgressBar = $EnemyHpBar
 
-@onready var bulletBar: Array[Node] = [ $BulletIcon, $BulletIcon2, $BulletIcon3, $BulletIcon4, $BulletIcon5, $BulletIcon6]
+@onready var playerHpBar : ProgressBar = $PlayerHpBar
+@onready var enemyHpBar : ProgressBar = $EnemyHpBar
+
+@onready var bulletBar: Control = $BulletBar
+@onready var potionIcons: Control = $potionIcons
+
+func bind_to_player(p: Player):
+	p.connect("has_hp_changed", update_hp_bar)
+	p.connect("on_bullets_current_change", bulletBar.update_bullet_bar)
+	p.connect("on_potions_current_change", potionIcons.update_potion_icons)
+
+func update_hp_bar(_actor: BaseActor, _old_value: int, current_hp: int):
+	playerHpBar.value = current_hp
 
 func bind_boss_hp_bar(boss: BaseActor) -> void:
 	BossHpProgressBar.max_value = boss.max_hp
 	BossHpProgressBar.value = boss.current_hp
 	BossHpBarLabel.text = boss.name
 	boss.connect("has_hp_changed", update_boss_hp_bar)
-
 
 func toggle_boss_hp_bar_visible() -> void:
 	BossHpBar.visible = true
@@ -20,13 +31,3 @@ func toggle_boss_hp_bar_visible() -> void:
 func update_boss_hp_bar(_actor: BaseActor, _old_hp: float, new_hp: float) -> void:
 	BossHpProgressBar.value = new_hp
 	BossHpBar.visible = new_hp != 0
-
-func update_bullet_bar(_old_value: int, bulletsCurrent: int):
-
-	var bulletBarIdx := bulletsCurrent - 1
-
-	bulletBar[bulletBarIdx].visible = true
-
-	for i in range(6):
-
-		bulletBar[i].visible = i < bulletsCurrent

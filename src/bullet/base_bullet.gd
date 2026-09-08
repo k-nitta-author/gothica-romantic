@@ -12,7 +12,7 @@ var isInactive: bool: set = set_is_inactive
 
 func bind_dependencies(stage: Stage):
 
-	connect("notify_attack_connection", stage.spawn_effects)
+	connect("notify_attack_connection", stage.effectsManager.spawn_effects)
 
 @export_range(0, 360, 1.0) var movement_angle : int:
 	set(value):

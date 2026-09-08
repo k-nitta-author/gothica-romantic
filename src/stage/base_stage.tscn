@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://v0cd6ctpkndj" path="res://src/stage/objects/stage_exit.tscn" id="7_0k35k"]
 [ext_resource type="Texture2D" uid="uid://duhocaw05cdmt" path="res://assets/tiles/Tilesets.png" id="7_mp1cb"]
 [ext_resource type="Script" uid="uid://ylkbae7fwvfe" path="res://src/stage/manager/check_point_manager.gd" id="8_lk3ft"]
+[ext_resource type="Script" uid="uid://clef11cei8r8q" path="res://src/stage/effects_manager.gd" id="11_1h5j1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7df2v"]
 texture = ExtResource("7_mp1cb")
@@ -615,6 +616,9 @@ script = ExtResource("3_0x10x")
 
 [node name="CheckPointManager" type="Node2D" parent="." unique_id=961724693]
 script = ExtResource("8_lk3ft")
+
+[node name="EffectsManager" type="Node2D" parent="." unique_id=89421929]
+script = ExtResource("11_1h5j1")
 
 [node name="anim" type="AnimationPlayer" parent="." unique_id=2037312595]
 

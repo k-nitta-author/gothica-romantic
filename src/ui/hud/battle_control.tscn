@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dfpk7lnh4tgnu" path="res://assets/huds/boss hp bar.png" id="4_vlqhy"]
 [ext_resource type="Texture2D" uid="uid://cux5di67x0q3o" path="res://assets/huds/bullet icon.png" id="5_eoylg"]
 [ext_resource type="Script" uid="uid://canj802yjtvgt" path="res://src/ui/hud/potion_icons.gd" id="6_0cetq"]
+[ext_resource type="Script" uid="uid://cirp4cslg3vq2" path="res://src/ui/hud/bullet_bar.gd" id="7_g1tik"]
 [ext_resource type="Texture2D" uid="uid://bdhgkw3n4jrpd" path="res://assets/items/potion.png" id="7_k6igi"]
 
 [sub_resource type="Theme" id="Theme_31cq6"]
@@ -98,37 +99,38 @@ texture = ExtResource("7_k6igi")
 position = Vector2(86, 16)
 texture = ExtResource("7_k6igi")
 
-[node name="Control" type="Control" parent="." unique_id=246874798]
+[node name="BulletBar" type="Control" parent="." unique_id=246874798]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("7_g1tik")
 
-[node name="BulletIcon" type="Sprite2D" parent="Control" unique_id=1987951325]
+[node name="BulletIcon" type="Sprite2D" parent="BulletBar" unique_id=1987951325]
 position = Vector2(20.5, 23.5)
 rotation = 1.5707964
 texture = ExtResource("5_eoylg")
 
-[node name="BulletIcon2" type="Sprite2D" parent="Control" unique_id=1858920658]
+[node name="BulletIcon2" type="Sprite2D" parent="BulletBar" unique_id=1858920658]
 position = Vector2(20.5, 27.5)
 rotation = 1.5707964
 texture = ExtResource("5_eoylg")
 
-[node name="BulletIcon3" type="Sprite2D" parent="Control" unique_id=714744708]
+[node name="BulletIcon3" type="Sprite2D" parent="BulletBar" unique_id=714744708]
 position = Vector2(20.5, 31.5)
 rotation = 1.5707964
 texture = ExtResource("5_eoylg")
 
-[node name="BulletIcon4" type="Sprite2D" parent="Control" unique_id=147421589]
+[node name="BulletIcon4" type="Sprite2D" parent="BulletBar" unique_id=147421589]
 position = Vector2(20.5, 35.5)
 rotation = 1.5707964
 texture = ExtResource("5_eoylg")
 
-[node name="BulletIcon5" type="Sprite2D" parent="Control" unique_id=1783473834]
+[node name="BulletIcon5" type="Sprite2D" parent="BulletBar" unique_id=1783473834]
 position = Vector2(20.5, 39.5)
 rotation = 1.5707964
 texture = ExtResource("5_eoylg")
 
-[node name="BulletIcon6" type="Sprite2D" parent="Control" unique_id=177333348]
+[node name="BulletIcon6" type="Sprite2D" parent="BulletBar" unique_id=177333348]
 position = Vector2(20.5, 43.5)
 rotation = 1.5707964
 texture = ExtResource("5_eoylg")

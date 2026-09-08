@@ -15,6 +15,18 @@ func create_save_file(idx: int, save_data_callback: Callable) -> void:
 
 	f.close()
 
+# polls the current game state to supply data to the save file
+func poll_game_state(s: Stage) -> Dictionary:
+	return {
+		"current_stage_number": 1,
+		"place": s.scene_file_path,
+		"current_player_hp": s.get_player().max_hp,
+		"save_date": Time.get_date_string_from_system(),
+		"play_time": 0,
+		"play_time_start": Time.get_datetime_string_from_system(),
+		"current_checkpoint_idx": s.current_checkpoint_idx
+	}
+
 # get the save dir or create it
 func get_save_dir() -> DirAccess:
 
