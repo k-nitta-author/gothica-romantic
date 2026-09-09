@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://cu58nwvpv00p5"]
+
+[ext_resource type="PackedScene" uid="uid://bthmcawypnud2" path="res://actor/enemy/platformer_enemy.tscn" id="1_3xb5l"]
+[ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/hitFlashShader.gdshader" id="2_oocw0"]
+[ext_resource type="Texture2D" uid="uid://8b81y2pkva3h" path="res://assets/enemies/high priest.png" id="3_nutcg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_85m4r"]
+resource_local_to_scene = true
+shader = ExtResource("2_oocw0")
+shader_parameter/active = false
+
+[node name="high priest" unique_id=1016638848 instance=ExtResource("1_3xb5l")]
+
+[node name="Sprite2D" parent="." index="1" unique_id=90387062]
+material = SubResource("ShaderMaterial_85m4r")
+texture = ExtResource("3_nutcg")
+offset = Vector2(0, -19)
+hframes = 3
+region_enabled = true
+region_rect = Rect2(32, 0, 96, 48)
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D" index="0" unique_id=617009943]
+position = Vector2(0, -35)
+texture = ExtResource("3_nutcg")
+vframes = 3
+region_enabled = true
+region_rect = Rect2(128, 0, 32, 48)
+
+[node name="sun thing" type="Sprite2D" parent="." index="10" unique_id=750026247]
+z_index = -1
+position = Vector2(0, -32)
+texture = ExtResource("3_nutcg")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="moon staff" type="Sprite2D" parent="." index="11" unique_id=2059512756]
+position = Vector2(-14, -15)
+texture = ExtResource("3_nutcg")
+offset = Vector2(0, -17)
+region_enabled = true
+region_rect = Rect2(160, 0, 16, 48)

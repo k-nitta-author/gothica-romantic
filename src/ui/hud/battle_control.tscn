@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://k7hwpleofqsj"]
 
 [ext_resource type="Script" uid="uid://d36b1xw8r6gjq" path="res://src/ui/hud/battle_control.gd" id="1_6g7v8"]
-[ext_resource type="Texture2D" uid="uid://dpy52ftto78s3" path="res://assets/huds/player hp bar.png" id="2_g1tik"]
+[ext_resource type="Texture2D" uid="uid://boux8qempnf06" path="res://assets/huds/player hp bar.png" id="2_g1tik"]
 [ext_resource type="PackedScene" uid="uid://cc8qj44o6epf4" path="res://src/ui/small_label.tscn" id="3_6b2uh"]
-[ext_resource type="Texture2D" uid="uid://dfpk7lnh4tgnu" path="res://assets/huds/boss hp bar.png" id="4_vlqhy"]
-[ext_resource type="Texture2D" uid="uid://cux5di67x0q3o" path="res://assets/huds/bullet icon.png" id="5_eoylg"]
+[ext_resource type="Texture2D" uid="uid://b1xt6ivtm4wdv" path="res://assets/huds/boss hp bar.png" id="4_vlqhy"]
+[ext_resource type="Texture2D" uid="uid://cwb71aabr26bb" path="res://assets/huds/bullet icon.png" id="5_eoylg"]
+[ext_resource type="Texture2D" uid="uid://r0pabj410d5t" path="res://assets/huds/item container.png" id="5_g1tik"]
 [ext_resource type="Script" uid="uid://canj802yjtvgt" path="res://src/ui/hud/potion_icons.gd" id="6_0cetq"]
 [ext_resource type="Texture2D" uid="uid://bdhgkw3n4jrpd" path="res://assets/items/potion.png" id="7_k6igi"]
 
@@ -23,19 +24,32 @@ bg_color = Color(0, 0, 0, 1)
 bg_color = Color(1, 0, 0, 1)
 
 [node name="BattleControl" type="Control" unique_id=250266615]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_6g7v8")
 
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=435267172]
+visible = false
+layout_mode = 0
+offset_left = -20.0
+offset_top = -12.0
+offset_right = 346.0
+offset_bottom = 192.0
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2143164074]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 33.0
+color = Color(0, 0, 0, 1)
+
 [node name="PlayerHpBar" type="ProgressBar" parent="." unique_id=716652951]
 layout_mode = 0
-offset_left = 22.0
-offset_top = 14.0
-offset_right = 50.0
-offset_bottom = 18.0
+offset_left = 11.0
+offset_top = 16.0
+offset_right = 94.0
+offset_bottom = 24.0
 theme = SubResource("Theme_31cq6")
 theme_override_styles/background = SubResource("StyleBoxFlat_55bvo")
 theme_override_styles/fill = SubResource("StyleBoxFlat_v4n38")
@@ -44,23 +58,23 @@ value = 8.0
 show_percentage = false
 
 [node name="HpBar" type="Sprite2D" parent="." unique_id=1498831066]
-position = Vector2(32, 16)
+position = Vector2(52, 19)
 texture = ExtResource("2_g1tik")
 
 [node name="small label" parent="." unique_id=1048519964 instance=ExtResource("3_6b2uh")]
 layout_mode = 0
-offset_left = 21.0
-offset_top = -1.0
-offset_right = 61.0
-offset_bottom = 22.0
+offset_left = 31.0
+offset_top = 3.0
+offset_right = 71.0
+offset_bottom = 26.0
 text = "player"
 
 [node name="EnemyHpBar" type="ProgressBar" parent="." unique_id=918778008]
 layout_mode = 0
-offset_left = 174.0
-offset_top = 14.0
-offset_right = 233.0
-offset_bottom = 18.0
+offset_left = 228.0
+offset_top = 18.0
+offset_right = 307.0
+offset_bottom = 23.0
 theme_override_styles/background = SubResource("StyleBoxFlat_v86tg")
 theme_override_styles/fill = SubResource("StyleBoxFlat_mn2d6")
 value = 100.0
@@ -68,13 +82,13 @@ fill_mode = 1
 show_percentage = false
 
 [node name="BossHpBar" type="Sprite2D" parent="." unique_id=417637063]
-position = Vector2(209, 15)
+position = Vector2(268, 20)
 texture = ExtResource("4_vlqhy")
 
 [node name="small label2" parent="BossHpBar" unique_id=1213116257 instance=ExtResource("3_6b2uh")]
-offset_left = -44.0
+offset_left = -37.0
 offset_top = -14.0
-offset_right = 27.0
+offset_right = 34.0
 offset_bottom = 9.0
 text = "BOSS"
 horizontal_alignment = 2
@@ -87,48 +101,55 @@ offset_bottom = 40.0
 script = ExtResource("6_0cetq")
 
 [node name="Potion" type="Sprite2D" parent="potionIcons" unique_id=371847332]
-position = Vector2(60, 16)
+z_index = 1
+position = Vector2(163, 20)
 texture = ExtResource("7_k6igi")
 
-[node name="Potion2" type="Sprite2D" parent="potionIcons" unique_id=1951311418]
-position = Vector2(73, 16)
-texture = ExtResource("7_k6igi")
+[node name="small label" parent="potionIcons" unique_id=734727090 instance=ExtResource("3_6b2uh")]
+z_index = 1
+layout_mode = 0
+offset_left = 166.0
+offset_top = 22.0
+offset_right = 177.0
+offset_bottom = 36.0
+text = "x3"
 
-[node name="Potion3" type="Sprite2D" parent="potionIcons" unique_id=1406610566]
-position = Vector2(86, 16)
-texture = ExtResource("7_k6igi")
+[node name="ItemContainer" type="Sprite2D" parent="potionIcons" unique_id=1978373068]
+position = Vector2(163, 20)
+texture = ExtResource("5_g1tik")
 
 [node name="Control" type="Control" parent="." unique_id=246874798]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+metadata/_edit_lock_ = true
 
 [node name="BulletIcon" type="Sprite2D" parent="Control" unique_id=1987951325]
-position = Vector2(20.5, 23.5)
+position = Vector2(21, 25)
 rotation = 1.5707964
 texture = ExtResource("5_eoylg")
 
 [node name="BulletIcon2" type="Sprite2D" parent="Control" unique_id=1858920658]
-position = Vector2(20.5, 27.5)
+position = Vector2(31, 25)
 rotation = 1.5707964
 texture = ExtResource("5_eoylg")
 
 [node name="BulletIcon3" type="Sprite2D" parent="Control" unique_id=714744708]
-position = Vector2(20.5, 31.5)
+position = Vector2(41, 25)
 rotation = 1.5707964
 texture = ExtResource("5_eoylg")
 
 [node name="BulletIcon4" type="Sprite2D" parent="Control" unique_id=147421589]
-position = Vector2(20.5, 35.5)
+position = Vector2(51, 25)
 rotation = 1.5707964
 texture = ExtResource("5_eoylg")
 
 [node name="BulletIcon5" type="Sprite2D" parent="Control" unique_id=1783473834]
-position = Vector2(20.5, 39.5)
+position = Vector2(61, 25)
 rotation = 1.5707964
 texture = ExtResource("5_eoylg")
 
 [node name="BulletIcon6" type="Sprite2D" parent="Control" unique_id=177333348]
-position = Vector2(20.5, 43.5)
+position = Vector2(71, 25)
 rotation = 1.5707964
 texture = ExtResource("5_eoylg")
