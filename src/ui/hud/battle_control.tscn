@@ -1,13 +1,14 @@
 [gd_scene format=3 uid="uid://k7hwpleofqsj"]
 
 [ext_resource type="Script" uid="uid://d36b1xw8r6gjq" path="res://src/ui/hud/battle_control.gd" id="1_6g7v8"]
-[ext_resource type="Texture2D" uid="uid://boux8qempnf06" path="res://assets/huds/player hp bar.png" id="2_g1tik"]
+[ext_resource type="Texture2D" uid="uid://dpy52ftto78s3" path="res://assets/huds/player hp bar.png" id="2_g1tik"]
 [ext_resource type="PackedScene" uid="uid://cc8qj44o6epf4" path="res://src/ui/small_label.tscn" id="3_6b2uh"]
-[ext_resource type="Texture2D" uid="uid://b1xt6ivtm4wdv" path="res://assets/huds/boss hp bar.png" id="4_vlqhy"]
-[ext_resource type="Texture2D" uid="uid://cwb71aabr26bb" path="res://assets/huds/bullet icon.png" id="5_eoylg"]
-[ext_resource type="Texture2D" uid="uid://r0pabj410d5t" path="res://assets/huds/item container.png" id="5_g1tik"]
+[ext_resource type="Texture2D" uid="uid://dfpk7lnh4tgnu" path="res://assets/huds/boss hp bar.png" id="4_vlqhy"]
+[ext_resource type="Texture2D" uid="uid://cux5di67x0q3o" path="res://assets/huds/bullet icon.png" id="5_eoylg"]
+[ext_resource type="Texture2D" uid="uid://de7nvijvnhtgp" path="res://assets/huds/item container.png" id="5_g1tik"]
 [ext_resource type="Script" uid="uid://canj802yjtvgt" path="res://src/ui/hud/potion_icons.gd" id="6_0cetq"]
 [ext_resource type="Texture2D" uid="uid://bdhgkw3n4jrpd" path="res://assets/items/potion.png" id="7_k6igi"]
+[ext_resource type="Script" uid="uid://cirp4cslg3vq2" path="res://src/ui/hud/bullet_bar.gd" id="8_6b2uh"]
 
 [sub_resource type="Theme" id="Theme_31cq6"]
 
@@ -118,38 +119,39 @@ text = "x3"
 position = Vector2(163, 20)
 texture = ExtResource("5_g1tik")
 
-[node name="Control" type="Control" parent="." unique_id=246874798]
+[node name="BulletBar" type="Control" parent="." unique_id=246874798]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("8_6b2uh")
 metadata/_edit_lock_ = true
 
-[node name="BulletIcon" type="Sprite2D" parent="Control" unique_id=1987951325]
+[node name="BulletIcon" type="Sprite2D" parent="BulletBar" unique_id=1987951325]
 position = Vector2(21, 25)
 rotation = 1.5707964
 texture = ExtResource("5_eoylg")
 
-[node name="BulletIcon2" type="Sprite2D" parent="Control" unique_id=1858920658]
+[node name="BulletIcon2" type="Sprite2D" parent="BulletBar" unique_id=1858920658]
 position = Vector2(31, 25)
 rotation = 1.5707964
 texture = ExtResource("5_eoylg")
 
-[node name="BulletIcon3" type="Sprite2D" parent="Control" unique_id=714744708]
+[node name="BulletIcon3" type="Sprite2D" parent="BulletBar" unique_id=714744708]
 position = Vector2(41, 25)
 rotation = 1.5707964
 texture = ExtResource("5_eoylg")
 
-[node name="BulletIcon4" type="Sprite2D" parent="Control" unique_id=147421589]
+[node name="BulletIcon4" type="Sprite2D" parent="BulletBar" unique_id=147421589]
 position = Vector2(51, 25)
 rotation = 1.5707964
 texture = ExtResource("5_eoylg")
 
-[node name="BulletIcon5" type="Sprite2D" parent="Control" unique_id=1783473834]
+[node name="BulletIcon5" type="Sprite2D" parent="BulletBar" unique_id=1783473834]
 position = Vector2(61, 25)
 rotation = 1.5707964
 texture = ExtResource("5_eoylg")
 
-[node name="BulletIcon6" type="Sprite2D" parent="Control" unique_id=177333348]
+[node name="BulletIcon6" type="Sprite2D" parent="BulletBar" unique_id=177333348]
 position = Vector2(71, 25)
 rotation = 1.5707964
 texture = ExtResource("5_eoylg")
