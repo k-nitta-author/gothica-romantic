@@ -5,7 +5,6 @@ extends Node2D
 @onready var bosses : Array
 
 var can_update := false
-
 var stage
 
 # get the current boss

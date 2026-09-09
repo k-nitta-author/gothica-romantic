@@ -52,10 +52,10 @@ offset_bottom = 140.0
 [node name="autoSaveIcon" type="TextureRect" parent="Control" unique_id=530693163]
 visible = false
 layout_mode = 0
-offset_left = 322.0
-offset_top = 115.0
-offset_right = 362.0
-offset_bottom = 155.0
+offset_left = 269.0
+offset_top = 120.0
+offset_right = 309.0
+offset_bottom = 160.0
 
 [node name="StartScreen" parent="Control" unique_id=1958838420 instance=ExtResource("13_r5yew")]
 layout_mode = 1

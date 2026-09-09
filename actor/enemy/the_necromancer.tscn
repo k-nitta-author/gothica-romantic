@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bjeudo4rvmvag" path="res://actor/enemy/base_enemy.tscn" id="1_u8ngf"]
 [ext_resource type="Script" uid="uid://bbtssto6och2k" path="res://actor/enemy/the_necromancer.gd" id="2_73qie"]
 [ext_resource type="Texture2D" uid="uid://dlinjvje6qbhk" path="res://assets/enemies/The Necromancer.png" id="2_kabjl"]
+[ext_resource type="PackedScene" uid="uid://twkdx826uwnk" path="res://src/bullet/enemy/bone_bullet.tscn" id="3_60x3o"]
 [ext_resource type="Script" uid="uid://cciei67yuitw5" path="res://src/state/actor/idleState.gd" id="3_gulix"]
 [ext_resource type="Script" uid="uid://hhc8ylq4nvxy" path="res://src/state/actor/meleeState.gd" id="4_kwd8c"]
 [ext_resource type="Script" uid="uid://cgcwml08u6r0s" path="res://src/state/actor/walkState.gd" id="5_fkvp5"]
@@ -16,7 +17,7 @@ metadata/_custom_type_script = "uid://cciei67yuitw5"
 
 [sub_resource type="Resource" id="Resource_ryrav"]
 script = ExtResource("4_kwd8c")
-animation_name = "spin attack"
+stops_actor = true
 metadata/_custom_type_script = "uid://hhc8ylq4nvxy"
 
 [sub_resource type="Resource" id="Resource_j5wjh"]
@@ -61,6 +62,35 @@ tracks/1/keys = {
 "values": [Vector2(0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_0okp3"]
+resource_name = "attack"
+length = 6.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 1.6, 1.7, 1.8000001, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.6999998, 2.8, 2.8999999, 3, 3.1000001, 3.2000003, 3.3000002, 3.4, 3.5, 3.6000001, 3.7, 3.8000002, 3.9, 3.95, 4, 4.05),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-4, 0), Vector2(4, 0), Vector2(-4, 0), Vector2(4, 0), Vector2(-4, 0), Vector2(4, 0), Vector2(-4, 0), Vector2(4, 0), Vector2(-4, 0), Vector2(4, 0), Vector2(-4, 0), Vector2(4, 0), Vector2(-4, 0), Vector2(4, 0), Vector2(-4, 0), Vector2(4, 0), Vector2(-4, 0), Vector2(4, 0), Vector2(-4, 0), Vector2(4, 0), Vector2(-4, 0), Vector2(4, 0), Vector2(-4, 0), Vector2(4, 0), Vector2(-8, 0), Vector2(8, 0), Vector2(-8, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.25, 0.4, 0.55, 0.8, 1.4, 1.5, 1.6, 1.7, 1.8000001, 1.9, 2, 2.1000001, 2.2000003, 2.3, 2.4, 2.5, 2.6, 2.6999998, 2.8, 2.8999999, 2.9999998, 3.0999997, 3.2, 3.3, 3.3999999, 3.4999998, 3.6, 3.7, 3.8, 4, 4.1499996, 4.35, 4.45, 4.6, 4.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [3, 4, 6, 7, 6, 7, 6, 7, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 7, 6, 4, 3, 2, 0]
+}
+
 [sub_resource type="Animation" id="Animation_lqr6f"]
 resource_name = "shoot"
 length = 1.5
@@ -89,46 +119,19 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, -6), Vector2(0, 0)]
 }
-
-[sub_resource type="Animation" id="Animation_0okp3"]
-resource_name = "spin attack"
-length = 6.0
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5, 1.6, 1.7, 1.8000001, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.6999998, 2.8, 2.8999999, 3, 3.1000001, 3.2000003, 3.3000002, 3.4, 3.5, 3.6000001, 3.7, 3.8000002, 3.9, 3.95, 4, 4.05),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(-4, 0), Vector2(4, 0), Vector2(-4, 0), Vector2(4, 0), Vector2(-4, 0), Vector2(4, 0), Vector2(-4, 0), Vector2(4, 0), Vector2(-4, 0), Vector2(4, 0), Vector2(-4, 0), Vector2(4, 0), Vector2(-4, 0), Vector2(4, 0), Vector2(-4, 0), Vector2(4, 0), Vector2(-4, 0), Vector2(4, 0), Vector2(-4, 0), Vector2(4, 0), Vector2(-4, 0), Vector2(4, 0), Vector2(-4, 0), Vector2(4, 0), Vector2(-8, 0), Vector2(8, 0), Vector2(-8, 0), Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1, 0.25, 0.4, 0.55, 0.8, 1.4, 1.5, 1.6, 1.7, 1.8000001, 1.9, 2, 2.1000001, 2.2000003, 2.3, 2.4, 2.5, 2.6, 2.6999998, 2.8, 2.8999999, 2.9999998, 3.0999997, 3.2, 3.3, 3.3999999, 3.4999998, 3.6, 3.7, 3.8, 4, 4.1499996, 4.35, 4.45, 4.6, 4.75),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [3, 4, 6, 7, 6, 7, 6, 7, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 7, 6, 4, 3, 2, 0]
-}
-tracks/2/type = "value"
+tracks/2/type = "method"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath(".:selected_state")
+tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(6),
+"times": PackedFloat32Array(0.5),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
+"values": [{
+"args": [],
+"method": &"fire"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_73qie"]
@@ -164,9 +167,9 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gulix"]
 _data = {
 &"RESET": SubResource("Animation_oumla"),
+&"attack": SubResource("Animation_0okp3"),
 &"damaged": ExtResource("9_fkvp5"),
 &"shoot": SubResource("Animation_lqr6f"),
-&"spin attack": SubResource("Animation_0okp3"),
 &"walk": SubResource("Animation_73qie")
 }
 
@@ -180,6 +183,9 @@ size = Vector2(128, 64)
 script = ExtResource("2_73qie")
 can_see_player = true
 is_active = true
+shoot_bullet = ExtResource("3_60x3o")
+max_melee_range = 71.0
+max_shoot_range = 154.0
 default_state_on_awake = 1
 max_hp = 10
 idle_state = SubResource("Resource_7jktm")
@@ -217,3 +223,6 @@ shape = SubResource("RectangleShape2D_73qie")
 [node name="CollisionShape2D" parent="VisionArea" parent_id_path=PackedInt32Array(1796340020) index="0" unique_id=2039586838]
 position = Vector2(1, -32)
 shape = SubResource("RectangleShape2D_gulix")
+
+[node name="firingPoint" parent="." index="10" unique_id=698667958]
+position = Vector2(0, -13)

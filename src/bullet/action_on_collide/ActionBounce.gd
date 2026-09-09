@@ -16,18 +16,18 @@ func act_on(b: BaseBullet) -> void:
 	# cast ray using the world2d
 	var space_state = b.get_world_2d().direct_space_state
 	
-    # create query and set up for collision
+	# create query and set up for collision
 	var query = PhysicsRayQueryParameters2D.create(b.global_position, b.global_position + b.velocity*1000)
 	query.collide_with_areas = true
 	query.collide_with_bodies = false
 	query.collision_mask = 8
 	
-    # intersect the ray
+	# intersect the ray
 	var result := space_state.intersect_ray(query)
 	
-    # bounce!
+	# bounce!
 	b.velocity = b.velocity.bounce(result.normal)
 	current_bounce_number -= 1
 	
-    # disappear when max bounces
+	# disappear when max bounces
 	if current_bounce_number == 0: b.isInactive = true
