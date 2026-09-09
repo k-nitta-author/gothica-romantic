@@ -15,8 +15,7 @@ func bind_to_player(p: Player):
 	p.connect("on_bullets_current_change", bulletBar.update_bullet_bar)
 	p.connect("on_potions_current_change", potionIcons.update_potion_icons)
 
-func update_hp_bar(_actor: BaseActor, _old_value: int, current_hp: int):
-	playerHpBar.value = current_hp
+func update_hp_bar(_actor: BaseActor, _old_value: int, current_hp: int): playerHpBar.value = current_hp
 
 func bind_boss_hp_bar(boss: BaseActor) -> void:
 	BossHpProgressBar.max_value = boss.max_hp

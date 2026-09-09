@@ -22,6 +22,7 @@ theme = ExtResource("2_ljwg0")
 metadata/_edit_lock_ = true
 
 [node name="BattleControl" parent="Control" unique_id=250266615 instance=ExtResource("3_7rq8x")]
+visible = false
 layout_mode = 0
 
 [node name="TextBox" parent="Control" unique_id=583456037 instance=ExtResource("7_b0kcy")]

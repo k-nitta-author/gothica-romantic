@@ -16,7 +16,7 @@ func on_actor_died(actor: BaseActor) -> void:
 	pass
 
 # spawn actor
-func spawn_actor(actorScene: PackedScene) -> void: add_child(actorScene.instantiate())
+func spawn_actor(actorScene: BaseActor) -> void: add_child(actorScene)
 
 func bind_dependencies(stage: Stage) -> void:
 	for c in get_children():

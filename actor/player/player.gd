@@ -46,7 +46,8 @@ func set_current_potion_count(value: int) -> void:
 	var old_value = current_potion_count
 	current_potion_count = clamp(value, 0, max_potion_count)
 
-	if current_potion_count != old_value: emit_signal("on_potions_current_change", old_value, current_potion_count)
+	if current_potion_count != old_value:
+		emit_signal("on_potions_current_change", old_value, current_potion_count)
 
 # sets the current number of bullets;
 func set_bullets_current(value: int) -> void:
