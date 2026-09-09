@@ -5,6 +5,7 @@ func enter_state():
 	state_actor.stateLabel.text = "idle"
 	state_actor.is_attacking = false
 	state_actor.is_shooting = false
+	state_actor.collision_mask = 577
 
 func exit_state() -> void:
 	state_actor.cease_attack()
@@ -32,5 +33,5 @@ func handle_input():
 	if Input.is_action_pressed("move_left", true) or Input.is_action_pressed("move_right", true):
 		state_actor.selected_state = BaseActor.STATES.MOVING
 
-	if Input.is_action_pressed("jump"):
+	if Input.is_action_pressed("jump") and state_actor.is_on_floor():
 		state_actor.selected_state = BaseActor.STATES.JUMPING

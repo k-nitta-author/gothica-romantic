@@ -32,6 +32,12 @@ signal on_potions_current_change(old_value: int, new_value: int)
 
 var is_ducking :bool
 
+func jump_down() -> void:
+
+	const fall_mask = 65 # 1 + 64
+
+	collision_mask = fall_mask
+
 func attack() -> void:
 	anim.play("attack")
 	$sword/Area2D/CollisionShape2D.set_deferred("disabled", false)

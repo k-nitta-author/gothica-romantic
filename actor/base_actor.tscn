@@ -10,8 +10,8 @@ shader = ExtResource("2_cnu00")
 shader_parameter/active = false
 
 [node name="BaseActor" type="CharacterBody2D" unique_id=1016638848]
-collision_layer = 65
-collision_mask = 65
+collision_layer = 577
+collision_mask = 577
 script = ExtResource("1_8emup")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=900505443]
