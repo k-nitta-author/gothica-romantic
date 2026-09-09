@@ -126,6 +126,7 @@ var stage: Stage
 var is_attacking: bool
 var is_shooting: bool
 
+
 func set_speed(value: float) -> void:
 	current_speed = speed
 	speed = value
@@ -198,6 +199,8 @@ func notify_attack_connection() -> void:
 
 func bind_dependencies(s: Stage):
 	connect("fire_gun", s.bulletManager.add_bullet)
+	connect("has_died", s.propManager.spawn_collectible)
+	connect("attacked_at_point", s.effectsManager.spawn_effects)
 
 func update():
 

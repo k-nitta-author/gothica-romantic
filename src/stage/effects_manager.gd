@@ -4,7 +4,7 @@ enum SPLATTER {SHOOT, SLASH}
 
 @onready var shoot_splatter = preload("uid://bjjv01r2sxehu")
 @onready var slash_splatter = preload("uid://dam2cxs8um8t1")
-
+	
 # spawn a given effect at this location
 func spawn_effects(pos: Vector2, is_flipped: int, splatter_type: SPLATTER) -> void:
 

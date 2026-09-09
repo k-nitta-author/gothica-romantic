@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://d201blvck6tjw" path="res://assets/player/Listahl.png" id="2_qagro"]
 [ext_resource type="Script" uid="uid://ceqbnjs7oevbi" path="res://src/bullet/action_on_collide/ActionDisappear.gd" id="2_u8vhx"]
 
-[sub_resource type="Resource" id="Resource_52u6c"]
+[sub_resource type="Resource" id="Resource_qfmo7"]
 script = ExtResource("2_u8vhx")
 metadata/_custom_type_script = "uid://ceqbnjs7oevbi"
 
@@ -15,8 +15,8 @@ size = Vector2(11, 12)
 collision_layer = 4
 collision_mask = 14
 script = ExtResource("1_qagro")
-current_mode = SubResource("Resource_52u6c")
-lifeTime = 0.5
+current_mode = SubResource("Resource_qfmo7")
+lifeTime = 10.0
 speed = 320.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1823953356]

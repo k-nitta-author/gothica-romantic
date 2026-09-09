@@ -28,14 +28,6 @@ limit_left = 0
 limit_bottom = 160
 script = ExtResource("3_c4gdh")
 
-[node name="ActorManager" type="Node2D" parent="." unique_id=411187778]
-script = ExtResource("1_v02k8")
-
-[node name="Player" parent="ActorManager" unique_id=1016638848 instance=ExtResource("3_ont0r")]
-position = Vector2(120, 135)
-max_potion_count = 0
-damaged_state = SubResource("Resource_2rrgm")
-
 [node name="PropManager" type="Node2D" parent="." unique_id=1772769532]
 script = ExtResource("2_5m2fl")
 
@@ -47,6 +39,14 @@ script = ExtResource("8_lk3ft")
 
 [node name="EffectsManager" type="Node2D" parent="." unique_id=89421929]
 script = ExtResource("11_1h5j1")
+
+[node name="ActorManager" type="Node2D" parent="." unique_id=411187778]
+script = ExtResource("1_v02k8")
+
+[node name="Player" parent="ActorManager" unique_id=1016638848 instance=ExtResource("3_ont0r")]
+position = Vector2(120, 135)
+max_potion_count = 0
+damaged_state = SubResource("Resource_2rrgm")
 
 [node name="anim" type="AnimationPlayer" parent="." unique_id=2037312595]
 

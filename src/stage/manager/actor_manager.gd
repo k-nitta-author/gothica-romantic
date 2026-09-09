@@ -6,35 +6,43 @@ extends Node2D
 
 var can_update := false
 
+var stage
+
 # get the current boss
 func get_boss() -> Array: return get_bosses()
 
 # get the current player
 func get_player() -> Player: return player
 
-func on_actor_died(actor: BaseActor) -> void:
-	pass
+# called when the actor's hp reaches 0
+func on_actor_died(actor: BaseActor) -> void: pass
 
 # spawn actor
-func spawn_actor(actorScene: BaseActor) -> void: add_child(actorScene)
+func spawn_actor(actorScene: BaseActor) -> void:
+	actorScene.bind_dependencies(stage)
+	add_child(actorScene)
 
-func bind_dependencies(stage: Stage) -> void:
+# called by actor manager to add references to stage and members
+func bind_dependencies(_stage: Stage) -> void:
+
+	stage = _stage
 	for c in get_children():
 		c.bind_dependencies(stage)
-		c.connect("has_died", stage.propManager.spawn_collectible)
 		c.connect("has_died", on_actor_died)
-		c.connect("attacked_at_point", stage.effectsManager.spawn_effects)
-
 		if c is BaseEnemy and c.is_boss: bosses.append(c)
 
+# returns the array of bosses
 func get_bosses() -> Array: return bosses
 
+# update all actors each tick
 func _physics_process(_delta: float) -> void:
 	
+	# if this is set to not update
 	if !can_update: return
 
-	for c in children:
-		c.update()
+	# update
+	for c in children: c.update()
 
+# controls the player's use of input
 func _unhandled_input(event: InputEvent) -> void:
 	player.use_input(event)
