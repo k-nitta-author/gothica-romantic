@@ -11,13 +11,11 @@ enum SPLATTER {SHOOT, SLASH}
 @onready var propManager = $PropManager
 @onready var bulletManager = $BulletManager
 @onready var checkPointManager = $CheckPointManager
+@onready var effectsManager = $EffectsManager
 
 # get reference to singular noedes
 @onready var player = $ActorManager.player
 @onready var stage_exit = $StageExit
-
-@onready var shoot_splatter = preload("uid://bjjv01r2sxehu")
-@onready var slash_splatter = preload("uid://dam2cxs8um8t1")
 
 @export var transition_in : EffectsLayer.TRANS
 @export var transition_out : EffectsLayer.TRANS
@@ -28,11 +26,9 @@ var current_checkpoint_idx : int
 
 var game: Game
 
-signal stage_end()
 signal notify_save()
 
 func _ready() -> void:
-
 	# start the level
 	start()
 	
@@ -87,50 +83,10 @@ func end(nextLevel: PackedScene) -> void:
 
 	game.on_stage_end(nextLevel)
 
-# spawn actor
-func spawn_actor(actorScene: PackedScene) -> void:
-	actorManager.add_child(actorScene.instantiate())
-
-# spawn a given effect at this location
-func spawn_effects(pos: Vector2, is_flipped: int, splatter_type: SPLATTER) -> void:
-
-	var splatter
-
-	match splatter_type:
-		SPLATTER.SLASH: splatter = slash_splatter.instantiate()
-		SPLATTER.SHOOT: splatter = shoot_splatter.instantiate()
-
-	splatter.global_position = pos
-
-	if !is_flipped: splatter.scale.x  *= -1
-
-	add_child(splatter)
-
-# called when a breakable prop or enemy is destroyed
-func spawn_collectible(node: Node) -> void:
-	
-	randomize()
-
-	var random_number := randi_range(0, 6)
-
-	var drop : int
-
-	if random_number == 1: drop = propManager.DROPS.HP
-
-	elif random_number == 2: drop = propManager.DROPS.BULLET
-
-	else: drop = propManager.DROPS.NONE
-
-	var dropPos : Vector2 = node.get_eye_level()
-	
-	propManager.add_collectible(drop, dropPos)
-
 # called when player passes checkpoint
 func on_player_checkpoint_activated(_checkpointIdx: int) -> void:
 	current_checkpoint_idx = _checkpointIdx
-
 	emit_signal("notify_save")
 
-
-func _physics_process(delta: float) -> void:
-	stageCamera.update()
+# handle various nodes
+func _physics_process(_delta: float) -> void: stageCamera.update()

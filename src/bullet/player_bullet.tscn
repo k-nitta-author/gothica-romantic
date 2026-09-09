@@ -2,6 +2,11 @@
 
 [ext_resource type="Script" uid="uid://cjimgn7qd4fn2" path="res://src/bullet/base_bullet.gd" id="1_qagro"]
 [ext_resource type="Texture2D" uid="uid://d201blvck6tjw" path="res://assets/player/Listahl.png" id="2_qagro"]
+[ext_resource type="Script" uid="uid://ceqbnjs7oevbi" path="res://src/bullet/action_on_collide/ActionDisappear.gd" id="2_u8vhx"]
+
+[sub_resource type="Resource" id="Resource_52u6c"]
+script = ExtResource("2_u8vhx")
+metadata/_custom_type_script = "uid://ceqbnjs7oevbi"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uqb0r"]
 size = Vector2(11, 12)
@@ -10,6 +15,7 @@ size = Vector2(11, 12)
 collision_layer = 4
 collision_mask = 14
 script = ExtResource("1_qagro")
+current_mode = SubResource("Resource_52u6c")
 lifeTime = 0.5
 speed = 320.0
 

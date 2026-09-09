@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://txax8pdkvf8a"]
+
+[ext_resource type="PackedScene" uid="uid://6s3sq6km46d1" path="res://src/bullet/base_bomb.tscn" id="1_fk3g5"]
+
+[node name="CountessBomb" unique_id=483994798 instance=ExtResource("1_fk3g5")]

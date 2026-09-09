@@ -27,4 +27,4 @@ mono_crash.*.json
 build/
 
 # project specific ignore
-stage/test_stage.tscn
+src/stage/levels/test_stage.tscn
