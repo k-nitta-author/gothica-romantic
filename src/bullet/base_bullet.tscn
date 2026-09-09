@@ -1,9 +1,17 @@
 [gd_scene format=3 uid="uid://biu0bokceu48v"]
 
 [ext_resource type="Script" uid="uid://cjimgn7qd4fn2" path="res://src/bullet/base_bullet.gd" id="1_h1bej"]
+[ext_resource type="Script" uid="uid://ceqbnjs7oevbi" path="res://src/bullet/action_on_collide/ActionDisappear.gd" id="2_52u6c"]
+
+[sub_resource type="Resource" id="Resource_7gqe3"]
+script = ExtResource("2_52u6c")
+metadata/_custom_type_script = "uid://ceqbnjs7oevbi"
 
 [node name="BaseBullet" type="Area2D" unique_id=483994798]
+collision_layer = 71
+collision_mask = 71
 monitorable = false
 script = ExtResource("1_h1bej")
+current_mode = SubResource("Resource_7gqe3")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1823953356]

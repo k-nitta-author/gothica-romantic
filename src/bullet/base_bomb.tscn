@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://6s3sq6km46d1"]
+
+[ext_resource type="PackedScene" uid="uid://biu0bokceu48v" path="res://src/bullet/base_bullet.tscn" id="1_ujynv"]
+[ext_resource type="Script" uid="uid://ceqbnjs7oevbi" path="res://src/bullet/action_on_collide/ActionDisappear.gd" id="2_ukbrb"]
+
+[sub_resource type="Resource" id="Resource_d3bfg"]
+script = ExtResource("2_ukbrb")
+metadata/_custom_type_script = "uid://ceqbnjs7oevbi"
+
+[sub_resource type="Animation" id="Animation_ukbrb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:isInactive")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_ujynv"]
+resource_name = "explode"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"monitorable", true],
+"method": &"set_deferred"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:isInactive")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ukbrb"]
+_data = {
+&"RESET": SubResource("Animation_ukbrb"),
+&"explode": SubResource("Animation_ujynv")
+}
+
+[node name="BaseBomb" unique_id=483994798 instance=ExtResource("1_ujynv")]
+current_mode = SubResource("Resource_d3bfg")
+
+[node name="explosionArea" type="Area2D" parent="." index="1" unique_id=636836423]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="explosionArea" index="0" unique_id=632222176]
+
+[node name="anim" type="AnimationPlayer" parent="." index="2" unique_id=924820548]
+libraries/ = SubResource("AnimationLibrary_ukbrb")
+
+[node name="explosionSprite" type="Sprite2D" parent="." index="3" unique_id=487900451]

@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cmudwu6l6c42v"]
+
+[ext_resource type="PackedScene" uid="uid://40g6jm0jhmbr" path="res://src/bullet/enemy/enemy_bullet.tscn" id="1_d3bfg"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l42yj"]
+
+[node name="CountessBullet" unique_id=483994798 instance=ExtResource("1_d3bfg")]
+collision_layer = 1
+collision_mask = 1
+speed = 25.405
+
+[node name="Sprite2D" parent="." index="0" unique_id=1823953356]
+texture = null
+
+[node name="anim" type="AnimationPlayer" parent="." index="2" unique_id=1941402089]
+libraries/ = SubResource("AnimationLibrary_l42yj")

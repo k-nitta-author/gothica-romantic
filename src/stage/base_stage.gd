@@ -17,9 +17,6 @@ enum SPLATTER {SHOOT, SLASH}
 @onready var player = $ActorManager.player
 @onready var stage_exit = $StageExit
 
-@onready var shoot_splatter = preload("uid://bjjv01r2sxehu")
-@onready var slash_splatter = preload("uid://dam2cxs8um8t1")
-
 @export var transition_in : EffectsLayer.TRANS
 @export var transition_out : EffectsLayer.TRANS
 
@@ -29,7 +26,6 @@ var current_checkpoint_idx : int
 
 var game: Game
 
-signal stage_end()
 signal notify_save()
 
 func _ready() -> void:
@@ -90,9 +86,7 @@ func end(nextLevel: PackedScene) -> void:
 # called when player passes checkpoint
 func on_player_checkpoint_activated(_checkpointIdx: int) -> void:
 	current_checkpoint_idx = _checkpointIdx
-
 	emit_signal("notify_save")
 
-
-func _physics_process(delta: float) -> void:
-	stageCamera.update()
+# handle various nodes
+func _physics_process(_delta: float) -> void: stageCamera.update()
