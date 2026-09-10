@@ -15,6 +15,9 @@ extends BaseActor
 
 const POTION_HEAL_AMOUNT := 3
 
+
+@export var invincibility_time:= 3.6
+
 # important child variables
 @onready var swordSprite : Sprite2D = $sword
 @onready var gunshotEffect : Sprite2D = $gunshot
@@ -31,6 +34,17 @@ signal on_bullets_max_change(old_value: int, new_value: int)
 signal on_potions_current_change(old_value: int, new_value: int)
 
 var is_ducking :bool
+
+func start_invincibility() -> void:
+	hitbox.collision_mask = 0
+	collision_mask = 64
+
+	get_tree().create_timer(invincibility_time).connect("timeout", end_invincibility)
+
+func end_invincibility() -> void:
+	collision_mask = 65
+	hitbox.collision_mask = 8
+	sprite.is_flashing_transparent = false
 
 func jump_down() -> void:
 

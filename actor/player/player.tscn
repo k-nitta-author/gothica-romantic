@@ -15,6 +15,7 @@
 [ext_resource type="Script" uid="uid://dmjhev2pahl57" path="res://src/state/actor/damagedState.gd" id="11_8h0if"]
 [ext_resource type="AudioStream" uid="uid://bfqls0skfob01" path="res://assets/sound/sfx/noise4.wav" id="13_tdps2"]
 [ext_resource type="AudioStream" uid="uid://de0kw06ma6nbc" path="res://assets/sound/sfx/Jump.wav" id="14_pn5yv"]
+[ext_resource type="Script" uid="uid://bjeyfh3r5vwju" path="res://actor/player/player_sprite.gd" id="14_ys6gq"]
 [ext_resource type="AudioStream" uid="uid://sorepoioavl7" path="res://assets/sound/sfx/noise1.wav" id="15_8f5w4"]
 [ext_resource type="AudioStream" uid="uid://cwjmqvf8xdyb2" path="res://assets/sound/sfx/beep1.wav" id="15_joq28"]
 [ext_resource type="AudioStream" uid="uid://6q8nfp46cg64" path="res://assets/sound/sfx/Land.wav" id="15_pn5yv"]
@@ -67,6 +68,68 @@ size = Vector2(10, 24.5)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8f5w4"]
 shader = ExtResource("2_8f5w4")
 shader_parameter/active = false
+
+[sub_resource type="Animation" id="Animation_48f3x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_ys6gq"]
+resource_name = "flash"
+length = 0.39999999999999997
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.099999994, 0.19999999, 0.3, 0.39999998),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0.49803922), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.099038035, 0.19999999, 0.3, 0.39999998),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_48f3x"]
+_data = {
+&"RESET": SubResource("Animation_48f3x"),
+&"flash": SubResource("Animation_ys6gq")
+}
 
 [sub_resource type="Animation" id="Animation_k4v8y"]
 length = 0.001
@@ -261,6 +324,18 @@ tracks/15/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Sprite2D:is_flashing_transparent")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_0bt4a"]
@@ -487,6 +562,32 @@ tracks/7/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
+}
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath(".")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"start_invincibility"
+}]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Sprite2D:is_flashing_transparent")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_mm62y"]
@@ -1232,6 +1333,7 @@ collision_layer = 1
 script = ExtResource("2_pcoxj")
 isRejectingInput = false
 max_potion_count = 3
+invincibility_time = 3.6
 bulletsMax = 6
 max_hp = 8
 speed = 64.0
@@ -1249,7 +1351,6 @@ landing_state = SubResource("Resource_qws1g")
 falling_state = SubResource("Resource_a72po")
 ducking_state = SubResource("Resource_wu1np")
 damaged_state = SubResource("Resource_xhyqv")
-is_stunned = true
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=900505443]
 position = Vector2(0, -12.25)
@@ -1261,6 +1362,11 @@ texture = ExtResource("3_mlbvo")
 offset = Vector2(0, -16)
 hframes = 10
 vframes = 4
+script = ExtResource("14_ys6gq")
+is_flashing_transparent = true
+
+[node name="anim" type="AnimationPlayer" parent="Sprite2D" index="0" unique_id=2022974917]
+libraries/ = SubResource("AnimationLibrary_48f3x")
 
 [node name="anim" parent="." index="2" unique_id=783902006]
 libraries/ = SubResource("AnimationLibrary_qb7rd")
