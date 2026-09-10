@@ -198,6 +198,9 @@ func notify_attack_connection() -> void:
 	emit_signal("attacked_at_point", attackRay.get_collision_point(), is_flipped, stage.SPLATTER.SLASH)
 
 func bind_dependencies(s: Stage):
+
+	stage = s
+
 	connect("fire_gun", s.bulletManager.add_bullet)
 	connect("has_died", s.propManager.spawn_collectible)
 	connect("attacked_at_point", s.effectsManager.spawn_effects)
