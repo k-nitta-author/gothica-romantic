@@ -7,6 +7,8 @@ func enter_state():
 	state_actor.is_shooting = false
 	state_actor.collision_mask = 577
 
+	if state_actor.anim.has_animation("idle"): state_actor.anim.play("idle")
+
 func exit_state() -> void:
 	state_actor.cease_attack()
 
