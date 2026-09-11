@@ -11,11 +11,11 @@ extends BaseActor
 		current_potion_count = max_potion_count
 
 # current_potion_count; clamped to current max value
-@onready var current_potion_count : int: set = set_current_potion_count
+@onready var current_potion_count : int = max_potion_count: set = set_current_potion_count
 
 const POTION_HEAL_AMOUNT := 3
 
-
+# the amount of time that the player is invincible when struck
 @export var invincibility_time:= 3.6
 
 # important child variables
@@ -31,6 +31,7 @@ var bulletsCurrent: int: set = set_bullets_current
 signal on_bullets_current_change(old_value: int, new_value: int)
 signal on_bullets_max_change(old_value: int, new_value: int)
 
+# potion related signal
 signal on_potions_current_change(old_value: int, new_value: int)
 
 var is_ducking :bool
@@ -47,9 +48,7 @@ func end_invincibility() -> void:
 	sprite.is_flashing_transparent = false
 
 func jump_down() -> void:
-
 	const fall_mask = 65 # 1 + 64
-
 	collision_mask = fall_mask
 
 func attack() -> void:
@@ -84,15 +83,14 @@ func set_bullets_max(value: int) -> void:
 	bulletsCurrent = bulletsMax
 	emit_signal("on_bullets_max_change", old_value, bulletsCurrent)
 
-func has_gotten_up() -> bool:
-	if is_on_floor(): return true
-	else: return false
+func has_gotten_up() -> bool: return is_on_floor()
 
 func _unhandled_input(_event: InputEvent) -> void:
 	if current_state != null:
 		current_state.handle_input()
 
-	if _event.is_action_pressed("drinkPotion"):
+	# consume potion and reduce based on how how much hp the player has
+	if _event.is_action_pressed("drinkPotion") and current_hp < max_hp:
 		current_potion_count -= 1
 		heal(POTION_HEAL_AMOUNT)
 
