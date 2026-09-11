@@ -3,7 +3,7 @@ extends ActorState
 
 func enter_state():
 	state_actor.stateLabel.text = "land"
-	state_actor.anim.connect("animation_finished", on_animation_finished, ConnectFlags.CONNECT_ONE_SHOT)
+	state_actor.anim.connect("animation_finished", on_animation_finished)
 
 func exit_state():
 	state_actor.anim.disconnect("animation_finished", on_animation_finished)

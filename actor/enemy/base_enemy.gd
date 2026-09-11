@@ -47,7 +47,6 @@ func _draw() -> void:
 
 func bind_dependencies(s: Stage):
 	super(s)
-
 	player = s.get_player()
 
 func set_is_inactive(value: bool):
@@ -136,11 +135,15 @@ func shoot():
 	is_shooting = true
 	selected_state = BaseActor.STATES.SHOOT
 
-func fire() -> void:
+func fire() -> BaseBullet:
 	var new_bullet: BaseBullet = shoot_bullet.instantiate()
 	new_bullet.movement_angle = 270 if is_flipped else 90
 
+	new_bullet.bind_dependencies(stage)
+
 	emit_signal("fire_gun", new_bullet, firingPoint.global_position)
+
+	return new_bullet
 
 func update():
 	velocity = Vector2((1 if seek_right else -1) * current_speed, 0)

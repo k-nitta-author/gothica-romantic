@@ -11,7 +11,7 @@ var current_bounce_number : int:
 		current_bounce_number = clamp(value, 0, max_bounce_number)
 
 # override to allow for bouncing
-func act_on(b: BaseBullet) -> void:
+func act_on(b: BaseBullet, area: Area2D) -> void:
 	
 	# cast ray using the world2d
 	var space_state = b.get_world_2d().direct_space_state
@@ -30,4 +30,5 @@ func act_on(b: BaseBullet) -> void:
 	current_bounce_number -= 1
 	
 	# disappear when max bounces
-	if current_bounce_number == 0: b.isInactive = true
+	if current_bounce_number == 0:
+		super(b, area)

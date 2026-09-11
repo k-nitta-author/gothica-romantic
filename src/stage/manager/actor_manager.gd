@@ -18,8 +18,10 @@ func on_actor_died(actor: BaseActor) -> void: pass
 
 # spawn actor
 func spawn_actor(actorScene: BaseActor) -> void:
+
 	actorScene.bind_dependencies(stage)
-	add_child(actorScene)
+
+	call_deferred("add_child", actorScene)
 
 # called by actor manager to add references to stage and members
 func bind_dependencies(_stage: Stage) -> void:

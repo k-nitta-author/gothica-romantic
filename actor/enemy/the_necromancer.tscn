@@ -30,7 +30,7 @@ metadata/_custom_type_script = "uid://bunbdgovyilxk"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onahq"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_8lf15"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_60x3o"]
 resource_local_to_scene = true
 shader = ExtResource("7_kwd8c")
 shader_parameter/active = false
@@ -181,6 +181,7 @@ size = Vector2(128, 64)
 
 [node name="The Necromancer" unique_id=1016638848 instance=ExtResource("1_u8ngf")]
 script = ExtResource("2_73qie")
+max_number_of_minions = 4
 can_see_player = true
 is_active = true
 shoot_bullet = ExtResource("3_60x3o")
@@ -206,7 +207,7 @@ position = Vector2(1, -10)
 shape = SubResource("RectangleShape2D_onahq")
 
 [node name="Sprite2D" parent="." index="2" unique_id=90387062]
-material = SubResource("ShaderMaterial_8lf15")
+material = SubResource("ShaderMaterial_60x3o")
 texture = ExtResource("2_kabjl")
 offset = Vector2(0, -16)
 hframes = 10

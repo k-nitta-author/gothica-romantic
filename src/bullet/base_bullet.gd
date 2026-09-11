@@ -5,6 +5,9 @@ extends Area2D
 
 @export_range(0.0, 10.0, 0.1) var lifeTime: float
 
+@export var detect_bodies : bool
+@export var detect_areas : bool
+
 @onready var lifeTimeCurrent: float
 @onready var sprite2D = $Sprite2D
 
@@ -27,11 +30,13 @@ signal notify_attack_connection(collision_point: Vector2, flipped: bool, type: S
 		bullet_gravity = value
 		
 var velocity : Vector2
+func bind_dependencies(s: Stage):
 
-func bind_dependencies(stage: Stage):
-	current_mode.setup(self, stage)
 
-	connect("notify_attack_connection", stage.effectsManager.spawn_effects)
+	current_mode.setup(self, s)
+
+	if !is_connected("notify_attack_connection", s.effectsManager.spawn_effects):
+		connect("notify_attack_connection", s.effectsManager.spawn_effects)
 
 func set_is_inactive(value: bool):
 		isInactive = value
@@ -49,9 +54,15 @@ func calculate_angle_to_reach_x(distance: float, grav: float, spd: float) -> flo
 
 	return theta 
 
-func _ready() -> void: connect("area_entered", on_area_entered)
+func _ready() -> void:
+	if detect_bodies: connect("body_entered", on_body_entered)
+	if detect_areas: connect("area_entered", on_area_entered)
 
-func on_area_entered(area: Area2D) -> void: if area is BaseProp or area.owner is BaseActor: current_mode.act_on(self)
+func on_area_entered(area: Area2D) -> void:
+	current_mode.act_on(self, area)
+
+func on_body_entered(body: Node2D) -> void:
+	current_mode.act_on_body(self, body)
 
 # called by the bullet manager each tick
 func update(delta):
