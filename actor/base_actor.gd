@@ -14,6 +14,8 @@ enum ACTOR_TYPE{ PLAYER, ENEMY, SPECIAL}
 
 enum STATES{ IDLE, MOVING, JUMPING, FALLLING, MELEE, SHOOT, DUCKING, LANDING , DAMAGED}
 
+@export var correct_flip_h : bool
+
 @export var isInactive: bool: set = set_is_inactive 
 @export var actorType: ACTOR_TYPE
 @export var max_hp: int:

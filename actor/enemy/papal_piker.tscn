@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://hhc8ylq4nvxy" path="res://src/state/actor/meleeState.gd" id="3_xiud8"]
 [ext_resource type="AudioStream" uid="uid://bh44qmiakul2t" path="res://assets/sound/sfx/noise2.wav" id="4_5yl3h"]
 [ext_resource type="Script" uid="uid://cgcwml08u6r0s" path="res://src/state/actor/walkState.gd" id="4_iycyw"]
-[ext_resource type="AudioStream" uid="uid://bfqls0skfob01" path="res://assets/sound/sfx/noise4.wav" id="5_q7omp"]
+[ext_resource type="AudioStream" uid="uid://df1h6nx8fss84" path="res://assets/sound/sfx/noise4.wav" id="5_q7omp"]
 [ext_resource type="Script" uid="uid://bunbdgovyilxk" path="res://src/state/actor/shootState.gd" id="5_wu274"]
 [ext_resource type="AudioStream" uid="uid://sorepoioavl7" path="res://assets/sound/sfx/noise1.wav" id="6_uvqxr"]
 [ext_resource type="Animation" uid="uid://dc4oqu1m6whdy" path="res://actor/damaged.res" id="10_xiud8"]
@@ -31,7 +31,7 @@ metadata/_custom_type_script = "uid://bunbdgovyilxk"
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pdxo5"]
 size = Vector2(16, 26)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_7s3t3"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xiud8"]
 resource_local_to_scene = true
 shader = ExtResource("2_hosvh")
 shader_parameter/active = false
@@ -329,7 +329,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 1]
+"values": [2, 1, 2, 1]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -375,17 +375,19 @@ size = Vector2(192, 20)
 can_see_player = true
 max_hp = 6
 speed = 30.0
+selected_state = 0
 idle_state = SubResource("Resource_abmyv")
 melee_state = SubResource("Resource_8411b")
 move_state = SubResource("Resource_fsbhl")
 shoot_state = SubResource("Resource_f5tfu")
+is_stunned = false
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=900505443]
 position = Vector2(0, -13)
 shape = SubResource("RectangleShape2D_pdxo5")
 
 [node name="Sprite2D" parent="." index="1" unique_id=90387062]
-material = SubResource("ShaderMaterial_7s3t3")
+material = SubResource("ShaderMaterial_xiud8")
 texture = ExtResource("3_eoyng")
 offset = Vector2(0, -24)
 hframes = 11

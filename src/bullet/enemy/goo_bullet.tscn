@@ -1,6 +1,49 @@
 [gd_scene format=3 uid="uid://cexsvxva0lwox"]
 
 [ext_resource type="PackedScene" uid="uid://40g6jm0jhmbr" path="res://src/bullet/enemy/enemy_bullet.tscn" id="1_ibll5"]
+[ext_resource type="Texture2D" uid="uid://bjg15pftgg26f" path="res://assets/enemies/bullets/goo ball.png" id="2_w0ytt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_84tb5"]
+radius = 5.0
+
+[sub_resource type="Animation" id="Animation_2adhg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_wkn61"]
+resource_name = "anim"
+length = 0.6
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0.0, 1.5707964, 3.1415927, 4.712389]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1dcj1"]
+_data = {
+&"RESET": SubResource("Animation_2adhg"),
+&"anim": SubResource("Animation_wkn61")
+}
 
 [node name="GooBullet" unique_id=483994798 instance=ExtResource("1_ibll5")]
 lifeTime = 5.0
@@ -8,5 +51,11 @@ speed = 80.0
 bullet_gravity = 0.4
 
 [node name="Sprite2D" parent="." index="0" unique_id=1823953356]
-position = Vector2(1, -2)
-scale = Vector2(0.171875, 0.17187499)
+texture = ExtResource("2_w0ytt")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=1689993657]
+shape = SubResource("CircleShape2D_84tb5")
+
+[node name="anim" type="AnimationPlayer" parent="." index="2" unique_id=1655866089]
+libraries/ = SubResource("AnimationLibrary_1dcj1")
+autoplay = &"anim"

@@ -15,6 +15,7 @@ metadata/_custom_type_script = "uid://cciei67yuitw5"
 
 [sub_resource type="Resource" id="Resource_lvxq2"]
 script = ExtResource("3_77u8q")
+stops_actor = true
 metadata/_custom_type_script = "uid://hhc8ylq4nvxy"
 
 [sub_resource type="Resource" id="Resource_53c4t"]
@@ -24,7 +25,7 @@ metadata/_custom_type_script = "uid://cgcwml08u6r0s"
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_senlp"]
 size = Vector2(20, 33)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_n1vko"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_77u8q"]
 resource_local_to_scene = true
 shader = ExtResource("2_vjeca")
 shader_parameter/active = false
@@ -258,7 +259,9 @@ size = Vector2(122, 56)
 [node name="mansion grounds keeper" unique_id=1016638848 instance=ExtResource("1_qaj22")]
 script = ExtResource("2_77u8q")
 can_see_player = true
+max_melee_range = 32.0
 default_state_on_awake = 1
+max_hp = 6
 idle_state = SubResource("Resource_ck0iu")
 melee_state = SubResource("Resource_lvxq2")
 move_state = SubResource("Resource_53c4t")
@@ -269,7 +272,7 @@ shape = SubResource("RectangleShape2D_senlp")
 disabled = false
 
 [node name="Sprite2D" parent="." index="1" unique_id=90387062]
-material = SubResource("ShaderMaterial_n1vko")
+material = SubResource("ShaderMaterial_77u8q")
 texture = ExtResource("2_52qai")
 offset = Vector2(0, -24)
 hframes = 8

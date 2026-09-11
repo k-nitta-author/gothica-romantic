@@ -9,6 +9,8 @@
 [ext_resource type="Script" uid="uid://bunbdgovyilxk" path="res://src/state/actor/shootState.gd" id="3_u74of"]
 [ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/shader/hitFlashShader.gdshader" id="5_2hqow"]
 [ext_resource type="Animation" uid="uid://dc4oqu1m6whdy" path="res://actor/damaged.res" id="7_e2do6"]
+[ext_resource type="AudioStream" uid="uid://caudq6mmk0vi2" path="res://assets/sound/sfx/noise.wav" id="10_lbktx"]
+[ext_resource type="AudioStream" uid="uid://sorepoioavl7" path="res://assets/sound/sfx/noise1.wav" id="11_epqdy"]
 
 [sub_resource type="Resource" id="Resource_eqrin"]
 script = ExtResource("2_u74of")
@@ -87,7 +89,7 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.09, 3),
+"times": PackedFloat32Array(0, 1.45, 3),
 "transitions": PackedFloat32Array(1, 1, 1),
 "values": [{
 "args": [],
@@ -112,6 +114,45 @@ tracks/2/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("sound sfx stream")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.1,
+"stream": ExtResource("10_lbktx")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.1,
+"stream": ExtResource("10_lbktx")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.2,
+"stream": ExtResource("11_epqdy")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.2,
+"stream": ExtResource("11_epqdy")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.2,
+"stream": ExtResource("11_epqdy")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("10_lbktx")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.1,
+"stream": ExtResource("11_epqdy")
+}],
+"times": PackedFloat32Array(0.19999999, 0.4, 0.6, 0.65000004, 0.7, 1.15, 1.45)
+}
+tracks/3/use_blend = true
 
 [sub_resource type="Animation" id="Animation_2hqow"]
 resource_name = "walk"
@@ -153,7 +194,7 @@ shoot_bullet = ExtResource("2_e2do6")
 max_melee_range = 64.0
 default_state_on_awake = 1
 max_hp = 6
-speed = 40.0
+speed = 16.0
 selected_state = 0
 idle_state = SubResource("Resource_eqrin")
 move_state = SubResource("Resource_x0yvw")
@@ -180,6 +221,9 @@ shape = SubResource("RectangleShape2D_x0yvw")
 [node name="CollisionShape2D" parent="VisionArea" parent_id_path=PackedInt32Array(1796340020) index="0" unique_id=2039586838]
 position = Vector2(0, -32)
 shape = SubResource("RectangleShape2D_dsw75")
+
+[node name="sound sfx stream" parent="." index="5" unique_id=599329136]
+pitch_scale = 2.0
 
 [node name="firingPoint" parent="." index="9" unique_id=698667958]
 position = Vector2(0, -28)

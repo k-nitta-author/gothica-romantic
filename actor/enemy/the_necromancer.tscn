@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bjeudo4rvmvag" path="res://actor/enemy/base_enemy.tscn" id="1_u8ngf"]
 [ext_resource type="Script" uid="uid://bbtssto6och2k" path="res://actor/enemy/the_necromancer.gd" id="2_73qie"]
-[ext_resource type="Texture2D" uid="uid://dlinjvje6qbhk" path="res://assets/enemies/The Necromancer.png" id="2_kabjl"]
+[ext_resource type="Texture2D" uid="uid://b8ff5iwaroiem" path="res://assets/enemies/The Necromancer.png" id="2_kabjl"]
 [ext_resource type="PackedScene" uid="uid://twkdx826uwnk" path="res://src/bullet/enemy/bone_bullet.tscn" id="3_60x3o"]
 [ext_resource type="Script" uid="uid://cciei67yuitw5" path="res://src/state/actor/idleState.gd" id="3_gulix"]
 [ext_resource type="Script" uid="uid://hhc8ylq4nvxy" path="res://src/state/actor/meleeState.gd" id="4_kwd8c"]
@@ -226,4 +226,4 @@ position = Vector2(1, -32)
 shape = SubResource("RectangleShape2D_gulix")
 
 [node name="firingPoint" parent="." index="10" unique_id=698667958]
-position = Vector2(0, -13)
+position = Vector2(0, -22)

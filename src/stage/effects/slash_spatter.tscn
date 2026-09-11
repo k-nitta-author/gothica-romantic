@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dam2cxs8um8t1"]
 
 [ext_resource type="Texture2D" uid="uid://cpcu1sqr438lq" path="res://assets/effects/sharp splatter.png" id="1_joan7"]
-[ext_resource type="PackedScene" uid="uid://rp5sdj2ja1c5" path="res://sound effects/sound_sfx_stream.tscn" id="2_eeefv"]
+[ext_resource type="PackedScene" uid="uid://rp5sdj2ja1c5" path="res://src/sound effects/sound_sfx_stream.tscn" id="2_eeefv"]
 [ext_resource type="AudioStream" uid="uid://dbj5jeiwy6nku" path="res://assets/sound/sfx/enemy hurt1.wav" id="2_ggph8"]
 
 [sub_resource type="Animation" id="Animation_2hao6"]
@@ -82,6 +82,7 @@ _data = {
 
 [node name="slash spatter" type="Sprite2D" unique_id=2136193067]
 visible = false
+z_index = 2
 texture = ExtResource("1_joan7")
 offset = Vector2(14, 0)
 hframes = 4

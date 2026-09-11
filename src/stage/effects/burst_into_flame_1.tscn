@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://cydfoii50pto8"]
+
+[ext_resource type="Texture2D" uid="uid://chjpkgo3v87dh" path="res://assets/effects/burst into flame 1.png" id="1_exeux"]
+
+[sub_resource type="Animation" id="Animation_vfe41"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_dy0cj"]
+resource_name = "anim"
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.050000012, 0.099999994, 0.15, 0.19999999, 0.25, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.35),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6i43i"]
+_data = {
+&"RESET": SubResource("Animation_vfe41"),
+&"anim": SubResource("Animation_dy0cj")
+}
+
+[node name="burst into flame 1" type="Sprite2D" unique_id=959400433]
+texture = ExtResource("1_exeux")
+offset = Vector2(0, -16)
+hframes = 8
+region_enabled = true
+region_rect = Rect2(0, 0, 256, 32)
+
+[node name="anim" type="AnimationPlayer" parent="." unique_id=2124913017]
+libraries/ = SubResource("AnimationLibrary_6i43i")
+autoplay = &"anim"

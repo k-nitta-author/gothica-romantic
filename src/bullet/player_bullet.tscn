@@ -22,7 +22,7 @@ speed = 320.0
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1823953356]
 texture = ExtResource("2_qagro")
 region_enabled = true
-region_rect = Rect2(279, 82, 7, 4)
+region_rect = Rect2(240, 112, 16, 8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1452213689]
 position = Vector2(0.5, -1)
