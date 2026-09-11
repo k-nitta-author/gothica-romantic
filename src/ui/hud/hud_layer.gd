@@ -6,6 +6,7 @@ enum STATE {
 	RESUMED,
 	PAUSED,
 	SETTINGS,
+	TRANSITION
 }
 
 @export var currentState: STATE = STATE.START_SCREEN:
@@ -26,6 +27,8 @@ enum STATE {
 			STATE.START_SCREEN:
 				battleControl.visible = false
 				startScreen.visible = true
+			STATE.TRANSITION:
+				pass
 
 @onready var dialogBox : DialogBox = $Control/DialogBox
 @onready var startScreen = $Control/StartScreen
@@ -53,9 +56,15 @@ func bind_game(g: Game) -> void:
 	effectLayer = game.effectLayer
 
 func on_main_menu() -> void:
+
+	currentState = STATE.TRANSITION
+
 	effectLayer.play_transition(EffectsLayer.TRANS.WIPE_UP)
 
 	await effectLayer.transition_finished
+
+	currentState = STATE.RESUMED
+
 	game.unload_stage()
 
 	effectLayer.play_transition(EffectsLayer.TRANS.WIPE_UP, true)
@@ -63,6 +72,7 @@ func on_main_menu() -> void:
 func on_game_paused() -> void:
 	pauseGamePanel.hide()
 	get_tree().paused = false
+	currentState = STATE.RESUMED
 
 func bind_to_player(p: Player):
 	battleControl.bind_to_player(p)
@@ -73,7 +83,7 @@ func get_start_screen() -> Control: return $Control/StartScreen
 
 func _unhandled_input(event: InputEvent) -> void:
 
-	if currentState == STATE.START_SCREEN: return
+	if currentState == STATE.START_SCREEN or currentState == STATE.TRANSITION: return
 
 	if event.is_action_pressed("pause"):
 		if currentState == STATE.RESUMED:
