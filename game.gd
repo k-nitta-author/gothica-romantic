@@ -60,7 +60,11 @@ func start_game() -> void:
 
 	# update and link to hud_layer
 	hudLayer.visible = true
+
+	hudLayer.currentState = hudLayer.STATE.TRANSITION
+	await effectLayer.transition_finished
 	hudLayer.currentState = hudLayer.STATE.RESUMED
+	
 	hudLayer.bind_to_player(stage.player)
 	hudLayer.bind_boss(stage.get_boss())
 
