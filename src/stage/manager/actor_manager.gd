@@ -20,6 +20,7 @@ func on_actor_died(actor: BaseActor) -> void: pass
 func spawn_actor(actorScene: BaseActor) -> void:
 
 	actorScene.bind_dependencies(stage)
+	actorScene.connect("has_died", on_actor_died)
 
 	call_deferred("add_child", actorScene)
 
@@ -42,7 +43,7 @@ func _physics_process(_delta: float) -> void:
 	if !can_update: return
 
 	# update
-	for c in children: c.update()
+	for c in get_children(): c.update()
 
 # controls the player's use of input
 func _unhandled_input(event: InputEvent) -> void:

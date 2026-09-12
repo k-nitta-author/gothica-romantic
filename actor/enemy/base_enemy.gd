@@ -4,6 +4,7 @@ extends BaseActor
 @export var is_boss : bool
 
 @export_category("Activity")
+@export var immune_to_stun: bool # if true, the enemy is unable to be stunned when damaged
 @export var seek_right : bool # if true, the enemy seeks the right
 @export var can_see_player : bool
 @export var is_active : bool # if active, it can move and be interacted with
@@ -117,7 +118,7 @@ func has_player_in_shoot_range() -> bool:
 
 func attack_if_possible() -> void:
 
-	if melee_state == null or is_attacking or is_shooting: return
+	if !can_attack(): return
 
 	if has_player_in_melee_range():
 		attack()
@@ -128,9 +129,13 @@ func attack() -> void:
 
 	selected_state = BaseActor.STATES.MELEE
 
+func can_shoot() -> bool: return !(shoot_state == null or is_shooting or is_attacking)
+ 
+func can_attack() -> bool: return !(melee_state == null or is_shooting or is_attacking)
+
 func shoot_if_possible() -> void:
 
-	if shoot_state == null or is_shooting or is_attacking: return
+	if can_shoot(): return
 
 	if has_player_in_shoot_range(): shoot()
 

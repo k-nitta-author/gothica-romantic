@@ -119,6 +119,8 @@ size = Vector2(170.5, 39)
 
 [node name="bone walker 1" unique_id=1016638848 instance=ExtResource("1_2y8y3")]
 script = ExtResource("2_y8pw5")
+can_see_player = true
+default_state_on_awake = 1
 max_hp = 3
 speed = 32.0
 speed_in_air_vertical = 5.0

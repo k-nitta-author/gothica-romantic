@@ -254,6 +254,8 @@ size = Vector2(128, 64)
 [node name="The Necromancer" unique_id=1016638848 instance=ExtResource("1_u8ngf")]
 script = ExtResource("2_73qie")
 max_number_of_minions = 4
+max_number_of_shots = 4
+immune_to_stun = false
 can_see_player = true
 is_active = true
 shoot_bullet = ExtResource("3_60x3o")
