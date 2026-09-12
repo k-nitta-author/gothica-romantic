@@ -5,22 +5,23 @@
 [ext_resource type="Script" uid="uid://dmjhev2pahl57" path="res://src/state/actor/damagedState.gd" id="3_sffo0"]
 [ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/shader/hitFlashShader.gdshader" id="3_wpd7q"]
 [ext_resource type="Animation" uid="uid://dc4oqu1m6whdy" path="res://actor/damaged.res" id="5_0wmbo"]
+[ext_resource type="Script" uid="uid://bdk03xab8qtyc" path="res://actor/enemy/enemy_sprite.gd" id="5_psi1y"]
 
 [sub_resource type="Resource" id="Resource_wpd7q"]
 script = ExtResource("3_sffo0")
 metadata/_custom_type_script = "uid://dmjhev2pahl57"
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_crbdt"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fsouq"]
 resource_local_to_scene = true
 shader = ExtResource("3_wpd7q")
 shader_parameter/active = false
 
-[sub_resource type="Animation" id="Animation_0wmbo"]
+[sub_resource type="Animation" id="Animation_dfsjj"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:material:shader_parameter/active")
+tracks/0/path = NodePath(".:material:shader_parameter/active")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -29,10 +30,48 @@ tracks/0/keys = {
 "update": 1,
 "values": [false]
 }
+
+[sub_resource type="Animation" id="Animation_mqagq"]
+resource_name = "hitflash"
+length = 0.19999999999999998
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7iqix"]
+_data = {
+&"RESET": SubResource("Animation_dfsjj"),
+&"hitflash": SubResource("Animation_mqagq")
+}
+
+[sub_resource type="Animation" id="Animation_0wmbo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:is_stunned")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:is_stunned")
+tracks/1/path = NodePath("Sprite2D:is_hit_flashing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -65,7 +104,6 @@ default_state_on_awake = 0
 actorType = 1
 speed = 19.655
 speed_in_air_vertical = 1.0
-selected_state = 1
 damaged_state = SubResource("Resource_wpd7q")
 is_stunned = true
 
@@ -73,7 +111,12 @@ is_stunned = true
 disabled = true
 
 [node name="Sprite2D" parent="." index="1" unique_id=90387062]
-material = SubResource("ShaderMaterial_crbdt")
+material = SubResource("ShaderMaterial_fsouq")
+script = ExtResource("5_psi1y")
+is_hit_flashing = true
+
+[node name="anim" type="AnimationPlayer" parent="Sprite2D" index="0" unique_id=1162023846]
+libraries/ = SubResource("AnimationLibrary_7iqix")
 
 [node name="anim" parent="." index="2" unique_id=783902006]
 libraries/ = SubResource("AnimationLibrary_wpd7q")

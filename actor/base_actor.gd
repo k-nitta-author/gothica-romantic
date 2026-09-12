@@ -14,6 +14,8 @@ enum ACTOR_TYPE{ PLAYER, ENEMY, SPECIAL}
 
 enum STATES{ IDLE, MOVING, JUMPING, FALLLING, MELEE, SHOOT, DUCKING, LANDING , DAMAGED}
 
+@export var immune_to_stun: bool # if true, the enemy is unable to be stunned when damaged
+
 @export var correct_flip_h : bool
 
 @export var isInactive: bool: set = set_is_inactive 
@@ -58,12 +60,12 @@ var previous_state : STATES
 @export var selected_state : STATES:
 	set(value):
 
-		var old_state = selected_state
+		previous_state = selected_state
 		selected_state = value
 
 		if (!self.is_node_ready()): await self.ready
 
-		if old_state == selected_state: return
+		if previous_state == selected_state: return
 
 		match selected_state:
 			STATES.IDLE:
@@ -128,6 +130,11 @@ var stage: Stage
 var is_attacking: bool
 var is_shooting: bool
 
+
+func revert_to_previous_state() -> void:
+	var old_state = selected_state
+	selected_state = previous_state
+	previous_state = old_state
 
 func set_speed(value: float) -> void:
 	current_speed = speed
@@ -208,8 +215,6 @@ func bind_dependencies(s: Stage):
 	connect("attacked_at_point", s.effectsManager.spawn_effects)
 
 func update():
-
-	if isInactive: return 
 
 	if current_state != null:
 		current_state.update()

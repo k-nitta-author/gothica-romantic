@@ -43,7 +43,10 @@ func _physics_process(_delta: float) -> void:
 	if !can_update: return
 
 	# update
-	for c in get_children(): c.update()
+	for c: BaseActor in get_children():
+		if c.isInactive: continue
+
+		c.update()
 
 # controls the player's use of input
 func _unhandled_input(event: InputEvent) -> void:

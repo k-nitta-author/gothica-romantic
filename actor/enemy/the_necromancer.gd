@@ -8,11 +8,10 @@ extends PlatformerEnemy
 
 # override can shoot method
 func can_shoot() -> bool:
-	return !(
-		shoot_state == null or\
-	 	is_shooting or\
-		is_attacking or\
-		current_number_of_shots < max_number_of_shots)
+	return !(shoot_state == null or\
+	 		is_shooting or\
+			is_attacking or\
+			current_number_of_shots < max_number_of_shots)
 
 # extend update to allow enemy to turn around
 func update():
@@ -23,7 +22,6 @@ func update():
 func attack() -> void:
 	super()
 	current_number_of_shots = 0
-
 
 # override fire method 
 func fire() -> BaseBullet:
