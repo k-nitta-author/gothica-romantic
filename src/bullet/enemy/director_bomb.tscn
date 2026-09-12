@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dqkimvsrb50gp"]
+
+[ext_resource type="PackedScene" uid="uid://6s3sq6km46d1" path="res://src/bullet/base_bomb.tscn" id="1_q1bat"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f2rrq"]
+radius = 18.110771
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uqb0r"]
+
+[node name="DirectorBomb" unique_id=483994798 instance=ExtResource("1_q1bat")]
+
+[node name="CollisionShape2D" parent="explosionArea" parent_id_path=PackedInt32Array(636836423) index="0" unique_id=632222176]
+shape = SubResource("CircleShape2D_f2rrq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="4" unique_id=129770980]
+shape = SubResource("CircleShape2D_uqb0r")
