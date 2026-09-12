@@ -29,7 +29,7 @@ metadata/_custom_type_script = "uid://bunbdgovyilxk"
 a = Vector2(-8, 0)
 b = Vector2(8, 0)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_076yb"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lbktx"]
 resource_local_to_scene = true
 shader = ExtResource("5_2hqow")
 shader_parameter/active = false
@@ -205,9 +205,10 @@ is_stunned = false
 shape = SubResource("SegmentShape2D_q1xjc")
 
 [node name="Sprite2D" parent="." index="1" unique_id=90387062]
-material = SubResource("ShaderMaterial_076yb")
+material = SubResource("ShaderMaterial_lbktx")
 texture = ExtResource("2_dsw75")
 offset = Vector2(0, -16)
+flip_h = true
 hframes = 7
 vframes = 2
 

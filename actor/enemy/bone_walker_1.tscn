@@ -118,8 +118,6 @@ size = Vector2(12, 24)
 size = Vector2(170.5, 39)
 
 [node name="bone walker 1" unique_id=1016638848 instance=ExtResource("1_2y8y3")]
-collision_layer = 32
-collision_mask = 96
 script = ExtResource("2_y8pw5")
 max_hp = 3
 speed = 32.0
@@ -128,7 +126,6 @@ selected_state = 0
 idle_state = SubResource("Resource_lgiv4")
 move_state = SubResource("Resource_5fcut")
 falling_state = SubResource("Resource_gp64u")
-is_stunned = false
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=900505443]
 position = Vector2(0, -12)

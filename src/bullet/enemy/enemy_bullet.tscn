@@ -6,8 +6,11 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_uqb0r"]
 
 [node name="EnemyBullet" unique_id=483994798 instance=ExtResource("1_71nad")]
-monitoring = false
+collision_layer = 0
+monitorable = true
 lifeTime = 4.7
+detect_bodies = true
+detect_areas = true
 speed = 4.0
 
 [node name="Sprite2D" parent="." index="0" unique_id=1823953356]

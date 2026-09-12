@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cexsvxva0lwox"]
 
 [ext_resource type="PackedScene" uid="uid://40g6jm0jhmbr" path="res://src/bullet/enemy/enemy_bullet.tscn" id="1_ibll5"]
-[ext_resource type="Texture2D" uid="uid://bjg15pftgg26f" path="res://assets/enemies/bullets/goo ball.png" id="2_w0ytt"]
+[ext_resource type="Texture2D" uid="uid://cvrt1hn4rcyfg" path="res://assets/enemies/bullets/goo ball.png" id="2_w0ytt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_84tb5"]
 radius = 5.0
