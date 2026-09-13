@@ -8,7 +8,14 @@
 [ext_resource type="PackedScene" uid="uid://cmudwu6l6c42v" path="res://src/bullet/enemy/countess_bullet.tscn" id="3_1r00c"]
 [ext_resource type="Script" uid="uid://hhc8ylq4nvxy" path="res://src/state/actor/meleeState.gd" id="3_jwtr6"]
 [ext_resource type="Script" uid="uid://cgcwml08u6r0s" path="res://src/state/actor/walkState.gd" id="4_1r00c"]
+[ext_resource type="Script" uid="uid://wqfwvdiwfsfk" path="res://src/state/actor/jumpState.gd" id="4_ij788"]
 [ext_resource type="Animation" uid="uid://dc4oqu1m6whdy" path="res://actor/damaged.res" id="4_xo63i"]
+[ext_resource type="Script" uid="uid://bunbdgovyilxk" path="res://src/state/actor/shootState.gd" id="7_u7s03"]
+
+[sub_resource type="Resource" id="Resource_bx0vb"]
+script = ExtResource("4_ij788")
+animantion_name = "high jump"
+metadata/_custom_type_script = "uid://wqfwvdiwfsfk"
 
 [sub_resource type="Resource" id="Resource_senlp"]
 script = ExtResource("2_khq6j")
@@ -16,15 +23,21 @@ metadata/_custom_type_script = "uid://cciei67yuitw5"
 
 [sub_resource type="Resource" id="Resource_yy3ao"]
 script = ExtResource("3_jwtr6")
+stops_actor = true
 metadata/_custom_type_script = "uid://hhc8ylq4nvxy"
 
 [sub_resource type="Resource" id="Resource_3n4se"]
 script = ExtResource("4_1r00c")
 metadata/_custom_type_script = "uid://cgcwml08u6r0s"
 
+[sub_resource type="Resource" id="Resource_iatxe"]
+script = ExtResource("7_u7s03")
+animation_name = "jump back attack"
+metadata/_custom_type_script = "uid://bunbdgovyilxk"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ewe00"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_u7s03"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4gdii"]
 resource_local_to_scene = true
 shader = ExtResource("2_wjf8b")
 shader_parameter/active = false
@@ -235,6 +248,30 @@ tracks/16/keys = {
 "update": 0,
 "values": [Vector2(-24, -20)]
 }
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath(".:current_shoot_mode")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("Sprite2D:is_hit_flashing")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_xo63i"]
 resource_name = "attack"
@@ -367,11 +404,17 @@ tracks/10/path = NodePath(".")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"times": PackedFloat32Array(0.99842936),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.99842936, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
 "values": [{
 "args": [],
+"method": &"stop"
+}, {
+"args": [],
 "method": &"fire"
+}, {
+"args": [],
+"method": &"go"
 }]
 }
 tracks/11/type = "value"
@@ -385,6 +428,18 @@ tracks/11/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(-24, -20)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath(".:current_shoot_mode")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_5vvxa"]
@@ -662,6 +717,30 @@ tracks/12/keys = {
 "method": &"fire"
 }]
 }
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath(".:current_shoot_mode")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("firingPoint:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(12, -55)]
+}
 
 [sub_resource type="Animation" id="Animation_usipw"]
 resource_name = "walk"
@@ -769,17 +848,22 @@ _data = {
 size = Vector2(148.75, 52)
 
 [node name="The Countess" unique_id=1016638848 instance=ExtResource("1_5vvxa")]
+scale = Vector2(-1, 1)
 script = ExtResource("2_1r00c")
+current_shoot_mode = 0
+watching_for_player_attack = false
 is_boss = true
 shoot_bullet = ExtResource("3_1r00c")
-max_melee_range = 62.0
-max_shoot_range = 257.0
+max_melee_range = 108.0
+max_shoot_range = 188.0
 default_state_on_awake = 1
+immune_to_stun = true
 speed = 40.0
+jump_state = SubResource("Resource_bx0vb")
 idle_state = SubResource("Resource_senlp")
 melee_state = SubResource("Resource_yy3ao")
 move_state = SubResource("Resource_3n4se")
-is_stunned = false
+shoot_state = SubResource("Resource_iatxe")
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=900505443]
 position = Vector2(5, -10)
@@ -787,11 +871,12 @@ shape = SubResource("RectangleShape2D_ewe00")
 disabled = false
 
 [node name="Sprite2D" parent="." index="1" unique_id=90387062]
-material = SubResource("ShaderMaterial_u7s03")
+material = SubResource("ShaderMaterial_4gdii")
 texture = ExtResource("2_rjxko")
 offset = Vector2(0, -16)
 hframes = 10
 vframes = 2
+is_hit_flashing = false
 
 [node name="anim" parent="." index="2" unique_id=783902006]
 libraries/ = SubResource("AnimationLibrary_iubxs")
@@ -806,6 +891,9 @@ metadata/_edit_lock_ = true
 [node name="CollisionShape2D" parent="VisionArea" parent_id_path=PackedInt32Array(1796340020) index="0" unique_id=2039586838]
 position = Vector2(0, -26)
 shape = SubResource("RectangleShape2D_ij788")
+
+[node name="stateLabel" parent="." index="6" unique_id=1314498347]
+scale = Vector2(-1, 1)
 
 [node name="gun" type="Sprite2D" parent="." index="7" unique_id=568417229]
 z_index = -1

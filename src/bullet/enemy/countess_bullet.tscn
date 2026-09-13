@@ -7,7 +7,8 @@
 [node name="CountessBullet" unique_id=483994798 instance=ExtResource("1_d3bfg")]
 collision_layer = 1
 collision_mask = 1
-speed = 25.405
+lifeTime = 5.8
+speed = 100.0
 
 [node name="Sprite2D" parent="." index="0" unique_id=1823953356]
 texture = null

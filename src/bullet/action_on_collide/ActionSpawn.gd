@@ -29,6 +29,7 @@ func act_on_body(b: BaseBullet, body: Node2D) -> void:
 	# spawn the actor
 	var actor: BaseActor = actor_scene.instantiate()
 	actor.global_position = result.position
+	
 	emit_signal("spawn_at", actor)
 	
 	super(b, body)
