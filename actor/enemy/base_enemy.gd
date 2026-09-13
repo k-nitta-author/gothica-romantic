@@ -130,9 +130,6 @@ func can_shoot() -> bool: return !(shoot_state == null or is_shooting or is_atta
 func can_attack() -> bool: return !(melee_state == null or is_shooting or is_attacking)
 
 func shoot_if_possible() -> void:
-
-	print(can_shoot() and has_player_in_shoot_range())
-
 	if can_shoot() and has_player_in_shoot_range():
 		shoot()
 

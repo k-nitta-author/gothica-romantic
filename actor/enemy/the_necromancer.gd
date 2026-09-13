@@ -11,7 +11,7 @@ func can_shoot() -> bool:
 	return !(shoot_state == null or\
 	 		is_shooting or\
 			is_attacking or\
-			current_number_of_shots < max_number_of_shots)
+			current_number_of_shots >= max_number_of_shots)
 
 # extend update to allow enemy to turn around
 func update():
@@ -28,7 +28,7 @@ func fire() -> BaseBullet:
 
 	var bullet: BaseBullet
 
-	if (current_number_of_shots < max_number_of_shots) or (current_number_of_minions < max_number_of_minions): 
+	if current_number_of_shots < max_number_of_shots: 
 		bullet = super()
 
 		bullet.movement_angle = 340 if is_flipped else 20
