@@ -1,5 +1,10 @@
 [gd_scene format=3 uid="uid://txax8pdkvf8a"]
 
 [ext_resource type="PackedScene" uid="uid://6s3sq6km46d1" path="res://src/bullet/base_bomb.tscn" id="1_fk3g5"]
+[ext_resource type="Texture2D" uid="uid://chhte0e5eugkk" path="res://assets/enemies/bullets/countess bomb.png" id="2_vg1bb"]
 
 [node name="CountessBomb" unique_id=483994798 instance=ExtResource("1_fk3g5")]
+
+[node name="Sprite2D" parent="." index="0" unique_id=1823953356]
+texture = ExtResource("2_vg1bb")
+hframes = 2

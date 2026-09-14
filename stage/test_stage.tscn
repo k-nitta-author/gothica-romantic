@@ -11,5 +11,6 @@ tile_map_data = PackedByteArray("AAAMAAgAAAADAAAAAAALAAgAAAADAAAAAAAKAAgAAAADAAA
 [node name="Player" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="0" unique_id=1016638848]
 position = Vector2(168, 128)
 
-[node name="The Necromancer" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="1" unique_id=1391394552 instance=ExtResource("2_586ph")]
-position = Vector2(240, 128)
+[node name="The Necromancer" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="1" unique_id=565415481 instance=ExtResource("2_586ph")]
+position = Vector2(224, 128)
+max_shoot_range = 162.0

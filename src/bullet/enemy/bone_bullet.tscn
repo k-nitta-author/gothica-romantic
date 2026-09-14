@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://40g6jm0jhmbr" path="res://src/bullet/enemy/enemy_bullet.tscn" id="1_ycivr"]
 [ext_resource type="PackedScene" uid="uid://cbvhks3dybpch" path="res://actor/enemy/bone_walker_1.tscn" id="2_45goe"]
-[ext_resource type="Texture2D" uid="uid://gxlpiq4ng0dx" path="res://assets/enemies/bullets/necro bone.png" id="2_77crr"]
+[ext_resource type="Texture2D" uid="uid://cpvpf4bfa8ewg" path="res://assets/enemies/bullets/necro bone.png" id="2_77crr"]
 [ext_resource type="Script" uid="uid://c80jy25exf2g2" path="res://src/bullet/action_on_collide/ActionSpawn.gd" id="3_o7v63"]
 
 [sub_resource type="Resource" id="Resource_o7v63"]
@@ -14,12 +14,47 @@ metadata/_custom_type_script = "uid://c80jy25exf2g2"
 [sub_resource type="CircleShape2D" id="CircleShape2D_62sx2"]
 radius = 8.0
 
+[sub_resource type="Animation" id="Animation_s2q6v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_nremq"]
+resource_name = "anim"
+length = 0.6
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0.0, 0.7853982, 1.5707964, 2.3561945]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5h822"]
+_data = {
+&"RESET": SubResource("Animation_s2q6v"),
+&"anim": SubResource("Animation_nremq")
+}
+
 [node name="BoneBullet" unique_id=483994798 instance=ExtResource("1_ycivr")]
-collision_layer = 0
-monitoring = true
-monitorable = true
 current_mode = SubResource("Resource_o7v63")
-detect_bodies = true
 speed = 100.85
 bullet_gravity = 1.32
 
@@ -28,3 +63,7 @@ texture = ExtResource("2_77crr")
 
 [node name="CollisionShape2D" parent="." index="1" unique_id=1689993657]
 shape = SubResource("CircleShape2D_62sx2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2" unique_id=1910945591]
+libraries/ = SubResource("AnimationLibrary_5h822")
+autoplay = &"anim"

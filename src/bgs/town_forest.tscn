@@ -1,0 +1,136 @@
+[gd_scene format=3 uid="uid://dypo3elyxj3en"]
+
+[ext_resource type="Script" uid="uid://do8x1nbh5vg8c" path="res://src/bgs/ParallaxLayer.gd" id="1_kpquq"]
+[ext_resource type="Texture2D" uid="uid://cxlcvcxlsnimq" path="res://assets/bg stuff/stormy clouds.png" id="2_480dm"]
+[ext_resource type="Texture2D" uid="uid://bprs4mualig25" path="res://assets/bg stuff/snowy mountains.png" id="3_480dm"]
+[ext_resource type="Texture2D" uid="uid://dalj3uyw7ajm7" path="res://assets/bg stuff/bg town trees.png" id="3_kpquq"]
+[ext_resource type="Texture2D" uid="uid://cxqqnhhnkkk7a" path="res://assets/bg stuff/moon.png" id="4_2wdve"]
+[ext_resource type="Texture2D" uid="uid://43oq4s6yvelx" path="res://assets/bg stuff/bg town trees far.png" id="4_36auo"]
+
+[node name="town forest" type="Node2D" unique_id=1669905970]
+z_index = -2
+
+[node name="Parallax2D3" type="Parallax2D" parent="." unique_id=271509194]
+scroll_offset = Vector2(-13, -17)
+repeat_size = Vector2(32, 0)
+repeat_times = 23
+script = ExtResource("1_kpquq")
+parallax_speed_x = 0.7
+
+[node name="StormyClouds" type="Sprite2D" parent="Parallax2D3" unique_id=96642595]
+position = Vector2(16, 41)
+texture = ExtResource("2_480dm")
+region_enabled = true
+region_rect = Rect2(0, 24, 32, 8)
+
+[node name="Parallax2D2" type="Parallax2D" parent="." unique_id=807940083]
+scroll_offset = Vector2(-5, -17)
+repeat_size = Vector2(32, 0)
+repeat_times = 23
+script = ExtResource("1_kpquq")
+parallax_speed_x = 0.8
+
+[node name="StormyClouds" type="Sprite2D" parent="Parallax2D2" unique_id=459118613]
+position = Vector2(16, 34)
+texture = ExtResource("2_480dm")
+region_enabled = true
+region_rect = Rect2(0, 16, 32, 8)
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=321274281]
+scroll_offset = Vector2(-13, -17)
+repeat_size = Vector2(32, 0)
+repeat_times = 23
+script = ExtResource("1_kpquq")
+parallax_speed_x = 1.0
+
+[node name="StormyClouds" type="Sprite2D" parent="Parallax2D" unique_id=830851267]
+position = Vector2(16, 24)
+texture = ExtResource("2_480dm")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 16)
+
+[node name="Parallax2D7" type="Parallax2D" parent="." unique_id=165665802]
+visible = false
+scroll_scale = Vector2(0.4, 0.85)
+repeat_size = Vector2(96, 0)
+repeat_times = 23
+
+[node name="SnowyMountains" type="Sprite2D" parent="Parallax2D7" unique_id=1555729746]
+position = Vector2(56, 120)
+texture = ExtResource("3_480dm")
+
+[node name="SnowyMountains2" type="Sprite2D" parent="Parallax2D7" unique_id=248969900]
+position = Vector2(88, 112)
+texture = ExtResource("3_480dm")
+
+[node name="Parallax2D8" type="Parallax2D" parent="." unique_id=510649201]
+scroll_scale = Vector2(0.65, 0.85)
+repeat_size = Vector2(96, 0)
+repeat_times = 23
+
+[node name="BgTownTrees" type="Sprite2D" parent="Parallax2D8" unique_id=1472984648]
+position = Vector2(56, 64)
+texture = ExtResource("4_36auo")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 80)
+
+[node name="BgTownTrees2" type="Sprite2D" parent="Parallax2D8" unique_id=411574504]
+position = Vector2(80, 80)
+texture = ExtResource("4_36auo")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 80)
+
+[node name="BgTownTrees3" type="Sprite2D" parent="Parallax2D8" unique_id=78467806]
+position = Vector2(104, 72)
+texture = ExtResource("4_36auo")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 80)
+
+[node name="BgTownTrees4" type="Sprite2D" parent="Parallax2D8" unique_id=676731294]
+position = Vector2(32, 88)
+texture = ExtResource("4_36auo")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 80)
+
+[node name="Parallax2D4" type="Parallax2D" parent="." unique_id=1900673645]
+scroll_scale = Vector2(1, 0.85)
+repeat_size = Vector2(96, 0)
+repeat_times = 23
+
+[node name="BgTownTrees" type="Sprite2D" parent="Parallax2D4" unique_id=875828679]
+position = Vector2(32, 112)
+texture = ExtResource("3_kpquq")
+region_enabled = true
+region_rect = Rect2(0, 16, 64, 152)
+
+[node name="BgTownTrees2" type="Sprite2D" parent="Parallax2D4" unique_id=127111422]
+position = Vector2(80, 128)
+texture = ExtResource("3_kpquq")
+region_enabled = true
+region_rect = Rect2(0, 16, 64, 152)
+
+[node name="Parallax2D5" type="Parallax2D" parent="." unique_id=1798159519]
+scroll_scale = Vector2(0, 0)
+scroll_offset = Vector2(24, -1)
+
+[node name="Moon" type="Sprite2D" parent="Parallax2D5" unique_id=1697203743]
+z_index = -1
+position = Vector2(172, 76)
+texture = ExtResource("4_2wdve")
+offset = Vector2(-8, 0)
+
+[node name="Parallax2D6" type="Parallax2D" parent="." unique_id=974008255]
+z_index = -1
+scroll_scale = Vector2(0, 0)
+scroll_offset = Vector2(24, -1)
+repeat_size = Vector2(368, 0)
+repeat_times = 2
+
+[node name="ColorRect" type="ColorRect" parent="Parallax2D6" unique_id=100460167]
+z_index = -1
+offset_left = 344.0
+offset_top = 33.0
+offset_right = 712.0
+offset_bottom = 145.0
+color = Color(0, 0, 0.11764706, 1)
+metadata/_edit_lock_ = true

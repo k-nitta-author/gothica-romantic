@@ -104,10 +104,10 @@ tracks/0/path = NodePath("Sprite2D2:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.45000002, 0.5, 1.35, 1.4, 1.75, 1.8000001),
+"times": PackedFloat32Array(0.100000024, 0.14999998, 0.5, 0.5500001, 0.85000014, 0.90000004, 1.2500002, 1.3000002),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 0, 1, 2, 1, 0, 1, 2]
+"values": [1, 0, 1, 2, 1, 0, 1, 2]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -116,10 +116,10 @@ tracks/1/path = NodePath("Sprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 1, 1.25, 1.3000001, 1.35, 1.6999999, 1.75, 1.8, 2.25),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.05000007, 0.100000024, 0.44999993, 0.5, 0.54999995, 0.7500001, 0.8000002, 0.85000014, 1.2, 1.2500002, 1.3000002, 2.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 3, 4, 5, 6, 7, 4, 3, 2, 0, 2, 0, 1]
+"values": [4, 3, 2, 0, 2, 0, 4, 3, 2, 0, 2, 0, 1]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -128,10 +128,10 @@ tracks/2/path = NodePath("Sprite2D2:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 1, 1.25, 1.3000001, 1.35, 1.5, 1.75, 1.8, 2, 2.25),
+"times": PackedFloat32Array(0, 0.05000007, 0.100000024, 0.25, 0.5, 0.54999995, 0.75, 0.8000002, 0.85000014, 1.0000002, 1.2500002, 1.3000002, 1.5000002, 2.25),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [Vector2(6, -14), Vector2(1, -15), Vector2(7, -18), Vector2(7, -19), Vector2(6, -17), Vector2(9, -11), Vector2(1, -16), Vector2(-9, -12), Vector2(-10, -14), Vector2(-13, -15), Vector2(7, -15), Vector2(4, -15), Vector2(-8, -15), Vector2(-4.0000005, -14)]
+"values": [Vector2(1, -16), Vector2(-9, -12), Vector2(-10, -14), Vector2(-13, -15), Vector2(7, -15), Vector2(4, -15), Vector2(-8, -15), Vector2(-9, -12), Vector2(-10, -14), Vector2(-13, -15), Vector2(7, -15), Vector2(4, -15), Vector2(-8, -15), Vector2(-4.0000005, -14)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -140,10 +140,10 @@ tracks/3/path = NodePath("Sprite2D2:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 2.25),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(2.25),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [Vector2(1, 1), Vector2(1, 1)]
+"values": [Vector2(1, 1)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -152,10 +152,10 @@ tracks/4/path = NodePath("Sprite2D2:rotation")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.4, 1, 1.25, 1.3000001, 1.35, 2, 2.25),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.05000007, 0.100000024, 0.75, 0.8000002, 0.85000014, 1.5000002, 2.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [1.5707964, 0.7853982, 0.0, 1.8325958, 1.3089969, 1.3089969, 1.5707964, 1.3089969, 0.0]
+"values": [1.3089969, 1.3089969, 1.5707964, 1.3089969, 1.3089969, 1.5707964, 1.3089969, 0.0]
 }
 
 [sub_resource type="Animation" id="Animation_vjeca"]
