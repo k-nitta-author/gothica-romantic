@@ -14,7 +14,8 @@ func update():
 
 	state_actor.velocity.y += state_actor.speed_in_air_vertical    
 
-	if state_actor.velocity.x == 0: state_actor.selected_state = BaseActor.STATES.IDLE
+	if state_actor.velocity.x == 0:
+		state_actor.selected_state = BaseActor.STATES.IDLE
 
 	if !state_actor.is_on_floor(): state_actor.selected_state = BaseActor.STATES.FALLLING
 

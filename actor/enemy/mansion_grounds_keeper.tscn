@@ -15,7 +15,6 @@ metadata/_custom_type_script = "uid://cciei67yuitw5"
 
 [sub_resource type="Resource" id="Resource_lvxq2"]
 script = ExtResource("3_77u8q")
-stops_actor = true
 metadata/_custom_type_script = "uid://hhc8ylq4nvxy"
 
 [sub_resource type="Resource" id="Resource_53c4t"]
@@ -157,6 +156,23 @@ tracks/4/keys = {
 "update": 1,
 "values": [1.5707964, 0.7853982, 0.0, 1.8325958, 1.3089969, 1.3089969, 1.5707964, 1.3089969, 0.0]
 }
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.004075229, 2.496414),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"stop"
+}, {
+"args": [],
+"method": &"go"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_vjeca"]
 resource_name = "idle"
@@ -251,7 +267,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ck0iu"]
-size = Vector2(25, 35)
+size = Vector2(25, 37)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lvxq2"]
 size = Vector2(122, 56)
@@ -283,7 +299,7 @@ region_rect = Rect2(0, 0, 254, 48)
 libraries/ = SubResource("AnimationLibrary_5luwa")
 
 [node name="CollisionShape2D" parent="Hitbox" parent_id_path=PackedInt32Array(636899970) index="0" unique_id=2047019247]
-position = Vector2(-0.5, -17.5)
+position = Vector2(-0.5, -18.5)
 shape = SubResource("RectangleShape2D_ck0iu")
 
 [node name="CollisionShape2D" parent="VisionArea" parent_id_path=PackedInt32Array(1796340020) index="0" unique_id=2039586838]

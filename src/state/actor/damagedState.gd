@@ -15,5 +15,5 @@ func enter_state():
             state_actor.anim.call_deferred("play", "damaged")
 
 func update():
-    pass
+    state_actor.velocity.y += state_actor.speed_in_air_vertical
     
