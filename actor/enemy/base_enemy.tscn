@@ -11,7 +11,7 @@
 script = ExtResource("3_sffo0")
 metadata/_custom_type_script = "uid://dmjhev2pahl57"
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_fsouq"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_psi1y"]
 resource_local_to_scene = true
 shader = ExtResource("3_wpd7q")
 shader_parameter/active = false
@@ -33,7 +33,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_mqagq"]
 resource_name = "hitflash"
-length = 0.19999999999999998
+length = 0.2
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -89,7 +89,7 @@ _data = {
 
 [node name="BaseEnemy" unique_id=1016638848 instance=ExtResource("1_vaaym")]
 collision_layer = 0
-collision_mask = 64
+collision_mask = 128
 script = ExtResource("2_wpd7q")
 is_boss = false
 seek_right = false
@@ -111,7 +111,7 @@ is_stunned = true
 disabled = true
 
 [node name="Sprite2D" parent="." index="1" unique_id=90387062]
-material = SubResource("ShaderMaterial_fsouq")
+material = SubResource("ShaderMaterial_psi1y")
 script = ExtResource("5_psi1y")
 is_hit_flashing = true
 
@@ -122,8 +122,8 @@ libraries/ = SubResource("AnimationLibrary_7iqix")
 libraries/ = SubResource("AnimationLibrary_wpd7q")
 
 [node name="Hitbox" parent="." index="3" unique_id=636899970]
-collision_layer = 8
-collision_mask = 14
+collision_layer = 112
+collision_mask = 262
 
 [node name="VisionArea" type="Area2D" parent="." index="4" unique_id=1796340020]
 collision_layer = 0

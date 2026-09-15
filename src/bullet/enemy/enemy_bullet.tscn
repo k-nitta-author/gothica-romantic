@@ -6,7 +6,8 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_uqb0r"]
 
 [node name="EnemyBullet" unique_id=483994798 instance=ExtResource("1_71nad")]
-collision_layer = 0
+collision_layer = 64
+collision_mask = 135
 monitorable = true
 lifeTime = 4.7
 detect_bodies = true

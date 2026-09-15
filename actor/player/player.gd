@@ -23,6 +23,10 @@ const POTION_HEAL_AMOUNT := 3
 @onready var gunshotEffect : Sprite2D = $gunshot
 @onready var firingPoint : Marker2D = $gunshot/firingPoint
 
+# player's own custom managers
+@onready var gunManager : GunManager = $gunManager
+@onready var potionManager: PotionManager = $potionManager
+
 # bulet related variables
 @export var bulletsMax: int: set = set_bullets_max
 var bulletsCurrent: int: set = set_bullets_current
@@ -36,28 +40,29 @@ signal on_potions_current_change(old_value: int, new_value: int)
 
 var is_ducking :bool
 
+func use_input(e) -> void: pass
+
 func start_invincibility() -> void:
 	hitbox.collision_mask = 0
-	collision_mask = 64
+	collision_mask = COLLIDE_WITH_TILEMAP_MASK
 
 	get_tree().create_timer(invincibility_time).connect("timeout", end_invincibility)
 
 func end_invincibility() -> void:
-	collision_mask = 65
-	hitbox.collision_mask = 8
+	collision_mask = BaseActor.COLLIDE_WITH_TILEMAP_MASK
+	hitbox.collision_mask = BaseActor.COLLIDE_WITH_ENEMY_MASK
 	sprite.is_flashing_transparent = false
 
 func jump_down() -> void:
-	const fall_mask = 65 # 1 + 64
-	collision_mask = fall_mask
+	collision_mask = COLLIDE_WITH_ONLY_NON_PLATFORMS
 
 func attack() -> void:
 	anim.play("attack")
-	$sword/Area2D/CollisionShape2D.set_deferred("disabled", false)
+	swordSprite.start()
 
 # overrides the base method
 func cease_attack() -> void:
-	$sword/Area2D/CollisionShape2D.set_deferred("disabled", true)
+	swordSprite.end()
 
 # sets the current number of potions; clamps value to between 0 and max_potion_count
 func set_current_potion_count(value: int) -> void:
@@ -103,12 +108,12 @@ func update() -> void:
 	if current_state != null:
 		current_state.handle_input()
 
-func use_input(_event: InputEvent):
-	pass
-
 func on_hitbox_entered(area: Area2D):
+	# only knockback the player when they touch an enemy
+	if area.owner is BaseEnemy:
+		knockback(area)
+
 	current_hp -= 1
-	knockback(area)
 	selected_state = STATES.DAMAGED
 
 # the heal method; simple
@@ -127,4 +132,3 @@ func shoot():
 	new_bullet.movement_angle = 270 if is_flipped else 90
 	emit_signal("fire_gun", new_bullet, firingPoint.global_position)
 	bulletsCurrent -= 1
-	
