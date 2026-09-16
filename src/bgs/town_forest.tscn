@@ -50,17 +50,16 @@ region_enabled = true
 region_rect = Rect2(0, 0, 32, 16)
 
 [node name="Parallax2D7" type="Parallax2D" parent="." unique_id=165665802]
-visible = false
 scroll_scale = Vector2(0.4, 0.85)
 repeat_size = Vector2(96, 0)
 repeat_times = 23
 
 [node name="SnowyMountains" type="Sprite2D" parent="Parallax2D7" unique_id=1555729746]
-position = Vector2(56, 120)
+position = Vector2(56, 108)
 texture = ExtResource("3_480dm")
 
 [node name="SnowyMountains2" type="Sprite2D" parent="Parallax2D7" unique_id=248969900]
-position = Vector2(88, 112)
+position = Vector2(88, 100)
 texture = ExtResource("3_480dm")
 
 [node name="Parallax2D8" type="Parallax2D" parent="." unique_id=510649201]
@@ -69,31 +68,31 @@ repeat_size = Vector2(96, 0)
 repeat_times = 23
 
 [node name="BgTownTrees" type="Sprite2D" parent="Parallax2D8" unique_id=1472984648]
-position = Vector2(56, 64)
+position = Vector2(56, 86)
 texture = ExtResource("4_36auo")
 region_enabled = true
-region_rect = Rect2(0, 0, 64, 80)
+region_rect = Rect2(0, 0, 64, 96)
 
 [node name="BgTownTrees2" type="Sprite2D" parent="Parallax2D8" unique_id=411574504]
-position = Vector2(80, 80)
+position = Vector2(80, 102)
 texture = ExtResource("4_36auo")
 region_enabled = true
 region_rect = Rect2(0, 0, 64, 80)
 
 [node name="BgTownTrees3" type="Sprite2D" parent="Parallax2D8" unique_id=78467806]
-position = Vector2(104, 72)
+position = Vector2(104, 94)
 texture = ExtResource("4_36auo")
 region_enabled = true
 region_rect = Rect2(0, 0, 64, 80)
 
 [node name="BgTownTrees4" type="Sprite2D" parent="Parallax2D8" unique_id=676731294]
-position = Vector2(32, 88)
+position = Vector2(32, 110)
 texture = ExtResource("4_36auo")
 region_enabled = true
 region_rect = Rect2(0, 0, 64, 80)
 
 [node name="Parallax2D4" type="Parallax2D" parent="." unique_id=1900673645]
-scroll_scale = Vector2(1, 0.85)
+scroll_scale = Vector2(0.9, 0.85)
 repeat_size = Vector2(96, 0)
 repeat_times = 23
 

@@ -25,10 +25,10 @@ metadata/_custom_type_script = "uid://bxro0yfjng3td"
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q1xjc"]
 size = Vector2(20, 10)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_2g5vl"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m0wve"]
 resource_local_to_scene = true
 shader = ExtResource("5_5xplo")
-shader_parameter/active = true
+shader_parameter/active = false
 
 [sub_resource type="Animation" id="Animation_5hoc6"]
 length = 0.001
@@ -74,7 +74,7 @@ _data = {
 size = Vector2(28.5, 15)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ua142"]
-size = Vector2(66, 20)
+size = Vector2(224, 20)
 
 [node name="bone_walker_2" unique_id=1016638848 instance=ExtResource("1_oomqi")]
 script = ExtResource("2_m0wve")
@@ -90,7 +90,7 @@ position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_q1xjc")
 
 [node name="Sprite2D" parent="." index="1" unique_id=90387062]
-material = SubResource("ShaderMaterial_2g5vl")
+material = SubResource("ShaderMaterial_m0wve")
 texture = ExtResource("2_a8e7q")
 offset = Vector2(0, -16)
 hframes = 2

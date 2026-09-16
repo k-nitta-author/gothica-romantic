@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://cfg2w736ksfo7"]
+
+[ext_resource type="PackedScene" uid="uid://bthmcawypnud2" path="res://actor/enemy/platformer_enemy.tscn" id="1_ed7m6"]
+[ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/shader/hitFlashShader.gdshader" id="2_ci15a"]
+[ext_resource type="Texture2D" uid="uid://bx2gq3hayw83s" path="res://assets/enemies/demon axemen.png" id="3_b2grh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c0kx8"]
+resource_local_to_scene = true
+shader = ExtResource("2_ci15a")
+shader_parameter/active = false
+
+[sub_resource type="Animation" id="Animation_ed7m6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_ci15a"]
+resource_name = "attack"
+length = 3.0000000000000004
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.35, 0.5, 1, 1.1, 1.6, 1.9, 1.9499999, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 5, 3, 2, 7, 6, 8, 9, 5, 4]
+}
+
+[sub_resource type="Animation" id="Animation_b2grh"]
+resource_name = "walk"
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [1, 10, 9, 10]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c0kx8"]
+_data = {
+&"RESET": SubResource("Animation_ed7m6"),
+&"attack": SubResource("Animation_ci15a"),
+&"walk": SubResource("Animation_b2grh")
+}
+
+[node name="demon axemen" unique_id=1016638848 instance=ExtResource("1_ed7m6")]
+
+[node name="Sprite2D" parent="." index="1" unique_id=90387062]
+material = SubResource("ShaderMaterial_c0kx8")
+texture = ExtResource("3_b2grh")
+offset = Vector2(-10, -24)
+hframes = 5
+vframes = 3
+
+[node name="anim" parent="." index="2" unique_id=783902006]
+libraries/ = SubResource("AnimationLibrary_c0kx8")
