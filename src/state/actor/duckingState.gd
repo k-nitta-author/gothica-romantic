@@ -15,11 +15,16 @@ func update():
 
 
 func handle_input():
+    
+    if state_actor.is_attacking: return
+
+    else:
+        state_actor.anim.play("duck")
 
     if Input.is_action_pressed("jump"):
         state_actor.jump_down()
 
-    elif Input.is_action_just_released("duck"):
+    if !Input.is_action_pressed("duck"):
         state_actor.anim.play("walk")
         state_actor.selected_state = BaseActor.STATES.IDLE
 

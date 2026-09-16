@@ -451,11 +451,17 @@ tracks/8/path = NodePath(".")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0.26923963),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.26923963, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
 "values": [{
 "args": [],
+"method": &"stop"
+}, {
+"args": [],
 "method": &"notify_attack_connection"
+}, {
+"args": [],
+"method": &"cease_attack"
 }]
 }
 
@@ -788,11 +794,14 @@ tracks/8/path = NodePath(".")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0.25357997),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.25357997, 0.5),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
 "method": &"notify_attack_connection"
+}, {
+"args": [],
+"method": &"cease_attack"
 }]
 }
 
@@ -1016,11 +1025,14 @@ tracks/5/path = NodePath(".")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0.35),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.35, 0.5),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
 "method": &"notify_attack_connection"
+}, {
+"args": [],
+"method": &"cease_attack"
 }]
 }
 

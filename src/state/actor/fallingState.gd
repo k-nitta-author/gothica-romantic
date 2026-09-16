@@ -13,6 +13,9 @@ func enter_state():
     fall_height = state_actor.global_position.y
 
 func handle_input():
+
+    if state_actor.is_attacking: return
+
     if Input.is_action_pressed("attack"):
         state_actor.attack()
         state_actor.anim.play("jump attack")
