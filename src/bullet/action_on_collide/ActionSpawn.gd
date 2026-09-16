@@ -11,7 +11,6 @@ func setup(b: BaseBullet, s: Stage) -> void:
 	if !self.is_connected("spawn_at", s.actorManager.spawn_actor):
 		connect("spawn_at", s.actorManager.spawn_actor)
 
-
 func act_on_body(b: BaseBullet, body: Node2D) -> void:
 
 	# cast ray using the world2d
@@ -21,7 +20,7 @@ func act_on_body(b: BaseBullet, body: Node2D) -> void:
 	var query = PhysicsRayQueryParameters2D.create(b.global_position, b.global_position + Vector2.DOWN * 100)
 	query.collide_with_areas = false
 	query.collide_with_bodies = true
-	query.collision_mask = 64
+	query.collision_mask = BaseActor.COLLIDE_WITH_ONLY_NON_PLATFORMS
 	
 	# intersect the ray
 	var result := space_state.intersect_ray(query)

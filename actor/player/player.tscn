@@ -20,6 +20,9 @@
 [ext_resource type="AudioStream" uid="uid://cwjmqvf8xdyb2" path="res://assets/sound/sfx/beep1.wav" id="15_joq28"]
 [ext_resource type="AudioStream" uid="uid://6q8nfp46cg64" path="res://assets/sound/sfx/Land.wav" id="15_pn5yv"]
 [ext_resource type="AudioStream" uid="uid://bwg3uhkaa8j4g" path="res://assets/sound/sfx/Shoot.wav" id="16_tdps2"]
+[ext_resource type="Script" uid="uid://bgeprydxgx0hw" path="res://actor/player/gun_manager.gd" id="21_dlkh8"]
+[ext_resource type="Script" uid="uid://bgohn3jci1rta" path="res://actor/player/player_sword.gd" id="21_gtt2r"]
+[ext_resource type="Script" uid="uid://c4r8xs8umf3xp" path="res://actor/player/potion_manager.gd" id="22_gtt2r"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mm62y"]
 shader = ExtResource("2_8f5w4")
@@ -1322,14 +1325,15 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vl8vt"]
-size = Vector2(12, 18)
+size = Vector2(13, 28)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uqb0r"]
 size = Vector2(4.2426405, 21.213203)
 
 [node name="Player" unique_id=1016638848 instance=ExtResource("1_4flbx")]
 material = SubResource("ShaderMaterial_mm62y")
-collision_layer = 1
+collision_layer = 641
+collision_mask = 1921
 script = ExtResource("2_pcoxj")
 isRejectingInput = false
 max_potion_count = 3
@@ -1372,10 +1376,10 @@ libraries/ = SubResource("AnimationLibrary_48f3x")
 libraries/ = SubResource("AnimationLibrary_qb7rd")
 
 [node name="Hitbox" parent="." index="3" unique_id=636899970]
-collision_mask = 8
+collision_mask = 255
 
 [node name="CollisionShape2D" parent="Hitbox" index="0" unique_id=2047019247]
-position = Vector2(0, -12)
+position = Vector2(0, -14)
 shape = SubResource("RectangleShape2D_vl8vt")
 
 [node name="sword" type="Sprite2D" parent="." index="4" unique_id=1839419690]
@@ -1386,6 +1390,7 @@ texture = ExtResource("3_mlbvo")
 offset = Vector2(0, -9)
 region_enabled = true
 region_rect = Rect2(224, 96, 16, 32)
+script = ExtResource("21_gtt2r")
 
 [node name="Area2D" type="Area2D" parent="sword" index="0" unique_id=1501864340]
 collision_layer = 2
@@ -1427,3 +1432,9 @@ target_position = Vector2(28, 0)
 collision_mask = 8
 collide_with_areas = true
 collide_with_bodies = false
+
+[node name="gunManager" type="Node" parent="." index="11" unique_id=1170774005]
+script = ExtResource("21_dlkh8")
+
+[node name="potionManager" type="Node" parent="." index="12" unique_id=115806395]
+script = ExtResource("22_gtt2r")

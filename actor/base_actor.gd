@@ -1,6 +1,10 @@
 class_name BaseActor
 extends CharacterBody2D
 
+const COLLIDE_WITH_ONLY_NON_PLATFORMS = 128
+const COLLIDE_WITH_TILEMAP_MASK := 1152
+const COLLIDE_WITH_ENEMY_MASK := 112
+
 @onready var anim : AnimationPlayer = $anim
 @onready var sprite : Sprite2D = $Sprite2D
 @onready var hitbox : Area2D = $Hitbox

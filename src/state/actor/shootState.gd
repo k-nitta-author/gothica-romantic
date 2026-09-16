@@ -7,18 +7,18 @@ extends ActorState
 func enter_state():
     state_actor.stateLabel.text = "shoot"
 
-    if !state_actor.anim.is_connected("animation_finished", on_animation_finished):
-        state_actor.anim.connect("animation_finished", on_animation_finished, CONNECT_ONE_SHOT)
+    state_actor.anim.connect("animation_finished", on_animation_finished)
 
     if !state_actor.anim.has_animation(animation_name): state_actor.selected_state = BaseActor.STATES.IDLE 
 
     state_actor.anim.play(animation_name)
 
-    if stops_actor: state_actor.stop()
+func exit_state():
+    state_actor.anim.disconnect("animation_finished", on_animation_finished)
 
 func on_animation_finished(_anim_name: String) -> void:
-    state_actor.selected_state = BaseActor.STATES.IDLE
     state_actor.go()
+    state_actor.selected_state = BaseActor.STATES.IDLE
 
 func handle_input():
     if Input.is_action_pressed("shoot"):
