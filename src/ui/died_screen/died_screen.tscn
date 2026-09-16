@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://dx7n7fy5g40hu" path="res://src/ui/died_screen/died_screen.gd" id="1_us0d3"]
 
 [node name="diedScreen" type="Control" unique_id=2121825508]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,6 +12,7 @@ grow_vertical = 2
 script = ExtResource("1_us0d3")
 
 [node name="diedLabel" type="Label" parent="." unique_id=338287724]
+visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -24,10 +24,18 @@ offset_bottom = 60.0
 grow_horizontal = 2
 text = "You Died"
 
-[node name="Button" type="Button" parent="." unique_id=842953932]
+[node name="resumeButton" type="Button" parent="." unique_id=842953932]
 layout_mode = 0
 offset_left = 96.0
 offset_top = 90.0
 offset_right = 154.0
 offset_bottom = 121.0
 text = "return"
+
+[node name="deathMusic" type="AudioStreamPlayer" parent="." unique_id=328119522]
+
+[node name="mainMenuButton" type="Button" parent="." unique_id=1642890027]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "main menu"

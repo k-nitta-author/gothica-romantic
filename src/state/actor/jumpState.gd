@@ -20,6 +20,7 @@ func exit_state() -> void:
 
 # override method; reserved for player
 func handle_input():
+    if state_actor.is_attacking: return
 
     if Input.is_action_pressed("attack"):
         state_actor.anim.play("jump attack")

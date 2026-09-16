@@ -57,12 +57,14 @@ func jump_down() -> void:
 	collision_mask = COLLIDE_WITH_ONLY_NON_PLATFORMS
 
 func attack() -> void:
+	is_attacking = true
 	anim.play("attack")
 	swordSprite.start()
 
 # overrides the base method
 func cease_attack() -> void:
 	swordSprite.end()
+	is_attacking = false
 
 # sets the current number of potions; clamps value to between 0 and max_potion_count
 func set_current_potion_count(value: int) -> void:
