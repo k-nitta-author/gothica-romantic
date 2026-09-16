@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cxsby52u3jvyi"]
+
+[ext_resource type="PackedScene" uid="uid://v0cd6ctpkndj" path="res://src/stage/objects/stage_exit.tscn" id="1_6pf6d"]
+[ext_resource type="Script" uid="uid://be8h8xbqs3fnf" path="res://src/stage/objects/building_stage_exit.gd" id="2_en1q6"]
+
+[node name="BuildingStageExit" unique_id=173771773 instance=ExtResource("1_6pf6d")]
+script = ExtResource("2_en1q6")
+is_player_interactible = false
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=1011073751]
+shape = null
