@@ -30,13 +30,17 @@ signal notify_attack_connection(collision_point: Vector2, flipped: bool, type: S
 		bullet_gravity = value
 		
 var velocity : Vector2
-func bind_dependencies(s: Stage):
-
-
+func bind_dependencies(s: Stage) -> BaseBullet:
 	current_mode.setup(self, s)
 
 	if !is_connected("notify_attack_connection", s.effectsManager.spawn_effects):
 		connect("notify_attack_connection", s.effectsManager.spawn_effects)
+
+	return self
+
+func spawn_at(pos: Vector2) -> BaseBullet:
+	global_position = pos
+	return self
 
 func set_is_inactive(value: bool):
 		isInactive = value

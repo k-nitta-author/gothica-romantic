@@ -14,7 +14,8 @@ func get_boss() -> Array: return get_bosses()
 func get_player() -> Player: return player
 
 # called when the actor's hp reaches 0
-func on_actor_died(actor: BaseActor) -> void: pass
+func on_actor_died(_actor: BaseActor) -> void:
+	pass
 
 # spawn actor
 func spawn_actor(actorScene: BaseActor) -> void:

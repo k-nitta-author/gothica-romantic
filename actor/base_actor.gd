@@ -200,9 +200,12 @@ func hit_stun() -> void: pass
 
 func jump() -> void: pass
 
-func stop() -> void: pass
+func stop() -> void:
+	current_speed = 0
+	velocity.x = 0
 
-func go() -> void: pass
+func go() -> void:	
+	current_speed = speed
 
 func notify_attack_connection() -> void:
 	

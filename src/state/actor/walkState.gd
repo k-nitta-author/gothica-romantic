@@ -14,12 +14,19 @@ func update():
 
 	state_actor.velocity.y += state_actor.speed_in_air_vertical    
 
-	if state_actor.velocity.x == 0:
-		state_actor.selected_state = BaseActor.STATES.IDLE
-
 	if !state_actor.is_on_floor(): state_actor.selected_state = BaseActor.STATES.FALLLING
 
 func handle_input():
+
+	if Input.is_action_pressed("attack"):
+		state_actor.attack()
+		state_actor.selected_state = BaseActor.STATES.MELEE
+		state_actor.stop()
+		return
+
+	var has_horizontal_input := Input.is_action_just_released("move_left", true) or Input.is_action_just_released("move_right", true)
+		  
+	if has_horizontal_input:state_actor.selected_state = BaseActor.STATES.IDLE
 
 	state_actor.walk()
 

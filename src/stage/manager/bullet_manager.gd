@@ -4,9 +4,7 @@ extends Node2D
 var stage
 
 func add_bullet(bullet: BaseBullet, pos: Vector2) -> void:
-	var b : BaseBullet = bullet
-	b.global_position = pos
-	b.bind_dependencies(stage)
+	var b : BaseBullet = bullet.bind_dependencies(stage).spawn_at(pos)
 	add_child(b)
 	children.append(b)
 	

@@ -95,13 +95,6 @@ func walk() -> void:
 
 	anim.play("walk")
 
-func stop() -> void:
-	current_speed = 0
-	velocity.x = 0
-
-func go() -> void:	
-	current_speed = speed
-
 func update_seek_right() -> void: pass
 
 func has_player_in_melee_range() -> bool:
