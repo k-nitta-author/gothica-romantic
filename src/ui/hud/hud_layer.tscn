@@ -4,7 +4,9 @@
 [ext_resource type="Theme" uid="uid://bysunrkf7sfea" path="res://src/ui/theme/main style theme.tres" id="2_ljwg0"]
 [ext_resource type="PackedScene" uid="uid://k7hwpleofqsj" path="res://src/ui/hud/battle_control.tscn" id="3_7rq8x"]
 [ext_resource type="PackedScene" uid="uid://l2wrvv5rcbby" path="res://src/ui/text_box/text_box.tscn" id="7_b0kcy"]
+[ext_resource type="PackedScene" uid="uid://doo0jtrqthdcn" path="res://src/ui/died_screen/died_screen.tscn" id="8_iad6j"]
 [ext_resource type="PackedScene" uid="uid://carswg5f74xjc" path="res://src/ui/text_box/dialog_box.tscn" id="8_sov1n"]
+[ext_resource type="Script" uid="uid://d201ywlxtoh5t" path="res://src/ui/hud/hud_state_manager.gd" id="9_x80v2"]
 [ext_resource type="PackedScene" uid="uid://bykeopgsphe82" path="res://src/ui/pause_screen/pause_game_panel.tscn" id="9_xem2t"]
 [ext_resource type="PackedScene" uid="uid://bi6m6ljvjtkfq" path="res://src/ui/start_screen/start_screen.tscn" id="13_r5yew"]
 
@@ -68,4 +70,11 @@ offset_bottom = 160.0
 [node name="StartScreen" parent="Control" unique_id=1958838420 instance=ExtResource("13_r5yew")]
 layout_mode = 1
 
+[node name="diedScreen" parent="Control" unique_id=2121825508 instance=ExtResource("8_iad6j")]
+visible = false
+layout_mode = 1
+
 [node name="anim" type="AnimationPlayer" parent="." unique_id=1362198885]
+
+[node name="stateManager" type="Node" parent="." unique_id=1820235041]
+script = ExtResource("9_x80v2")

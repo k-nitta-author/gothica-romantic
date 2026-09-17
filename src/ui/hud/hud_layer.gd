@@ -6,6 +6,7 @@ enum STATE {
 	RESUMED,
 	PAUSED,
 	SETTINGS,
+	DIED,
 	TRANSITION
 }
 
@@ -18,6 +19,7 @@ enum STATE {
 				startScreen.visible = false
 				battleControl.visible = true
 				pauseGamePanel.visible = false
+				diedScreen.visible = false
 				get_tree().paused = false
 			STATE.PAUSED:
 				pauseGamePanel.visible = true
@@ -29,6 +31,10 @@ enum STATE {
 				startScreen.visible = true
 			STATE.TRANSITION:
 				pass
+			STATE.DIED:
+				battleControl.visible = false
+				diedScreen.visible = true
+				get_tree().paused = true
 
 @onready var dialogBox : DialogBox = $Control/DialogBox
 @onready var startScreen = $Control/StartScreen
@@ -38,6 +44,7 @@ enum STATE {
 @onready var autoSaveIcon: TextureRect = $Control/autoSaveIcon
 
 @onready var pauseGamePanel = $Control/PauseGamePanel
+@onready var diedScreen : Control = $Control/diedScreen
 
 @onready var battleControl : Control = $Control/BattleControl
 
@@ -48,6 +55,8 @@ var game
 func _ready() -> void:
 	pauseGamePanel.connect("return_to_previous_screen", on_game_paused)
 	pauseGamePanel.connect("return_to_main_menu", on_main_menu)
+
+	diedScreen.setup(self)
 
 func bind_game(g: Game) -> void:
 	game = g
@@ -76,6 +85,7 @@ func on_game_paused() -> void:
 
 func bind_to_player(p: Player):
 	battleControl.bind_to_player(p)
+	diedScreen.bind_to_player(p)
 
 func bind_boss(bosses: Array): for b in bosses: battleControl.bind_boss_hp_bar(b)
 

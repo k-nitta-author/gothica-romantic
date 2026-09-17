@@ -6,12 +6,15 @@ extends Control
 
 var game: Game
 var hud_layer: HudLayer
+var player : Player
 
 signal return_to_previous_screen
 
 func _ready() -> void:
     resumeButton.connect("pressed", on_resume_pressed)
     mainMenuButton.connect("pressed", on_main_menu_pressed)
+
+func bind_to_player(p: Player) -> void: player = p
 
 # return to the main menu; the player has given up
 func on_main_menu_pressed() -> void: emit_signal("return_to_previous_screen")
