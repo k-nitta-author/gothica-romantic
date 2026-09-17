@@ -3,7 +3,9 @@
 [ext_resource type="Script" uid="uid://cb6egv5g202ry" path="res://actor/base_actor.gd" id="1_8emup"]
 [ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/shader/hitFlashShader.gdshader" id="2_cnu00"]
 [ext_resource type="PackedScene" uid="uid://rp5sdj2ja1c5" path="res://src/sound effects/sound_sfx_stream.tscn" id="2_mo27s"]
+[ext_resource type="Script" uid="uid://bu3ef8fsfcrye" path="res://actor/hitbox.gd" id="3_eb8bh"]
 [ext_resource type="FontFile" uid="uid://ckjyw0le0uxau" path="res://assets/font/PIXELADE.TTF" id="3_ego3k"]
+[ext_resource type="Script" uid="uid://pc22v4xns2ou" path="res://actor/actor_state_manager.gd" id="6_c31o2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sffo0"]
 shader = ExtResource("2_cnu00")
@@ -13,6 +15,7 @@ shader_parameter/active = false
 collision_layer = 577
 collision_mask = 577
 script = ExtResource("1_8emup")
+speed_in_air_vertical = 5.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=900505443]
 
@@ -22,6 +25,7 @@ material = SubResource("ShaderMaterial_sffo0")
 [node name="anim" type="AnimationPlayer" parent="." unique_id=783902006]
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=636899970]
+script = ExtResource("3_eb8bh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=2047019247]
 
@@ -41,3 +45,6 @@ horizontal_alignment = 1
 
 [node name="attackRay" type="RayCast2D" parent="." unique_id=2030597821]
 target_position = Vector2(84, 0)
+
+[node name="stateManager" type="Node" parent="." unique_id=1930031838]
+script = ExtResource("6_c31o2")

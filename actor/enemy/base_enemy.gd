@@ -21,7 +21,6 @@ var player: Player
 signal turn_around
 
 @onready var firingPoint : Marker2D = $firingPoint
-
 @onready var visionArea : Area2D = $VisionArea
 
 @export var default_state_on_awake : BaseActor.STATES
@@ -49,8 +48,7 @@ func bind_dependencies(s: Stage):
 	super(s)
 	player = s.get_player()
 
-func set_is_inactive(value: bool):
-	super(value)
+func set_is_inactive(value: bool): super(value)
 
 func set_is_awake(value: bool):
 	var old_value = is_awake
@@ -70,7 +68,6 @@ func _ready() -> void:
 	visionArea.connect("area_exited", on_vision_area_exited)
 
 func on_hitbox_entered(area: Area2D):
-	
 	if area.owner is BaseEnemy:
 		if area.owner.is_boss and area.owner.is_attacking:
 			current_hp -= max_hp
@@ -83,13 +80,11 @@ func on_vision_area_entered(_area: Area2D):
 	is_active = true
 	is_awake = true
 	
-func on_vision_area_exited(_area: Area2D):
-	pass
+func on_vision_area_exited(_area: Area2D): pass
 
 func walk() -> void:
-
-	shoot_if_possible()
-	attack_if_possible()
+	shoot()
+	attack()
 
 	if is_attacking or is_shooting: return
 
@@ -98,43 +93,31 @@ func walk() -> void:
 func update_seek_right() -> void: pass
 
 func has_player_in_melee_range() -> bool:
-	var distance = self.global_position.distance_to(player.global_position) 
-	
+	var distance = global_position.distance_to(player.global_position) 
 	return max_shoot_range > max_melee_range and max_melee_range  > distance
 
 func has_player_in_shoot_range() -> bool:
-	
 	var distance = self.global_position.distance_to(player.global_position) 
-	
 	return max_melee_range < distance and distance < max_shoot_range
 
-func attack_if_possible() -> void:
-
-	if can_attack() and has_player_in_melee_range(): attack()
-
 func attack() -> void:
-	super()
-	is_attacking = true
+	var can_attack = !(melee_state == null or is_shooting or is_attacking)
 
-	selected_state = BaseActor.STATES.MELEE
-
-func can_shoot() -> bool: return !(shoot_state == null or is_shooting or is_attacking)
- 
-func can_attack() -> bool: return !(melee_state == null or is_shooting or is_attacking)
-
-func shoot_if_possible() -> void:
-	if can_shoot() and has_player_in_shoot_range():
-		shoot()
+	if can_attack and has_player_in_melee_range():
+		super()
+		is_attacking = true
+		selected_state = BaseActor.STATES.MELEE
 
 func shoot():
+	var can_shoot = !(shoot_state == null or is_shooting or is_attacking)
 
-	is_shooting = true
-	selected_state = BaseActor.STATES.SHOOT
+	if can_shoot and has_player_in_shoot_range():
+		is_shooting = true
+		selected_state = BaseActor.STATES.SHOOT
 
 func fire() -> BaseBullet:
 	var new_bullet: BaseBullet = shoot_bullet.instantiate()
 	new_bullet.movement_angle = 270 if is_flipped else 90
-
 	new_bullet.bind_dependencies(stage)
 
 	emit_signal("fire_gun", new_bullet, firingPoint.global_position)

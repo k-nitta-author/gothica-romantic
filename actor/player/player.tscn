@@ -1344,7 +1344,7 @@ size = Vector2(4.2426405, 21.213203)
 
 [node name="Player" unique_id=1016638848 instance=ExtResource("1_4flbx")]
 material = SubResource("ShaderMaterial_mm62y")
-collision_layer = 641
+collision_layer = 513
 collision_mask = 1921
 script = ExtResource("2_pcoxj")
 isRejectingInput = false
@@ -1354,7 +1354,6 @@ bulletsMax = 6
 max_hp = 8
 speed = 64.0
 speed_in_air_horizontal = 48.0
-speed_in_air_vertical = 5.0
 jump_force = 150.0
 knockback_impulse = 128.0
 selected_state = 7

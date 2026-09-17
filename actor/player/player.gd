@@ -42,6 +42,17 @@ var is_ducking :bool
 
 func use_input(e) -> void: pass
 
+func knockback(area: Area2D) -> void:
+	var fall_speed_multiplier := 16
+	var x = (1 if area.global_position.x < global_position.x else -1) * knockback_impulse
+	var y = speed_in_air_vertical * fall_speed_multiplier
+
+	velocity = Vector2(x, y)
+
+	can_flip = false
+
+	selected_state = STATES.DAMAGED
+
 func start_invincibility() -> void:
 	hitbox.collision_mask = 0
 	collision_mask = COLLIDE_WITH_TILEMAP_MASK

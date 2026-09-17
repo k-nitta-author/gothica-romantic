@@ -88,8 +88,9 @@ _data = {
 }
 
 [node name="BaseEnemy" unique_id=1016638848 instance=ExtResource("1_vaaym")]
-collision_layer = 0
-collision_mask = 128
+collision_layer = 8
+collision_mask = 136
+safe_margin = 0.5
 script = ExtResource("2_wpd7q")
 is_boss = false
 seek_right = false

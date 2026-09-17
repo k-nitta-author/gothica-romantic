@@ -14,13 +14,13 @@ const COLLIDE_WITH_ENEMY_MASK := 112
 @onready var soundSfxStream: AudioStreamPlayer2D = $"sound sfx stream"
 @onready var attackRay: RayCast2D = $attackRay
 
+@onready var state_manager = $stateManager
+
 enum ACTOR_TYPE{ PLAYER, ENEMY, SPECIAL}
 
 enum STATES{ IDLE, MOVING, JUMPING, FALLLING, MELEE, SHOOT, DUCKING, LANDING , DAMAGED}
 
 @export var immune_to_stun: bool # if true, the enemy is unable to be stunned when damaged
-
-@export var correct_flip_h : bool
 
 @export var isInactive: bool: set = set_is_inactive 
 @export var actorType: ACTOR_TYPE
@@ -71,25 +71,7 @@ var previous_state : STATES
 
 		if previous_state == selected_state: return
 
-		match selected_state:
-			STATES.IDLE:
-				current_state = idle_state
-			STATES.JUMPING:
-				current_state = jump_state
-			STATES.MOVING:
-				current_state = move_state
-			STATES.FALLLING:
-				current_state = falling_state
-			STATES.MELEE:
-				current_state = melee_state
-			STATES.SHOOT:
-				current_state = shoot_state
-			STATES.LANDING:
-				current_state = landing_state
-			STATES.DUCKING:
-				current_state = ducking_state
-			STATES.DAMAGED:
-				current_state = damaged_state
+		current_state = state_manager.match_state(selected_state, self)
 
 @export_category("States")
 @export var jump_state : JumpState
@@ -134,7 +116,6 @@ var stage: Stage
 var is_attacking: bool
 var is_shooting: bool
 
-
 func revert_to_previous_state() -> void:
 	var old_state = selected_state
 	selected_state = previous_state
@@ -156,10 +137,7 @@ func set_is_inactive(value: bool) -> void:
 
 		if !is_node_ready(): await ready
 
-		hitbox.call_deferred("set", "monitorable", !value)
-		hitbox.call_deferred("set", "monitoring", !value)
-
-		collision_shape.call_deferred("set", "disabled", isInactive)
+		hitbox.set_is_inactive(isInactive)
 	
 		if value == false:  soundSfxStream.stop()
 
@@ -176,17 +154,7 @@ func set_is_flipped(value: bool):
 		scale.x *= -1
 		stateLabel.scale.x *= -1
 
-func knockback(area: Area2D) -> void:
-
-	var fall_speed_multiplier := 16
-	var x = (1 if area.global_position.x < global_position.x else -1) * knockback_impulse
-	var y = speed_in_air_vertical * fall_speed_multiplier
-
-	velocity = Vector2(x, y)
-
-	can_flip = false
-
-	selected_state = STATES.DAMAGED
+func knockback(area: Area2D) -> void: pass
 
 func bind_to_hud(_hudLayer: HudLayer) -> void: pass
 
