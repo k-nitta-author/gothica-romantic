@@ -139,7 +139,7 @@ func set_is_inactive(value: bool) -> void:
 
 		hitbox.set_is_inactive(isInactive)
 	
-		if value == false:  soundSfxStream.stop()
+		if !value:  soundSfxStream.stop()
 
 		visible = !value
 

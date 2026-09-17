@@ -14,6 +14,7 @@ extends BaseActor
 @onready var current_potion_count : int = max_potion_count: set = set_current_potion_count
 
 const POTION_HEAL_AMOUNT := 3
+const BASIC_DMG_AMT := 1
 
 # the amount of time that the player is invincible when struck
 @export var invincibility_time:= 3.6
@@ -77,6 +78,10 @@ func cease_attack() -> void:
 	swordSprite.end()
 	is_attacking = false
 
+# overrides the base method
+func cease_shoot() -> void:
+	is_shooting = false
+
 # sets the current number of potions; clamps value to between 0 and max_potion_count
 func set_current_potion_count(value: int) -> void:
 
@@ -88,7 +93,6 @@ func set_current_potion_count(value: int) -> void:
 
 # sets the current number of bullets;
 func set_bullets_current(value: int) -> void:
-
 	var old_value = bulletsCurrent
 	bulletsCurrent = clamp(value, 0, bulletsMax)
 	emit_signal("on_bullets_current_change", old_value, bulletsCurrent)
@@ -97,7 +101,6 @@ func set_bullets_current(value: int) -> void:
 func set_bullets_max(value: int) -> void:
 	var old_value = bulletsMax
 	bulletsMax = value
-
 	bulletsCurrent = bulletsMax
 	emit_signal("on_bullets_max_change", old_value, bulletsCurrent)
 
@@ -117,16 +120,13 @@ func set_is_flipped(value: bool): super(value)
 
 func update() -> void:
 	super()
-
-	if current_state != null:
-		current_state.handle_input()
+	if current_state != null: current_state.handle_input()
 
 func on_hitbox_entered(area: Area2D):
 	# only knockback the player when they touch an enemy
-	if area.owner is BaseEnemy:
-		knockback(area)
+	knockback(area)
 
-	current_hp -= 1
+	current_hp -= BASIC_DMG_AMT
 	selected_state = STATES.DAMAGED
 
 # the heal method; simple

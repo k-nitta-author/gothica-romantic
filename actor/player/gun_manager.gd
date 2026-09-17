@@ -1,6 +1,8 @@
 class_name GunManager
 extends Node
 
+@onready var player_bullet := preload("uid://dtcy6guqe5887")
+
 # bulet related variables
 @export var bulletsMax: int: set = set_bullets_max
 var bulletsCurrent: int: set = set_bullets_current
@@ -12,7 +14,7 @@ var is_flipped: bool
 func shoot():
 	if bulletsCurrent == 0: return
 
-	var new_bullet: BaseBullet = preload("uid://dtcy6guqe5887").instantiate()
+	var new_bullet: BaseBullet = player_bullet.instantiate()
 	new_bullet.movement_angle = 270 if is_flipped else 90
 	emit_signal("fire_gun", new_bullet, firingPoint.global_position)
 	bulletsCurrent -= 1
