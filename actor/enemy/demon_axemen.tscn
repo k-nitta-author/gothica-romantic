@@ -1,10 +1,29 @@
 [gd_scene format=3 uid="uid://cfg2w736ksfo7"]
 
 [ext_resource type="PackedScene" uid="uid://bthmcawypnud2" path="res://actor/enemy/platformer_enemy.tscn" id="1_ed7m6"]
+[ext_resource type="Script" uid="uid://hhc8ylq4nvxy" path="res://src/state/actor/meleeState.gd" id="2_b2grh"]
+[ext_resource type="Script" uid="uid://cciei67yuitw5" path="res://src/state/actor/idleState.gd" id="2_c0kx8"]
 [ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/shader/hitFlashShader.gdshader" id="2_ci15a"]
 [ext_resource type="Texture2D" uid="uid://bx2gq3hayw83s" path="res://assets/enemies/demon axemen.png" id="3_b2grh"]
+[ext_resource type="Script" uid="uid://cgcwml08u6r0s" path="res://src/state/actor/walkState.gd" id="3_c0kx8"]
+[ext_resource type="Animation" uid="uid://dc4oqu1m6whdy" path="res://actor/damaged.res" id="7_m646d"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_c0kx8"]
+[sub_resource type="Resource" id="Resource_b2grh"]
+script = ExtResource("2_c0kx8")
+metadata/_custom_type_script = "uid://cciei67yuitw5"
+
+[sub_resource type="Resource" id="Resource_ci15a"]
+script = ExtResource("2_b2grh")
+metadata/_custom_type_script = "uid://hhc8ylq4nvxy"
+
+[sub_resource type="Resource" id="Resource_ed7m6"]
+script = ExtResource("3_c0kx8")
+metadata/_custom_type_script = "uid://cgcwml08u6r0s"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_012gh"]
+size = Vector2(16, 26)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ed7m6"]
 resource_local_to_scene = true
 shader = ExtResource("2_ci15a")
 shader_parameter/active = false
@@ -23,6 +42,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("hurtbox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_ci15a"]
 resource_name = "attack"
@@ -35,10 +66,66 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.35, 0.5, 1, 1.1, 1.6, 1.9, 1.9499999, 2),
+"times": PackedFloat32Array(0, 0.2, 0.35, 0.5, 1, 1.1, 1.6, 1.75, 1.85, 2),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [1, 5, 3, 2, 7, 6, 8, 9, 5, 4]
+"values": [1, 5, 3, 2, 7, 6, 8, 7, 5, 9]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"stop"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("hurtbox/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_m646d"]
+resource_name = "idle"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"stop"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_b2grh"]
@@ -62,13 +149,35 @@ tracks/0/keys = {
 _data = {
 &"RESET": SubResource("Animation_ed7m6"),
 &"attack": SubResource("Animation_ci15a"),
+&"damaged": ExtResource("7_m646d"),
+&"idle": SubResource("Animation_m646d"),
 &"walk": SubResource("Animation_b2grh")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_62sx2"]
+size = Vector2(18, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6kooj"]
+size = Vector2(96, 38)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_31cq6"]
+
 [node name="demon axemen" unique_id=1016638848 instance=ExtResource("1_ed7m6")]
+can_see_player = true
+max_melee_range = 48.0
+default_state_on_awake = 1
+max_hp = 5
+idle_state = SubResource("Resource_b2grh")
+melee_state = SubResource("Resource_ci15a")
+move_state = SubResource("Resource_ed7m6")
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=900505443]
+position = Vector2(0, -13)
+shape = SubResource("RectangleShape2D_012gh")
 
 [node name="Sprite2D" parent="." index="1" unique_id=90387062]
-material = SubResource("ShaderMaterial_c0kx8")
+material = SubResource("ShaderMaterial_ed7m6")
+scale = Vector2(-1, 1)
 texture = ExtResource("3_b2grh")
 offset = Vector2(-10, -24)
 hframes = 5
@@ -76,3 +185,19 @@ vframes = 3
 
 [node name="anim" parent="." index="2" unique_id=783902006]
 libraries/ = SubResource("AnimationLibrary_c0kx8")
+
+[node name="CollisionShape2D" parent="Hitbox" parent_id_path=PackedInt32Array(636899970) index="0" unique_id=2047019247]
+position = Vector2(0, -13)
+shape = SubResource("RectangleShape2D_62sx2")
+
+[node name="CollisionShape2D" parent="VisionArea" parent_id_path=PackedInt32Array(1796340020) index="0" unique_id=2039586838]
+shape = SubResource("RectangleShape2D_6kooj")
+
+[node name="hurtbox" type="Area2D" parent="." index="10" unique_id=1452487353]
+position = Vector2(25, -10)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox" index="0" unique_id=1417355348]
+shape = SubResource("RectangleShape2D_31cq6")
+disabled = true
