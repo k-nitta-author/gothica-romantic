@@ -78,8 +78,7 @@ func load_stage(nextLevel: PackedScene) -> Stage: return nextLevel.instantiate()
 # unloads the currently running stage
 func unload_stage() -> void:
 	stage.call_deferred("queue_free")
-	stage = null
-	hudLayer.currentState = hudLayer.STATE.START_SCREEN
+	start_game()
 
 # called whenever the start level signal
 func on_start_level(from_beginning: bool) -> void:
@@ -93,6 +92,11 @@ func on_start_level(from_beginning: bool) -> void:
 		
 		start_game()
 		save()
+
+func reset_stage() -> void:
+	stage.call_deferred("queue_free")
+	start_game()
+	hudLayer.reset()
 
 # called whenever the loaded stage ends
 func on_stage_end(new_next_level_scene: PackedScene) -> void:

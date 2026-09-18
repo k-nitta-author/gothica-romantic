@@ -1,3 +1,4 @@
+@tool
 class_name BaseEnemy
 extends BaseActor
 
@@ -24,6 +25,8 @@ var player: Player
 @onready var visionArea : Area2D = $VisionArea
 
 @export var default_state_on_awake : BaseActor.STATES
+
+signal turn_around
 
 func set_max_melee_range(value: float):
 	max_melee_range = value

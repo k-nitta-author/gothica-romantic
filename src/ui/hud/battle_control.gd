@@ -17,6 +17,13 @@ func bind_to_player(p: Player):
 
 func update_hp_bar(_actor: BaseActor, _old_value: int, current_hp: int): playerHpBar.value = current_hp
 
+func reset() -> void:
+	playerHpBar.value = 8
+	BossHpProgressBar.value = BossHpProgressBar.max_value
+	bulletBar.update_bullet_bar(0, 6)
+	potionIcons.reset()
+
+
 func bind_boss_hp_bar(boss: BaseActor) -> void:
 	BossHpProgressBar.max_value = boss.max_hp
 	BossHpProgressBar.value = boss.current_hp

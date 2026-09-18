@@ -1,3 +1,4 @@
+class_name EffectsManager
 extends Node2D
 
 enum SPLATTER {SHOOT, SLASH}

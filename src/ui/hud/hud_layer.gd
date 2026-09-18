@@ -58,10 +58,14 @@ func _ready() -> void:
 
 	diedScreen.setup(self)
 
+func reset() -> void:
+	battleControl.reset()
+
 func bind_game(g: Game) -> void:
 	game = g
 
 	startScreen.bind_to_game(game)
+	diedScreen.bind_to_game(game)
 	effectLayer = game.effectLayer
 
 func on_main_menu() -> void:

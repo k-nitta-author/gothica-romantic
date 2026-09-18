@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://pc22v4xns2ou" path="res://actor/actor_state_manager.gd" id="6_c31o2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sffo0"]
+resource_local_to_scene = true
 shader = ExtResource("2_cnu00")
 shader_parameter/active = false
 

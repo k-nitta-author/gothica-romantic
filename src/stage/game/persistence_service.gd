@@ -6,7 +6,6 @@ var secondary_save_file_path: String
 
 var in_memory_save_data : Dictionary
 
-
 func load_game() -> Dictionary:
     return {}
 

@@ -1,8 +1,6 @@
 class_name Stage
 extends Node2D
 
-enum SPLATTER {SHOOT, SLASH}
-
 @onready var tileMapLayer = $TileMapLayer
 @onready var anim : AnimationPlayer = $anim
 
@@ -17,13 +15,17 @@ enum SPLATTER {SHOOT, SLASH}
 @onready var player = $ActorManager.player
 @onready var stage_exit = $StageExit
 
+# tranistion types for in and out
 @export var transition_in : EffectsLayer.TRANS
 @export var transition_out : EffectsLayer.TRANS
 
+# the stage camera
 @onready var stageCamera : Camera2D = $Camera2D
 
+# the current checkpoint that the player has reached
 var current_checkpoint_idx : int
 
+# a reference to the game
 var game: Game
 
 signal notify_save()
@@ -61,7 +63,6 @@ func bind_dependencies(stage: Stage):
 
 # the process of starting the level
 func start() -> void:
-
 	# mandatory null check
 	if game != null:
 		game.effectLayer.play_transition(transition_in, true)

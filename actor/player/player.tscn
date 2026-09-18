@@ -69,6 +69,7 @@ metadata/_custom_type_script = "uid://dmjhev2pahl57"
 size = Vector2(10, 24.5)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8f5w4"]
+resource_local_to_scene = true
 shader = ExtResource("2_8f5w4")
 shader_parameter/active = false
 
