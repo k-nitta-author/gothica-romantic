@@ -1,4 +1,4 @@
-extends Node2D
+extends BaseManager
 
 @onready var children := get_children()
 var stage
@@ -9,7 +9,7 @@ func add_bullet(bullet: BaseBullet, pos: Vector2) -> void:
 	children.append(b)
 	
 func bind_dependencies(s: Stage):	
-	stage = s
+	super(s)
 
 	for c in children:
 		c.bind_dependencies(stage)

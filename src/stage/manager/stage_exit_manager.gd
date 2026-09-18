@@ -1,4 +1,4 @@
-extends Node2D
+extends BaseManager
 
 @onready var children := get_children()
 

@@ -1,4 +1,4 @@
-extends Node2D
+extends BaseManager
 
 @onready var children := get_children()
 @onready var player := $Player
@@ -27,8 +27,8 @@ func spawn_actor(actorScene: BaseActor) -> void:
 
 # called by actor manager to add references to stage and members
 func bind_dependencies(_stage: Stage) -> void:
+	super(_stage)
 
-	stage = _stage
 	for c in get_children():
 		c.bind_dependencies(stage)
 		c.connect("has_died", on_actor_died)

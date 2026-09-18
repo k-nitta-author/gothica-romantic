@@ -1,4 +1,4 @@
-extends Node2D
+extends BaseManager
 
 @onready var props := get_children()
 
@@ -15,6 +15,8 @@ func OnPropDestroyed(prop: BaseProp) -> void:
 	pass
 
 func bind_dependencies(stage: Stage) -> void:
+	super(stage)
+
 	for p in props:
 		p.bind_dependencies(stage)
 
