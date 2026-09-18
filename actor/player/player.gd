@@ -41,8 +41,10 @@ signal on_potions_current_change(old_value: int, new_value: int)
 
 var is_ducking :bool
 
+# the use input method for the player
 func use_input(e) -> void: pass
 
+# override the knockback method for the player
 func knockback(area: Area2D) -> void:
 	var fall_speed_multiplier := 16
 	var x = (1 if area.global_position.x < global_position.x else -1) * knockback_impulse
@@ -68,10 +70,15 @@ func end_invincibility() -> void:
 func jump_down() -> void:
 	collision_mask = COLLIDE_WITH_ONLY_NON_PLATFORMS
 
+# the player's attack
 func attack() -> void:
 	is_attacking = true
 	anim.play("attack")
 	swordSprite.start()
+	
+# override fall
+func fall(fall_height: float) -> void:
+	if global_position.y >= fall_height + Game.GRID_SIZE / 2: collision_mask = BaseActor.COLLIDE_WITH_TILEMAP_MASK
 
 # overrides the base method
 func cease_attack() -> void:

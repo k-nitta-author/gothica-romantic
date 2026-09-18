@@ -25,7 +25,7 @@ func handle_input():
 
 func update():
 
-    if state_actor.global_position.y >= fall_height + Game.GRID_SIZE / 2: state_actor.collision_mask = 577
+    state_actor.fall(fall_height)
 
     if !state_actor.is_on_floor():
         state_actor.anim.queue("falling")
@@ -34,4 +34,9 @@ func update():
 
     else:
         
-        state_actor.selected_state = state_actor.STATES.LANDING
+
+        if state_actor.landing_state != null:
+            state_actor.selected_state = state_actor.STATES.LANDING
+
+        else:
+            state_actor.selected_state = state_actor.STATES.IDLE

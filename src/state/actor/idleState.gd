@@ -4,11 +4,7 @@ extends ActorState
 func enter_state():
 	state_actor.stateLabel.text = "idle"
 
-	state_actor.anim.connect("animation_finished", on_animation_finished)
-
-	state_actor.is_attacking = false
-	state_actor.is_shooting = false
-	state_actor.collision_mask = 577
+	state_actor.idle()
 
 	if state_actor.anim.has_animation("idle"): state_actor.anim.play("idle")
 
@@ -16,7 +12,6 @@ func on_animation_finished(animantion_name: String):
 	pass
 
 func exit_state() -> void:
-	state_actor.anim.disconnect("animation_finished", on_animation_finished)
 
 	state_actor.cease_attack()
 

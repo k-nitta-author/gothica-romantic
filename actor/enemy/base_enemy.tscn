@@ -104,12 +104,8 @@ melee_limit = 100.0
 default_state_on_awake = 0
 actorType = 1
 speed = 19.655
-speed_in_air_vertical = 1.0
 damaged_state = SubResource("Resource_wpd7q")
 is_stunned = true
-
-[node name="CollisionShape2D" parent="." index="0" unique_id=900505443]
-disabled = true
 
 [node name="Sprite2D" parent="." index="1" unique_id=90387062]
 material = SubResource("ShaderMaterial_psi1y")

@@ -1,10 +1,12 @@
 class_name BaseActor
 extends CharacterBody2D
 
+# collision mask constants for all actors to switch to as needed
 const COLLIDE_WITH_ONLY_NON_PLATFORMS = 128
 const COLLIDE_WITH_TILEMAP_MASK := 1152
 const COLLIDE_WITH_ENEMY_MASK := 112
 
+# all the child nodes for the base actor
 @onready var anim : AnimationPlayer = $anim
 @onready var sprite : Sprite2D = $Sprite2D
 @onready var hitbox : Area2D = $Hitbox
@@ -13,11 +15,12 @@ const COLLIDE_WITH_ENEMY_MASK := 112
 @onready var stateLabel: Label = $stateLabel
 @onready var soundSfxStream: AudioStreamPlayer2D = $"sound sfx stream"
 @onready var attackRay: RayCast2D = $attackRay
-
 @onready var state_manager = $stateManager
 
+# the different types of actors in this game
 enum ACTOR_TYPE{ PLAYER, ENEMY, SPECIAL}
 
+# all the possible states
 enum STATES{ IDLE, MOVING, JUMPING, FALLLING, MELEE, SHOOT, DUCKING, LANDING , DAMAGED}
 
 @export var immune_to_stun: bool # if true, the enemy is unable to be stunned when damaged
@@ -105,16 +108,24 @@ var current_state : ActorState:
 		current_state.set_up(self)
 		current_state.enter_state()
 
-signal has_died(actor: BaseActor)
-signal has_hp_changed(actor: BaseActor, old_hp: float, new_hp: float)
-signal fire_gun(bulletScene: BaseBullet, position: Vector2)
-
-signal attacked_at_point(collision_point, flipped, splatter_type)
+# all relevant signals
+signal has_died(actor: BaseActor) # send when actor died
+signal has_hp_changed(actor: BaseActor, old_hp: float, new_hp: float) # when hp is changed
+signal fire_gun(bulletScene: BaseBullet, position: Vector2) # when the actor fires the gun
+signal attacked_at_point(collision_point, flipped, splatter_type) # called to notify where an attack took place
 
 var stage: Stage
 
+# variables to make sure actor is unable to switch while doing these
 var is_attacking: bool
 var is_shooting: bool
+
+# perform the basic idling actions
+# meant to be extended by child classes
+# reset attacking and shooting behaviors
+func idle() -> void:
+	is_attacking = false
+	is_shooting = false
 
 func revert_to_previous_state() -> void:
 	var old_state = selected_state
@@ -128,10 +139,17 @@ func set_speed(value: float) -> void:
 func _ready() -> void:
 	hitbox.connect("area_entered", on_hitbox_entered)
 
+# get the eye level for a given actor
 func get_eye_level() -> Vector2: return eyeLevelMarker.global_position
 
+# called whenever the hitbox is entered
 func on_hitbox_entered(_area: Area2D) -> void: pass
 
+# do a falling motion
+# extend as needed
+func fall(fall_height: float) -> void: pass
+
+# setter for the isInactive variable
 func set_is_inactive(value: bool) -> void:
 		isInactive = value
 
@@ -143,6 +161,7 @@ func set_is_inactive(value: bool) -> void:
 
 		visible = !value
 
+# settter for the is_flipped variable
 func set_is_flipped(value: bool):
 
 	if !can_flip: return
@@ -154,33 +173,44 @@ func set_is_flipped(value: bool):
 		scale.x *= -1
 		stateLabel.scale.x *= -1
 
+# perform a knockback and throw the actor in a given direction
 func knockback(area: Area2D) -> void: pass
 
+# bind the actor to the hud if it affects the hud
 func bind_to_hud(_hudLayer: HudLayer) -> void: pass
 
+# call when the actor tries to walk
 func walk() -> void: pass
 
+# call when the actor tries to attack
 func attack() -> void: pass
 
+# end the attack and reset any variables
 func cease_attack() -> void: pass
 
+# perform a hit stun
 func hit_stun() -> void: pass
 
+# try to perform a jump
 func jump() -> void: pass
 
+# try to stop moving
 func stop() -> void:
 	current_speed = 0
 	velocity.x = 0
 
+# try to move by restoring the speed of the actor
 func go() -> void:	
 	current_speed = speed
 
+# notify the stage that a given attack has collided
 func notify_attack_connection() -> void:
 	
 	if !attackRay.is_colliding() or attackRay.get_collider().owner.isInactive: return
 
 	emit_signal("attacked_at_point", attackRay.get_collision_point(), is_flipped, stage.SPLATTER.SLASH)
 
+# bind all dependencies and connect relevant signals
 func bind_dependencies(s: Stage):
 
 	stage = s
@@ -189,6 +219,7 @@ func bind_dependencies(s: Stage):
 	connect("has_died", s.propManager.spawn_collectible)
 	connect("attacked_at_point", s.effectsManager.spawn_effects)
 
+# update method; called each tick for active actors
 func update():
 
 	if current_state != null:

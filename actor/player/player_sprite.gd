@@ -1,5 +1,6 @@
 extends Sprite2D
 
+# if 
 @export var is_flashing_transparent: bool:
 	set(value):
 		is_flashing_transparent = value
@@ -11,3 +12,5 @@ extends Sprite2D
 		else: anim.play("RESET")
 
 @onready var anim : AnimationPlayer = $anim
+
+

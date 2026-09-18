@@ -124,7 +124,6 @@ default_state_on_awake = 1
 max_hp = 3
 speed = 32.0
 speed_in_air_vertical = 5.0
-selected_state = 0
 idle_state = SubResource("Resource_lgiv4")
 move_state = SubResource("Resource_5fcut")
 falling_state = SubResource("Resource_gp64u")

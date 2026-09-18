@@ -12,7 +12,8 @@ func enter_state():
 
 		state_actor.selected_state = BaseActor.STATES.IDLE 
 
-	state_actor.anim.play(animation_name)
+	else:
+		state_actor.anim.play(animation_name)
 
 func exit_state():
 	state_actor.anim.disconnect("animation_finished", on_animation_finished) 

@@ -20,7 +20,6 @@ func on_turn_around(currentPosition :Vector2) -> void: pass
 
 func fly() -> void:
 	anim.play("fly")
-
 	velocity.x = (1 if seek_right else -1) * speed
 
 	if !fly_in_loop: return

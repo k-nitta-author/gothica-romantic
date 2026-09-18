@@ -1,6 +1,8 @@
 class_name BaseEnemy
 extends BaseActor
 
+const COLLIDE_WITH_ENEMY_AND_TILEMAP := 136
+
 @export var is_boss : bool
 
 @export_category("Activity")
@@ -17,8 +19,6 @@ extends BaseActor
 @export var melee_limit : float = 100
 
 var player: Player
-
-signal turn_around
 
 @onready var firingPoint : Marker2D = $firingPoint
 @onready var visionArea : Area2D = $VisionArea
@@ -82,6 +82,10 @@ func on_vision_area_entered(_area: Area2D):
 	
 func on_vision_area_exited(_area: Area2D): pass
 
+func idle() -> void:
+	super()
+	collision_mask = BaseEnemy.COLLIDE_WITH_ENEMY_AND_TILEMAP
+
 func walk() -> void:
 	shoot()
 	attack()
@@ -125,8 +129,6 @@ func fire() -> BaseBullet:
 	return new_bullet
 
 func update():
-	velocity = Vector2((1 if seek_right else -1) * current_speed, 0)
-
 	if !is_active or Engine.is_editor_hint(): return
-
+	velocity = Vector2((1 if seek_right else -1) * current_speed, 0)
 	super()
