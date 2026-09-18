@@ -5,7 +5,6 @@ extends BaseManager
 @onready var bosses : Array
 
 var can_update := false
-var stage
 
 # get the current boss
 func get_boss() -> Array: return get_bosses()

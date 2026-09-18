@@ -1,7 +1,6 @@
 extends BaseManager
 
 @onready var children := get_children()
-var stage
 
 func add_bullet(bullet: BaseBullet, pos: Vector2) -> void:
 	var b : BaseBullet = bullet.bind_dependencies(stage).spawn_at(pos)
