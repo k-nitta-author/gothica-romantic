@@ -12,8 +12,9 @@ func _ready() -> void:
 func on_animation_finished(anim_name: String) -> void: if anim_name == "explode": isInactive = true
 
 # override and connect explode signal to stage
-func bind_dependencies(stage: Stage):
+func bind_dependencies(stage: Stage) -> BaseBullet:
     connect("explode", stage.effectsManager.spawn_effects)
+    return self
 
 # the explode method
 func explode() -> void:

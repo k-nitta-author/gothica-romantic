@@ -2,16 +2,14 @@ class_name BaseBullet
 extends Area2D
 
 @export var current_mode : ActionOnCollide
-
 @export_range(0.0, 10.0, 0.1) var lifeTime: float
-
 @export var detect_bodies : bool
 @export var detect_areas : bool
 
 @onready var lifeTimeCurrent: float
 @onready var sprite2D = $Sprite2D
 
-signal notify_attack_connection(collision_point: Vector2, flipped: bool, type: Stage.SPLATTER)
+signal notify_attack_connection(collision_point: Vector2, flipped: bool, type: EffectsManager.SPLATTER)
 
 @export var isInactive: bool: set = set_is_inactive
 
@@ -32,9 +30,6 @@ signal notify_attack_connection(collision_point: Vector2, flipped: bool, type: S
 var velocity : Vector2
 func bind_dependencies(s: Stage) -> BaseBullet:
 	current_mode.setup(self, s)
-
-	if !is_connected("notify_attack_connection", s.effectsManager.spawn_effects):
-		connect("notify_attack_connection", s.effectsManager.spawn_effects)
 
 	return self
 

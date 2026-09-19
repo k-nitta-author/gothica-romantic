@@ -68,7 +68,7 @@ metadata/_custom_type_script = "uid://dmjhev2pahl57"
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r54av"]
 size = Vector2(10, 24.5)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_8f5w4"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gtt2r"]
 resource_local_to_scene = true
 shader = ExtResource("2_8f5w4")
 shader_parameter/active = false
@@ -1399,7 +1399,7 @@ position = Vector2(0, -12.25)
 shape = SubResource("RectangleShape2D_r54av")
 
 [node name="Sprite2D" parent="." index="1" unique_id=90387062]
-material = SubResource("ShaderMaterial_8f5w4")
+material = SubResource("ShaderMaterial_gtt2r")
 texture = ExtResource("3_mlbvo")
 offset = Vector2(0, -16)
 hframes = 10
@@ -1467,7 +1467,7 @@ region_rect = Rect2(288, 96, 32, 32)
 [node name="attackRay" parent="." index="10" unique_id=2030597821]
 position = Vector2(0, -14)
 target_position = Vector2(28, 0)
-collision_mask = 8
+collision_mask = 120
 collide_with_areas = true
 collide_with_bodies = false
 

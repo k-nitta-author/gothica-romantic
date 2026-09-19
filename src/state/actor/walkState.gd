@@ -12,7 +12,7 @@ func update():
 
 	state_actor.walk()
 
-	state_actor.velocity.y += state_actor.speed_in_air_vertical    
+	state_actor.velocity.y += state_actor.speed_in_air_vertical
 
 	if !state_actor.is_on_floor(): state_actor.selected_state = BaseActor.STATES.FALLLING
 

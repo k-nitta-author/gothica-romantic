@@ -67,8 +67,12 @@ func set_is_awake(value: bool):
 func _ready() -> void:
 	super()
 
+	hitbox.connect("body_entered", on_hitbox_body_entered)
+
 	visionArea.connect("area_entered", on_vision_area_entered)
 	visionArea.connect("area_exited", on_vision_area_exited)
+
+func on_hitbox_body_entered(body: Node2D) -> void: bump(body)
 
 func on_hitbox_entered(area: Area2D):
 	if area.owner is BaseEnemy:
@@ -88,6 +92,9 @@ func on_vision_area_exited(_area: Area2D): pass
 func idle() -> void:
 	super()
 	collision_mask = BaseEnemy.COLLIDE_WITH_ENEMY_AND_TILEMAP
+
+# called when actor bumps into body
+func bump(body: Node2D) -> void: pass
 
 func walk() -> void:
 	shoot()
