@@ -21,6 +21,9 @@ const COLLIDE_WITH_ENEMY_AND_TILEMAP := 136
 
 var player: Player
 
+@onready var onGroundRayLeft : RayCast2D = $onGroundRayLeft
+@onready var onGroundRayRight : RayCast2D = $onGroundRayRight
+
 @onready var firingPoint : Marker2D = $firingPoint
 @onready var visionArea : Area2D = $VisionArea
 
@@ -64,8 +67,23 @@ func set_is_awake(value: bool):
 
 		else: selected_state = default_state_on_awake
 
+func set_is_flipped(value: bool):
+
+	if !can_flip: return
+
+	var old_value = is_flipped
+	is_flipped = value
+
+	if old_value != is_flipped:
+		scale.x *= -1
+		stateLabel.scale.x *= -1
+
 func _ready() -> void:
 	super()
+
+	# configure on ground ray
+	onGroundRayLeft.top_level = true
+	onGroundRayRight.top_level = true
 
 	hitbox.connect("body_entered", on_hitbox_body_entered)
 
@@ -104,6 +122,9 @@ func walk() -> void:
 
 	anim.play("walk")
 
+
+func should_turn() -> bool: return false
+
 func update_seek_right() -> void: pass
 
 func has_player_in_melee_range() -> bool:
@@ -138,7 +159,17 @@ func fire() -> BaseBullet:
 
 	return new_bullet
 
+func update_on_ground_rays() -> void:
+	onGroundRayLeft.global_position.x = global_position.x - collision_shape.shape.size.x
+	onGroundRayLeft.global_position.y = global_position.y
+
+	onGroundRayRight.global_position.x = global_position.x + collision_shape.shape.size.x
+	onGroundRayRight.global_position.y = global_position.y
+
 func update():
+
+	update_on_ground_rays()
+
 	if !is_active or Engine.is_editor_hint(): return
 	velocity = Vector2((1 if seek_right else -1) * current_speed, 0)
 	super()

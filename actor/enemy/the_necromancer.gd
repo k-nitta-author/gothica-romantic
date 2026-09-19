@@ -1,3 +1,4 @@
+@tool
 extends PlatformerEnemy
 
 @export var max_number_of_minions : int

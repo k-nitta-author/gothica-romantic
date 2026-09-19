@@ -219,6 +219,9 @@ func bind_dependencies(s: Stage):
 	connect("has_died", s.propManager.spawn_collectible)
 	connect("attacked_at_point", s.effectsManager.spawn_effects)
 
+func update_is_flipped(absoluteX: float) -> void:
+	is_flipped = (velocity.x < 0) if absoluteX > 0 else is_flipped
+
 # update method; called each tick for active actors
 func update():
 
@@ -227,6 +230,6 @@ func update():
 
 	var absoluteX = abs(velocity.x)
 
-	is_flipped = (velocity.x < 0) if absoluteX > 0 else is_flipped
+	update_is_flipped(absoluteX)
 
 	move_and_slide()

@@ -1,4 +1,5 @@
 @tool
+class_name FlyingEnemy
 extends BaseEnemy
 
 @export var fly_in_loop: bool
@@ -20,7 +21,7 @@ func on_turn_around(currentPosition :Vector2) -> void: pass
 
 func fly() -> void:
 	anim.play("fly")
-	velocity.x = (1 if seek_right else -1) * speed
+	velocity.x = (1 if seek_right else -1) * current_speed
 
 	if !fly_in_loop: return
 

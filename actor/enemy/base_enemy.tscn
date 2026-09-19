@@ -2,10 +2,15 @@
 
 [ext_resource type="PackedScene" uid="uid://7rqfpdtf2o7f" path="res://actor/base_actor.tscn" id="1_vaaym"]
 [ext_resource type="Script" uid="uid://b21fg148hm6ho" path="res://actor/enemy/base_enemy.gd" id="2_wpd7q"]
+[ext_resource type="Script" uid="uid://bxro0yfjng3td" path="res://src/state/actor/fallingState.gd" id="3_fsouq"]
 [ext_resource type="Script" uid="uid://dmjhev2pahl57" path="res://src/state/actor/damagedState.gd" id="3_sffo0"]
 [ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/shader/hitFlashShader.gdshader" id="3_wpd7q"]
 [ext_resource type="Animation" uid="uid://dc4oqu1m6whdy" path="res://actor/damaged.res" id="5_0wmbo"]
 [ext_resource type="Script" uid="uid://bdk03xab8qtyc" path="res://actor/enemy/enemy_sprite.gd" id="5_psi1y"]
+
+[sub_resource type="Resource" id="Resource_j6mb5"]
+script = ExtResource("3_fsouq")
+metadata/_custom_type_script = "uid://bxro0yfjng3td"
 
 [sub_resource type="Resource" id="Resource_wpd7q"]
 script = ExtResource("3_sffo0")
@@ -104,6 +109,7 @@ melee_limit = 100.0
 default_state_on_awake = 0
 actorType = 1
 speed = 19.655
+falling_state = SubResource("Resource_j6mb5")
 damaged_state = SubResource("Resource_wpd7q")
 is_stunned = true
 
@@ -129,3 +135,15 @@ monitorable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VisionArea" index="0" unique_id=2039586838]
 
 [node name="firingPoint" type="Marker2D" parent="." index="9" unique_id=698667958]
+
+[node name="onGroundRayLeft" type="RayCast2D" parent="." index="11" unique_id=106873137]
+target_position = Vector2(0, 10)
+collision_mask = 136
+hit_from_inside = true
+collide_with_areas = true
+
+[node name="onGroundRayRight" type="RayCast2D" parent="." index="12" unique_id=1587773550]
+target_position = Vector2(0, 10)
+collision_mask = 136
+hit_from_inside = true
+collide_with_areas = true
