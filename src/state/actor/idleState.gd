@@ -24,7 +24,7 @@ func update():
 
 func handle_input():
 
-	if Input.is_action_pressed("duck"):
+	if Input.is_action_pressed("duck") and !state_actor.is_attacking:
 		state_actor.is_ducking = true
 		state_actor.anim.play("duck")
 		state_actor.selected_state = BaseActor.STATES.DUCKING
@@ -42,5 +42,5 @@ func handle_input():
 		state_actor.selected_state = BaseActor.STATES.MOVING
 		return
 
-	if Input.is_action_pressed("jump") and state_actor.is_on_floor():
+	if Input.is_action_pressed("jump") and state_actor.is_on_floor() and !state_actor.is_attacking:
 		state_actor.selected_state = BaseActor.STATES.JUMPING
