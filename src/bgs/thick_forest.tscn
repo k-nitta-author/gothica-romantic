@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://dxgj28dy554j"]
 
-[ext_resource type="Texture2D" uid="uid://cxqqnhhnkkk7a" path="res://assets/bg stuff/moon.png" id="1_81lwd"]
-[ext_resource type="Texture2D" uid="uid://bprs4mualig25" path="res://assets/bg stuff/snowy mountains.png" id="1_ajsaf"]
+[ext_resource type="Texture2D" uid="uid://bw2i2eqv3pfhb" path="res://assets/bg stuff/moon.png" id="1_81lwd"]
+[ext_resource type="Texture2D" uid="uid://halrwnq1ynnk" path="res://assets/bg stuff/snowy mountains.png" id="1_ajsaf"]
+[ext_resource type="Script" uid="uid://gq2rm0yeko6j" path="res://src/bgs/base_background.gd" id="1_f018f"]
 [ext_resource type="Texture2D" uid="uid://c1t4xqa2a60ag" path="res://assets/bg stuff/thick forest.png" id="1_mk76c"]
-[ext_resource type="Texture2D" uid="uid://dv421s4yiye3o" path="res://assets/bg stuff/fluffy clouds.png" id="2_7tygc"]
-[ext_resource type="Texture2D" uid="uid://dalp2xxnumxvi" path="res://assets/bg stuff/snow tree.png" id="5_bsfwp"]
+[ext_resource type="Texture2D" uid="uid://dcmex4ngfy4q7" path="res://assets/bg stuff/fluffy clouds.png" id="2_7tygc"]
+[ext_resource type="Texture2D" uid="uid://bws7orl1b1xnr" path="res://assets/bg stuff/snow tree.png" id="5_bsfwp"]
 
 [node name="thick forest" type="Node2D" unique_id=435501734]
+script = ExtResource("1_f018f")
 
 [node name="Parallax2D2" type="Parallax2D" parent="." unique_id=679999455]
 repeat_size = Vector2(256, 144)

@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://bllpl6pb7ms8a"]
 
+[ext_resource type="Script" uid="uid://gq2rm0yeko6j" path="res://src/bgs/base_background.gd" id="1_0668h"]
 [ext_resource type="Texture2D" uid="uid://x6s8pagps2mh" path="res://assets/bg stuff/misty clouds.png" id="1_jq1fy"]
-[ext_resource type="Texture2D" uid="uid://cxqqnhhnkkk7a" path="res://assets/bg stuff/moon.png" id="1_yn3cy"]
-[ext_resource type="Texture2D" uid="uid://c8ag8y6unfx71" path="res://assets/bg stuff/misty mountains.png" id="2_lhmo3"]
-[ext_resource type="Texture2D" uid="uid://caxy8vmk18ykq" path="res://assets/bg stuff/bg trees misty.png" id="3_s6q0d"]
+[ext_resource type="Texture2D" uid="uid://bw2i2eqv3pfhb" path="res://assets/bg stuff/moon.png" id="1_yn3cy"]
+[ext_resource type="Texture2D" uid="uid://vc1xt1brrx8v" path="res://assets/bg stuff/misty mountains.png" id="2_lhmo3"]
+[ext_resource type="Texture2D" uid="uid://bdukg8l5ngx1" path="res://assets/bg stuff/bg trees misty.png" id="3_s6q0d"]
 
 [node name="misty night" type="Node2D" unique_id=1559336620]
+script = ExtResource("1_0668h")
 
 [node name="Parallax2D6" type="Parallax2D" parent="." unique_id=1094536135]
 scroll_scale = Vector2(0, 0)

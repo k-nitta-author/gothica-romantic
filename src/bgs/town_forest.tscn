@@ -1,14 +1,16 @@
 [gd_scene format=3 uid="uid://dypo3elyxj3en"]
 
+[ext_resource type="Script" uid="uid://gq2rm0yeko6j" path="res://src/bgs/base_background.gd" id="1_2wdve"]
 [ext_resource type="Script" uid="uid://do8x1nbh5vg8c" path="res://src/bgs/ParallaxLayer.gd" id="1_kpquq"]
-[ext_resource type="Texture2D" uid="uid://cxlcvcxlsnimq" path="res://assets/bg stuff/stormy clouds.png" id="2_480dm"]
-[ext_resource type="Texture2D" uid="uid://bprs4mualig25" path="res://assets/bg stuff/snowy mountains.png" id="3_480dm"]
-[ext_resource type="Texture2D" uid="uid://dalj3uyw7ajm7" path="res://assets/bg stuff/bg town trees.png" id="3_kpquq"]
-[ext_resource type="Texture2D" uid="uid://cxqqnhhnkkk7a" path="res://assets/bg stuff/moon.png" id="4_2wdve"]
+[ext_resource type="Texture2D" uid="uid://bc1u2dq3gx0kw" path="res://assets/bg stuff/stormy clouds.png" id="2_480dm"]
+[ext_resource type="Texture2D" uid="uid://halrwnq1ynnk" path="res://assets/bg stuff/snowy mountains.png" id="3_480dm"]
+[ext_resource type="Texture2D" uid="uid://bqnr3iv27wsye" path="res://assets/bg stuff/bg town trees.png" id="3_kpquq"]
+[ext_resource type="Texture2D" uid="uid://bw2i2eqv3pfhb" path="res://assets/bg stuff/moon.png" id="4_2wdve"]
 [ext_resource type="Texture2D" uid="uid://43oq4s6yvelx" path="res://assets/bg stuff/bg town trees far.png" id="4_36auo"]
 
 [node name="town forest" type="Node2D" unique_id=1669905970]
 z_index = -2
+script = ExtResource("1_2wdve")
 
 [node name="Parallax2D3" type="Parallax2D" parent="." unique_id=271509194]
 scroll_offset = Vector2(-13, -17)
@@ -16,6 +18,7 @@ repeat_size = Vector2(32, 0)
 repeat_times = 23
 script = ExtResource("1_kpquq")
 parallax_speed_x = 0.7
+parallax_speed_y = null
 
 [node name="StormyClouds" type="Sprite2D" parent="Parallax2D3" unique_id=96642595]
 position = Vector2(16, 41)
@@ -29,6 +32,7 @@ repeat_size = Vector2(32, 0)
 repeat_times = 23
 script = ExtResource("1_kpquq")
 parallax_speed_x = 0.8
+parallax_speed_y = null
 
 [node name="StormyClouds" type="Sprite2D" parent="Parallax2D2" unique_id=459118613]
 position = Vector2(16, 34)
@@ -42,6 +46,7 @@ repeat_size = Vector2(32, 0)
 repeat_times = 23
 script = ExtResource("1_kpquq")
 parallax_speed_x = 1.0
+parallax_speed_y = null
 
 [node name="StormyClouds" type="Sprite2D" parent="Parallax2D" unique_id=830851267]
 position = Vector2(16, 24)
