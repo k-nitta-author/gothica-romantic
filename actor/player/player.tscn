@@ -1375,9 +1375,7 @@ collision_layer = 513
 collision_mask = 1921
 script = ExtResource("2_pcoxj")
 isRejectingInput = false
-max_potion_count = 3
 invincibility_time = 3.6
-bulletsMax = 6
 max_hp = 8
 speed = 64.0
 speed_in_air_horizontal = 48.0
@@ -1473,6 +1471,7 @@ collide_with_bodies = false
 
 [node name="gunManager" type="Node" parent="." index="11" unique_id=1170774005]
 script = ExtResource("21_dlkh8")
+bulletsMax = 6
 
 [node name="potionManager" type="Node" parent="." index="12" unique_id=115806395]
 script = ExtResource("22_gtt2r")

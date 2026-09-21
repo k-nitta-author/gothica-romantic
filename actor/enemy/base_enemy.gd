@@ -93,11 +93,20 @@ func _ready() -> void:
 func on_hitbox_body_entered(body: Node2D) -> void: bump(body)
 
 func on_hitbox_entered(area: Area2D):
+
+	# check if the area belongs to a boss type enemy
 	if area.owner is BaseEnemy:
 		if area.owner.is_boss and area.owner.is_attacking:
 			current_hp -= max_hp
 	else:
 		current_hp -= 1
+
+		# wake up the enemy if they aren't already
+		can_see_player = true
+		is_active = true
+		is_awake = true
+		selected_state = default_state_on_awake
+
 	selected_state = STATES.DAMAGED
 
 func on_vision_area_entered(_area: Area2D):

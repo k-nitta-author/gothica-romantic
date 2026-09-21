@@ -24,11 +24,16 @@ func handle_input():
 		state_actor.stop()
 		return
 
-	var has_horizontal_input := Input.is_action_just_released("move_left", true) or Input.is_action_just_released("move_right", true)
-		  
-	if has_horizontal_input:state_actor.selected_state = BaseActor.STATES.IDLE
+	var has_horizontal_input := Input.is_action_pressed("move_left", true) or Input.is_action_pressed("move_right", true)
 
 	state_actor.walk()
+
+	if !has_horizontal_input:
+		state_actor.selected_state = BaseActor.STATES.IDLE
+
+		
+
+		return
 
 	if Input.is_action_pressed("jump"):
 		state_actor.velocity.y -= state_actor.jump_force

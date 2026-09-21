@@ -3,16 +3,6 @@ extends BaseActor
 
 @export var isRejectingInput: bool
 
-# potion related methods
-# max_potion_count
-@export var max_potion_count : int:
-	set(value):
-		max_potion_count = value
-		current_potion_count = max_potion_count
-
-# current_potion_count; clamped to current max value
-@onready var current_potion_count : int = max_potion_count: set = set_current_potion_count
-
 const POTION_HEAL_AMOUNT := 3
 const BASIC_DMG_AMT := 1
 
@@ -25,12 +15,8 @@ const BASIC_DMG_AMT := 1
 @onready var firingPoint : Marker2D = $gunshot/firingPoint
 
 # player's own custom managers
-@onready var gunManager : GunManager = $gunManager
-@onready var potionManager: PotionManager = $potionManager
-
-# bulet related variables
-@export var bulletsMax: int: set = set_bullets_max
-var bulletsCurrent: int: set = set_bullets_current
+@onready var gunManager : GunManager = $gunManager.Setup(self)
+@onready var potionManager: PotionManager = $potionManager.Setup(self)
 
 # bullet related signals
 signal on_bullets_current_change(old_value: int, new_value: int)
@@ -89,28 +75,6 @@ func cease_attack() -> void:
 func cease_shoot() -> void:
 	is_shooting = false
 
-# sets the current number of potions; clamps value to between 0 and max_potion_count
-func set_current_potion_count(value: int) -> void:
-
-	var old_value = current_potion_count
-	current_potion_count = clamp(value, 0, max_potion_count)
-
-	if current_potion_count != old_value:
-		emit_signal("on_potions_current_change", old_value, current_potion_count)
-
-# sets the current number of bullets;
-func set_bullets_current(value: int) -> void:
-	var old_value = bulletsCurrent
-	bulletsCurrent = clamp(value, 0, bulletsMax)
-	emit_signal("on_bullets_current_change", old_value, bulletsCurrent)
-
-# sets the maximum number of potions;
-func set_bullets_max(value: int) -> void:
-	var old_value = bulletsMax
-	bulletsMax = value
-	bulletsCurrent = bulletsMax
-	emit_signal("on_bullets_max_change", old_value, bulletsCurrent)
-
 func has_gotten_up() -> bool: return is_on_floor()
 
 func _unhandled_input(_event: InputEvent) -> void:
@@ -119,7 +83,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 
 	# consume potion and reduce based on how how much hp the player has
 	if _event.is_action_pressed("drinkPotion") and current_hp < max_hp:
-		current_potion_count -= 1
+		potionManager.current_potion_count -= 1
 		heal(POTION_HEAL_AMOUNT)
 
 # sets the current flip state;
@@ -142,13 +106,7 @@ func heal(amount: int): current_hp += amount
 # overrides the parent's walk method
 func walk() -> void:
 	velocity.x = Input.get_axis("move_left", "move_right") * speed
-	anim.play("walk")
 
 # overrides the parent's shoot method
 func shoot():
-	if bulletsCurrent == 0: return
-
-	var new_bullet: BaseBullet = preload("uid://dtcy6guqe5887").instantiate()
-	new_bullet.movement_angle = 270 if is_flipped else 90
-	emit_signal("fire_gun", new_bullet, firingPoint.global_position)
-	bulletsCurrent -= 1
+	gunManager.shoot()

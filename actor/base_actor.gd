@@ -66,7 +66,6 @@ var previous_state : STATES
 
 @export var selected_state : STATES:
 	set(value):
-
 		previous_state = selected_state
 		selected_state = value
 

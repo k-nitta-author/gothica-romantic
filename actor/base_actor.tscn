@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://bu3ef8fsfcrye" path="res://actor/hitbox.gd" id="3_eb8bh"]
 [ext_resource type="FontFile" uid="uid://ckjyw0le0uxau" path="res://assets/font/PIXELADE.TTF" id="3_ego3k"]
 [ext_resource type="Script" uid="uid://pc22v4xns2ou" path="res://actor/actor_state_manager.gd" id="6_c31o2"]
+[ext_resource type="Script" uid="uid://ms5m7a6eorou" path="res://actor/hp_manager.gd" id="7_c31o2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sffo0"]
 resource_local_to_scene = true
@@ -49,3 +50,6 @@ target_position = Vector2(84, 0)
 
 [node name="stateManager" type="Node" parent="." unique_id=1930031838]
 script = ExtResource("6_c31o2")
+
+[node name="hpManager" type="Node" parent="." unique_id=452652745]
+script = ExtResource("7_c31o2")

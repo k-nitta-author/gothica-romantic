@@ -170,5 +170,8 @@ shape = SubResource("RectangleShape2D_gp64u")
 position = Vector2(0, -19)
 shape = SubResource("RectangleShape2D_vl8vt")
 
-[node name="onGroundRay" parent="." index="11" unique_id=106873137]
-collide_with_areas = true
+[node name="onGroundRayLeft" parent="." index="11" unique_id=106873137]
+top_level = true
+
+[node name="onGroundRayRight" parent="." index="12" unique_id=1587773550]
+top_level = true

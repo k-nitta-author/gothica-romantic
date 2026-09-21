@@ -1,5 +1,5 @@
 class_name BaseManager
-extends Node2D
+extends Node
 
 # reference to stage
 var stage: Stage
