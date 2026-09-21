@@ -22,6 +22,9 @@ func _ready() -> void:
 
 	settingsScreen.connect("return_to_previous_screen", settingsScreen.hide)
 
+func setup() -> void:
+	pass
+
 # called when the resume button is clicked
 func on_resume_clicked() -> void:
 	emit_signal("return_to_previous_screen")

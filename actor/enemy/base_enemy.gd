@@ -94,6 +94,8 @@ func on_hitbox_body_entered(body: Node2D) -> void: bump(body)
 
 func on_hitbox_entered(area: Area2D):
 
+	if Engine.is_editor_hint(): return
+
 	# check if the area belongs to a boss type enemy
 	if area.owner is BaseEnemy:
 		if area.owner.is_boss and area.owner.is_attacking:
