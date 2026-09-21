@@ -4,6 +4,8 @@ extends ActorState
 func enter_state():
     state_actor.stateLabel.text = "damaged"
 
+    state_actor.cease_attack()
+
     if state_actor.immune_to_stun and state_actor is BaseEnemy:
         state_actor.sprite.is_hit_flashing = true
         state_actor.revert_to_previous_state()

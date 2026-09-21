@@ -24,6 +24,8 @@ func update():
 
 func handle_input():
 
+	var has_horizontal_input := Input.is_action_pressed("move_left", true) or Input.is_action_pressed("move_right", true)  
+
 	if Input.is_action_pressed("duck") and !state_actor.is_attacking:
 		state_actor.is_ducking = true
 		state_actor.anim.play("duck")
@@ -35,8 +37,6 @@ func handle_input():
 
 	elif Input.is_action_pressed("shoot"):
 		state_actor.anim.play("shoot")
-
-	var has_horizontal_input := Input.is_action_pressed("move_left", true) or Input.is_action_pressed("move_right", true)  
 
 	if has_horizontal_input and !state_actor.is_attacking:
 		state_actor.selected_state = BaseActor.STATES.MOVING
