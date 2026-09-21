@@ -16,7 +16,7 @@ metadata/_custom_type_script = "uid://bxro0yfjng3td"
 script = ExtResource("3_sffo0")
 metadata/_custom_type_script = "uid://dmjhev2pahl57"
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_psi1y"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fsouq"]
 resource_local_to_scene = true
 shader = ExtResource("3_wpd7q")
 shader_parameter/active = false
@@ -47,10 +47,10 @@ tracks/0/path = NodePath(".:material:shader_parameter/active")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
+"times": PackedFloat32Array(0, 0.06666667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [false, true]
+"values": [true, false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7iqix"]
@@ -114,7 +114,7 @@ damaged_state = SubResource("Resource_wpd7q")
 is_stunned = true
 
 [node name="Sprite2D" parent="." index="1" unique_id=90387062]
-material = SubResource("ShaderMaterial_psi1y")
+material = SubResource("ShaderMaterial_fsouq")
 script = ExtResource("5_psi1y")
 is_hit_flashing = true
 
@@ -137,12 +137,14 @@ monitorable = false
 [node name="firingPoint" type="Marker2D" parent="." index="9" unique_id=698667958]
 
 [node name="onGroundRayLeft" type="RayCast2D" parent="." index="11" unique_id=106873137]
+top_level = true
 target_position = Vector2(0, 10)
 collision_mask = 136
 hit_from_inside = true
 collide_with_areas = true
 
 [node name="onGroundRayRight" type="RayCast2D" parent="." index="12" unique_id=1587773550]
+top_level = true
 target_position = Vector2(0, 10)
 collision_mask = 136
 hit_from_inside = true

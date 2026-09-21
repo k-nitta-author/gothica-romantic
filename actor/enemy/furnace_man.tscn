@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bjeudo4rvmvag" path="res://actor/enemy/base_enemy.tscn" id="1_krpn3"]
 [ext_resource type="Script" uid="uid://cciei67yuitw5" path="res://src/state/actor/idleState.gd" id="2_0bsn1"]
 [ext_resource type="Script" uid="uid://bxthdcpdc3xyu" path="res://actor/enemy/platformer_enemy.gd" id="2_7p7yn"]
-[ext_resource type="Texture2D" uid="uid://ckka64hc6amhp" path="res://assets/enemies/furnace man.png" id="2_hhll4"]
+[ext_resource type="Texture2D" uid="uid://dcgappb8ubh2v" path="res://assets/enemies/furnace man.png" id="2_hhll4"]
 [ext_resource type="Script" uid="uid://hhc8ylq4nvxy" path="res://src/state/actor/meleeState.gd" id="3_7p7yn"]
 [ext_resource type="Texture2D" uid="uid://i53odyie8gpx" path="res://assets/effects/green flame.png" id="3_m3y58"]
 [ext_resource type="AudioStream" uid="uid://bywpsp2cs0s0s" path="res://assets/sound/sfx/noise3.wav" id="3_ouhma"]
@@ -12,7 +12,7 @@
 [ext_resource type="Script" uid="uid://cgcwml08u6r0s" path="res://src/state/actor/walkState.gd" id="4_rdtyo"]
 [ext_resource type="AudioStream" uid="uid://bh44qmiakul2t" path="res://assets/sound/sfx/noise2.wav" id="5_iammg"]
 [ext_resource type="Script" uid="uid://bunbdgovyilxk" path="res://src/state/actor/shootState.gd" id="5_rmx4m"]
-[ext_resource type="AudioStream" uid="uid://bfqls0skfob01" path="res://assets/sound/sfx/noise4.wav" id="6_i8cqh"]
+[ext_resource type="AudioStream" uid="uid://df1h6nx8fss84" path="res://assets/sound/sfx/noise4.wav" id="6_i8cqh"]
 [ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/shader/hitFlashShader.gdshader" id="7_rmx4m"]
 [ext_resource type="Animation" uid="uid://dc4oqu1m6whdy" path="res://actor/damaged.res" id="12_qisoe"]
 
@@ -33,7 +33,7 @@ script = ExtResource("5_rmx4m")
 metadata/_custom_type_script = "uid://bunbdgovyilxk"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pgrgf"]
-size = Vector2(16, 33)
+size = Vector2(16, 22)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kj688"]
 resource_local_to_scene = true
@@ -881,13 +881,14 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lbtnf"]
-size = Vector2(18, 32)
+size = Vector2(18, 26)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tha66"]
 size = Vector2(176, 20)
 
 [node name="furnace man" unique_id=1016638848 instance=ExtResource("1_krpn3")]
 script = ExtResource("2_7p7yn")
+currentMovementMode = 0
 can_see_player = true
 is_active = true
 max_melee_range = 80.0
@@ -901,7 +902,7 @@ move_state = SubResource("Resource_bwp0q")
 shoot_state = SubResource("Resource_8j3vn")
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=900505443]
-position = Vector2(3, -17)
+position = Vector2(3, -11)
 shape = SubResource("RectangleShape2D_pgrgf")
 
 [node name="Sprite2D" parent="." index="1" unique_id=90387062]
@@ -916,7 +917,7 @@ region_rect = Rect2(0, 0, 224, 48)
 libraries/ = SubResource("AnimationLibrary_i8cqh")
 
 [node name="CollisionShape2D" parent="Hitbox" parent_id_path=PackedInt32Array(636899970) index="0" unique_id=2047019247]
-position = Vector2(3, -16)
+position = Vector2(3, -13)
 shape = SubResource("RectangleShape2D_lbtnf")
 
 [node name="CollisionShape2D" parent="VisionArea" parent_id_path=PackedInt32Array(1796340020) index="0" unique_id=2039586838]

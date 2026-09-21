@@ -11,4 +11,4 @@ func _process(_delta: float) -> void:
 
 	if stopped == true:
 
-	scroll_offset += Vector2(parallax_speed_x, parallax_speed_y) / 2
+		scroll_offset += Vector2(parallax_speed_x, parallax_speed_y) / 2

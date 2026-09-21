@@ -1,7 +1,10 @@
 [gd_scene format=4 uid="uid://cfahshfar4way"]
 
 [ext_resource type="PackedScene" uid="uid://clvcbegfjryqm" path="res://src/stage/base_stage.tscn" id="1_onahq"]
-[ext_resource type="PackedScene" uid="uid://cg2dccirlmy4g" path="res://actor/enemy/the_necromancer.tscn" id="2_586ph"]
+[ext_resource type="PackedScene" uid="uid://dr4alx6kfljsu" path="res://actor/enemy/demon_dog.tscn" id="2_586ph"]
+[ext_resource type="PackedScene" uid="uid://cfg2w736ksfo7" path="res://actor/enemy/demon_axemen.tscn" id="3_q1xjc"]
+[ext_resource type="PackedScene" uid="uid://c6qrf678wp6i7" path="res://actor/enemy/papal_pilgrim.tscn" id="4_5mb4p"]
+[ext_resource type="PackedScene" uid="uid://cbvhks3dybpch" path="res://actor/enemy/bone_walker_1.tscn" id="5_senlp"]
 
 [node name="test_stage" unique_id=1917536022 instance=ExtResource("1_onahq")]
 
@@ -9,8 +12,22 @@
 tile_map_data = PackedByteArray("AAAMAAgAAAADAAAAAAALAAgAAAADAAAAAAAKAAgAAAADAAAAAAAJAAgAAAADAAAAAAAIAAgAAAADAAAAAAAHAAgAAAADAAAAAAAGAAgAAAADAAAAAAAFAAgAAAADAAAAAAAEAAgAAAADAAAAAAADAAgAAAADAAAAAAACAAgAAAADAAAAAAANAAgAAAADAAAAAAAOAAgAAAADAAAAAAAPAAgAAAADAAAAAAAQAAgAAAADAAAAAAARAAgAAAADAAAAAAASAAgAAAADAAAAAAATAAgAAAADAAAAAAATAAcAAAADAAAAAAATAAYAAAADAAAAAAATAAUAAAADAAAAAAATAAQAAAADAAAAAAATAAMAAAADAAAAAAABAAgAAAADAAAAAAAAAAgAAAADAAAAAAAAAAcAAAADAAAAAAAAAAYAAAADAAAAAAAAAAUAAAADAAAAAAAAAAQAAAADAAAAAAAAAAMAAAADAAAAAAABAAMAAAADAAAAAAA=")
 
 [node name="Player" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="0" unique_id=1016638848]
-position = Vector2(168, 128)
+position = Vector2(104, 112)
 
-[node name="The Necromancer" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="1" unique_id=565415481 instance=ExtResource("2_586ph")]
-position = Vector2(224, 128)
-max_shoot_range = 162.0
+[node name="demon dog" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="1" unique_id=868707340 instance=ExtResource("2_586ph")]
+position = Vector2(272, 128)
+currentMovementMode = 0
+falling_state = null
+
+[node name="demon axemen" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="2" unique_id=264144775 instance=ExtResource("3_q1xjc")]
+position = Vector2(32, 128)
+currentMovementMode = 0
+falling_state = null
+
+[node name="papal pilgrim" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="3" unique_id=1904441876 instance=ExtResource("4_5mb4p")]
+position = Vector2(312, 48)
+currentMovementMode = 0
+falling_state = null
+
+[node name="bone walker 1" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="4" unique_id=1354034790 instance=ExtResource("5_senlp")]
+position = Vector2(24, 48)

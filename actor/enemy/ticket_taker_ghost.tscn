@@ -1,0 +1,236 @@
+[gd_scene format=3 uid="uid://b0gip63o0yija"]
+
+[ext_resource type="PackedScene" uid="uid://bthmcawypnud2" path="res://actor/enemy/platformer_enemy.tscn" id="1_v1blb"]
+[ext_resource type="Script" uid="uid://cciei67yuitw5" path="res://src/state/actor/idleState.gd" id="2_1aiiw"]
+[ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/shader/hitFlashShader.gdshader" id="2_vuvht"]
+[ext_resource type="Script" uid="uid://cgcwml08u6r0s" path="res://src/state/actor/walkState.gd" id="3_mxwn0"]
+[ext_resource type="Texture2D" uid="uid://c8uopi64je6yl" path="res://assets/enemies/ticket taker ghost.png" id="3_okmm4"]
+[ext_resource type="Texture2D" uid="uid://1yg2otv0v56a" path="res://assets/effects/mini flashbang.png" id="4_1aiiw"]
+[ext_resource type="Script" uid="uid://bunbdgovyilxk" path="res://src/state/actor/shootState.gd" id="4_8legm"]
+[ext_resource type="Animation" uid="uid://dc4oqu1m6whdy" path="res://actor/damaged.res" id="7_mxwn0"]
+
+[sub_resource type="Resource" id="Resource_vuvht"]
+script = ExtResource("2_1aiiw")
+metadata/_custom_type_script = "uid://cciei67yuitw5"
+
+[sub_resource type="Resource" id="Resource_5mb4p"]
+script = ExtResource("3_mxwn0")
+metadata/_custom_type_script = "uid://cgcwml08u6r0s"
+
+[sub_resource type="Resource" id="Resource_1aiiw"]
+script = ExtResource("4_8legm")
+metadata/_custom_type_script = "uid://bunbdgovyilxk"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v1blb"]
+size = Vector2(12, 20)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mxwn0"]
+resource_local_to_scene = true
+shader = ExtResource("2_vuvht")
+shader_parameter/active = false
+
+[sub_resource type="Animation" id="Animation_8legm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MiniFlashbang:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MiniFlashbang:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_v1blb"]
+resource_name = "idle"
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MiniFlashbang:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 3]
+}
+
+[sub_resource type="Animation" id="Animation_270vy"]
+resource_name = "shoot"
+length = 2.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MiniFlashbang:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5, 1, 1.15, 1.3, 1.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 2, 4, 5, 3, 2, 0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MiniFlashbang:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1, 1.0500001, 1.1, 1.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"stop"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_pec2k"]
+resource_name = "walk"
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MiniFlashbang:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 0, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ijv6w"]
+_data = {
+&"RESET": SubResource("Animation_8legm"),
+&"damaged": ExtResource("7_mxwn0"),
+&"idle": SubResource("Animation_v1blb"),
+&"shoot": SubResource("Animation_270vy"),
+&"walk": SubResource("Animation_pec2k")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vuvht"]
+size = Vector2(14, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_okmm4"]
+size = Vector2(128, 8)
+
+[node name="ticket taker ghost" unique_id=1016638848 instance=ExtResource("1_v1blb")]
+can_see_player = true
+is_active = true
+max_melee_range = 39.0
+max_shoot_range = 96.0
+default_state_on_awake = 1
+max_hp = 4
+selected_state = 1
+idle_state = SubResource("Resource_vuvht")
+move_state = SubResource("Resource_5mb4p")
+shoot_state = SubResource("Resource_1aiiw")
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=900505443]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_v1blb")
+
+[node name="Sprite2D" parent="." index="1" unique_id=90387062]
+material = SubResource("ShaderMaterial_mxwn0")
+texture = ExtResource("3_okmm4")
+offset = Vector2(2, -16)
+hframes = 6
+
+[node name="anim" parent="." index="2" unique_id=783902006]
+libraries/ = SubResource("AnimationLibrary_ijv6w")
+
+[node name="CollisionShape2D" parent="Hitbox" parent_id_path=PackedInt32Array(636899970) index="0" unique_id=2047019247]
+position = Vector2(0, -11)
+shape = SubResource("RectangleShape2D_vuvht")
+
+[node name="CollisionShape2D" parent="VisionArea" parent_id_path=PackedInt32Array(1796340020) index="0" unique_id=2039586838]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_okmm4")
+
+[node name="MiniFlashbang" type="Sprite2D" parent="." index="10" unique_id=1142923815]
+visible = false
+position = Vector2(23, -15)
+texture = ExtResource("4_1aiiw")
+hframes = 5
