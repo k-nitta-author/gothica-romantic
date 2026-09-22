@@ -99,7 +99,7 @@ func on_hitbox_entered(area: Area2D):
 	# check if the area belongs to a boss type enemy
 	if area.owner is BaseEnemy:
 		if area.owner.is_boss and area.owner.is_attacking:
-			current_hp -= max_hp
+			current_hp -= max_hp		
 	else:
 		current_hp -= 1
 
@@ -120,7 +120,12 @@ func on_vision_area_exited(_area: Area2D): pass
 
 func idle() -> void:
 	super()
+	
 	collision_mask = BaseEnemy.COLLIDE_WITH_ENEMY_AND_TILEMAP
+	
+	shoot()
+	attack()
+
 
 # called when actor bumps into body
 func bump(body: Node2D) -> void: pass
@@ -128,12 +133,7 @@ func bump(body: Node2D) -> void: pass
 func walk() -> void:
 	shoot()
 	attack()
-
-	if is_attacking or is_shooting: return
-
-	anim.play("walk")
-
-
+	
 func should_turn() -> bool: return false
 
 func update_seek_right() -> void: pass
@@ -153,6 +153,10 @@ func attack() -> void:
 		super()
 		is_attacking = true
 		selected_state = BaseActor.STATES.MELEE
+
+func cease_shoot() -> void:
+	is_shooting = false
+	is_attacking = false
 
 func shoot():
 	var can_shoot = !(shoot_state == null or is_shooting or is_attacking)

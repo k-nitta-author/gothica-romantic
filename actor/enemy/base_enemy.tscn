@@ -9,10 +9,12 @@
 [ext_resource type="Script" uid="uid://bdk03xab8qtyc" path="res://actor/enemy/enemy_sprite.gd" id="5_psi1y"]
 
 [sub_resource type="Resource" id="Resource_j6mb5"]
+resource_local_to_scene = true
 script = ExtResource("3_fsouq")
 metadata/_custom_type_script = "uid://bxro0yfjng3td"
 
 [sub_resource type="Resource" id="Resource_wpd7q"]
+resource_local_to_scene = true
 script = ExtResource("3_sffo0")
 metadata/_custom_type_script = "uid://dmjhev2pahl57"
 

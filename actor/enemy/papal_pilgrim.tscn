@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bthmcawypnud2" path="res://actor/enemy/platformer_enemy.tscn" id="1_qye7o"]
 [ext_resource type="Script" uid="uid://cciei67yuitw5" path="res://src/state/actor/idleState.gd" id="2_8n65j"]
 [ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/shader/hitFlashShader.gdshader" id="2_jco02"]
-[ext_resource type="Texture2D" uid="uid://d1p31b32m2q27" path="res://assets/enemies/papal pilgrim.png" id="3_5dpnp"]
+[ext_resource type="Texture2D" uid="uid://wb652dnrgtch" path="res://assets/enemies/papal pilgrim.png" id="3_5dpnp"]
 [ext_resource type="Script" uid="uid://hhc8ylq4nvxy" path="res://src/state/actor/meleeState.gd" id="3_8xfo1"]
 [ext_resource type="AudioStream" uid="uid://sorepoioavl7" path="res://assets/sound/sfx/noise1.wav" id="4_8n65j"]
 [ext_resource type="Script" uid="uid://cgcwml08u6r0s" path="res://src/state/actor/walkState.gd" id="4_r6kjn"]
@@ -176,6 +176,7 @@ size = Vector2(96, 20)
 size = Vector2(12, 16)
 
 [node name="papal pilgrim" unique_id=1016638848 instance=ExtResource("1_qye7o")]
+currentMovementMode = 0
 seek_right = true
 is_active = true
 max_melee_range = 22.0
@@ -214,7 +215,7 @@ shape = SubResource("RectangleShape2D_5dpnp")
 
 [node name="Area2D" type="Area2D" parent="." index="11" unique_id=607510941]
 position = Vector2(13, -8)
-collision_layer = 16
+collision_layer = 32
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0" unique_id=669764169]

@@ -11,14 +11,15 @@ func enter_state():
 
     if !state_actor.anim.has_animation(animation_name): state_actor.selected_state = BaseActor.STATES.IDLE 
 
-    state_actor.anim.play(animation_name)
+    else:
+        state_actor.anim.play(animation_name)
 
 func exit_state():
     state_actor.anim.disconnect("animation_finished", on_animation_finished)
+    state_actor.cease_shoot()
 
 func on_animation_finished(_anim_name: String) -> void:
-    state_actor.go()
-    state_actor.selected_state = BaseActor.STATES.IDLE
+    state_actor.selected_state = BaseActor.STATES.MOVING
 
 func handle_input():
     if Input.is_action_pressed("shoot"):

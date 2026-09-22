@@ -8,6 +8,8 @@ func enter_state():
 	state_actor.is_shooting = false
 	state_actor.is_attacking = false
 
+	state_actor.go()
+
 func update():
 
 	state_actor.walk()
@@ -28,11 +30,10 @@ func handle_input():
 
 	state_actor.walk()
 
+	state_actor.anim.play("walk")
+
 	if !has_horizontal_input:
 		state_actor.selected_state = BaseActor.STATES.IDLE
-
-		
-
 		return
 
 	if Input.is_action_pressed("jump"):

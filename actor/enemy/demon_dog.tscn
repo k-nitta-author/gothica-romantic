@@ -4,10 +4,10 @@
 [ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/shader/hitFlashShader.gdshader" id="2_3odgq"]
 [ext_resource type="Script" uid="uid://cciei67yuitw5" path="res://src/state/actor/idleState.gd" id="2_rh7rl"]
 [ext_resource type="Script" uid="uid://hhc8ylq4nvxy" path="res://src/state/actor/meleeState.gd" id="3_db4dh"]
-[ext_resource type="Texture2D" uid="uid://djtp1dgvehqhu" path="res://assets/enemies/Demon Dog.png" id="3_tkjgo"]
+[ext_resource type="Texture2D" uid="uid://5h2bymmovpgw" path="res://assets/enemies/Demon Dog.png" id="3_tkjgo"]
 [ext_resource type="Script" uid="uid://cgcwml08u6r0s" path="res://src/state/actor/walkState.gd" id="4_inqjo"]
 [ext_resource type="AudioStream" uid="uid://camxc30dnre2w" path="res://assets/sound/sfx/noise5.wav" id="7_db4dh"]
-[ext_resource type="AudioStream" uid="uid://df1h6nx8fss84" path="res://assets/sound/sfx/noise4.wav" id="7_k8asf"]
+[ext_resource type="AudioStream" uid="uid://bfqls0skfob01" path="res://assets/sound/sfx/noise4.wav" id="7_k8asf"]
 [ext_resource type="AudioStream" uid="uid://sorepoioavl7" path="res://assets/sound/sfx/noise1.wav" id="9_hyind"]
 [ext_resource type="Animation" uid="uid://dc4oqu1m6whdy" path="res://actor/damaged.res" id="10_hyind"]
 
@@ -222,6 +222,7 @@ size = Vector2(192, 16)
 size = Vector2(22, 16)
 
 [node name="demon dog" unique_id=1016638848 instance=ExtResource("1_5t1f8")]
+currentMovementMode = 0
 max_melee_range = 32.0
 default_state_on_awake = 1
 max_hp = 2
@@ -257,7 +258,7 @@ shape = SubResource("RectangleShape2D_senlp")
 
 [node name="Area2D" type="Area2D" parent="." index="11" unique_id=1221976619]
 position = Vector2(18, -8)
-collision_layer = 16
+collision_layer = 32
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0" unique_id=366783206]

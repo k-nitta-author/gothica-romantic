@@ -13,14 +13,17 @@
 [ext_resource type="Animation" uid="uid://dc4oqu1m6whdy" path="res://actor/damaged.res" id="10_7f71k"]
 
 [sub_resource type="Resource" id="Resource_prpt8"]
+resource_local_to_scene = true
 script = ExtResource("2_4gx5r")
 metadata/_custom_type_script = "uid://cciei67yuitw5"
 
 [sub_resource type="Resource" id="Resource_wdtfm"]
+resource_local_to_scene = true
 script = ExtResource("3_k0wlm")
 metadata/_custom_type_script = "uid://hhc8ylq4nvxy"
 
 [sub_resource type="Resource" id="Resource_k0wlm"]
+resource_local_to_scene = true
 script = ExtResource("4_iplda")
 metadata/_custom_type_script = "uid://cgcwml08u6r0s"
 
@@ -81,18 +84,6 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath(".:speed")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [16.0]
 }
 
 [sub_resource type="Animation" id="Animation_21pae"]
@@ -186,17 +177,22 @@ tracks/4/keys = {
 "update": 1,
 "values": [1]
 }
-tracks/5/type = "value"
+tracks/5/type = "method"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath(".:speed")
+tracks/5/path = NodePath(".")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 2),
+"times": PackedFloat32Array(0, 2.02),
 "transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [0.0, 16.0]
+"values": [{
+"args": [],
+"method": &"stop"
+}, {
+"args": [],
+"method": &"go"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_prpt8"]
@@ -340,9 +336,10 @@ size = Vector2(128, 64)
 
 [node name="mansion guard" unique_id=1016638848 instance=ExtResource("1_2fg5m")]
 script = ExtResource("2_prpt8")
+currentMovementMode = 0
 can_see_player = true
 is_active = true
-max_melee_range = 156.0
+max_melee_range = 32.0
 max_shoot_range = 290.0
 default_state_on_awake = 1
 max_hp = 5

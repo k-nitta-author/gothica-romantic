@@ -8,18 +8,15 @@ enum MOVEMENT_MODE {CHASE_PLAYER, PATROL}
 
 var noticed_player_on_floor := true
 
-# override bump method
-func bump(body: Node2D) -> void: pass
-
 func update():
 	super()
 	match currentMovementMode:
 		MOVEMENT_MODE.CHASE_PLAYER:
 			if player.has_gotten_up():
 				if !noticed_player_on_floor:
-					update_seek_right()			
-					go()
+					update_seek_right()
 					noticed_player_on_floor = true
+					selected_state = STATES.MOVING
 			else:
 				noticed_player_on_floor = false
 

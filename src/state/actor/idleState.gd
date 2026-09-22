@@ -17,6 +17,8 @@ func exit_state() -> void:
 
 func update():
 
+	state_actor.idle()
+
 	state_actor.velocity.y += state_actor.speed_in_air_vertical
 
 	if abs(state_actor.velocity.x) > 0:

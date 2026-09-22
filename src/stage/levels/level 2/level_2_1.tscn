@@ -28,8 +28,3 @@ position = Vector2(1016, 144)
 [node name="Player" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="3" unique_id=1016638848]
 position = Vector2(184, 136)
 damaged_state = SubResource("Resource_bubq1")
-
-[node name="Camera2D" parent="ActorManager/Player" index="10" unique_id=836156762]
-limit_left = 0
-limit_top = -112
-limit_bottom = 160

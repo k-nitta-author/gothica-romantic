@@ -15,8 +15,9 @@ tile_map_data = PackedByteArray("AAACAAgAAAADAAsAAAADAAgAAAADAAsAAAAEAAgAAAADAAs
 limit_left = 31
 limit_bottom = 144
 
-[node name="Player" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="0" unique_id=1016638848]
-position = Vector2(88, 120)
+[node name="The Necromancer" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="0" unique_id=480566760 instance=ExtResource("2_7ubya")]
+position = Vector2(293, 128)
+currentMovementMode = 0
 
-[node name="The Necromancer" parent="." index="6" unique_id=480566760 instance=ExtResource("2_7ubya")]
-position = Vector2(272, 112)
+[node name="Player" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="1" unique_id=1016638848]
+position = Vector2(88, 120)

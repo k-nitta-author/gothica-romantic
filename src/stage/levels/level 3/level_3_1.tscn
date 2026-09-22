@@ -13,10 +13,16 @@ tile_map_data = PackedByteArray("AAAJAAgAAAAIABIAAAAJAAcAAAAKABEAAAAKAAcAAAAKABE
 limit_right = 1952
 limit_bottom = 144
 
-[node name="Player" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="0" unique_id=1016638848]
+[node name="ticket taker ghost2" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="0" unique_id=39037968 instance=ExtResource("4_r8h4c")]
+position = Vector2(1048, 112)
+
+[node name="ticket taker ghost3" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="1" unique_id=1016638848 instance=ExtResource("4_r8h4c")]
+position = Vector2(862, 112)
+
+[node name="Player" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="2" unique_id=1016638848]
 position = Vector2(128, 112)
 
-[node name="napkin ghost2" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="1" unique_id=1950225576 instance=ExtResource("5_tha66")]
+[node name="napkin ghost2" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="3" unique_id=1950225576 instance=ExtResource("5_tha66")]
 position = Vector2(656, 112)
 currentMovementMode = 0
 actorType = 0
@@ -24,7 +30,7 @@ max_hp = 4
 selected_state = 0
 is_flipped = false
 
-[node name="napkin ghost3" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="2" unique_id=1577949534 instance=ExtResource("5_tha66")]
+[node name="napkin ghost3" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="4" unique_id=1577949534 instance=ExtResource("5_tha66")]
 position = Vector2(1104, 112)
 currentMovementMode = 0
 actorType = 0
@@ -32,18 +38,10 @@ max_hp = 4
 selected_state = 0
 is_flipped = false
 
-[node name="napkin ghost" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="3" unique_id=1352103192 instance=ExtResource("5_tha66")]
+[node name="napkin ghost" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="5" unique_id=1352103192 instance=ExtResource("5_tha66")]
 position = Vector2(528, 112)
 currentMovementMode = 0
 actorType = 0
 max_hp = 4
 selected_state = 0
 is_flipped = false
-
-[node name="ticket taker ghost" parent="." index="9" unique_id=1810115253 instance=ExtResource("4_r8h4c")]
-position = Vector2(856, 112)
-currentMovementMode = 0
-
-[node name="ticket taker ghost2" parent="." index="10" unique_id=39037968 instance=ExtResource("4_r8h4c")]
-position = Vector2(1048, 112)
-currentMovementMode = 0

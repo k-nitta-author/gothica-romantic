@@ -187,6 +187,9 @@ func attack() -> void: pass
 # end the attack and reset any variables
 func cease_attack() -> void: pass
 
+# end the attack and reset any variables
+func cease_shoot() -> void: pass
+
 # perform a hit stun
 func hit_stun() -> void: pass
 

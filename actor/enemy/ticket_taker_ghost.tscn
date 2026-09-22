@@ -9,15 +9,18 @@
 [ext_resource type="Script" uid="uid://bunbdgovyilxk" path="res://src/state/actor/shootState.gd" id="4_8legm"]
 [ext_resource type="Animation" uid="uid://dc4oqu1m6whdy" path="res://actor/damaged.res" id="7_mxwn0"]
 
-[sub_resource type="Resource" id="Resource_vuvht"]
+[sub_resource type="Resource" id="Resource_q1xjc"]
+resource_local_to_scene = true
 script = ExtResource("2_1aiiw")
 metadata/_custom_type_script = "uid://cciei67yuitw5"
 
-[sub_resource type="Resource" id="Resource_5mb4p"]
+[sub_resource type="Resource" id="Resource_senlp"]
+resource_local_to_scene = true
 script = ExtResource("3_mxwn0")
 metadata/_custom_type_script = "uid://cgcwml08u6r0s"
 
 [sub_resource type="Resource" id="Resource_1aiiw"]
+resource_local_to_scene = true
 script = ExtResource("4_8legm")
 metadata/_custom_type_script = "uid://bunbdgovyilxk"
 
@@ -197,15 +200,15 @@ size = Vector2(14, 22)
 size = Vector2(128, 8)
 
 [node name="ticket taker ghost" unique_id=1016638848 instance=ExtResource("1_v1blb")]
+currentMovementMode = 0
 can_see_player = true
 is_active = true
 max_melee_range = 39.0
-max_shoot_range = 96.0
+max_shoot_range = 193.0
 default_state_on_awake = 1
 max_hp = 4
-selected_state = 1
-idle_state = SubResource("Resource_vuvht")
-move_state = SubResource("Resource_5mb4p")
+idle_state = SubResource("Resource_q1xjc")
+move_state = SubResource("Resource_senlp")
 shoot_state = SubResource("Resource_1aiiw")
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=900505443]
