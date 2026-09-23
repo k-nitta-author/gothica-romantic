@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bkc12p7jnadq4" path="res://src/stage/objects/check_point.gd" id="1_a1tgc"]
 [ext_resource type="PackedScene" uid="uid://rp5sdj2ja1c5" path="res://src/sound effects/sound_sfx_stream.tscn" id="2_x7ef5"]
+[ext_resource type="Texture2D" uid="uid://cbsiftecss0xm" path="res://icon.svg" id="2_yqwkw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uqb0r"]
 size = Vector2(20, 31.5)
@@ -16,6 +17,9 @@ position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_uqb0r")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=48736686]
+position = Vector2(0, -32)
+scale = Vector2(0.12499999, 0.5)
+texture = ExtResource("2_yqwkw")
 
 [node name="anim" type="AnimationPlayer" parent="." unique_id=1895625401]
 

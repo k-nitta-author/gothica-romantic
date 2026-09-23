@@ -49,13 +49,26 @@ func save_handler(f: FileAccess):
 
 func update_next_level(next: PackedScene) -> void: next_level_scene = next
 
+func load_game(data: Dictionary) -> Stage:
+
+	
+	next_level_scene = load(data["place"])
+
+	var s = await start_game()
+	
+	s\
+	.load_game(data)\
+	.set_player_at_checkpoint()
+
+	return s
+
 # starts the game
-func start_game() -> void:
+func start_game() -> Stage:
 	start_screen.hide()
 	# set up stage
-	stage = load_stage(next_level_scene)
-	stage.bind_to_game(self)
-		
+
+	var s = await load_stage(next_level_scene).bind_to_game(self)
+
 	add_child(stage)
 
 	# update and link to hud_layer
@@ -65,10 +78,14 @@ func start_game() -> void:
 	await effectLayer.transition_finished
 	hudLayer.currentState = hudLayer.STATE.RESUMED
 	
-	hudLayer.bind_to_player(stage.player)
-	hudLayer.bind_boss(stage.get_boss())
+	# set up the hud layer
+	hudLayer.\
+	bind_to_player(s.player).\
+	bind_boss(s.get_boss())
 
 	save()
+
+	return s
 
 # start the stage
 func start_stage() -> void: add_child(load_stage(next_level_scene))
@@ -78,7 +95,8 @@ func load_stage(nextLevel: PackedScene) -> Stage: return nextLevel.instantiate()
 # unloads the currently running stage
 func unload_stage() -> void:
 	stage.call_deferred("queue_free")
-	start_game()
+
+	stage = await start_game()
 
 # called whenever the start level signal
 func on_start_level(from_beginning: bool) -> void:
@@ -86,16 +104,24 @@ func on_start_level(from_beginning: bool) -> void:
 	if from_beginning: start_screen.show_save_game_modal()
 
 	else:
-		
 		effectLayer.play_transition(EffectsLayer.TRANS.WIPE_UP)
 		await effectLayer.transition_finished
 		
-		start_game()
+		# now actually start the stage
+		stage = await start_game()
 		save()
 
+# reset the current stage
 func reset_stage() -> void:
+	var old_current_checkpoint_idx : int = stage.current_checkpoint_idx
+
 	stage.call_deferred("queue_free")
-	start_game()
+
+	stage = await start_game()
+
+	stage.current_checkpoint_idx = old_current_checkpoint_idx
+	stage.set_player_at_checkpoint()
+
 	hudLayer.reset()
 
 # called whenever the loaded stage ends

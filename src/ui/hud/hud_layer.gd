@@ -87,11 +87,16 @@ func on_game_paused() -> void:
 	get_tree().paused = false
 	currentState = STATE.RESUMED
 
-func bind_to_player(p: Player):
+func bind_to_player(p: Player) -> HudLayer:
 	battleControl.bind_to_player(p)
 	diedScreen.bind_to_player(p)
 
-func bind_boss(bosses: Array): for b in bosses: battleControl.bind_boss_hp_bar(b)
+	return self
+
+func bind_boss(bosses: Array) -> HudLayer:
+	for b in bosses: battleControl.bind_boss_hp_bar(b)
+
+	return self
 
 func get_start_screen() -> Control: return $Control/StartScreen
 

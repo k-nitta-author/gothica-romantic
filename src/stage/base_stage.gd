@@ -13,7 +13,7 @@ extends Node2D
 @onready var exitManager = $ExitManager
 
 # get reference to singular noedes
-@onready var player = $ActorManager.player
+@onready var player: Player = $ActorManager.player
 
 # tranistion types for in and out
 @export var transition_in : EffectsLayer.TRANS
@@ -43,8 +43,22 @@ func get_boss() -> Array: return actorManager.get_bosses()
 # get the current player
 func get_player() -> Player: return player
 
+func set_player_at_checkpoint() -> Stage:
+
+	player.global_position = checkPointManager\
+	.get_checkpoint_by_idx(current_checkpoint_idx)\
+	.global_position
+
+	return self
+
+func load_game(data: Dictionary) -> Stage:
+
+	player.load_game(data)
+
+	return self
+
 # bind relevant variables to the stage
-func bind_to_game(_game: Game) -> void:
+func bind_to_game(_game: Game) -> Stage:
 	game = _game
 
 	# variables that can only be bound on ready
@@ -55,6 +69,8 @@ func bind_to_game(_game: Game) -> void:
 	checkPointManager.bind_dependencies(self, game)
 
 	connect("notify_save", game.save)
+
+	return self
 
 # bind self and necessary references to the various managers
 func bind_dependencies(stage: Stage):
@@ -78,6 +94,8 @@ func start() -> void:
 # probably plays some sort of transition or music queue
 # passes up the chain to the game above the next level scene
 func end(nextLevel: PackedScene) -> void:
+
+	if game == null: return
 
 	actorManager.can_update = false
 

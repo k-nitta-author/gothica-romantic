@@ -89,6 +89,12 @@ func _unhandled_input(_event: InputEvent) -> void:
 # sets the current flip state;
 func set_is_flipped(value: bool): super(value)
 
+func load_game(data: Dictionary) -> Player:
+
+	max_hp = data["current_player_hp"]
+
+	return self
+
 func update() -> void:
 	super()
 	if current_state != null: current_state.handle_input()
