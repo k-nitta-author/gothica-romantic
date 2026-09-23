@@ -15,6 +15,7 @@ limit_bottom = 180
 
 [node name="mansion grounds keeper" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="0" unique_id=1016638848 instance=ExtResource("2_r26l4")]
 position = Vector2(344, 144)
+currentMovementMode = 0
 
 [node name="mansion guard" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="2" unique_id=1074322710 instance=ExtResource("3_q8vyy")]
 position = Vector2(272, 144)

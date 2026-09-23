@@ -6,8 +6,85 @@
 [ext_resource type="PackedScene" uid="uid://cbvhks3dybpch" path="res://actor/enemy/bone_walker_1.tscn" id="4_m6153"]
 [ext_resource type="PackedScene" uid="uid://dypo3elyxj3en" path="res://src/bgs/town_forest.tscn" id="5_p5nvx"]
 [ext_resource type="PackedScene" uid="uid://b61j80iimhqu1" path="res://actor/enemy/bone_walker_2.tscn" id="7_dlaim"]
+[ext_resource type="Script" uid="uid://dmjhev2pahl57" path="res://src/state/actor/damagedState.gd" id="7_e1dd1"]
 [ext_resource type="AudioStream" uid="uid://v8dj0t38kwey" path="res://assets/sound/music/Dead of Night.ogg" id="7_ox7i6"]
 [ext_resource type="PackedScene" uid="uid://dvawblx0cc6nd" path="res://actor/crow.tscn" id="8_r6ccy"]
+[ext_resource type="Script" uid="uid://bxro0yfjng3td" path="res://src/state/actor/fallingState.gd" id="10_rjdfb"]
+[ext_resource type="PackedScene" uid="uid://cxsby52u3jvyi" path="res://src/stage/objects/building_stage_exit.tscn" id="11_e1dd1"]
+[ext_resource type="PackedScene" uid="uid://by85cuupa4bsh" path="res://src/stage/levels/level 1/level_1_3.tscn" id="14_s7p1w"]
+
+[sub_resource type="Resource" id="Resource_rjdfb"]
+resource_local_to_scene = true
+script = ExtResource("7_e1dd1")
+metadata/_custom_type_script = "uid://dmjhev2pahl57"
+
+[sub_resource type="Resource" id="Resource_ucxni"]
+resource_local_to_scene = true
+script = ExtResource("7_e1dd1")
+metadata/_custom_type_script = "uid://dmjhev2pahl57"
+
+[sub_resource type="Resource" id="Resource_s7p1w"]
+resource_local_to_scene = true
+script = ExtResource("7_e1dd1")
+metadata/_custom_type_script = "uid://dmjhev2pahl57"
+
+[sub_resource type="Resource" id="Resource_rrysp"]
+resource_local_to_scene = true
+script = ExtResource("7_e1dd1")
+metadata/_custom_type_script = "uid://dmjhev2pahl57"
+
+[sub_resource type="Resource" id="Resource_n1cgo"]
+resource_local_to_scene = true
+script = ExtResource("7_e1dd1")
+metadata/_custom_type_script = "uid://dmjhev2pahl57"
+
+[sub_resource type="Resource" id="Resource_mbsx4"]
+resource_local_to_scene = true
+script = ExtResource("7_e1dd1")
+metadata/_custom_type_script = "uid://dmjhev2pahl57"
+
+[sub_resource type="Resource" id="Resource_tsqfm"]
+resource_local_to_scene = true
+script = ExtResource("7_e1dd1")
+metadata/_custom_type_script = "uid://dmjhev2pahl57"
+
+[sub_resource type="Resource" id="Resource_oqrwn"]
+resource_local_to_scene = true
+script = ExtResource("7_e1dd1")
+metadata/_custom_type_script = "uid://dmjhev2pahl57"
+
+[sub_resource type="Resource" id="Resource_m384a"]
+resource_local_to_scene = true
+script = ExtResource("7_e1dd1")
+metadata/_custom_type_script = "uid://dmjhev2pahl57"
+
+[sub_resource type="Resource" id="Resource_g5jvm"]
+resource_local_to_scene = true
+script = ExtResource("7_e1dd1")
+metadata/_custom_type_script = "uid://dmjhev2pahl57"
+
+[sub_resource type="Resource" id="Resource_5nagg"]
+resource_local_to_scene = true
+script = ExtResource("10_rjdfb")
+metadata/_custom_type_script = "uid://bxro0yfjng3td"
+
+[sub_resource type="Resource" id="Resource_s42pp"]
+resource_local_to_scene = true
+script = ExtResource("7_e1dd1")
+metadata/_custom_type_script = "uid://dmjhev2pahl57"
+
+[sub_resource type="Resource" id="Resource_vukjl"]
+resource_local_to_scene = true
+script = ExtResource("10_rjdfb")
+metadata/_custom_type_script = "uid://bxro0yfjng3td"
+
+[sub_resource type="Resource" id="Resource_ttpt5"]
+resource_local_to_scene = true
+script = ExtResource("7_e1dd1")
+metadata/_custom_type_script = "uid://dmjhev2pahl57"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f2rrq"]
+size = Vector2(20, 39)
 
 [node name="level_1-1" unique_id=1917536022 instance=ExtResource("1_0hsla")]
 
@@ -32,44 +109,70 @@ stream = ExtResource("7_ox7i6")
 autoplay = true
 
 [node name="Player" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="0" unique_id=1016638848]
+position = Vector2(1523, 9)
 collision_layer = 65
 
 [node name="bone walker 1" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="1" unique_id=1860559279 instance=ExtResource("4_m6153")]
 position = Vector2(430, 144)
+damaged_state = SubResource("Resource_rjdfb")
 
 [node name="bone walker 2" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="2" unique_id=1095212542 instance=ExtResource("4_m6153")]
 position = Vector2(482, 144)
+damaged_state = SubResource("Resource_ucxni")
 
 [node name="bone walker 3" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="3" unique_id=334179800 instance=ExtResource("4_m6153")]
 position = Vector2(608, 96)
+damaged_state = SubResource("Resource_s7p1w")
 
 [node name="bone walker 4" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="4" unique_id=2032901675 instance=ExtResource("4_m6153")]
 position = Vector2(696, 96)
+damaged_state = SubResource("Resource_rrysp")
 
 [node name="bone walker 7" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="5" unique_id=961146394 instance=ExtResource("4_m6153")]
 position = Vector2(1096, 128)
+damaged_state = SubResource("Resource_n1cgo")
 
 [node name="bone walker 5" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="6" unique_id=2087596489 instance=ExtResource("4_m6153")]
 position = Vector2(920, 128)
+damaged_state = SubResource("Resource_mbsx4")
 
 [node name="bone walker 8" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="7" unique_id=582059320 instance=ExtResource("4_m6153")]
 position = Vector2(1312, 168)
+damaged_state = SubResource("Resource_tsqfm")
 
 [node name="bone walker 6" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="8" unique_id=1373869154 instance=ExtResource("4_m6153")]
 position = Vector2(1016, 128)
+damaged_state = SubResource("Resource_oqrwn")
 
 [node name="bone_walker_2" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="9" unique_id=731181847 instance=ExtResource("7_dlaim")]
 position = Vector2(880, 128)
+currentMovementMode = 0
+damaged_state = SubResource("Resource_m384a")
 
 [node name="bone_walker_3" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="10" unique_id=1902376685 instance=ExtResource("7_dlaim")]
 position = Vector2(1120, 112)
+currentMovementMode = 0
+damaged_state = SubResource("Resource_g5jvm")
 
 [node name="crow" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="11" unique_id=1499747308 instance=ExtResource("8_r6ccy")]
 position = Vector2(1344, 64)
 fly_in_loop = false
 can_see_player = true
+falling_state = SubResource("Resource_5nagg")
+damaged_state = SubResource("Resource_s42pp")
 
 [node name="crow2" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="12" unique_id=1734943990 instance=ExtResource("8_r6ccy")]
 position = Vector2(1488, 64)
 fly_in_loop = false
 can_see_player = true
+falling_state = SubResource("Resource_vukjl")
+damaged_state = SubResource("Resource_ttpt5")
+
+[node name="BuildingStageExit" parent="ExitManager" parent_id_path=PackedInt32Array(1155323200) index="0" unique_id=173771773 instance=ExtResource("11_e1dd1")]
+position = Vector2(1569, 68)
+NextLevel = ExtResource("14_s7p1w")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ExitManager/BuildingStageExit" index="2" unique_id=864810114]
+position = Vector2(0, 9.5)
+shape = SubResource("RectangleShape2D_f2rrq")

@@ -9,6 +9,8 @@
 [ext_resource type="Script" uid="uid://bunbdgovyilxk" path="res://src/state/actor/shootState.gd" id="3_u74of"]
 [ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/shader/hitFlashShader.gdshader" id="5_2hqow"]
 [ext_resource type="Animation" uid="uid://dc4oqu1m6whdy" path="res://actor/damaged.res" id="7_e2do6"]
+[ext_resource type="Script" uid="uid://bxro0yfjng3td" path="res://src/state/actor/fallingState.gd" id="7_pobpe"]
+[ext_resource type="Script" uid="uid://dmjhev2pahl57" path="res://src/state/actor/damagedState.gd" id="8_oi8dj"]
 [ext_resource type="AudioStream" uid="uid://caudq6mmk0vi2" path="res://assets/sound/sfx/noise.wav" id="10_lbktx"]
 [ext_resource type="AudioStream" uid="uid://sorepoioavl7" path="res://assets/sound/sfx/noise1.wav" id="11_epqdy"]
 
@@ -25,11 +27,20 @@ script = ExtResource("3_u74of")
 stops_actor = true
 metadata/_custom_type_script = "uid://bunbdgovyilxk"
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_q1xjc"]
-a = Vector2(-8, 0)
-b = Vector2(8, 0)
+[sub_resource type="Resource" id="Resource_c78rr"]
+resource_local_to_scene = true
+script = ExtResource("7_pobpe")
+metadata/_custom_type_script = "uid://bxro0yfjng3td"
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_lbktx"]
+[sub_resource type="Resource" id="Resource_ywrdv"]
+resource_local_to_scene = true
+script = ExtResource("8_oi8dj")
+metadata/_custom_type_script = "uid://dmjhev2pahl57"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rjdfb"]
+size = Vector2(20, 30)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l0l64"]
 resource_local_to_scene = true
 shader = ExtResource("5_2hqow")
 shader_parameter/active = false
@@ -189,23 +200,26 @@ size = Vector2(128, 64)
 
 [node name="undead_brute" unique_id=1016638848 instance=ExtResource("1_x0yvw")]
 script = ExtResource("2_yc1xk")
+currentMovementMode = 0
 can_see_player = true
 shoot_bullet = ExtResource("2_e2do6")
 max_melee_range = 64.0
 default_state_on_awake = 1
 max_hp = 6
 speed = 16.0
-selected_state = 0
 idle_state = SubResource("Resource_eqrin")
 move_state = SubResource("Resource_x0yvw")
 shoot_state = SubResource("Resource_dsw75")
+falling_state = SubResource("Resource_c78rr")
+damaged_state = SubResource("Resource_ywrdv")
 is_stunned = false
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=900505443]
-shape = SubResource("SegmentShape2D_q1xjc")
+position = Vector2(0, -15)
+shape = SubResource("RectangleShape2D_rjdfb")
 
 [node name="Sprite2D" parent="." index="1" unique_id=90387062]
-material = SubResource("ShaderMaterial_lbktx")
+material = SubResource("ShaderMaterial_l0l64")
 texture = ExtResource("2_dsw75")
 offset = Vector2(0, -16)
 flip_h = true

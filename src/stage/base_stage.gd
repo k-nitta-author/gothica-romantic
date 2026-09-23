@@ -10,10 +10,10 @@ extends Node2D
 @onready var bulletManager = $BulletManager
 @onready var checkPointManager = $CheckPointManager
 @onready var effectsManager = $EffectsManager
+@onready var exitManager = $ExitManager
 
 # get reference to singular noedes
 @onready var player = $ActorManager.player
-@onready var stage_exit = $StageExit
 
 # tranistion types for in and out
 @export var transition_in : EffectsLayer.TRANS
@@ -45,12 +45,14 @@ func get_player() -> Player: return player
 
 # bind relevant variables to the stage
 func bind_to_game(_game: Game) -> void:
-	self.game = _game
+	game = _game
 
 	# variables that can only be bound on ready
 	await ready
-	stage_exit.connect("player_exited", end)
-	checkPointManager.bind_dependencies(self, _game)
+	
+	#stage_exit.connect("player_exited", end)
+	
+	checkPointManager.bind_dependencies(self, game)
 
 	connect("notify_save", game.save)
 
@@ -60,6 +62,7 @@ func bind_dependencies(stage: Stage):
 	propManager.bind_dependencies(stage)
 	bulletManager.bind_dependencies(stage)
 	stageCamera.bind_dependencies(stage)
+	exitManager.bind_dependencies(stage)
 
 # the process of starting the level
 func start() -> void:

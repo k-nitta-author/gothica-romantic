@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://v0cd6ctpkndj" path="res://src/stage/objects/stage_exit.tscn" id="1_6pf6d"]
 [ext_resource type="Script" uid="uid://be8h8xbqs3fnf" path="res://src/stage/objects/building_stage_exit.gd" id="2_en1q6"]
+[ext_resource type="Theme" uid="uid://bysunrkf7sfea" path="res://src/ui/theme/main style theme.tres" id="3_rx78p"]
 
 [node name="BuildingStageExit" unique_id=173771773 instance=ExtResource("1_6pf6d")]
 script = ExtResource("2_en1q6")
@@ -9,3 +10,14 @@ is_player_interactible = false
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=1011073751]
 shape = null
+
+[node name="toolTip" type="Node2D" parent="." index="1" unique_id=1876284412]
+visible = false
+
+[node name="Label" type="Label" parent="toolTip" index="0" unique_id=2012864761]
+offset_left = -21.0
+offset_top = -40.0
+offset_right = 21.0
+offset_bottom = -17.0
+theme = ExtResource("3_rx78p")
+text = "Enter"
