@@ -12,15 +12,17 @@ func enter_state():
         state_actor.revert_to_previous_state()
         
     else:
-        # TODO: fix this when you can 
         if state_actor.anim.has_animation("damaged"):
             state_actor.anim.stop()
             state_actor.anim.call_deferred("play", "damaged")
 
     state_actor.anim.connect("animation_finished", on_animation_finished)
 
+    state_actor.is_stunned = true
+
 func exit_state():
     state_actor.anim.disconnect("animation_finished", on_animation_finished)
+    state_actor.is_stunned = false
 
 
 func on_animation_finished(animation_name: String) -> void:

@@ -3,8 +3,20 @@
 [ext_resource type="PackedScene" uid="uid://bjeudo4rvmvag" path="res://actor/enemy/base_enemy.tscn" id="1_tcqml"]
 [ext_resource type="Script" uid="uid://bxthdcpdc3xyu" path="res://actor/enemy/platformer_enemy.gd" id="2_7kgjq"]
 [ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/shader/hitFlashShader.gdshader" id="3_oiip2"]
+[ext_resource type="Script" uid="uid://bxro0yfjng3td" path="res://src/state/actor/fallingState.gd" id="3_y2h6d"]
+[ext_resource type="Script" uid="uid://dmjhev2pahl57" path="res://src/state/actor/damagedState.gd" id="4_2cq51"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_oiip2"]
+[sub_resource type="Resource" id="Resource_xfb5k"]
+resource_local_to_scene = true
+script = ExtResource("3_y2h6d")
+metadata/_custom_type_script = "uid://bxro0yfjng3td"
+
+[sub_resource type="Resource" id="Resource_mx2l3"]
+resource_local_to_scene = true
+script = ExtResource("4_2cq51")
+metadata/_custom_type_script = "uid://dmjhev2pahl57"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6u2om"]
 resource_local_to_scene = true
 shader = ExtResource("3_oiip2")
 shader_parameter/active = false
@@ -12,10 +24,14 @@ shader_parameter/active = false
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vx1u8"]
 
 [node name="platformer_enemy" unique_id=1016638848 instance=ExtResource("1_tcqml")]
+floor_snap_length = 5.4
 script = ExtResource("2_7kgjq")
+currentMovementMode = 0
+falling_state = SubResource("Resource_xfb5k")
+damaged_state = SubResource("Resource_mx2l3")
 
 [node name="Sprite2D" parent="." index="1" unique_id=90387062]
-material = SubResource("ShaderMaterial_oiip2")
+material = SubResource("ShaderMaterial_6u2om")
 
 [node name="anim" parent="." index="2" unique_id=783902006]
 libraries/ = SubResource("AnimationLibrary_vx1u8")

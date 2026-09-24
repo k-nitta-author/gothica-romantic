@@ -75,7 +75,8 @@ func cease_attack() -> void:
 func cease_shoot() -> void:
 	is_shooting = false
 
-func has_gotten_up() -> bool: return is_on_floor()
+func has_gotten_up() -> bool:
+	return is_on_floor() and !is_stunned and !sprite.is_flashing_transparent
 
 func _unhandled_input(_event: InputEvent) -> void:
 	if current_state != null:
