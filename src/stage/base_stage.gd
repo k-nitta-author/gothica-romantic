@@ -61,12 +61,12 @@ func load_game(data: Dictionary) -> Stage:
 func bind_to_game(_game: Game) -> Stage:
 	game = _game
 
-	# variables that can only be bound on ready
 	await ready
-	
-	#stage_exit.connect("player_exited", end)
-	
-	checkPointManager.bind_dependencies(self, game)
+
+	# set up the hud layer
+	game.hudLayer.\
+	bind_to_player(player).\
+	bind_boss(get_boss())
 
 	connect("notify_save", game.save)
 
@@ -79,6 +79,7 @@ func bind_dependencies(stage: Stage):
 	bulletManager.bind_dependencies(stage)
 	stageCamera.bind_dependencies(stage)
 	exitManager.bind_dependencies(stage)
+	checkPointManager.bind_dependencies(stage, game)
 
 # the process of starting the level
 func start() -> void:

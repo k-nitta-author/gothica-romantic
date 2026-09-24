@@ -5,7 +5,7 @@ const GRID_SIZE = 16 # potentially subject to change
 const GRAVITY = 1 # determine best value later on
 
 # intialize child variables
-@onready var hudLayer = $HudLayer
+@onready var hudLayer: HudLayer = $HudLayer
 @onready var music: AudioStreamPlayer = $Music
 @onready var stage: Stage = self.get_node_or_null("Stage")
 @onready var saveManager : SaveManager = $SaveManager
@@ -41,9 +41,12 @@ func save() -> void: saveManager.create_save_file(current_save_idx, save_handler
 
 # save file handler callback function 
 func save_handler(f: FileAccess):
-	f.store_string(
+
+	var file = f
+
+	file.store_string(
 		JSON.stringify(
-			saveManager.poll_game_state(stage)
+			await saveManager.poll_game_state(stage)
 			)	
 		)
 
@@ -54,38 +57,38 @@ func load_game(data: Dictionary) -> Stage:
 	
 	next_level_scene = load(data["place"])
 
-	var s = await start_game()
+	stage =  start_game()
 	
-	s\
+	stage\
 	.load_game(data)\
 	.set_player_at_checkpoint()
 
-	return s
+	await save()
 
-# starts the game
-func start_game() -> Stage:
-	start_screen.hide()
-	# set up stage
+	return stage
 
-	var s = await load_stage(next_level_scene).bind_to_game(self)
-
-	add_child(stage)
-
+func stage_enter_transition() -> void:
 	# update and link to hud_layer
 	hudLayer.visible = true
 
 	hudLayer.currentState = hudLayer.STATE.TRANSITION
 	await effectLayer.transition_finished
 	hudLayer.currentState = hudLayer.STATE.RESUMED
-	
-	# set up the hud layer
-	hudLayer.\
-	bind_to_player(s.player).\
-	bind_boss(s.get_boss())
 
-	save()
+# starts the game
+func start_game() -> Stage:
+	start_screen.hide()
+	# set up stage
 
-	return s
+	stage = load_stage(next_level_scene)
+
+	call_deferred("add_child",stage)
+
+	stage.bind_to_game(self)
+
+	stage_enter_transition()
+
+	return stage
 
 # start the stage
 func start_stage() -> void: add_child(load_stage(next_level_scene))
@@ -95,8 +98,6 @@ func load_stage(nextLevel: PackedScene) -> Stage: return nextLevel.instantiate()
 # unloads the currently running stage
 func unload_stage() -> void:
 	stage.call_deferred("queue_free")
-
-	stage = await start_game()
 
 # called whenever the start level signal
 func on_start_level(from_beginning: bool) -> void:
@@ -108,7 +109,7 @@ func on_start_level(from_beginning: bool) -> void:
 		await effectLayer.transition_finished
 		
 		# now actually start the stage
-		stage = await start_game()
+		start_game()
 		save()
 
 # reset the current stage
@@ -123,6 +124,7 @@ func reset_stage() -> void:
 	stage.set_player_at_checkpoint()
 
 	hudLayer.reset()
+	save()
 
 # called whenever the loaded stage ends
 func on_stage_end(new_next_level_scene: PackedScene) -> void:
