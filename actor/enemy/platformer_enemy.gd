@@ -8,19 +8,13 @@ enum MOVEMENT_MODE {CHASE_PLAYER, PATROL}
 
 var noticed_player_on_floor := true
 
-func update():
-	super()
+func update(delta):
+	super(delta)
 	match currentMovementMode:
 		MOVEMENT_MODE.CHASE_PLAYER:
 			var player_on_same_level : bool = abs(player.global_position.y - global_position.y) < 4 and player.is_on_floor()
 
-
-			if !onGroundRayLeft.is_colliding():
-				if !player_on_same_level:
-					stop()
-				else: 
-					go()
-			if !onGroundRayRight.is_colliding():
+			if !onGroundRayRight.is_colliding() or !onGroundRayLeft.is_colliding():
 				if !player_on_same_level:
 					stop()
 				else: 

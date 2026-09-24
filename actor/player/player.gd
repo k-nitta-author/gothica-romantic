@@ -96,8 +96,8 @@ func load_game(data: Dictionary) -> Player:
 
 	return self
 
-func update() -> void:
-	super()
+func update(delta) -> void:
+	super(delta)
 	if current_state != null: current_state.handle_input()
 
 func on_hitbox_entered(area: Area2D):

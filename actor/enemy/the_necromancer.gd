@@ -15,9 +15,9 @@ func can_shoot() -> bool:
 			current_number_of_shots >= max_number_of_shots)
 
 # extend update to allow enemy to turn around
-func update():
+func update(delta):
 	if hitbox.get_overlapping_bodies() and is_attacking: seek_right = !seek_right
-	super()
+	super(delta)
 
 # extend melee attack to res
 func attack() -> void:

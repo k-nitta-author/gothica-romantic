@@ -37,7 +37,7 @@ func bind_dependencies(_stage: Stage) -> void:
 func get_bosses() -> Array: return bosses
 
 # update all actors each tick
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	
 	# if this is set to not update
 	if !can_update: return
@@ -46,7 +46,7 @@ func _physics_process(_delta: float) -> void:
 	for c: BaseActor in get_children():
 		if c.isInactive: continue
 
-		c.update()
+		c.update(delta)
 
 # controls the player's use of input
 func _unhandled_input(event: InputEvent) -> void:

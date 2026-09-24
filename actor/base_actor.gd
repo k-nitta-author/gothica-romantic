@@ -6,6 +6,7 @@ const COLLIDE_WITH_ONLY_NON_PLATFORMS = 128
 const COLLIDE_WITH_TILEMAP_MASK := 1152
 const COLLIDE_WITH_ENEMY_MASK := 112
 
+var direction : Vector2
 # all the child nodes for the base actor
 @onready var anim : AnimationPlayer = $anim
 @onready var sprite : Sprite2D = $Sprite2D
@@ -225,7 +226,7 @@ func update_is_flipped(absoluteX: float) -> void:
 	is_flipped = (velocity.x < 0) if absoluteX > 0 else is_flipped
 
 # update method; called each tick for active actors
-func update():
+func update(delta):
 
 	if current_state != null:
 		current_state.update()

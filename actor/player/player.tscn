@@ -720,10 +720,10 @@ tracks/2/path = NodePath("sword:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.1, 0.15, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0.1, 0.15, 0.2, 0.49694973),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [Vector2(6, -12), Vector2(10, -12), Vector2(9, -12)]
+"values": [Vector2(6, -12), Vector2(10, -12), Vector2(9, -12), Vector2(-10, -12)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -1373,6 +1373,8 @@ size = Vector2(4.2426405, 21.213203)
 material = SubResource("ShaderMaterial_mm62y")
 collision_layer = 513
 collision_mask = 1921
+floor_constant_speed = true
+floor_snap_length = 32.0
 script = ExtResource("2_pcoxj")
 isRejectingInput = false
 invincibility_time = 3.6
@@ -1391,6 +1393,7 @@ landing_state = SubResource("Resource_qws1g")
 falling_state = SubResource("Resource_a72po")
 ducking_state = SubResource("Resource_wu1np")
 damaged_state = SubResource("Resource_xhyqv")
+is_stunned = true
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=900505443]
 position = Vector2(0, -12.25)

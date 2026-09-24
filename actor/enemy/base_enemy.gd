@@ -183,6 +183,7 @@ func update_on_ground_rays() -> void:
 
 func update():
 
+func update(delta):
 	update_on_ground_rays()
 
 	if !is_active or Engine.is_editor_hint(): return

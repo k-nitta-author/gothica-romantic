@@ -34,10 +34,10 @@ func attack() -> void:
 
 	velocity = global_position.direction_to(player.get_eye_level()) * speed
 
-func update():
+func update(delta):
 	if !is_active: return
 
-	super()
+	super(delta)
 	
 func update_seek_right() -> void:
 
