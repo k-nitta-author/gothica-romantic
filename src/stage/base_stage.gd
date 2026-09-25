@@ -1,6 +1,8 @@
 class_name Stage
 extends Node2D
 
+enum EXIT_TYPE {TO_NEXT_STAGE, TO_INTERIOR, TO_EXTERIOR}
+
 @onready var tileMapLayer = $TileMapLayer
 @onready var anim : AnimationPlayer = $anim
 
@@ -51,6 +53,17 @@ func set_player_at_checkpoint() -> Stage:
 
 	return self
 
+func set_player_at_door_idx(door_idx: int) -> Stage:
+
+	print(exitManager)
+
+	player.global_position = exitManager\
+	.get_stage_door_by_idx(door_idx)\
+	.global_position
+
+	return self
+
+
 func load_game(data: Dictionary) -> Stage:
 
 	player.load_game(data)
@@ -94,7 +107,7 @@ func start() -> void:
 # the process of ending the level
 # probably plays some sort of transition or music queue
 # passes up the chain to the game above the next level scene
-func end(nextLevel: PackedScene) -> void:
+func end(nextLevel: PackedScene, exit_type: EXIT_TYPE, egress_idx: int) -> void:
 
 	if game == null: return
 
@@ -104,7 +117,7 @@ func end(nextLevel: PackedScene) -> void:
 
 	await game.effectLayer.transition_finished
 
-	game.on_stage_end(nextLevel)
+	game.on_stage_end(nextLevel, exit_type, egress_idx)
 
 # called when player passes checkpoint
 func on_player_checkpoint_activated(_checkpointIdx: int) -> void:

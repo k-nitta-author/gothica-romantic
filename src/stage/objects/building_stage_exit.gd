@@ -24,4 +24,5 @@ func _unhandled_input(event: InputEvent) -> void:
     if event.is_action_pressed("enterBuilding"): notify_stage_change()
 
 # the stage change method
-func notify_stage_change() -> void: emit_signal("player_exited", NextLevel)
+func notify_stage_change() -> void:
+    emit_signal("player_exited", NextLevel, Stage.EXIT_TYPE.TO_INTERIOR, egress_idx)

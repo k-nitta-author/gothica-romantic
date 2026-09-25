@@ -1,7 +1,18 @@
 class_name ExitManager
 extends BaseManager
 
-func bind_dependencies(stage: Stage):
-    for c in get_children():
+@onready var children := get_children()
 
-        c.connect("player_exited", stage.end)
+func get_stage_door_by_idx(door_idx: int) -> StageExit:
+	return children[door_idx]
+
+# load deps into this and child classes
+func bind_dependencies(stage: Stage):
+	super(stage)
+	for c in children:
+		c.bind_to_stage(stage)
+
+# called whenever the player body touches any stageExit
+# alerts the stage that it is time to pack up and go
+func on_player_exit_stage():
+	pass

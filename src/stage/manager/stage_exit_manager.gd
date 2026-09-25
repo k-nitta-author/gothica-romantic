@@ -2,9 +2,15 @@ extends BaseManager
 
 @onready var children := get_children()
 
-func _ready() -> void:
+func get_stage_door_by_idx(door_idx: int) -> StageExit:
+    return children[door_idx]
 
-    for c in children: c.connect("player_exited", on_player_exit_stage)
+# load deps into this and child classes
+func bind_dependencies(stage: Stage):
+    super(stage)
+    for c in children:
+        c.bind_to_stage(stage)
+        c.connect("player_exited", on_player_exit_stage)
 
 # called whenever the player body touches any stageExit
 # alerts the stage that it is time to pack up and go

@@ -14,8 +14,13 @@ const GRAVITY = 1 # determine best value later on
 @export var next_level_scene: PackedScene
 @onready var start_screen : Control = $HudLayer.get_start_screen()
 
+var previous_stage_scene: PackedScene
+
 # the current_save_index
 var current_save_idx := 1
+
+# the current door index
+var current_door_idx := 0
 
 # saveable data
 var stage_number: int
@@ -53,8 +58,6 @@ func save_handler(f: FileAccess):
 func update_next_level(next: PackedScene) -> void: next_level_scene = next
 
 func load_game(data: Dictionary) -> Stage:
-
-	
 	next_level_scene = load(data["place"])
 
 	stage =  start_game()
@@ -127,18 +130,29 @@ func reset_stage() -> void:
 	save()
 
 # called whenever the loaded stage ends
-func on_stage_end(new_next_level_scene: PackedScene) -> void:
+func on_stage_end(new_next_level_scene: PackedScene, exit_type: Stage.EXIT_TYPE, egress_idx: int) -> void:
 
-	if new_next_level_scene == null: return  
+	if new_next_level_scene == null: return
 
-	var next_level := new_next_level_scene.instantiate()
+	previous_stage_scene = next_level_scene
+	next_level_scene = new_next_level_scene 
+
 	var old_stage := stage
 
 	old_stage.queue_free()
 
-	stage = next_level
-	call_deferred("add_child", stage)
-	stage.bind_to_game(self)
+	start_game()
+
+	await stage.ready
+
+	match exit_type:
+		Stage.EXIT_TYPE.TO_NEXT_STAGE:
+			pass
+		Stage.EXIT_TYPE.TO_INTERIOR:
+			stage.set_player_at_door_idx(egress_idx)
+		Stage.EXIT_TYPE.TO_EXTERIOR:
+			pass
+
 
 # the unhandled input
 func _unhandled_input(event: InputEvent) -> void:
