@@ -181,11 +181,9 @@ func update_on_ground_rays() -> void:
 	onGroundRayRight.global_position.x = global_position.x + collision_shape.shape.size.x
 	onGroundRayRight.global_position.y = global_position.y
 
-func update():
-
 func update(delta):
 	update_on_ground_rays()
 
 	if !is_active or Engine.is_editor_hint(): return
 	velocity = Vector2((1 if seek_right else -1) * current_speed, 0)
-	super()
+	super(delta)
