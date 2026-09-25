@@ -6,36 +6,31 @@
 [ext_resource type="TileSet" uid="uid://chlkvpl8s80h7" path="res://src/stage/tileset.tres" id="3_t7i7j"]
 [ext_resource type="PackedScene" uid="uid://b61j80iimhqu1" path="res://actor/enemy/bone_walker_2.tscn" id="4_bykgl"]
 [ext_resource type="Script" uid="uid://dmjhev2pahl57" path="res://src/state/actor/damagedState.gd" id="5_lfhfl"]
-[ext_resource type="PackedScene" uid="uid://v0cd6ctpkndj" path="res://src/stage/objects/stage_exit.tscn" id="7_uwqpv"]
-[ext_resource type="PackedScene" uid="uid://36m5j1tpq0j2" path="res://src/stage/levels/level 1/level_1_boss.tscn" id="8_4dp30"]
 
-[sub_resource type="Resource" id="Resource_1xsq8"]
+[sub_resource type="Resource" id="Resource_u1i4i"]
 resource_local_to_scene = true
 script = ExtResource("5_lfhfl")
 metadata/_custom_type_script = "uid://dmjhev2pahl57"
 
-[sub_resource type="Resource" id="Resource_gkp1u"]
+[sub_resource type="Resource" id="Resource_ooj5y"]
 resource_local_to_scene = true
 script = ExtResource("5_lfhfl")
 metadata/_custom_type_script = "uid://dmjhev2pahl57"
 
-[sub_resource type="Resource" id="Resource_d7d5y"]
+[sub_resource type="Resource" id="Resource_lfhfl"]
 resource_local_to_scene = true
 script = ExtResource("5_lfhfl")
 metadata/_custom_type_script = "uid://dmjhev2pahl57"
 
-[sub_resource type="Resource" id="Resource_5lonn"]
+[sub_resource type="Resource" id="Resource_uwqpv"]
 resource_local_to_scene = true
 script = ExtResource("5_lfhfl")
 metadata/_custom_type_script = "uid://dmjhev2pahl57"
 
-[sub_resource type="Resource" id="Resource_tmpyc"]
+[sub_resource type="Resource" id="Resource_4dp30"]
 resource_local_to_scene = true
 script = ExtResource("5_lfhfl")
 metadata/_custom_type_script = "uid://dmjhev2pahl57"
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_uqb0r"]
-b = Vector2(0, 72)
 
 [node name="level_1-3" unique_id=1917536022 instance=ExtResource("1_0w63r")]
 
@@ -57,30 +52,20 @@ position = Vector2(120, 120)
 
 [node name="bone walker 1" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="1" unique_id=617264130 instance=ExtResource("3_80i3g")]
 position = Vector2(328, 128)
-damaged_state = SubResource("Resource_1xsq8")
+damaged_state = SubResource("Resource_u1i4i")
 
 [node name="bone_walker_2" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="2" unique_id=1790559507 instance=ExtResource("4_bykgl")]
 position = Vector2(432, 128)
-currentMovementMode = 0
-damaged_state = SubResource("Resource_gkp1u")
+damaged_state = SubResource("Resource_ooj5y")
 
 [node name="bone_walker_3" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="3" unique_id=368054075 instance=ExtResource("4_bykgl")]
 position = Vector2(480, 128)
-currentMovementMode = 0
-damaged_state = SubResource("Resource_d7d5y")
+damaged_state = SubResource("Resource_lfhfl")
 
 [node name="bone walker 2" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="4" unique_id=530967115 instance=ExtResource("3_80i3g")]
 position = Vector2(568, 128)
-damaged_state = SubResource("Resource_5lonn")
+damaged_state = SubResource("Resource_uwqpv")
 
 [node name="bone walker 3" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="5" unique_id=2045194486 instance=ExtResource("3_80i3g")]
 position = Vector2(632, 128)
-damaged_state = SubResource("Resource_tmpyc")
-
-[node name="StageExit" parent="ExitManager" parent_id_path=PackedInt32Array(1155323200) index="0" unique_id=173771773 instance=ExtResource("7_uwqpv")]
-NextLevel = ExtResource("8_4dp30")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="ExitManager/StageExit" index="1" unique_id=1745184669]
-position = Vector2(1360, 56)
-shape = SubResource("SegmentShape2D_uqb0r")
-metadata/_edit_group_ = true
+damaged_state = SubResource("Resource_4dp30")
