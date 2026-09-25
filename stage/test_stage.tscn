@@ -1,41 +1,10 @@
 [gd_scene format=4 uid="uid://cfahshfar4way"]
 
 [ext_resource type="PackedScene" uid="uid://clvcbegfjryqm" path="res://src/stage/base_stage.tscn" id="1_onahq"]
-[ext_resource type="PackedScene" uid="uid://b0gip63o0yija" path="res://actor/enemy/ticket_taker_ghost.tscn" id="2_q1xjc"]
-[ext_resource type="Script" uid="uid://cciei67yuitw5" path="res://src/state/actor/idleState.gd" id="4_yy3ao"]
-[ext_resource type="Script" uid="uid://cgcwml08u6r0s" path="res://src/state/actor/walkState.gd" id="5_3n4se"]
-[ext_resource type="PackedScene" uid="uid://cbvhks3dybpch" path="res://actor/enemy/bone_walker_1.tscn" id="5_senlp"]
-[ext_resource type="Script" uid="uid://bunbdgovyilxk" path="res://src/state/actor/shootState.gd" id="6_ewe00"]
+[ext_resource type="PackedScene" uid="uid://cxsby52u3jvyi" path="res://src/stage/objects/building_stage_exit.tscn" id="2_586ph"]
+[ext_resource type="PackedScene" uid="uid://by85cuupa4bsh" path="res://src/stage/levels/level 1/level_1_3.tscn" id="3_q1xjc"]
 
-[sub_resource type="Resource" id="Resource_872rw"]
-resource_local_to_scene = true
-script = ExtResource("4_yy3ao")
-metadata/_custom_type_script = "uid://cciei67yuitw5"
-
-[sub_resource type="Resource" id="Resource_8q7lo"]
-resource_local_to_scene = true
-script = ExtResource("5_3n4se")
-metadata/_custom_type_script = "uid://cgcwml08u6r0s"
-
-[sub_resource type="Resource" id="Resource_fwtp3"]
-resource_local_to_scene = true
-script = ExtResource("6_ewe00")
-metadata/_custom_type_script = "uid://bunbdgovyilxk"
-
-[sub_resource type="Resource" id="Resource_p51tx"]
-resource_local_to_scene = true
-script = ExtResource("4_yy3ao")
-metadata/_custom_type_script = "uid://cciei67yuitw5"
-
-[sub_resource type="Resource" id="Resource_q0dgk"]
-resource_local_to_scene = true
-script = ExtResource("5_3n4se")
-metadata/_custom_type_script = "uid://cgcwml08u6r0s"
-
-[sub_resource type="Resource" id="Resource_fmq77"]
-resource_local_to_scene = true
-script = ExtResource("6_ewe00")
-metadata/_custom_type_script = "uid://bunbdgovyilxk"
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uqb0r"]
 
 [node name="test_stage" unique_id=1917536022 instance=ExtResource("1_onahq")]
 
@@ -45,18 +14,10 @@ tile_map_data = PackedByteArray("AAAMAAgAAAADAAAAAAALAAgAAAADAAAAAAAKAAgAAAADAAA
 [node name="Player" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="0" unique_id=1016638848]
 position = Vector2(152, 129)
 
-[node name="bone walker 1" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="1" unique_id=1354034790 instance=ExtResource("5_senlp")]
-position = Vector2(24, 48)
+[node name="BuildingStageExit" parent="ExitManager" parent_id_path=PackedInt32Array(1155323200) index="0" unique_id=173771773 instance=ExtResource("2_586ph")]
+position = Vector2(207, 117)
+NextLevel = ExtResource("3_q1xjc")
+metadata/_edit_group_ = true
 
-[node name="ticket taker ghost" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="2" unique_id=1040119424 instance=ExtResource("2_q1xjc")]
-position = Vector2(245, 128)
-max_shoot_range = 188.0
-idle_state = SubResource("Resource_872rw")
-move_state = SubResource("Resource_8q7lo")
-shoot_state = SubResource("Resource_fwtp3")
-
-[node name="ticket taker ghost2" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="3" unique_id=680650407 instance=ExtResource("2_q1xjc")]
-position = Vector2(32, 129)
-idle_state = SubResource("Resource_p51tx")
-move_state = SubResource("Resource_q0dgk")
-shoot_state = SubResource("Resource_fmq77")
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ExitManager/BuildingStageExit" index="2" unique_id=320604316]
+shape = SubResource("RectangleShape2D_uqb0r")

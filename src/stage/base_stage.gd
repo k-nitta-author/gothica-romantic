@@ -47,9 +47,13 @@ func get_player() -> Player: return player
 
 func set_player_at_checkpoint() -> Stage:
 
-	player.global_position = checkPointManager\
-	.get_checkpoint_by_idx(current_checkpoint_idx)\
-	.global_position
+	var check_point = checkPointManager\
+	.get_checkpoint_by_idx(current_checkpoint_idx)
+	
+	if check_point == null:
+		return null
+
+	player.global_position = check_point.global_position
 
 	return self
 

@@ -26,8 +26,6 @@ func update(delta):
 					noticed_player_on_floor = true
 					selected_state = STATES.MOVING
 
-
-
 			else:
 				noticed_player_on_floor = false
 

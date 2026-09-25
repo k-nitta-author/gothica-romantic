@@ -66,7 +66,7 @@ func load_game(data: Dictionary) -> Stage:
 	.load_game(data)\
 	.set_player_at_checkpoint()
 
-	await save()
+	save()
 
 	return stage
 
@@ -121,7 +121,9 @@ func reset_stage() -> void:
 
 	stage.call_deferred("queue_free")
 
-	stage = await start_game()
+	stage = start_game()
+
+	await stage.ready
 
 	stage.current_checkpoint_idx = old_current_checkpoint_idx
 	stage.set_player_at_checkpoint()
