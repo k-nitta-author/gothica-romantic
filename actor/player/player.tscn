@@ -1478,3 +1478,4 @@ bulletsMax = 6
 
 [node name="potionManager" type="Node" parent="." index="12" unique_id=115806395]
 script = ExtResource("22_gtt2r")
+max_potion_count = 3

@@ -26,4 +26,7 @@ func set_current_potion_count(value: int) -> void:
 	current_potion_count = clamp(value, 0, max_potion_count)
 
 	if current_potion_count != old_value:
-		player.emit_signal("on_potions_current_change", old_value, current_potion_count)
+
+		if player != null:
+
+			player.emit_signal("on_potions_current_change", old_value, current_potion_count)

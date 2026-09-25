@@ -83,7 +83,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 		current_state.handle_input()
 
 	# consume potion and reduce based on how how much hp the player has
-	if _event.is_action_pressed("drinkPotion") and current_hp < max_hp:
+	if _event.is_action_pressed("drinkPotion") and current_hp < max_hp and potionManager.current_potion_count > 0:
 		potionManager.current_potion_count -= 1
 		heal(POTION_HEAL_AMOUNT)
 
