@@ -209,7 +209,8 @@ func go() -> void:
 # notify the stage that a given attack has collided
 func notify_attack_connection() -> void:
 	
-	if !attackRay.is_colliding() or attackRay.get_collider().owner.isInactive: return
+	if !attackRay.is_colliding(): return
+	if attackRay.get_collider().owner.isInactive: return
 
 	emit_signal("attacked_at_point", attackRay.get_collision_point(), is_flipped, EffectsManager.SPLATTER.SLASH)
 
