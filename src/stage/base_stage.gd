@@ -13,6 +13,7 @@ enum EXIT_TYPE {TO_NEXT_STAGE, TO_INTERIOR, TO_EXTERIOR}
 @onready var checkPointManager = $CheckPointManager
 @onready var effectsManager = $EffectsManager
 @onready var exitManager = $ExitManager
+@onready var npcManager = $NPCManager
 
 # get reference to singular noedes
 @onready var player: Player = $ActorManager.player
@@ -59,17 +60,13 @@ func set_player_at_checkpoint() -> Stage:
 
 func set_player_at_door_idx(door_idx: int) -> Stage:
 
-	print(exitManager)
-
 	player.global_position = exitManager\
 	.get_stage_door_by_idx(door_idx)\
 	.global_position
 
 	return self
 
-
 func load_game(data: Dictionary) -> Stage:
-
 	player.load_game(data)
 
 	return self
@@ -97,6 +94,7 @@ func bind_dependencies(stage: Stage):
 	stageCamera.bind_dependencies(stage)
 	exitManager.bind_dependencies(stage)
 	checkPointManager.bind_dependencies(stage, game)
+	npcManager.bind_dependencies(stage)
 
 # the process of starting the level
 func start() -> void:
@@ -124,8 +122,10 @@ func end(nextLevel: PackedScene, exit_type: EXIT_TYPE, egress_idx: int) -> void:
 	game.on_stage_end(nextLevel, exit_type, egress_idx)
 
 # called when player passes checkpoint
-func on_player_checkpoint_activated(_checkpointIdx: int) -> void:
-	current_checkpoint_idx = _checkpointIdx
+func on_player_checkpoint_activated(checkpointIdx: int) -> void:
+	
+	current_checkpoint_idx = max(checkpointIdx, current_checkpoint_idx)
+	
 	emit_signal("notify_save")
 
 # handle various nodes

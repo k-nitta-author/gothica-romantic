@@ -2,13 +2,35 @@
 
 [ext_resource type="Script" uid="uid://bn0ux2fw3lwc8" path="res://src/npc/base_npc.gd" id="1_qjylp"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uqb0r"]
+resource_local_to_scene = true
+size = Vector2(20, 35)
+
 [node name="BaseNPC" type="Node2D" unique_id=542130944]
 script = ExtResource("1_qjylp")
+dialog_body = "test
+test
+chuck testa
+i love you jun!"
 
 [node name="interactArea" type="Area2D" parent="." unique_id=1664395114]
+collision_layer = 2048
+collision_mask = 2049
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="interactArea" unique_id=1000278711]
+position = Vector2(0, -17.5)
+shape = SubResource("RectangleShape2D_uqb0r")
 
 [node name="body" type="Sprite2D" parent="." unique_id=1480288449]
+
+[node name="toolTip" type="Node2D" parent="." unique_id=714547674]
+visible = false
+
+[node name="Label" type="Label" parent="toolTip" unique_id=675865848]
+offset_left = -20.0
+offset_top = -63.0
+offset_right = 20.0
+offset_bottom = -40.0
+text = "talk?"
 
 [node name="anim" type="AnimationPlayer" parent="." unique_id=1943608236]

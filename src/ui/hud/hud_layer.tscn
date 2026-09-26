@@ -29,16 +29,16 @@ layout_mode = 0
 
 [node name="TextBox" parent="Control" unique_id=583456037 instance=ExtResource("7_b0kcy")]
 visible = false
-layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 0.0
 offset_bottom = 0.0
-grow_horizontal = 1
-grow_vertical = 1
 
 [node name="DialogBox" parent="Control" unique_id=1979808780 instance=ExtResource("8_sov1n")]
 layout_mode = 0
