@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://d2f3i1811q2m3"]
+
+[ext_resource type="Script" uid="uid://canj802yjtvgt" path="res://src/ui/hud/potion_icons.gd" id="1_d4v1n"]
+[ext_resource type="Texture2D" uid="uid://bdhgkw3n4jrpd" path="res://assets/items/potion.png" id="2_ou2me"]
+[ext_resource type="PackedScene" uid="uid://cc8qj44o6epf4" path="res://src/ui/small_label.tscn" id="3_6mw4p"]
+[ext_resource type="Texture2D" uid="uid://de7nvijvnhtgp" path="res://assets/huds/item container.png" id="4_jte6n"]
+
+[node name="potionIcons" type="Control" unique_id=1412628556]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_d4v1n")
+
+[node name="Potion" type="Sprite2D" parent="." unique_id=1910116030]
+z_index = 1
+position = Vector2(163, 20)
+texture = ExtResource("2_ou2me")
+
+[node name="small label" parent="." unique_id=1048519964 instance=ExtResource("3_6mw4p")]
+z_index = 1
+layout_mode = 0
+offset_left = 166.0
+offset_top = 22.0
+offset_right = 177.0
+offset_bottom = 36.0
+text = "x3"
+
+[node name="ItemContainer" type="Sprite2D" parent="." unique_id=1951978467]
+position = Vector2(163, 20)
+texture = ExtResource("4_jte6n")

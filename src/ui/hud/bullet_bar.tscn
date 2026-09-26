@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://dl155ge2yt503"]
+
+[ext_resource type="Script" uid="uid://cirp4cslg3vq2" path="res://src/ui/hud/bullet_bar.gd" id="1_d74oj"]
+[ext_resource type="Texture2D" uid="uid://cux5di67x0q3o" path="res://assets/huds/bullet icon.png" id="2_side3"]
+
+[node name="BulletBar" type="Control" unique_id=1356182077]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_d74oj")
+metadata/_edit_lock_ = true
+
+[node name="BulletIcon" type="Sprite2D" parent="." unique_id=1305490222]
+position = Vector2(21, 25)
+rotation = 1.5707964
+texture = ExtResource("2_side3")
+
+[node name="BulletIcon2" type="Sprite2D" parent="." unique_id=1182444260]
+position = Vector2(31, 25)
+rotation = 1.5707964
+texture = ExtResource("2_side3")
+
+[node name="BulletIcon3" type="Sprite2D" parent="." unique_id=1576113172]
+position = Vector2(41, 25)
+rotation = 1.5707964
+texture = ExtResource("2_side3")
+
+[node name="BulletIcon4" type="Sprite2D" parent="." unique_id=1388061759]
+position = Vector2(51, 25)
+rotation = 1.5707964
+texture = ExtResource("2_side3")
+
+[node name="BulletIcon5" type="Sprite2D" parent="." unique_id=2032808613]
+position = Vector2(61, 25)
+rotation = 1.5707964
+texture = ExtResource("2_side3")
+
+[node name="BulletIcon6" type="Sprite2D" parent="." unique_id=156429782]
+position = Vector2(71, 25)
+rotation = 1.5707964
+texture = ExtResource("2_side3")
