@@ -3,4 +3,4 @@ extends BaseManager
 
 func bind_dependencies(stage: Stage):
     for c in get_children():
-        pass
+        c.bind_dependencies(stage.game.hudLayer)

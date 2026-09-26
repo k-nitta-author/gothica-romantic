@@ -27,6 +27,9 @@ signal on_potions_current_change(old_value: int, new_value: int)
 
 var is_ducking :bool
 
+func bind_to_hud(_hudLayer: HudLayer) -> void:
+	print(_hudLayer)
+
 # the use input method for the player
 func use_input(e) -> void: pass
 

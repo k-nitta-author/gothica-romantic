@@ -46,7 +46,7 @@ horizontal_alignment = 1
 [node name="eyeLevelMarker" type="Marker2D" parent="." unique_id=701200731]
 
 [node name="attackRay" type="RayCast2D" parent="." unique_id=2030597821]
-target_position = Vector2(84, 0)
+target_position = Vector2(100, 0)
 
 [node name="stateManager" type="Node" parent="." unique_id=1930031838]
 script = ExtResource("6_c31o2")

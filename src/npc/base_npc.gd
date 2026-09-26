@@ -1,11 +1,9 @@
 class_name BaseNPC
 extends Node2D
 
-
 @export var character_name : String
 @export_multiline var dialog_body : String
 @onready var dialog_array : Array = dialog_body.split("\n")
-
 
 @onready var interactionArea: Area2D = $interactArea
 @onready var bodySprite: Sprite2D = $body
@@ -18,9 +16,13 @@ var current_dialog_idx := 0
 
 signal notify_display_dialog(name: String, body: String)
 
-func bind_dependencies(stage: Stage) -> void: pass
+func bind_dependencies(hud_layer: HudLayer) -> void:
+	var dialogBox := hud_layer.dialogBox 
 
-func can_talk() -> bool: return (dialog_array.size() > 0) and is_player_interactible
+	connect("notify_display_dialog", dialogBox.display)
+
+func can_talk() -> bool:
+	return (dialog_array.size() > 0) and is_player_interactible
 
 func _ready() -> void:
 	interactionArea.connect("area_entered", on_area_entered)
