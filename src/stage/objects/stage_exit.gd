@@ -29,3 +29,6 @@ func notify_stage_change() -> void:
     if !is_usable: return 
 
     emit_signal("player_exited", NextLevel, Stage.EXIT_TYPE.TO_NEXT_STAGE, egress_idx)
+
+
+func get_spawn_point() -> Vector2: return global_position
