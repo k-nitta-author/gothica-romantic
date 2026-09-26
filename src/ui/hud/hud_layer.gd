@@ -7,7 +7,8 @@ enum STATE {
 	PAUSED,
 	SETTINGS,
 	DIED,
-	TRANSITION
+	TRANSITION,
+	DIALOG
 }
 
 @export var currentState: STATE = STATE.START_SCREEN:
@@ -16,6 +17,7 @@ enum STATE {
 
 		match currentState:
 			STATE.RESUMED:
+				dialogBox.visible = false
 				startScreen.visible = false
 				battleControl.visible = true
 				pauseGamePanel.visible = false
@@ -35,6 +37,8 @@ enum STATE {
 				battleControl.visible = false
 				diedScreen.visible = true
 				get_tree().paused = true
+			STATE.DIALOG:
+				dialogBox.visible = true
 
 @onready var dialogBox : DialogBox = $Control/DialogBox
 @onready var startScreen = $Control/StartScreen
@@ -57,6 +61,12 @@ func _ready() -> void:
 	pauseGamePanel.connect("return_to_main_menu", on_main_menu)
 
 	diedScreen.setup(self)
+
+func display_dialog(name: String, body: String) -> void:
+	
+	currentState = STATE.DIALOG
+
+	dialogBox.display(name, body)
 
 func reset() -> void:
 	battleControl.reset()

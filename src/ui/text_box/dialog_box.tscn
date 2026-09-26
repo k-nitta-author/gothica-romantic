@@ -3,10 +3,10 @@
 [ext_resource type="Script" uid="uid://csl2hp6jg65as" path="res://src/ui/text_box/dialog_box.gd" id="1_m0eb4"]
 
 [node name="DialogBox" type="Panel" unique_id=1979808780]
-visible = false
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 316.0
+offset_bottom = 155.0
 script = ExtResource("1_m0eb4")
+per_character_speed = 0.1
 
 [node name="headerLabel" type="Label" parent="." unique_id=1532363175]
 layout_mode = 0
@@ -14,6 +14,9 @@ offset_right = 40.0
 offset_bottom = 23.0
 
 [node name="bodyLabel" type="RichTextLabel" parent="." unique_id=735650042]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

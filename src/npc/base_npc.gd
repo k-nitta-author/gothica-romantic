@@ -17,9 +17,10 @@ var current_dialog_idx := 0
 signal notify_display_dialog(name: String, body: String)
 
 func bind_dependencies(hud_layer: HudLayer) -> void:
-	var dialogBox := hud_layer.dialogBox 
 
-	connect("notify_display_dialog", dialogBox.display)
+	if hud_layer == null: return
+
+	connect("notify_display_dialog", hud_layer.display_dialog)
 
 func can_talk() -> bool:
 	return (dialog_array.size() > 0) and is_player_interactible
