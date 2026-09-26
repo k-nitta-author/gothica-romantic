@@ -42,11 +42,7 @@ enum STATES{ IDLE, MOVING, JUMPING, FALLLING, MELEE, SHOOT, DUCKING, LANDING , D
 			emit_signal("has_hp_changed", self, old_value, current_hp)
 
 		if current_hp == 0 and old_value != 0:
-			emit_signal("has_died", self)
-
-			visible = false
-			isInactive = true
-			collision_layer = 64
+			handle_death()
 
 		else:
 			visible = true
@@ -119,6 +115,14 @@ var stage: Stage
 # variables to make sure actor is unable to switch while doing these
 var is_attacking: bool
 var is_shooting: bool
+
+func handle_spawn() -> void: pass
+
+func handle_death() -> void:
+	emit_signal("has_died", self)
+	visible = false
+	isInactive = true
+	collision_layer = 64
 
 # perform the basic idling actions
 # meant to be extended by child classes
@@ -222,7 +226,7 @@ func bind_dependencies(s: Stage):
 	connect("fire_gun", s.bulletManager.add_bullet)
 	connect("has_died", s.propManager.spawn_collectible)
 	connect("attacked_at_point", s.effectsManager.spawn_effects)
-
+	
 func update_is_flipped(absoluteX: float) -> void:
 	is_flipped = (velocity.x < 0) if absoluteX > 0 else is_flipped
 

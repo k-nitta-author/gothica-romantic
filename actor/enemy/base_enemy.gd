@@ -30,6 +30,11 @@ var player: Player
 @export var default_state_on_awake : BaseActor.STATES
 
 signal turn_around
+signal spawn_death_effects(pos: Vector2, is_flipped: int, splatter_type: EffectsManager.SPLATTER)
+
+func handle_death() -> void:
+	super()
+	emit_signal("spawn_death_effects", global_position, is_flipped, EffectsManager.SPLATTER.BURST_1)
 
 func set_max_melee_range(value: float):
 	max_melee_range = value
@@ -52,6 +57,8 @@ func _draw() -> void:
 
 func bind_dependencies(s: Stage):
 	super(s)
+	connect("spawn_death_effects", s.effectsManager.spawn_effects)
+	
 	player = s.get_player()
 
 func set_is_inactive(value: bool): super(value)
