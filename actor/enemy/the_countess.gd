@@ -1,3 +1,4 @@
+@tool
 extends PlatformerEnemy
 
 enum SHOOT_MODE {BASIC, FROM_ABOVE}
@@ -7,14 +8,14 @@ enum SHOOT_MODE {BASIC, FROM_ABOVE}
 @export var watching_for_player_attack: bool # if true, watch out for player sword attack
 
 # handle it; try to override current selected state when necessary
-func update() -> void:
+func update(delta) -> void:
 
 	if watching_for_player_attack:
 		
 		# do the high jump if player is too close
 		if is_player_attacking_close(): pass
 
-	super()
+	super(delta)
 
 # if player's performs attack while too close
 func is_player_attacking_close() -> bool: return player.is_attacking and abs(player.global_position.x - global_position.x) < melee_limit  

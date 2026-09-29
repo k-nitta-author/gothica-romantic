@@ -230,6 +230,10 @@ func bind_dependencies(s: Stage):
 func update_is_flipped(absoluteX: float) -> void:
 	is_flipped = (velocity.x < 0) if absoluteX > 0 else is_flipped
 
+func move_if_possible() -> void:
+	if abs(velocity.x) > 0:
+		selected_state = BaseActor.STATES.MOVING
+
 # update method; called each tick for active actors
 func update(delta):
 

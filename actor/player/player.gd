@@ -65,6 +65,9 @@ func attack() -> void:
 	anim.play("attack")
 	swordSprite.start()
 	
+func idle() -> void:
+	pass
+
 # override fall
 func fall(fall_height: float) -> void:
 	if global_position.y >= fall_height + Game.GRID_SIZE / 2: collision_mask = BaseActor.COLLIDE_WITH_TILEMAP_MASK
@@ -100,8 +103,10 @@ func load_game(data: Dictionary) -> Player:
 	return self
 
 func update(delta) -> void:
+	if current_state != null:
+		current_state.handle_input()
+
 	super(delta)
-	if current_state != null: current_state.handle_input()
 
 func on_hitbox_entered(area: Area2D):
 	# only knockback the player when they touch an enemy
@@ -113,8 +118,14 @@ func on_hitbox_entered(area: Area2D):
 # the heal method; simple
 func heal(amount: int): current_hp += amount
 
+func move_if_possible() -> void:
+	pass
+
 # overrides the parent's walk method
 func walk() -> void:
+
+	if is_attacking: return
+
 	velocity.x = Input.get_axis("move_left", "move_right") * speed
 
 # overrides the parent's shoot method
