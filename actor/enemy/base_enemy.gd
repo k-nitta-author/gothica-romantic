@@ -192,5 +192,8 @@ func update(delta):
 	update_on_ground_rays()
 
 	if !is_active or Engine.is_editor_hint(): return
-	velocity = Vector2((1 if seek_right else -1) * current_speed, 0)
+	
+	direction = Vector2(1 if seek_right else -1, 0)
+
+	velocity = Vector2(direction.x * current_speed, 0)
 	super(delta)
