@@ -21,11 +21,9 @@ func update():
 
 	state_actor.velocity.y += state_actor.speed_in_air_vertical
 
-	if abs(state_actor.velocity.x) > 0:
-		state_actor.selected_state = BaseActor.STATES.MOVING
+	state_actor.move_if_possible()
 
 func handle_input():
-
 	var has_horizontal_input := Input.is_action_pressed("move_left", true) or Input.is_action_pressed("move_right", true)  
 
 	if Input.is_action_pressed("duck") and !state_actor.is_attacking:
@@ -36,6 +34,7 @@ func handle_input():
 	elif Input.is_action_just_pressed("attack"):
 		state_actor.attack()
 		state_actor.anim.play("attack")
+		return
 
 	elif Input.is_action_pressed("shoot"):
 		state_actor.anim.play("shoot")
