@@ -7,9 +7,14 @@ func enter_state():
 
 func exit_state():
 	state_actor.anim.disconnect("animation_finished", on_animation_finished)
+	state_actor.is_attacking = false
+	state_actor.is_shooting = false
+
 
 func on_animation_finished(anim_name: String) -> void:
-	if anim_name == "land": state_actor.selected_state = BaseActor.STATES.IDLE
+	if anim_name == "land":
+		state_actor.selected_state = BaseActor.STATES.IDLE
+
 
 func update():
 	state_actor.anim.play("land")

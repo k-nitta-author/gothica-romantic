@@ -27,7 +27,6 @@ func handle_input():
 	# consume potion and reduce based on how how much hp the player has
 	if Input.is_action_pressed("drinkPotion") and state_actor.can_heal():
 		state_actor.potionManager.current_potion_count -= 1
-		state_actor.heal(Player.POTION_HEAL_AMOUNT)
 		state_actor.anim.play("drink")
 
 	if Input.is_action_pressed("duck"):
