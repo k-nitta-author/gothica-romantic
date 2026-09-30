@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://clqn4ib3qky8b"]
+
+[ext_resource type="Script" uid="uid://bbojvhbydcyxe" path="res://src/prop/collidable/gate.gd" id="1_fyn2m"]
+
+[sub_resource type="Animation" id="Animation_fyn2m"]
+resource_name = "open"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i24xw"]
+_data = {
+&"open": SubResource("Animation_fyn2m")
+}
+
+[node name="Gate" type="StaticBody2D" unique_id=1347555351]
+script = ExtResource("1_fyn2m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1677383383]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1083168192]
+
+[node name="anim" type="AnimationPlayer" parent="." unique_id=1113068900]
+libraries/ = SubResource("AnimationLibrary_i24xw")
