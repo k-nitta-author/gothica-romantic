@@ -8,11 +8,7 @@ func enter_state():
 
 	if state_actor.anim.has_animation("idle"): state_actor.anim.play("idle")
 
-func on_animation_finished(animantion_name: String):
-	pass
-
 func exit_state() -> void:
-
 	state_actor.cease_attack()
 
 func update():
@@ -26,7 +22,15 @@ func update():
 func handle_input():
 	var has_horizontal_input := Input.is_action_pressed("move_left", true) or Input.is_action_pressed("move_right", true)  
 
-	if Input.is_action_pressed("duck") and !state_actor.is_attacking:
+	if state_actor.is_attacking or state_actor.is_shooting or state_actor.is_drinking: return
+
+	# consume potion and reduce based on how how much hp the player has
+	if Input.is_action_pressed("drinkPotion") and state_actor.can_heal():
+		state_actor.potionManager.current_potion_count -= 1
+		state_actor.heal(Player.POTION_HEAL_AMOUNT)
+		state_actor.anim.play("drink")
+
+	if Input.is_action_pressed("duck"):
 		state_actor.is_ducking = true
 		state_actor.anim.play("duck")
 		state_actor.selected_state = BaseActor.STATES.DUCKING
@@ -39,9 +43,9 @@ func handle_input():
 	elif Input.is_action_pressed("shoot"):
 		state_actor.anim.play("shoot")
 
-	if has_horizontal_input and !state_actor.is_attacking:
+	if has_horizontal_input:
 		state_actor.selected_state = BaseActor.STATES.MOVING
 		return
 
-	if Input.is_action_pressed("jump") and state_actor.is_on_floor() and !state_actor.is_attacking:
+	if Input.is_action_pressed("jump") and state_actor.is_on_floor():
 		state_actor.selected_state = BaseActor.STATES.JUMPING

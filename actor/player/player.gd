@@ -26,9 +26,11 @@ signal on_bullets_max_change(old_value: int, new_value: int)
 signal on_potions_current_change(old_value: int, new_value: int)
 
 var is_ducking :bool
+var is_drinking: bool
 
-func bind_to_hud(_hudLayer: HudLayer) -> void:
-	print(_hudLayer)
+func start_drinking() -> void: is_drinking = true
+
+func stop_drinking() -> void: is_drinking = false
 
 # the use input method for the player
 func use_input(e) -> void: pass
@@ -88,10 +90,8 @@ func _unhandled_input(_event: InputEvent) -> void:
 	if current_state != null:
 		current_state.handle_input()
 
-	# consume potion and reduce based on how how much hp the player has
-	if _event.is_action_pressed("drinkPotion") and current_hp < max_hp and potionManager.current_potion_count > 0:
-		potionManager.current_potion_count -= 1
-		heal(POTION_HEAL_AMOUNT)
+func can_heal() -> bool:
+	return current_hp < max_hp and potionManager.current_potion_count > 0
 
 # sets the current flip state;
 func set_is_flipped(value: bool): super(value)
