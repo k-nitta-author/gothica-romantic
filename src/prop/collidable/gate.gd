@@ -10,7 +10,7 @@ func set_is_open(value: bool) -> void:
 	if is_open:
 		$anim.play("open")
 	else:
-		$anim.play("open", -1.0, true)
+		$anim.play_backwards("open")
 
 func on_triggered() -> void:
 	is_open = !is_open
