@@ -1,13 +1,14 @@
 [gd_scene format=3 uid="uid://clqn4ib3qky8b"]
 
 [ext_resource type="Script" uid="uid://bbojvhbydcyxe" path="res://src/prop/collidable/gate.gd" id="1_fyn2m"]
+[ext_resource type="Animation" uid="uid://bimn1yrwqrbkx" path="res://src/prop/collidable/open.res" id="2_i24xw"]
 
-[sub_resource type="Animation" id="Animation_fyn2m"]
-resource_name = "open"
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_anl2c"]
+size = Vector2(16, 32)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i24xw"]
 _data = {
-&"open": SubResource("Animation_fyn2m")
+&"open": ExtResource("2_i24xw")
 }
 
 [node name="Gate" type="StaticBody2D" unique_id=1347555351]
@@ -15,6 +16,8 @@ script = ExtResource("1_fyn2m")
 is_open = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1677383383]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_anl2c")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1083168192]
 
