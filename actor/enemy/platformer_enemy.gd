@@ -16,25 +16,14 @@ func stop_if_reach_slope(delta) -> void:
 		go()
 
 func turn_to_face_player(player_on_same_level: bool) -> void:
-
-	if player.has_gotten_up() and player_on_same_level:
+	if player.has_gotten_up() and player_on_same_level and self.can_move():
 		update_seek_right()
-
-		if !noticed_player_on_floor:
-			update_seek_right()
-			noticed_player_on_floor = true
-			selected_state = STATES.MOVING					
-	else:
-		noticed_player_on_floor = false
+		selected_state = STATES.MOVING					
 		
-
-	update_seek_right()
-
 func update(delta):
 	super(delta)
 	match currentMovementMode:
 		MOVEMENT_MODE.CHASE_PLAYER:
-			
 			stop_if_reach_slope(delta)
 
 			var player_on_same_level : bool = abs(player.global_position.y - global_position.y) < 2 and player.is_on_floor()
@@ -46,7 +35,6 @@ func update(delta):
 					go()
 
 			turn_to_face_player(player_on_same_level)
-
 
 		MOVEMENT_MODE.PATROL:
 			if is_on_wall():

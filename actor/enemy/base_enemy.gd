@@ -55,6 +55,8 @@ func _draw() -> void:
 		draw_line(Vector2(max_melee_range, -100), Vector2(max_melee_range, 0), Color.RED)
 		draw_line(Vector2(-max_melee_range, -100), Vector2(-max_melee_range, 0), Color.RED)
 
+func can_move() -> bool: return !is_stunned and is_awake
+
 func bind_dependencies(s: Stage):
 	super(s)
 	connect("spawn_death_effects", s.effectsManager.spawn_effects)
@@ -119,9 +121,13 @@ func on_hitbox_entered(area: Area2D):
 	selected_state = STATES.DAMAGED
 
 func on_vision_area_entered(_area: Area2D):
+	awaken()
+
+func awaken() -> void:
 	can_see_player = true
 	is_active = true
 	is_awake = true
+	if anim.has_animation("awaken"): anim.play("awaken")
 	
 func on_vision_area_exited(_area: Area2D): pass
 

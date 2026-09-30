@@ -14,25 +14,6 @@ func can_shoot() -> bool:
 			is_attacking or\
 			current_number_of_shots >= max_number_of_shots)
 
-func stop_if_reach_slope(delta) -> void:
-	if !selected_state == STATES.MELEE:
-		super(delta)
-	
-func turn_to_face_player(player_on_same_level: bool) -> void:
-	if selected_state == STATES.MELEE:
-		super(player_on_same_level)
-
-# extend update to allow enemy to turn around
-func update(delta):
-	super(delta)
-
-	if test_move(self.transform, direction * delta) == true and is_attacking:
-		seek_right = !seek_right
-
-# extend melee attack to res
-func attack() -> void:
-	super()
-
 # override fire method 
 func fire() -> BaseBullet:
 
