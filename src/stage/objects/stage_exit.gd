@@ -6,6 +6,8 @@ extends Area2D
 @export var NextLevel : PackedScene
 @export var egress_idx: int
 
+@onready var spawnPoint: Marker2D
+
 signal player_exited(nextLevel, exit_type, _egress)
 
 func toggle_is_usable() -> bool:
@@ -31,4 +33,4 @@ func notify_stage_change() -> void:
     emit_signal("player_exited", NextLevel, Stage.EXIT_TYPE.TO_NEXT_STAGE, egress_idx)
 
 
-func get_spawn_point() -> Vector2: return global_position
+func get_spawn_point() -> Vector2: return spawnPoint.global_position

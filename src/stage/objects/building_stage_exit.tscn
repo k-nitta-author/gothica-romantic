@@ -21,3 +21,6 @@ offset_right = 21.0
 offset_bottom = -17.0
 theme = ExtResource("3_rx78p")
 text = "Enter"
+
+[node name="spawnPoint" parent="." index="2" unique_id=2110921729]
+position = Vector2(0, 0)
