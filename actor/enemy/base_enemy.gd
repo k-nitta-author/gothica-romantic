@@ -55,7 +55,7 @@ func _draw() -> void:
 		draw_line(Vector2(max_melee_range, -100), Vector2(max_melee_range, 0), Color.RED)
 		draw_line(Vector2(-max_melee_range, -100), Vector2(-max_melee_range, 0), Color.RED)
 
-func can_move() -> bool: return !is_stunned and is_awake
+func can_move() -> bool: return !is_stunned and is_awake and !is_attacking and !is_shooting
 
 func bind_dependencies(s: Stage):
 	super(s)
@@ -138,7 +138,6 @@ func idle() -> void:
 	
 	shoot()
 	attack()
-
 
 # called when actor bumps into body
 func bump(body: Node2D) -> void: pass

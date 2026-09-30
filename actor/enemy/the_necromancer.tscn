@@ -288,6 +288,7 @@ move_state = SubResource("Resource_j5wjh")
 shoot_state = SubResource("Resource_vef74")
 falling_state = SubResource("Resource_a4p0e")
 damaged_state = SubResource("Resource_vub8o")
+is_stunned = false
 
 [node name="ColorRect" type="ColorRect" parent="." index="0" unique_id=1640993562]
 visible = false

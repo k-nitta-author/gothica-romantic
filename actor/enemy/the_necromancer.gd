@@ -14,6 +14,21 @@ func can_shoot() -> bool:
 			is_attacking or\
 			current_number_of_shots >= max_number_of_shots)
 
+func update(delta):
+	super(delta)
+
+	if is_on_wall(): seek_right = !seek_right
+
+func attack() -> void:
+	currentMovementMode = MOVEMENT_MODE.ATTACKING
+	update_seek_right()
+
+	super()
+
+func cease_attack() -> void:
+	is_attacking = false
+	currentMovementMode = MOVEMENT_MODE.CHASE_PLAYER
+
 # override fire method 
 func fire() -> BaseBullet:
 

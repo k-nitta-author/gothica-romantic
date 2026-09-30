@@ -2,7 +2,7 @@
 class_name PlatformerEnemy
 extends BaseEnemy
 
-enum MOVEMENT_MODE {CHASE_PLAYER, PATROL}
+enum MOVEMENT_MODE {CHASE_PLAYER, PATROL, ATTACKING}
 
 @export var currentMovementMode : MOVEMENT_MODE
 
@@ -21,6 +21,8 @@ func turn_to_face_player(player_on_same_level: bool) -> void:
 		selected_state = STATES.MOVING					
 		
 func update(delta):
+
+	
 	super(delta)
 	match currentMovementMode:
 		MOVEMENT_MODE.CHASE_PLAYER:
@@ -44,6 +46,9 @@ func update(delta):
 				seek_right = true
 			elif !onGroundRayRight.is_colliding():
 				seek_right = false
+
+		MOVEMENT_MODE.ATTACKING:
+			pass
 
 func update_seek_right() -> void:
 	seek_right = !(player.global_position.x < global_position.x)
