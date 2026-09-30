@@ -118,6 +118,8 @@ func on_hitbox_entered(area: Area2D):
 # the heal method; simple
 func heal(amount: int): current_hp += amount
 
+func heal_with_potion(): heal(Player.POTION_HEAL_AMOUNT)
+
 func move_if_possible() -> void:
 	pass
 
