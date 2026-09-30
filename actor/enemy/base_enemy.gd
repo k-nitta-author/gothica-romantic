@@ -165,10 +165,12 @@ func cease_shoot() -> void:
 	is_shooting = false
 	is_attacking = false
 
-func shoot():
-	var can_shoot = !(shoot_state == null or is_shooting or is_attacking)
+# override can shoot method
+func can_shoot() -> bool:
+	return !(shoot_state == null or is_shooting or is_attacking)
 
-	if can_shoot and has_player_in_shoot_range():
+func shoot():
+	if can_shoot() and has_player_in_shoot_range():
 		is_shooting = true
 		selected_state = BaseActor.STATES.SHOOT
 

@@ -8,6 +8,28 @@ enum MOVEMENT_MODE {CHASE_PLAYER, PATROL}
 
 var noticed_player_on_floor := true
 
+func stop_if_reach_slope(delta) -> void:
+	if test_move(transform, direction * speed * delta):
+		stop()
+		
+	elif selected_state == STATES.MOVING:
+		go()
+
+func turn_to_face_player(player_on_same_level: bool) -> void:
+
+	if player.has_gotten_up() and player_on_same_level:
+		update_seek_right()
+
+		if !noticed_player_on_floor:
+			update_seek_right()
+			noticed_player_on_floor = true
+			selected_state = STATES.MOVING					
+	else:
+		noticed_player_on_floor = false
+		
+
+	update_seek_right()
+
 func update(delta):
 	super(delta)
 	match currentMovementMode:
@@ -23,17 +45,8 @@ func update(delta):
 				else: 
 					go()
 
-			if player.has_gotten_up() and player_on_same_level:
-				if !noticed_player_on_floor:
-					update_seek_right()
-					noticed_player_on_floor = true
-					selected_state = STATES.MOVING					
-			else:
-				noticed_player_on_floor = false
+			turn_to_face_player(player_on_same_level)
 
-			if player_on_same_level:
-				update_seek_right()
-				return
 
 		MOVEMENT_MODE.PATROL:
 			if is_on_wall():
@@ -43,12 +56,6 @@ func update(delta):
 				seek_right = true
 			elif !onGroundRayRight.is_colliding():
 				seek_right = false
-
-func stop_if_reach_slope(delta) -> void:
-	if test_move(transform, direction * speed * delta):
-		stop()
-	else:
-		go()
 
 func update_seek_right() -> void:
 	seek_right = !(player.global_position.x < global_position.x)

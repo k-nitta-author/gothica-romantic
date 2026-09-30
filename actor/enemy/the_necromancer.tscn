@@ -9,7 +9,9 @@
 [ext_resource type="Script" uid="uid://cgcwml08u6r0s" path="res://src/state/actor/walkState.gd" id="5_fkvp5"]
 [ext_resource type="Script" uid="uid://bunbdgovyilxk" path="res://src/state/actor/shootState.gd" id="6_ya0f1"]
 [ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/shader/hitFlashShader.gdshader" id="7_kwd8c"]
+[ext_resource type="Script" uid="uid://bxro0yfjng3td" path="res://src/state/actor/fallingState.gd" id="8_a4p0e"]
 [ext_resource type="Animation" uid="uid://dc4oqu1m6whdy" path="res://actor/damaged.res" id="9_fkvp5"]
+[ext_resource type="Script" uid="uid://dmjhev2pahl57" path="res://src/state/actor/damagedState.gd" id="9_vub8o"]
 
 [sub_resource type="Resource" id="Resource_7jktm"]
 script = ExtResource("3_gulix")
@@ -28,10 +30,20 @@ script = ExtResource("6_ya0f1")
 stops_actor = true
 metadata/_custom_type_script = "uid://bunbdgovyilxk"
 
+[sub_resource type="Resource" id="Resource_a4p0e"]
+resource_local_to_scene = true
+script = ExtResource("8_a4p0e")
+metadata/_custom_type_script = "uid://bxro0yfjng3td"
+
+[sub_resource type="Resource" id="Resource_vub8o"]
+resource_local_to_scene = true
+script = ExtResource("9_vub8o")
+metadata/_custom_type_script = "uid://dmjhev2pahl57"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onahq"]
 size = Vector2(9, 20)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_60x3o"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_akxd0"]
 resource_local_to_scene = true
 shader = ExtResource("7_kwd8c")
 shader_parameter/active = false
@@ -198,11 +210,17 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.5),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.5, 1.49),
+"transitions": PackedFloat32Array(1, 1, 1),
 "values": [{
 "args": [],
+"method": &"stop"
+}, {
+"args": [],
 "method": &"fire"
+}, {
+"args": [],
+"method": &"go"
 }]
 }
 
@@ -255,6 +273,7 @@ size = Vector2(128, 64)
 script = ExtResource("2_73qie")
 max_number_of_minions = 4
 max_number_of_shots = 4
+currentMovementMode = 0
 can_see_player = true
 is_active = true
 shoot_bullet = ExtResource("3_60x3o")
@@ -267,6 +286,8 @@ idle_state = SubResource("Resource_7jktm")
 melee_state = SubResource("Resource_ryrav")
 move_state = SubResource("Resource_j5wjh")
 shoot_state = SubResource("Resource_vef74")
+falling_state = SubResource("Resource_a4p0e")
+damaged_state = SubResource("Resource_vub8o")
 
 [node name="ColorRect" type="ColorRect" parent="." index="0" unique_id=1640993562]
 visible = false
@@ -281,7 +302,7 @@ position = Vector2(-0.5, -10)
 shape = SubResource("RectangleShape2D_onahq")
 
 [node name="Sprite2D" parent="." index="2" unique_id=90387062]
-material = SubResource("ShaderMaterial_60x3o")
+material = SubResource("ShaderMaterial_akxd0")
 texture = ExtResource("2_kabjl")
 offset = Vector2(0, -16)
 hframes = 10
@@ -293,7 +314,7 @@ libraries/ = SubResource("AnimationLibrary_gulix")
 
 [node name="Hitbox" parent="." index="4" unique_id=636899970]
 collision_layer = 8
-collision_mask = 391
+collision_mask = 390
 
 [node name="CollisionShape2D" parent="Hitbox" index="0" unique_id=2047019247]
 position = Vector2(0, -12)

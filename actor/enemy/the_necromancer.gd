@@ -14,25 +14,37 @@ func can_shoot() -> bool:
 			is_attacking or\
 			current_number_of_shots >= max_number_of_shots)
 
+func stop_if_reach_slope(delta) -> void:
+	if !selected_state == STATES.MELEE:
+		super(delta)
+	
+func turn_to_face_player(player_on_same_level: bool) -> void:
+	if selected_state == STATES.MELEE:
+		super(player_on_same_level)
+
 # extend update to allow enemy to turn around
 func update(delta):
-	if hitbox.get_overlapping_bodies() and is_attacking: seek_right = !seek_right
 	super(delta)
+
+	if test_move(self.transform, direction * delta) == true and is_attacking:
+		seek_right = !seek_right
 
 # extend melee attack to res
 func attack() -> void:
 	super()
-	current_number_of_shots = 0
 
 # override fire method 
 func fire() -> BaseBullet:
 
 	var bullet: BaseBullet
 
+	const left_ward_angle = 340
+	const rightward_angle = 20
+
 	if current_number_of_shots < max_number_of_shots: 
 		bullet = super()
 
-		bullet.movement_angle = 340 if is_flipped else 20
+		bullet.movement_angle = left_ward_angle if is_flipped else rightward_angle
 
 		# assume that bullet is bone bullet 
 		bullet.current_mode.connect("spawn_at", on_spawn_actor)
