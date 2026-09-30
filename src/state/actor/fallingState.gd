@@ -28,7 +28,8 @@ func update():
     state_actor.fall(fall_height)
 
     if !state_actor.is_on_floor():
-        state_actor.anim.queue("falling")
+        if state_actor.anim.has_animation("falling"):
+            state_actor.anim.queue("falling")
         state_actor.velocity.y += state_actor.speed_in_air_vertical * fall_speed_multiplier
         state_actor.velocity.x = Input.get_axis("move_left", "move_right") * state_actor.speed_in_air_horizontal 
 

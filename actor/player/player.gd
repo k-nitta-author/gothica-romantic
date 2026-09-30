@@ -82,6 +82,9 @@ func cease_shoot() -> void:
 	is_shooting = false
 
 func has_gotten_up() -> bool:
+
+	prints(is_on_floor(), !is_stunned, !sprite.is_flashing_transparent)
+
 	return is_on_floor() and !is_stunned and !sprite.is_flashing_transparent
 
 func _unhandled_input(_event: InputEvent) -> void:
