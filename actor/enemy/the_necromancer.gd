@@ -17,7 +17,11 @@ func can_shoot() -> bool:
 func update(delta):
 	super(delta)
 
-	if is_on_wall(): seek_right = !seek_right
+	if test_move(transform, Vector2(1 if seek_right else -1, 0) * speed * delta):
+
+		print("colliding")
+
+		seek_right = !seek_right
 
 func attack() -> void:
 	currentMovementMode = MOVEMENT_MODE.ATTACKING
