@@ -245,3 +245,7 @@ func update(delta):
 	update_is_flipped(absoluteX)
 
 	move_and_slide()
+
+# method to be triggered in the event of trigger area activation
+func on_triggered() -> void:
+	pass

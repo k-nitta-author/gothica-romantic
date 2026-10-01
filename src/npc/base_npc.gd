@@ -29,7 +29,8 @@ func _ready() -> void:
 	interactionArea.connect("area_entered", on_area_entered)
 	interactionArea.connect("area_exited", on_area_exited)
 
-func next_dialog() -> String: return dialog_array.pop_front()
+func next_dialog() -> String:
+	return dialog_array.pop_front() if dialog_array.size() > 0 else ""
 
 func interact() -> void:
 	var d = next_dialog()
@@ -50,3 +51,7 @@ func on_area_exited(area: Area2D) -> void:
 func on_area_entered(area: Area2D) -> void:
 	is_player_interactible = true
 	toolTip.visible = can_talk()
+
+# method to be triggered in the event of trigger area activation
+func on_triggered() -> void:
+	pass

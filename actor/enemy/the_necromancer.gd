@@ -18,9 +18,6 @@ func update(delta):
 	super(delta)
 
 	if test_move(transform, Vector2(1 if seek_right else -1, 0) * speed * delta):
-
-		print("colliding")
-
 		seek_right = !seek_right
 
 func attack() -> void:

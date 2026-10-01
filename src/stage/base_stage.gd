@@ -130,3 +130,7 @@ func on_player_checkpoint_activated(checkpointIdx: int) -> void:
 
 # handle various nodes
 func _physics_process(_delta: float) -> void: stageCamera.update()
+
+# method to be triggered in the event of trigger area activation
+func on_triggered() -> void:
+	pass

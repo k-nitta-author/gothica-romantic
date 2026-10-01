@@ -6,3 +6,5 @@ extends StaticBody2D
 @onready var anim : AnimationPlayer = $anim
 
 func on_triggered() -> void: pass
+
+func bind_dependencies(stage) -> void: pass
