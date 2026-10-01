@@ -6,6 +6,7 @@ enum TRIGGER_MODE {ON_ENTER, ON_EXIT, ON_BOTH}
 
 signal triggered
 
+@export var disabled := false
 @export var number_of_triggers := 1
 @export var triggered_entities: Array[NodePath]
 
@@ -27,10 +28,12 @@ func update_trigger_number() -> void:
 
 	number_of_triggers -= 1
 
+	disabled = (number_of_triggers <= 0)
+
 func trigger() -> void:
 	update_trigger_number()
 
-	if number_of_triggers > 0 or -1: emit_signal("triggered")
+	if disabled or number_of_triggers == -1: emit_signal("triggered")
 
 func on_area_entered(area: Area2D) -> void:
 
