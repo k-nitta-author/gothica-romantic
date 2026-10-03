@@ -14,14 +14,14 @@ func _ready() -> void:
 func OnPropDestroyed(prop: BaseProp) -> void:
 	pass
 
-func bind_dependencies(stage: Stage) -> void:
-	super(stage)
+func bind_dependencies(_stage: Stage) -> void:
+	super(_stage)
 
 	for p in props:
 		p.bind_dependencies(stage)
 
 		if p is BreakableProp:
-			p.connect("destroyed", stage.spawn_collectible)
+			p.connect("destroyed", spawn_collectible)
 
 # called when a breakable prop or enemy is destroyed
 func spawn_collectible(node: Node) -> void:

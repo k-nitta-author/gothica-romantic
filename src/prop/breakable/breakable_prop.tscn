@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bfs1ij3f0vqhn"]
+
+[ext_resource type="PackedScene" uid="uid://fuveg7oo6a3b" path="res://src/prop/base_prop.tscn" id="1_km30a"]
+[ext_resource type="Script" uid="uid://38qvlss38ol6" path="res://src/prop/breakable/breakable_prop.gd" id="2_4qtdr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_km30a"]
+size = Vector2(16, 16)
+
+[node name="BreakableProp" unique_id=1356046424 instance=ExtResource("1_km30a")]
+script = ExtResource("2_4qtdr")
+maxHitPoints = 1
+
+[node name="CollisionShape2D" parent="." index="2" unique_id=377356270]
+shape = SubResource("RectangleShape2D_km30a")

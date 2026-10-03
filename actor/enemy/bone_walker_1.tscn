@@ -23,7 +23,7 @@ script = ExtResource("4_5fcut")
 fall_speed_multiplier = 30
 metadata/_custom_type_script = "uid://bxro0yfjng3td"
 
-[sub_resource type="Resource" id="Resource_dlblc"]
+[sub_resource type="Resource" id="Resource_j6mb5"]
 resource_local_to_scene = true
 script = ExtResource("6_j6mb5")
 metadata/_custom_type_script = "uid://dmjhev2pahl57"
@@ -31,7 +31,7 @@ metadata/_custom_type_script = "uid://dmjhev2pahl57"
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2y8y3"]
 size = Vector2(11, 23)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_np25h"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dlblc"]
 resource_local_to_scene = true
 shader = ExtResource("6_n3j8v")
 shader_parameter/active = false
@@ -145,19 +145,19 @@ script = ExtResource("2_y8pw5")
 currentMovementMode = 0
 can_see_player = true
 default_state_on_awake = 1
-max_hp = 3
+max_hp = 2
 speed = 32.0
 idle_state = SubResource("Resource_lgiv4")
 move_state = SubResource("Resource_5fcut")
 falling_state = SubResource("Resource_gp64u")
-damaged_state = SubResource("Resource_dlblc")
+damaged_state = SubResource("Resource_j6mb5")
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=900505443]
 position = Vector2(0, -12)
 shape = SubResource("RectangleShape2D_2y8y3")
 
 [node name="Sprite2D" parent="." index="1" unique_id=90387062]
-material = SubResource("ShaderMaterial_np25h")
+material = SubResource("ShaderMaterial_dlblc")
 texture = ExtResource("2_vl8vt")
 offset = Vector2(0, -16)
 hframes = 13

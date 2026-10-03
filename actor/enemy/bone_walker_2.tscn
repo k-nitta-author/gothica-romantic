@@ -23,7 +23,7 @@ script = ExtResource("4_awo14")
 fall_speed_multiplier = 30
 metadata/_custom_type_script = "uid://bxro0yfjng3td"
 
-[sub_resource type="Resource" id="Resource_s5u1w"]
+[sub_resource type="Resource" id="Resource_2g5vl"]
 resource_local_to_scene = true
 script = ExtResource("6_2g5vl")
 metadata/_custom_type_script = "uid://dmjhev2pahl57"
@@ -31,7 +31,7 @@ metadata/_custom_type_script = "uid://dmjhev2pahl57"
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q1xjc"]
 size = Vector2(20, 10)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_uklk5"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s5u1w"]
 resource_local_to_scene = true
 shader = ExtResource("5_5xplo")
 shader_parameter/active = false
@@ -85,19 +85,19 @@ size = Vector2(224, 20)
 [node name="bone_walker_2" unique_id=1016638848 instance=ExtResource("1_oomqi")]
 script = ExtResource("2_m0wve")
 currentMovementMode = 0
-max_hp = 5
+max_hp = 2
 speed = 23.0
 idle_state = SubResource("Resource_y8pw5")
 move_state = SubResource("Resource_bor3t")
 falling_state = SubResource("Resource_jwqhm")
-damaged_state = SubResource("Resource_s5u1w")
+damaged_state = SubResource("Resource_2g5vl")
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=900505443]
 position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_q1xjc")
 
 [node name="Sprite2D" parent="." index="1" unique_id=90387062]
-material = SubResource("ShaderMaterial_uklk5")
+material = SubResource("ShaderMaterial_s5u1w")
 texture = ExtResource("2_a8e7q")
 offset = Vector2(0, -16)
 hframes = 2
