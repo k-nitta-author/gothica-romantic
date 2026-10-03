@@ -4,6 +4,8 @@ extends BaseManager
 @onready var player := $Player
 @onready var bosses : Array
 
+var camera
+
 var can_update := false
 
 # get the current boss
@@ -17,7 +19,13 @@ func on_actor_died(_actor: BaseActor) -> void:
 	pass
 
 # spawn actor
-func spawn_actor(actorScene: BaseActor) -> void:
+func spawn_actor(actorScene: BaseActor, custom_position: Vector2, relative_to_camera := false) -> void:
+	
+	# handle the cases where the entity is meant to spawn relative to the camera
+	if relative_to_camera:
+		actorScene.global_position = custom_position + camera.global_position
+	else:
+		actorScene.global_position = custom_position
 
 	actorScene.bind_dependencies(stage)
 	actorScene.connect("has_died", on_actor_died)
@@ -27,6 +35,8 @@ func spawn_actor(actorScene: BaseActor) -> void:
 # called by actor manager to add references to stage and members
 func bind_dependencies(_stage: Stage) -> void:
 	super(_stage)
+
+	camera = _stage.stageCamera
 
 	for c in get_children():
 		c.bind_dependencies(stage)
