@@ -9,10 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://dg1rfyd6o38d5" path="res://src/prop/breakable/breakable_tiki_torch.tscn" id="6_ucxni"]
 [ext_resource type="PackedScene" uid="uid://b61j80iimhqu1" path="res://actor/enemy/bone_walker_2.tscn" id="7_dlaim"]
 [ext_resource type="Script" uid="uid://dmjhev2pahl57" path="res://src/state/actor/damagedState.gd" id="7_e1dd1"]
-[ext_resource type="AudioStream" uid="uid://dcmdarilvcsha" path="res://assets/sound/music/Dead of Night.ogg" id="7_ox7i6"]
+[ext_resource type="AudioStream" uid="uid://v8dj0t38kwey" path="res://assets/sound/music/Dead of Night.ogg" id="7_ox7i6"]
 [ext_resource type="PackedScene" uid="uid://cxsby52u3jvyi" path="res://src/stage/objects/building_stage_exit.tscn" id="11_e1dd1"]
 [ext_resource type="PackedScene" uid="uid://lih51qc7nuh6" path="res://src/stage/levels/level 1/level_1_2.tscn" id="12_rjdfb"]
-[ext_resource type="Texture2D" uid="uid://c36cukj88tyjs" path="res://assets/props/tall village sign.png" id="13_ucxni"]
+[ext_resource type="Texture2D" uid="uid://bfexfq4q5p55t" path="res://assets/props/tall village sign.png" id="13_ucxni"]
 
 [sub_resource type="Resource" id="Resource_ucxni"]
 resource_local_to_scene = true
@@ -98,21 +98,27 @@ limit_bottom = 180
 
 [node name="Breakable tiki torch" parent="PropManager" parent_id_path=PackedInt32Array(1772769532) index="0" unique_id=1356046424 instance=ExtResource("6_ucxni")]
 position = Vector2(336, 112)
+collision_layer = 2
 
 [node name="Breakable tiki torch6" parent="PropManager" parent_id_path=PackedInt32Array(1772769532) index="1" unique_id=100894265 instance=ExtResource("6_ucxni")]
 position = Vector2(272, 136)
+collision_layer = 2
 
 [node name="Breakable tiki torch2" parent="PropManager" parent_id_path=PackedInt32Array(1772769532) index="2" unique_id=1662226141 instance=ExtResource("6_ucxni")]
 position = Vector2(464, 48)
+collision_layer = 2
 
 [node name="Breakable tiki torch3" parent="PropManager" parent_id_path=PackedInt32Array(1772769532) index="3" unique_id=547215200 instance=ExtResource("6_ucxni")]
 position = Vector2(592, 112)
+collision_layer = 2
 
 [node name="Breakable tiki torch4" parent="PropManager" parent_id_path=PackedInt32Array(1772769532) index="4" unique_id=2037181863 instance=ExtResource("6_ucxni")]
 position = Vector2(672, 112)
+collision_layer = 2
 
 [node name="Breakable tiki torch5" parent="PropManager" parent_id_path=PackedInt32Array(1772769532) index="5" unique_id=662463673 instance=ExtResource("6_ucxni")]
 position = Vector2(760, 64)
+collision_layer = 2
 
 [node name="camp fire" parent="." index="6" unique_id=403609203 instance=ExtResource("3_7e248")]
 position = Vector2(392, 144)
@@ -122,7 +128,7 @@ stream = ExtResource("7_ox7i6")
 autoplay = true
 
 [node name="Player" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="0" unique_id=1016638848]
-position = Vector2(96, 144)
+position = Vector2(168, 142)
 collision_layer = 65
 
 [node name="bone walker 1" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="1" unique_id=1860559279 instance=ExtResource("4_m6153")]
@@ -147,12 +153,17 @@ is_stunned = false
 
 [node name="bone walker 5" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="5" unique_id=161866868 instance=ExtResource("4_m6153")]
 position = Vector2(696, 80)
+currentMovementMode = 1
+is_active = true
+is_awake = true
 damaged_state = SubResource("Resource_mbsx4")
 is_stunned = false
 
 [node name="bone walker 6" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="6" unique_id=981386775 instance=ExtResource("4_m6153")]
 position = Vector2(632, 96)
+currentMovementMode = 1
 is_active = true
+is_awake = true
 damaged_state = SubResource("Resource_tsqfm")
 is_stunned = false
 

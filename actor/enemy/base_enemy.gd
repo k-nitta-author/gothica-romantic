@@ -2,7 +2,7 @@
 class_name BaseEnemy
 extends BaseActor
 
-const COLLIDE_WITH_ENEMY_AND_TILEMAP := 136
+const COLLIDE_WITH_ENEMY_AND_TILEMAP := 1150
 
 @export var is_boss : bool
 
@@ -63,7 +63,10 @@ func bind_dependencies(s: Stage):
 	
 	player = s.get_player()
 
-func set_is_inactive(value: bool): super(value)
+func set_is_inactive(value: bool):
+	super(value)
+
+	if isInactive: collision_layer = 0
 
 func set_is_awake(value: bool):
 	var old_value = is_awake
@@ -121,7 +124,7 @@ func on_hitbox_entered(area: Area2D):
 	selected_state = STATES.DAMAGED
 
 func on_vision_area_entered(_area: Area2D):
-	awaken()
+	if !is_awake: awaken()
 
 func awaken() -> void:
 	can_see_player = true

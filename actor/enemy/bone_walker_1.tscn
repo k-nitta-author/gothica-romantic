@@ -179,3 +179,9 @@ shape = SubResource("RectangleShape2D_vl8vt")
 
 [node name="sound sfx stream" parent="." index="5" unique_id=599329136]
 volume_db = -5.0
+
+[node name="onGroundRayLeft" parent="." index="11" unique_id=106873137]
+collision_mask = 1152
+
+[node name="onGroundRayRight" parent="." index="12" unique_id=1587773550]
+collision_mask = 1152

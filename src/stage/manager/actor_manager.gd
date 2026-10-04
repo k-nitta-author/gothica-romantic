@@ -54,9 +54,9 @@ func _physics_process(delta: float) -> void:
 
 	# update
 	for c: BaseActor in get_children():
-		if c.isInactive: continue
+		if is_instance_valid(c):
 
-		c.update(delta)
+			c.update(delta)
 
 # controls the player's use of input
 func _unhandled_input(event: InputEvent) -> void:
