@@ -2,7 +2,6 @@ class_name BreakableProp
 extends BaseProp
 
 func OnAreaEntered(area: Area2D) -> void:
-	
 	if area.owner is Player:
 		hitPoints -= 1
 
