@@ -7,6 +7,7 @@ const COLLIDE_WITH_ENEMY_AND_TILEMAP := 1150
 @export var is_boss : bool
 
 @export_category("Activity")
+@export var can_collide_with_enemies : bool
 @export var seek_right : bool # if true, the enemy seeks the right
 @export var can_see_player : bool
 @export var is_active : bool # if active, it can move and be interacted with
@@ -101,6 +102,8 @@ func _ready() -> void:
 
 	visionArea.connect("area_entered", on_vision_area_entered)
 	visionArea.connect("area_exited", on_vision_area_exited)
+
+	collision_layer = COLLIDE_WITH_ENEMY_AND_TILEMAP if can_collide_with_enemies else COLLIDE_WITH_TILEMAP_MASK
 
 func on_hitbox_body_entered(body: Node2D) -> void: bump(body)
 

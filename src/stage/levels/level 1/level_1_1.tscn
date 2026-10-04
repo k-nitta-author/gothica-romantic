@@ -142,7 +142,7 @@ damaged_state = SubResource("Resource_s7p1w")
 is_stunned = false
 
 [node name="bone walker 3" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="3" unique_id=1546476230 instance=ExtResource("4_m6153")]
-position = Vector2(536, 144)
+position = Vector2(541, 144)
 damaged_state = SubResource("Resource_rrysp")
 is_stunned = false
 

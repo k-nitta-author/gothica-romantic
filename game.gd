@@ -46,7 +46,6 @@ func save() -> void: saveManager.create_save_file(current_save_idx, save_handler
 
 # save file handler callback function 
 func save_handler(f: FileAccess):
-
 	var file = f
 
 	file.store_string(

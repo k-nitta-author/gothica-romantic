@@ -19,8 +19,8 @@ func _ready() -> void:
 
 		connect("triggered", n.on_triggered)
 
-	self.connect("area_entered", on_area_entered)
-	self.connect("area_exited", on_area_exited)
+	connect("area_entered", on_area_entered)
+	connect("area_exited", on_area_exited)
 
 func update_trigger_number() -> void:
 
@@ -37,10 +37,10 @@ func trigger() -> void:
 
 func on_area_entered(area: Area2D) -> void:
 
-	if currentTriggerMode ==  TRIGGER_MODE.ON_BOTH or currentTriggerMode ==  TRIGGER_MODE.ON_ENTER: 
+	if currentTriggerMode == TRIGGER_MODE.ON_BOTH or currentTriggerMode ==  TRIGGER_MODE.ON_ENTER: 
 		trigger()
 
 func on_area_exited(area: Area2D) -> void:
 
-	if currentTriggerMode ==  TRIGGER_MODE.ON_BOTH or currentTriggerMode ==  TRIGGER_MODE.ON_EXIT: 
+	if currentTriggerMode == TRIGGER_MODE.ON_BOTH or currentTriggerMode ==  TRIGGER_MODE.ON_EXIT: 
 		trigger()

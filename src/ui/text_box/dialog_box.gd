@@ -6,8 +6,16 @@ extends Panel
 
 @export var per_character_speed := .01
 
+func _unhandled_input(event: InputEvent) -> void:
+    if event.is_action_pressed("interact"): pass
+
 func display(name_header: String, body: String) -> void:
-    visible = true
+    
+    if body == "":
+        visible = false
+        return
+    
+    visible = true 
 
     headerTextLabel.text = name_header
     richTextLabel.text = body

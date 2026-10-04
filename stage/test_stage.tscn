@@ -1,23 +1,20 @@
 [gd_scene format=4 uid="uid://cfahshfar4way"]
 
 [ext_resource type="PackedScene" uid="uid://clvcbegfjryqm" path="res://src/stage/base_stage.tscn" id="1_onahq"]
-[ext_resource type="PackedScene" uid="uid://cxsby52u3jvyi" path="res://src/stage/objects/building_stage_exit.tscn" id="2_586ph"]
-[ext_resource type="PackedScene" uid="uid://by85cuupa4bsh" path="res://src/stage/levels/level 1/level_1_3.tscn" id="3_q1xjc"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uqb0r"]
+[ext_resource type="PackedScene" uid="uid://dlq0odq54nr0e" path="res://src/npc/base_npc.tscn" id="2_586ph"]
 
 [node name="test_stage" unique_id=1917536022 instance=ExtResource("1_onahq")]
 
 [node name="TileMapLayer" parent="." index="0" unique_id=1855226038]
 tile_map_data = PackedByteArray("AAAMAAgAAAADAAAAAAALAAgAAAADAAAAAAAKAAgAAAADAAAAAAAJAAgAAAADAAAAAAAIAAgAAAADAAAAAAAHAAgAAAADAAAAAAAGAAgAAAADAAAAAAAFAAgAAAADAAAAAAAEAAgAAAADAAAAAAADAAgAAAADAAAAAAACAAgAAAADAAAAAAANAAgAAAADAAAAAAAOAAgAAAADAAAAAAAPAAgAAAADAAAAAAAQAAgAAAADAAAAAAARAAgAAAADAAAAAAASAAgAAAADAAAAAAATAAgAAAADAAAAAAATAAcAAAADAAAAAAATAAYAAAADAAAAAAATAAUAAAADAAAAAAATAAQAAAADAAAAAAATAAMAAAADAAAAAAABAAgAAAADAAAAAAAAAAgAAAADAAAAAAAAAAcAAAADAAAAAAAAAAYAAAADAAAAAAAAAAUAAAADAAAAAAAAAAQAAAADAAAAAAAAAAMAAAADAAAAAAABAAMAAAADAAAAAAA=")
 
+[node name="BaseNPC" parent="NPCManager" parent_id_path=PackedInt32Array(279987436) index="0" unique_id=542130944 instance=ExtResource("2_586ph")]
+position = Vector2(229, 129)
+character_name = "TEST"
+dialog_body = "test
+test
+chuck testa
+i love you!"
+
 [node name="Player" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="0" unique_id=1016638848]
 position = Vector2(152, 129)
-
-[node name="BuildingStageExit" parent="ExitManager" parent_id_path=PackedInt32Array(1155323200) index="0" unique_id=173771773 instance=ExtResource("2_586ph")]
-position = Vector2(207, 117)
-NextLevel = ExtResource("3_q1xjc")
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="ExitManager/BuildingStageExit" index="2" unique_id=320604316]
-shape = SubResource("RectangleShape2D_uqb0r")
