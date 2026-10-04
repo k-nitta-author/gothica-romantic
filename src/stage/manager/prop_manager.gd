@@ -11,7 +11,7 @@ func _ready() -> void:
 	for p in props:
 		p.connect("destroyed", OnPropDestroyed)
 
-func OnPropDestroyed(prop: BaseProp) -> void:
+func OnPropDestroyed(_prop: BaseProp) -> void:
 	pass
 
 func bind_dependencies(_stage: Stage) -> void:

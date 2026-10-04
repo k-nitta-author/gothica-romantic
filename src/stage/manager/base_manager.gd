@@ -5,5 +5,5 @@ extends Node
 var stage: Stage
 
 # load deps into this and child classes
-func bind_dependencies(stage: Stage):
-	self.stage = stage
+func bind_dependencies(_stage: Stage):
+	self.stage = _stage

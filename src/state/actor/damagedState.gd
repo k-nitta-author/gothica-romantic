@@ -23,7 +23,7 @@ func exit_state():
 	state_actor.anim.disconnect("animation_finished", on_animation_finished)
 	state_actor.is_stunned = false
 
-func on_animation_finished(animation_name: String) -> void:
+func on_animation_finished(_animation_name: String) -> void:
 	state_actor.selected_state = BaseActor.STATES.IDLE
 
 func update():

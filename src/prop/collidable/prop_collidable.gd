@@ -7,4 +7,4 @@ extends StaticBody2D
 
 func on_triggered() -> void: pass
 
-func bind_dependencies(stage) -> void: pass
+func bind_dependencies(_stage) -> void: pass

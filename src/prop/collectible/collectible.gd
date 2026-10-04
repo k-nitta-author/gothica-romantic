@@ -9,7 +9,7 @@ func _ready() -> void:
 	super()
 	connect("body_entered", on_body_entered)
 
-func on_body_entered(body: Node2D) -> void: fall_speed = 0
+func on_body_entered(_body: Node2D) -> void: fall_speed = 0
 
 func _physics_process(delta: float) -> void:
 

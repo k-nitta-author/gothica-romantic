@@ -1,7 +1,7 @@
 class_name NPCManager
 extends BaseManager
 
-func bind_dependencies(stage: Stage):
+func bind_dependencies(_stage: Stage):
 
 	if stage.game == null: return
 

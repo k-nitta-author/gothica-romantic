@@ -36,7 +36,7 @@ func set_is_inactive(value: bool):
 func _ready() -> void:
 	self.connect("area_entered", OnAreaEntered)
 
-func OnAreaEntered(area: Area2D) -> void:
+func OnAreaEntered(_area: Area2D) -> void:
 	hitPoints -= 1
 
 # to be overriden by child classes
@@ -44,7 +44,7 @@ func update() -> void:
 
 	if isInactive: return
 
-func bind_dependencies(stage: Stage) -> void:
+func bind_dependencies(_stage: Stage) -> void:
 	pass
 
 func on_triggered() -> void:

@@ -7,7 +7,7 @@ func get_stage_door_by_idx(door_idx: int) -> StageExit:
 	return children[door_idx]
 
 # load deps into this and child classes
-func bind_dependencies(stage: Stage):
+func bind_dependencies(_stage: Stage):
 	super(stage)
 	for c in children:
 		c.bind_to_stage(stage)

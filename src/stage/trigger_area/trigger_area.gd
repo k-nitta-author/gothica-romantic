@@ -35,12 +35,12 @@ func trigger() -> void:
 
 	if disabled or number_of_triggers == -1: emit_signal("triggered")
 
-func on_area_entered(area: Area2D) -> void:
+func on_area_entered(_area: Area2D) -> void:
 
 	if currentTriggerMode == TRIGGER_MODE.ON_BOTH or currentTriggerMode ==  TRIGGER_MODE.ON_ENTER: 
 		trigger()
 
-func on_area_exited(area: Area2D) -> void:
+func on_area_exited(_area: Area2D) -> void:
 
 	if currentTriggerMode == TRIGGER_MODE.ON_BOTH or currentTriggerMode ==  TRIGGER_MODE.ON_EXIT: 
 		trigger()

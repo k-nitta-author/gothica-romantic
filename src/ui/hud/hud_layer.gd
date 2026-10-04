@@ -62,11 +62,11 @@ func _ready() -> void:
 
 	diedScreen.setup(self)
 
-func display_dialog(name: String, body: String) -> void:
+func display_dialog(header_name: String, body: String) -> void:
 	
 	currentState = STATE.DIALOG
 
-	dialogBox.display(name, body)
+	dialogBox.display(header_name, body)
 
 func reset() -> void:
 	battleControl.reset()

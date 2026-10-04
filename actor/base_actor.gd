@@ -151,7 +151,7 @@ func on_hitbox_entered(_area: Area2D) -> void: pass
 
 # do a falling motion
 # extend as needed
-func fall(fall_height: float) -> void: pass
+func fall(_fall_height: float) -> void: pass
 
 # setter for the isInactive variable
 func set_is_inactive(value: bool) -> void:
@@ -178,7 +178,7 @@ func set_is_flipped(value: bool):
 		stateLabel.scale.x *= -1
 
 # perform a knockback and throw the actor in a given direction
-func knockback(area: Area2D) -> void: pass
+func knockback(_area: Area2D) -> void: pass
 
 # bind the actor to the hud if it affects the hud
 func bind_to_hud(_hudLayer: HudLayer) -> void: pass
@@ -235,7 +235,7 @@ func move_if_possible() -> void:
 		selected_state = BaseActor.STATES.MOVING
 
 # update method; called each tick for active actors
-func update(delta):
+func update(_delta):
 
 	if current_state != null:
 		current_state.update()
