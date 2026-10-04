@@ -66,13 +66,19 @@ func attack() -> void:
 	is_attacking = true
 	anim.play("attack")
 	swordSprite.start()
+
+func jump_attack() -> void:
+	is_attacking = true
+	anim.play("jump attack")
+	swordSprite.start()
 	
 func idle() -> void:
 	pass
 
 # override fall
 func fall(fall_height: float) -> void:
-	if global_position.y >= fall_height + Game.GRID_SIZE / 2: collision_mask = BaseActor.COLLIDE_WITH_TILEMAP_MASK
+	if global_position.y >= fall_height + Game.GRID_SIZE / 2:
+		collision_mask = BaseActor.COLLIDE_WITH_TILEMAP_MASK
 
 # overrides the base method
 func cease_attack() -> void:

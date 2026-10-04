@@ -17,8 +17,7 @@ func handle_input():
     if state_actor.is_attacking: return
 
     if Input.is_action_pressed("attack"):
-        state_actor.attack()
-        state_actor.anim.play("jump attack")
+        state_actor.jump_attack()
 
     if Input.is_action_pressed("shoot"):
         state_actor.anim.play("jump shoot")
@@ -34,8 +33,6 @@ func update():
         state_actor.velocity.x = Input.get_axis("move_left", "move_right") * state_actor.speed_in_air_horizontal 
 
     else:
-        
-
         if state_actor.landing_state != null:
             state_actor.selected_state = state_actor.STATES.LANDING
 
