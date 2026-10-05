@@ -1425,7 +1425,6 @@ landing_state = SubResource("Resource_qws1g")
 falling_state = SubResource("Resource_a72po")
 ducking_state = SubResource("Resource_wu1np")
 damaged_state = SubResource("Resource_xhyqv")
-is_stunned = true
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=900505443]
 position = Vector2(0, -12.25)

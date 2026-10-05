@@ -3,7 +3,7 @@ extends BaseManager
 
 func bind_dependencies(_stage: Stage):
 
-	if stage.game == null: return
+	if _stage.game == null: return
 
 	for c in get_children():
-		c.bind_dependencies(stage.game.hudLayer)
+		c.bind_dependencies(_stage.game.hudLayer)

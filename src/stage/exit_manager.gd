@@ -8,9 +8,9 @@ func get_stage_door_by_idx(door_idx: int) -> StageExit:
 
 # load deps into this and child classes
 func bind_dependencies(_stage: Stage):
-	super(stage)
+	super(_stage)
 	for c in children:
-		c.bind_to_stage(stage)
+		c.bind_to_stage(_stage)
 
 # called whenever the player body touches any stageExit
 # alerts the stage that it is time to pack up and go

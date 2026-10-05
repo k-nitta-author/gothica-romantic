@@ -11,14 +11,14 @@ extends Area2D
 signal player_exited(nextLevel, exit_type, _egress)
 
 func toggle_is_usable() -> bool:
-    
-    is_usable = !is_usable
+	
+	is_usable = !is_usable
 
-    return is_usable 
+	return is_usable 
 
 func bind_to_stage(stage: Stage) -> void:
 
-    connect("player_exited", stage.end)
+	connect("player_exited", stage.end)
 
 func _ready() -> void: connect("body_entered", on_body_entered)
 
@@ -28,9 +28,9 @@ func on_body_entered(_body: Node2D) -> void: notify_stage_change()
 # the stage change method
 func notify_stage_change() -> void:
 
-    if !is_usable: return 
+	if !is_usable: return 
 
-    emit_signal("player_exited", NextLevel, Stage.EXIT_TYPE.TO_NEXT_STAGE, egress_idx)
+	emit_signal("player_exited", NextLevel, Stage.EXIT_TYPE.TO_NEXT_STAGE, egress_idx)
 
 
 func get_spawn_point() -> Vector2: return spawnPoint.global_position
