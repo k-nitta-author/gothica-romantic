@@ -116,6 +116,9 @@ var stage: Stage
 var is_attacking: bool
 var is_shooting: bool
 
+func has_gotten_up() -> bool:
+	return is_on_floor() and !is_stunned and !sprite.is_flashing_transparent
+
 func handle_spawn() -> void: pass
 
 func handle_death() -> void:
