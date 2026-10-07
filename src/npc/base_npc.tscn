@@ -6,6 +6,25 @@
 resource_local_to_scene = true
 size = Vector2(20, 35)
 
+[sub_resource type="Animation" id="Animation_mqlr0"]
+resource_name = "idle"
+loop_mode = 1
+
+[sub_resource type="Animation" id="Animation_gweer"]
+resource_name = "move"
+loop_mode = 1
+
+[sub_resource type="Animation" id="Animation_cklcc"]
+resource_name = "talk"
+loop_mode = 1
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bcvmn"]
+_data = {
+&"idle": SubResource("Animation_mqlr0"),
+&"move": SubResource("Animation_gweer"),
+&"talk": SubResource("Animation_cklcc")
+}
+
 [node name="BaseNPC" type="Node2D" unique_id=542130944]
 script = ExtResource("1_qjylp")
 dialog_body = "test
@@ -34,3 +53,4 @@ offset_bottom = -40.0
 text = "talk?"
 
 [node name="anim" type="AnimationPlayer" parent="." unique_id=1943608236]
+libraries/ = SubResource("AnimationLibrary_bcvmn")

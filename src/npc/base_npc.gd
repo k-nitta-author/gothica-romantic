@@ -23,14 +23,23 @@ func set_current_state(value: STATES):
 
 	currentState = value
 
-	match currentState:
-		STATES.IDLE:
-			pass
-		STATES.TALKING:
-			pass
-		STATES.MOVING:
-			pass
+	animate_state(currentState)
 
+func animate_state(state: STATES):
+
+	if self.is_node_ready(): await ready
+
+	var anim_name: String
+
+	match state:
+		STATES.IDLE:
+			anim_name = "idle"
+		STATES.TALKING:
+			anim_name = "talk"
+		STATES.MOVING:
+			anim_name = "move"
+
+	anim.play(anim_name)
 
 func bind_dependencies(hud_layer: HudLayer) -> void:
 
