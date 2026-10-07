@@ -2,6 +2,7 @@
 class_name FlyingEnemy
 extends BaseEnemy
 
+@export var charge_speed: float = 35	
 @export var fly_in_loop: bool
 @export var fly_range: float
 
@@ -11,13 +12,8 @@ extends BaseEnemy
 
 var is_out_of_bounds: bool
 
-func _ready() -> void:
-
-	super()
-
-	connect("turn_around", on_turn_around)
-
 func on_turn_around(_currentPosition :Vector2) -> void: pass
+
 
 func fly() -> void:
 	anim.play("fly")
@@ -27,12 +23,14 @@ func fly() -> void:
 
 	is_out_of_bounds = !(global_position.x > fly_range_left_edge and global_position.x < fly_range_right_edge)
 
+	attack()
+
 	update_seek_right()
 
 func attack() -> void:
 	super()
 
-	velocity = global_position.direction_to(player.get_eye_level()) * speed
+	velocity = global_position.direction_to(player.get_eye_level()) * charge_speed
 
 func update(delta):
 	if !is_active: return

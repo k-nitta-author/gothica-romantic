@@ -87,6 +87,7 @@ size = Vector2(20, 13)
 size = Vector2(243, 50)
 
 [node name="crow" unique_id=1016638848 instance=ExtResource("1_fj116")]
+collision_layer = 1152
 script = ExtResource("2_ulv0h")
 fly_in_loop = true
 fly_range = 128.0
@@ -94,9 +95,10 @@ can_collide_with_enemies = false
 is_active = true
 is_awake = true
 max_shoot_range = 161.0
+death_burst = null
+default_state_on_awake = 4
 max_hp = 1
 speed = 10.0
-selected_state = 1
 idle_state = SubResource("Resource_586ph")
 melee_state = SubResource("Resource_h0qai")
 move_state = SubResource("Resource_q1xjc")

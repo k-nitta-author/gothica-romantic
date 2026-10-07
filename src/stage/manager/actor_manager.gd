@@ -35,11 +35,11 @@ func spawn_actor(actorScene: BaseActor, custom_position: Vector2, relative_to_ca
 # called by actor manager to add references to stage and members
 func bind_dependencies(_stage: Stage) -> void:
 	super(_stage)
-
+	
 	camera = _stage.stageCamera
 
 	for c in get_children():
-		c.bind_dependencies(stage)
+		c.bind_dependencies(_stage)
 		c.connect("has_died", on_actor_died)
 		if c is BaseEnemy and c.is_boss: bosses.append(c)
 

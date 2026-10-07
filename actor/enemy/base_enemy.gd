@@ -19,7 +19,7 @@ const COLLIDE_WITH_ENEMY_AND_TILEMAP := 1150
 @export_range(0.0, 1000, 1.0) var max_shoot_range : float = 100: set = set_max_shoot_range
 
 @export_category("misc")
-@export var death_burst : EffectsManager.SPLATTER
+@export var death_burst := EffectsManager.SPLATTER.BURST_1
 
 @export var melee_limit : float = 100
 
@@ -38,7 +38,7 @@ signal spawn_death_effects(pos: Vector2, is_flipped: int, splatter_type: Effects
 
 func handle_death() -> void:
 	super()
-	emit_signal("spawn_death_effects", global_position, is_flipped, EffectsManager.SPLATTER.BURST_1)
+	emit_signal("spawn_death_effects", global_position, is_flipped, death_burst)
 
 func set_max_melee_range(value: float):
 	max_melee_range = value
@@ -49,6 +49,20 @@ func set_max_shoot_range(value: float):
 	queue_redraw()
 
 func hit_stun() -> void: anim.play("hitStun")
+
+func _ready() -> void:
+	super()
+
+	# configure on ground ray
+	onGroundRayLeft.top_level = true
+	onGroundRayRight.top_level = true
+
+	hitbox.connect("body_entered", on_hitbox_body_entered)
+
+	visionArea.connect("area_entered", on_vision_area_entered)
+	visionArea.connect("area_exited", on_vision_area_exited)
+
+	collision_layer = COLLIDE_WITH_ENEMY_AND_TILEMAP if can_collide_with_enemies else COLLIDE_WITH_TILEMAP_MASK
 
 func _draw() -> void:
 
@@ -67,6 +81,8 @@ func bind_dependencies(s: Stage):
 	
 	player = s.get_player()
 
+	print(player)
+
 func set_is_inactive(value: bool):
 	super(value)
 
@@ -79,10 +95,8 @@ func set_is_awake(value: bool):
 	if !self.is_node_ready(): await ready
 
 	if is_awake and is_awake != old_value: 
-		if anim.has_animation("awaken"): anim.play("awaken")
-
-		else: selected_state = default_state_on_awake
-
+		awaken()
+		
 func set_is_flipped(value: bool):
 
 	if !can_flip: return
@@ -93,20 +107,6 @@ func set_is_flipped(value: bool):
 	if old_value != is_flipped:
 		scale.x *= -1
 		stateLabel.scale.x *= -1
-
-func _ready() -> void:
-	super()
-
-	# configure on ground ray
-	onGroundRayLeft.top_level = true
-	onGroundRayRight.top_level = true
-
-	hitbox.connect("body_entered", on_hitbox_body_entered)
-
-	visionArea.connect("area_entered", on_vision_area_entered)
-	visionArea.connect("area_exited", on_vision_area_exited)
-
-	collision_layer = COLLIDE_WITH_ENEMY_AND_TILEMAP if can_collide_with_enemies else COLLIDE_WITH_TILEMAP_MASK
 
 func on_hitbox_body_entered(body: Node2D) -> void: bump(body)
 
@@ -122,24 +122,18 @@ func on_hitbox_entered(area: Area2D):
 		current_hp -= 1
 
 		# wake up the enemy if they aren't already
-		can_see_player = true
-		is_active = true
-		is_awake = true
-		selected_state = default_state_on_awake
+		awaken()
 
 	selected_state = STATES.DAMAGED
 
-func on_vision_area_entered(_area: Area2D):
-
-	print(_area)
-
-	if !is_awake: awaken()
+func on_vision_area_entered(_area: Area2D): if !is_awake: awaken()
 
 func awaken() -> void:
 	can_see_player = true
 	is_active = true
 	is_awake = true
 	if anim.has_animation("awaken"): anim.play("awaken")
+	selected_state = default_state_on_awake
 	
 func on_vision_area_exited(_area: Area2D): pass
 

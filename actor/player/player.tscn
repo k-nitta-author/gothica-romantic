@@ -1484,7 +1484,7 @@ region_rect = Rect2(240, 96, 48, 16)
 [node name="firingPoint" type="Marker2D" parent="gunshot" index="0" unique_id=889340305]
 
 [node name="eyeLevelMarker" parent="." index="8" unique_id=701200731]
-position = Vector2(0, -23)
+position = Vector2(0, -14)
 
 [node name="glass shards" type="Sprite2D" parent="." index="9" unique_id=1956933719]
 visible = false
