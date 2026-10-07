@@ -17,7 +17,7 @@ func _ready() -> void:
 
 	connect("turn_around", on_turn_around)
 
-func on_turn_around(currentPosition :Vector2) -> void: pass
+func on_turn_around(_currentPosition :Vector2) -> void: pass
 
 func fly() -> void:
 	anim.play("fly")

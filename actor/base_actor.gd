@@ -122,7 +122,7 @@ func has_gotten_up() -> bool:
 func handle_spawn() -> void: pass
 
 func handle_death() -> void:
-	emit_signal("has_died", self)
+	emit_signal("has_died", self, null)
 	visible = false
 	isInactive = true
 	collision_layer = 64

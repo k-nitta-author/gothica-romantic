@@ -19,7 +19,7 @@ var hitPoints : int:
 		
 		isInactive = (hitPoints == 0)            
 
-signal destroyed(prop: BaseProp)
+signal destroyed(prop: BaseProp, dropped_item: CollectibleProp)
 
 func get_eye_level() -> Vector2: return eyeLevelMarker.global_position
 
@@ -31,7 +31,7 @@ func set_is_inactive(value: bool):
 
 		visible = !value
 
-		if isInactive: emit_signal("destroyed", self)
+		if isInactive: emit_signal("destroyed", self, null)
 
 func _ready() -> void:
 	self.connect("area_entered", OnAreaEntered)

@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dam2cxs8um8t1"]
 
-[ext_resource type="Texture2D" uid="uid://cpcu1sqr438lq" path="res://assets/effects/sharp splatter.png" id="1_joan7"]
+[ext_resource type="Texture2D" uid="uid://d2ewbho0cb8w2" path="res://assets/effects/sharp splatter.png" id="1_joan7"]
 [ext_resource type="PackedScene" uid="uid://rp5sdj2ja1c5" path="res://src/sound effects/sound_sfx_stream.tscn" id="2_eeefv"]
-[ext_resource type="AudioStream" uid="uid://dbj5jeiwy6nku" path="res://assets/sound/sfx/enemy hurt1.wav" id="2_ggph8"]
+[ext_resource type="AudioStream" uid="uid://kqfsdgvjders" path="res://assets/sound/sfx/enemy hurt1.wav" id="2_ggph8"]
 
 [sub_resource type="Animation" id="Animation_2hao6"]
 length = 0.001

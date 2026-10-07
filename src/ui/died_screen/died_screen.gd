@@ -18,7 +18,7 @@ func bind_to_player(p: Player) -> void:
 	player = p
 	player.connect("has_died", show_screen)
 
-func show_screen(p: Player) -> void:
+func show_screen(_p: Player) -> void:
 	hud_layer.currentState = HudLayer.STATE.DIED
 
 # return to the main menu; the player has given up

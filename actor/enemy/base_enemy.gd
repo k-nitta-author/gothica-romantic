@@ -18,6 +18,9 @@ const COLLIDE_WITH_ENEMY_AND_TILEMAP := 1150
 @export_range(0.0, 1000, 1.0) var max_melee_range : float = 100: set = set_max_melee_range
 @export_range(0.0, 1000, 1.0) var max_shoot_range : float = 100: set = set_max_shoot_range
 
+@export_category("misc")
+@export var death_burst : EffectsManager.SPLATTER
+
 @export var melee_limit : float = 100
 
 var player: Player
@@ -127,6 +130,9 @@ func on_hitbox_entered(area: Area2D):
 	selected_state = STATES.DAMAGED
 
 func on_vision_area_entered(_area: Area2D):
+
+	print(_area)
+
 	if !is_awake: awaken()
 
 func awaken() -> void:
@@ -146,7 +152,7 @@ func idle() -> void:
 	attack()
 
 # called when actor bumps into body
-func bump(body: Node2D) -> void: pass
+func bump(_body: Node2D) -> void: pass
 
 func walk() -> void:
 	shoot()

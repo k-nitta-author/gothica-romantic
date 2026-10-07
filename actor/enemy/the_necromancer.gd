@@ -29,6 +29,7 @@ func attack() -> void:
 func cease_attack() -> void:
 	is_attacking = false
 	currentMovementMode = MOVEMENT_MODE.CHASE_PLAYER
+	
 
 # override fire method 
 func fire() -> BaseBullet:
@@ -57,6 +58,7 @@ func on_spawn_actor(actor: BaseActor)-> void:
 
 func on_spawned_actor_died(_actor: BaseActor) -> void:
 	current_number_of_minions -= 1
+	current_number_of_shots -= 1
 
 # override the original method to ensure necromancer cannot turn around
 func update_seek_right() -> void: if !is_attacking: super()

@@ -33,6 +33,10 @@ window/handheld/orientation=1
 
 project/assembly_name="gothica-romantic"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/GDQuest_GDScript_formatter/plugin.cfg")
+
 [gui]
 
 theme/default_font_subpixel_positioning=0

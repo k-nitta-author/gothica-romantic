@@ -33,7 +33,7 @@ func start_drinking() -> void: is_drinking = true
 func stop_drinking() -> void: is_drinking = false
 
 # the use input method for the player
-func use_input(e) -> void: pass
+func use_input(_e) -> void: pass
 
 # override the knockback method for the player
 func knockback(area: Area2D) -> void:

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cydfoii50pto8"]
 
 [ext_resource type="Texture2D" uid="uid://ismacln3g4qo" path="res://assets/effects/burst into flame 1.png" id="1_exeux"]
-[ext_resource type="AudioStream" uid="uid://t1oslv0b78mv" path="res://assets/sound/sfx/burst into flame 1.wav" id="2_vfe41"]
+[ext_resource type="AudioStream" uid="uid://bwa0l55vshdjn" path="res://assets/sound/sfx/burst into flame 1.wav" id="2_vfe41"]
 
 [sub_resource type="Animation" id="Animation_vfe41"]
 length = 0.001
@@ -20,7 +20,6 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_dy0cj"]
 resource_name = "anim"
-loop_mode = 1
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false

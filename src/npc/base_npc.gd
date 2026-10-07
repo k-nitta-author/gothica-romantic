@@ -1,6 +1,9 @@
 class_name BaseNPC
 extends Node2D
 
+enum STATES {IDLE, TALKING, MOVING}
+@export var currentState : STATES: set = set_current_state
+
 @export var character_name : String
 @export_multiline var dialog_body : String
 @onready var dialog_array : Array = dialog_body.split("\n")
@@ -15,6 +18,19 @@ var is_player_interactible: bool
 var current_dialog_idx := 0
 
 signal notify_display_dialog(name: String, body: String)
+
+func set_current_state(value: STATES):
+
+	currentState = value
+
+	match currentState:
+		STATES.IDLE:
+			pass
+		STATES.TALKING:
+			pass
+		STATES.MOVING:
+			pass
+
 
 func bind_dependencies(hud_layer: HudLayer) -> void:
 
@@ -44,11 +60,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		interact()
 		toolTip.visible = can_talk()
 
-func on_area_exited(area: Area2D) -> void:
+func on_area_exited(_area: Area2D) -> void:
 	is_player_interactible = false
 	toolTip.visible = can_talk()
 
-func on_area_entered(area: Area2D) -> void:
+func on_area_entered(_area: Area2D) -> void:
 	is_player_interactible = true
 	toolTip.visible = can_talk()
 

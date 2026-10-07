@@ -2,6 +2,25 @@
 
 [ext_resource type="PackedScene" uid="uid://clvcbegfjryqm" path="res://src/stage/base_stage.tscn" id="1_onahq"]
 [ext_resource type="PackedScene" uid="uid://dlq0odq54nr0e" path="res://src/npc/base_npc.tscn" id="2_586ph"]
+[ext_resource type="PackedScene" uid="uid://dvawblx0cc6nd" path="res://actor/crow.tscn" id="3_senlp"]
+[ext_resource type="Script" uid="uid://bxro0yfjng3td" path="res://src/state/actor/fallingState.gd" id="4_yy3ao"]
+[ext_resource type="Script" uid="uid://dmjhev2pahl57" path="res://src/state/actor/damagedState.gd" id="5_3n4se"]
+[ext_resource type="PackedScene" uid="uid://cbvhks3dybpch" path="res://actor/enemy/bone_walker_1.tscn" id="6_yy3ao"]
+
+[sub_resource type="Resource" id="Resource_3n4se"]
+resource_local_to_scene = true
+script = ExtResource("4_yy3ao")
+metadata/_custom_type_script = "uid://bxro0yfjng3td"
+
+[sub_resource type="Resource" id="Resource_ewe00"]
+resource_local_to_scene = true
+script = ExtResource("5_3n4se")
+metadata/_custom_type_script = "uid://dmjhev2pahl57"
+
+[sub_resource type="Resource" id="Resource_872rw"]
+resource_local_to_scene = true
+script = ExtResource("5_3n4se")
+metadata/_custom_type_script = "uid://dmjhev2pahl57"
 
 [node name="test_stage" unique_id=1917536022 instance=ExtResource("1_onahq")]
 
@@ -9,7 +28,7 @@
 tile_map_data = PackedByteArray("AAAMAAgAAAADAAAAAAALAAgAAAADAAAAAAAKAAgAAAADAAAAAAAJAAgAAAADAAAAAAAIAAgAAAADAAAAAAAHAAgAAAADAAAAAAAGAAgAAAADAAAAAAAFAAgAAAADAAAAAAAEAAgAAAADAAAAAAADAAgAAAADAAAAAAACAAgAAAADAAAAAAANAAgAAAADAAAAAAAOAAgAAAADAAAAAAAPAAgAAAADAAAAAAAQAAgAAAADAAAAAAARAAgAAAADAAAAAAASAAgAAAADAAAAAAATAAgAAAADAAAAAAATAAcAAAADAAAAAAATAAYAAAADAAAAAAATAAUAAAADAAAAAAATAAQAAAADAAAAAAATAAMAAAADAAAAAAABAAgAAAADAAAAAAAAAAgAAAADAAAAAAAAAAcAAAADAAAAAAAAAAYAAAADAAAAAAAAAAUAAAADAAAAAAAAAAQAAAADAAAAAAAAAAMAAAADAAAAAAABAAMAAAADAAAAAAA=")
 
 [node name="BaseNPC" parent="NPCManager" parent_id_path=PackedInt32Array(279987436) index="0" unique_id=542130944 instance=ExtResource("2_586ph")]
-position = Vector2(229, 129)
+position = Vector2(462, 113)
 character_name = "TEST"
 dialog_body = "test
 test
@@ -17,4 +36,28 @@ chuck testa
 i love you!"
 
 [node name="Player" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="0" unique_id=1016638848]
-position = Vector2(152, 129)
+position = Vector2(102, 127)
+
+[node name="crow" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="1" unique_id=1854384410 instance=ExtResource("3_senlp")]
+position = Vector2(247, 8)
+collision_layer = 1152
+fly_in_loop = Object(Area2D,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"oversampling_with_scale":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, 0),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"disable_mode":0,"collision_layer":0,"collision_mask":1,"collision_priority":1.0,"input_pickable":true,"monitoring":true,"monitorable":false,"priority":0,"gravity_space_override":0,"gravity_point":false,"gravity_point_unit_distance":0.0,"gravity_point_center":Vector2(0, 1),"gravity_direction":Vector2(0, 1),"gravity":980.0,"linear_damp_space_override":0,"linear_damp":0.1,"angular_damp_space_override":0,"angular_damp":1.0,"audio_bus_override":false,"audio_bus_name":&"Master","script":null)
+
+can_see_player = true
+death_burst = null
+default_state_on_awake = Object(Marker2D,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"oversampling_with_scale":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, 0),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"gizmo_extents":10.0,"script":null)
+
+selected_state = 0
+falling_state = SubResource("Resource_3n4se")
+damaged_state = SubResource("Resource_ewe00")
+
+[node name="bone walker 1" parent="ActorManager" parent_id_path=PackedInt32Array(411187778) index="2" unique_id=1608974614 instance=ExtResource("6_yy3ao")]
+position = Vector2(235, 129)
+collision_layer = 1152
+currentMovementMode = Object(Area2D,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"oversampling_with_scale":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, 0),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"disable_mode":0,"collision_layer":0,"collision_mask":1,"collision_priority":1.0,"input_pickable":true,"monitoring":true,"monitorable":false,"priority":0,"gravity_space_override":0,"gravity_point":false,"gravity_point_unit_distance":0.0,"gravity_point_center":Vector2(0, 1),"gravity_direction":Vector2(0, 1),"gravity":980.0,"linear_damp_space_override":0,"linear_damp":0.1,"angular_damp_space_override":0,"angular_damp":1.0,"audio_bus_override":false,"audio_bus_name":&"Master","script":null)
+
+can_collide_with_enemies = false
+death_burst = null
+default_state_on_awake = Object(Marker2D,"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"oversampling_with_scale":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, 0),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"gizmo_extents":10.0,"script":null)
+
+damaged_state = SubResource("Resource_872rw")

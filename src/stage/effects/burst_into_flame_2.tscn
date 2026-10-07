@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://4y0q6cwaf2vx"]
 
-[ext_resource type="Texture2D" uid="uid://dvxaewhwsgqe1" path="res://assets/effects/burst into flame 2.png" id="1_ns7t5"]
+[ext_resource type="Texture2D" uid="uid://bu8reywvp0vx7" path="res://assets/effects/burst into flame 2.png" id="1_ns7t5"]
 
 [sub_resource type="Animation" id="Animation_4negh"]
 length = 0.001

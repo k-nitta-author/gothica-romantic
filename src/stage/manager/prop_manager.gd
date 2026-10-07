@@ -24,8 +24,14 @@ func bind_dependencies(_stage: Stage) -> void:
 			p.connect("destroyed", spawn_collectible)
 
 # called when a breakable prop or enemy is destroyed
-func spawn_collectible(node: Node) -> void:
-	
+func spawn_collectible(node: Node, dropped_item: CollectibleProp) -> void:
+
+	var dropPos : Vector2 = node.get_eye_level()
+
+	if dropped_item != null:
+		dropped_item.global_position = dropPos
+		call_deferred("add_child", dropped_item)
+
 	randomize()
 
 	var random_number := randi_range(0, 6)
@@ -38,8 +44,6 @@ func spawn_collectible(node: Node) -> void:
 
 	else: drop = DROPS.NONE
 
-	var dropPos : Vector2 = node.get_eye_level()
-	
 	add_collectible(drop, dropPos)
 
 func add_collectible(drop: DROPS, pos: Vector2) -> void:

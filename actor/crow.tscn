@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://b4gnx3i6umkvr" path="res://src/state/actor/flyState.gd" id="3_0pd04"]
 [ext_resource type="Script" uid="uid://rmir0bixb5pe" path="res://src/state/actor/flyingChargeState.gd" id="3_ulv0h"]
 [ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/shader/hitFlashShader.gdshader" id="6_dcuvm"]
+[ext_resource type="Script" uid="uid://bxro0yfjng3td" path="res://src/state/actor/fallingState.gd" id="6_l3v6p"]
+[ext_resource type="Script" uid="uid://dmjhev2pahl57" path="res://src/state/actor/damagedState.gd" id="7_lyc2u"]
 [ext_resource type="Animation" uid="uid://dc4oqu1m6whdy" path="res://actor/damaged.res" id="8_tqso1"]
 
 [sub_resource type="Resource" id="Resource_586ph"]
@@ -21,10 +23,20 @@ metadata/_custom_type_script = "uid://rmir0bixb5pe"
 script = ExtResource("3_0pd04")
 metadata/_custom_type_script = "uid://b4gnx3i6umkvr"
 
+[sub_resource type="Resource" id="Resource_l3v6p"]
+resource_local_to_scene = true
+script = ExtResource("6_l3v6p")
+metadata/_custom_type_script = "uid://bxro0yfjng3td"
+
+[sub_resource type="Resource" id="Resource_lyc2u"]
+resource_local_to_scene = true
+script = ExtResource("7_lyc2u")
+metadata/_custom_type_script = "uid://dmjhev2pahl57"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fj116"]
 size = Vector2(20, 10)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_dcuvm"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kqsfo"]
 resource_local_to_scene = true
 shader = ExtResource("6_dcuvm")
 shader_parameter/active = false
@@ -78,20 +90,25 @@ size = Vector2(243, 50)
 script = ExtResource("2_ulv0h")
 fly_in_loop = true
 fly_range = 128.0
+can_collide_with_enemies = false
 is_active = true
 is_awake = true
+max_shoot_range = 161.0
 max_hp = 1
 speed = 10.0
+selected_state = 1
 idle_state = SubResource("Resource_586ph")
 melee_state = SubResource("Resource_h0qai")
 move_state = SubResource("Resource_q1xjc")
+falling_state = SubResource("Resource_l3v6p")
+damaged_state = SubResource("Resource_lyc2u")
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=900505443]
 position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_fj116")
 
 [node name="Sprite2D" parent="." index="1" unique_id=90387062]
-material = SubResource("ShaderMaterial_dcuvm")
+material = SubResource("ShaderMaterial_kqsfo")
 texture = ExtResource("2_dhd1x")
 offset = Vector2(0, -6)
 hframes = 3
