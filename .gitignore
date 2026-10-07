@@ -11,6 +11,7 @@ export.cfg
 export_credentials.cfg
 *.tmp
 *.import
+addons/
 
 # Imported translations (automatically generated from CSV files)
 *.translation
