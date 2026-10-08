@@ -62,7 +62,7 @@ func _ready() -> void:
 	visionArea.connect("area_entered", on_vision_area_entered)
 	visionArea.connect("area_exited", on_vision_area_exited)
 
-	collision_layer = COLLIDE_WITH_ENEMY_AND_TILEMAP if can_collide_with_enemies else COLLIDE_WITH_TILEMAP_MASK
+	collision_layer = COLLIDE_WITH_ENEMY_AND_TILEMAP if !can_collide_with_enemies else COLLIDE_WITH_TILEMAP_MASK
 
 func _draw() -> void:
 
@@ -78,11 +78,8 @@ func can_move() -> bool: return !is_stunned and is_awake and !is_attacking and !
 func bind_dependencies(s: Stage):
 	super(s)
 	connect("spawn_death_effects", s.effectsManager.spawn_effects)
-	
 	player = s.get_player()
-
-	print(player)
-
+	
 func set_is_inactive(value: bool):
 	super(value)
 
@@ -95,7 +92,11 @@ func set_is_awake(value: bool):
 	if !self.is_node_ready(): await ready
 
 	if is_awake and is_awake != old_value: 
-		awaken()
+	
+		if anim.has_animation("awaken"):
+			anim.play("awaken")		
+		else:
+			awaken()
 		
 func set_is_flipped(value: bool):
 
@@ -122,18 +123,23 @@ func on_hitbox_entered(area: Area2D):
 		current_hp -= 1
 
 		# wake up the enemy if they aren't already
-		awaken()
+		if !is_awake:
+			can_see_player = true
+			is_active = true
+			is_awake = true
+			selected_state = default_state_on_awake
 
 	selected_state = STATES.DAMAGED
 
-func on_vision_area_entered(_area: Area2D): if !is_awake: awaken()
+func on_vision_area_entered(_area: Area2D):
+	
+	if !is_awake: awaken()
 
 func awaken() -> void:
 	can_see_player = true
 	is_active = true
 	is_awake = true
 	if anim.has_animation("awaken"): anim.play("awaken")
-	selected_state = default_state_on_awake
 	
 func on_vision_area_exited(_area: Area2D): pass
 
