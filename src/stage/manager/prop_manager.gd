@@ -11,7 +11,7 @@ func _ready() -> void:
 	for p in props:
 		p.connect("destroyed", OnPropDestroyed)
 
-func OnPropDestroyed(_prop: BaseProp) -> void:
+func OnPropDestroyed(_prop: BaseProp, dropped_item: CollectibleProp) -> void:
 	pass
 
 func bind_dependencies(_stage: Stage) -> void:

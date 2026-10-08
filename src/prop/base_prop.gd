@@ -31,7 +31,9 @@ func set_is_inactive(value: bool):
 
 		visible = !value
 
-		if isInactive: emit_signal("destroyed", self, null)
+		if isInactive: destroy()
+		
+func destroy() -> void: emit_signal("destroyed", self, null)
 
 func _ready() -> void:
 	self.connect("area_entered", OnAreaEntered)
