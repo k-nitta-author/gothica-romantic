@@ -4,6 +4,8 @@ extends BaseActor
 
 const COLLIDE_WITH_ENEMY_AND_TILEMAP := 1150
 
+@export var current_item_drop := PropManager.DROPS.NONE
+
 @export var is_boss : bool
 
 @export_category("Activity")
@@ -39,6 +41,7 @@ signal spawn_death_effects(pos: Vector2, is_flipped: int, splatter_type: Effects
 func handle_death() -> void:
 	super()
 	emit_signal("spawn_death_effects", global_position, is_flipped, death_burst)
+	emit_signal("spawn_collectible", self, current_item_drop)
 
 func set_max_melee_range(value: float):
 	max_melee_range = value
@@ -62,7 +65,8 @@ func _ready() -> void:
 	visionArea.connect("area_entered", on_vision_area_entered)
 	visionArea.connect("area_exited", on_vision_area_exited)
 
-	collision_layer = COLLIDE_WITH_ENEMY_AND_TILEMAP if !can_collide_with_enemies else COLLIDE_WITH_TILEMAP_MASK
+	if Engine.is_editor_hint():
+		collision_layer = COLLIDE_WITH_ENEMY_AND_TILEMAP if !can_collide_with_enemies else COLLIDE_WITH_TILEMAP_MASK
 
 func _draw() -> void:
 
@@ -206,6 +210,9 @@ func update_on_ground_rays() -> void:
 
 	onGroundRayRight.global_position.x = global_position.x + collision_shape.shape.size.x
 	onGroundRayRight.global_position.y = global_position.y
+
+func drop_item() -> void:
+	pass
 
 func update(delta):
 	update_on_ground_rays()

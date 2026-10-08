@@ -1,11 +1,12 @@
+class_name PropManager
 extends BaseManager
 
 @onready var props := get_children()
 
+enum DROPS {NONE, HP, BULLET}
+
 var bullet_collectible := preload("uid://dm5vcf468tpcc")
 var hp_collectible := preload("uid://c0mt74e0g4ia6")
-
-enum DROPS {NONE, HP, BULLET}
 
 func _ready() -> void:
 	for p in props:
@@ -24,13 +25,21 @@ func bind_dependencies(_stage: Stage) -> void:
 			p.connect("destroyed", spawn_collectible)
 
 # called when a breakable prop or enemy is destroyed
-func spawn_collectible(node: Node, dropped_item: CollectibleProp) -> void:
+func spawn_collectible(node: Node, dropped_item: DROPS) -> void:
 
 	var dropPos : Vector2 = node.get_eye_level()
+	var item: CollectibleProp
 
-	if dropped_item != null:
-		dropped_item.global_position = dropPos
-		call_deferred("add_child", dropped_item)
+	match dropped_item:
+
+		DROPS.BULLET:
+			item = bullet_collectible.instantiate()
+		DROPS.HP:
+			item = hp_collectible.instantiate()
+
+	if item != null:
+		item.global_position = dropPos
+		call_deferred("add_child", item)
 
 	randomize()
 

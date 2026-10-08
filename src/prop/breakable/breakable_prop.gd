@@ -2,11 +2,16 @@ class_name BreakableProp
 extends BaseProp
 
 # the item that gets dropped on destruction
-@export var item_drop : PackedScene
+@export var current_item_drop := PropManager.DROPS.NONE
+
+signal spawn_collectible(dropped_item: PropManager.DROPS)
+
+func bind_dependencies(_stage: Stage) -> void:
+	connect("spawn_collectible", _stage.propManager.spawn_collectible)
 
 func destroy() -> void:
-	if item_drop != null:
-		emit_signal("destroyed", self, item_drop.instantiate())
+	if current_item_drop != PropManager.DROPS.NONE:
+		emit_signal("spawn_collectible", self, current_item_drop)
 
 func OnAreaEntered(area: Area2D) -> void:
 	if area.owner is Player:

@@ -43,6 +43,7 @@ _data = {
 }
 
 [node name="Breakable tiki torch" unique_id=1356046424 instance=ExtResource("1_0xmey")]
+current_item_drop = 0
 
 [node name="Sprite2D" parent="." index="0" unique_id=1300293945]
 texture = ExtResource("2_05i2p")

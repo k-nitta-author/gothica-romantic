@@ -129,6 +129,9 @@ interact={
 2d_physics/layer_10="stage_exit"
 2d_physics/layer_11="one_way_platform"
 2d_physics/layer_12="npc"
+2d_physics/layer_13="prop_collectible"
+2d_physics/layer_14="prop_breakable"
+2d_physics/layer_15="prop_other"
 
 [rendering]
 

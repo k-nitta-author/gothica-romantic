@@ -105,6 +105,7 @@ var current_state : ActorState:
 		current_state.enter_state()
 
 # all relevant signals
+signal spawn_collectible(actor:BaseActor, dropped_item: PropManager.DROPS)
 signal has_died(actor: BaseActor) # send when actor died
 signal has_hp_changed(actor: BaseActor, old_hp: float, new_hp: float) # when hp is changed
 signal fire_gun(bulletScene: BaseBullet, position: Vector2) # when the actor fires the gun
@@ -227,7 +228,7 @@ func bind_dependencies(s: Stage):
 	stage = s
 
 	connect("fire_gun", s.bulletManager.add_bullet)
-	connect("has_died", s.propManager.spawn_collectible)
+	connect("spawn_collectible", s.propManager.spawn_collectible)
 	connect("attacked_at_point", s.effectsManager.spawn_effects)
 	
 func update_is_flipped(absoluteX: float) -> void:

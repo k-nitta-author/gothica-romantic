@@ -7,8 +7,9 @@
 size = Vector2(16, 16)
 
 [node name="BreakableProp" unique_id=1356046424 instance=ExtResource("1_km30a")]
-collision_layer = 0
+collision_layer = 8192
 script = ExtResource("2_4qtdr")
+current_item_drop = 0
 maxHitPoints = 1
 
 [node name="CollisionShape2D" parent="." index="2" unique_id=377356270]
