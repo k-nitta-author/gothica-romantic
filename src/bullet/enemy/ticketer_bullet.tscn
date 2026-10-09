@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://be7boo2erqi25"]
+
+[ext_resource type="PackedScene" uid="uid://40g6jm0jhmbr" path="res://src/bullet/enemy/enemy_bullet.tscn" id="1_eyf4m"]
+[ext_resource type="Texture2D" uid="uid://btbcyyojca5bv" path="res://assets/enemies/bullets/ticketer bullet.png" id="2_32ep5"]
+
+[node name="TicketerBullet" unique_id=483994798 instance=ExtResource("1_eyf4m")]
+
+[node name="Sprite2D" parent="." index="0" unique_id=1823953356]
+texture = ExtResource("2_32ep5")

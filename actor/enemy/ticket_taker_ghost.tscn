@@ -2,32 +2,45 @@
 
 [ext_resource type="PackedScene" uid="uid://bthmcawypnud2" path="res://actor/enemy/platformer_enemy.tscn" id="1_v1blb"]
 [ext_resource type="Script" uid="uid://cciei67yuitw5" path="res://src/state/actor/idleState.gd" id="2_1aiiw"]
+[ext_resource type="PackedScene" uid="uid://be7boo2erqi25" path="res://src/bullet/enemy/ticketer_bullet.tscn" id="2_pec2k"]
 [ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/shader/hitFlashShader.gdshader" id="2_vuvht"]
 [ext_resource type="Script" uid="uid://cgcwml08u6r0s" path="res://src/state/actor/walkState.gd" id="3_mxwn0"]
 [ext_resource type="Texture2D" uid="uid://c8uopi64je6yl" path="res://assets/enemies/ticket taker ghost.png" id="3_okmm4"]
 [ext_resource type="Texture2D" uid="uid://1yg2otv0v56a" path="res://assets/effects/mini flashbang.png" id="4_1aiiw"]
 [ext_resource type="Script" uid="uid://bunbdgovyilxk" path="res://src/state/actor/shootState.gd" id="4_8legm"]
+[ext_resource type="Script" uid="uid://bxro0yfjng3td" path="res://src/state/actor/fallingState.gd" id="6_ijv6w"]
 [ext_resource type="Animation" uid="uid://dc4oqu1m6whdy" path="res://actor/damaged.res" id="7_mxwn0"]
+[ext_resource type="Script" uid="uid://dmjhev2pahl57" path="res://src/state/actor/damagedState.gd" id="7_vrex7"]
 
-[sub_resource type="Resource" id="Resource_q1xjc"]
+[sub_resource type="Resource" id="Resource_h2awn"]
 resource_local_to_scene = true
 script = ExtResource("2_1aiiw")
 metadata/_custom_type_script = "uid://cciei67yuitw5"
 
-[sub_resource type="Resource" id="Resource_senlp"]
+[sub_resource type="Resource" id="Resource_h5l0d"]
 resource_local_to_scene = true
 script = ExtResource("3_mxwn0")
 metadata/_custom_type_script = "uid://cgcwml08u6r0s"
 
-[sub_resource type="Resource" id="Resource_1aiiw"]
+[sub_resource type="Resource" id="Resource_mvo78"]
 resource_local_to_scene = true
 script = ExtResource("4_8legm")
 metadata/_custom_type_script = "uid://bunbdgovyilxk"
 
+[sub_resource type="Resource" id="Resource_gic42"]
+resource_local_to_scene = true
+script = ExtResource("6_ijv6w")
+metadata/_custom_type_script = "uid://bxro0yfjng3td"
+
+[sub_resource type="Resource" id="Resource_vk7r8"]
+resource_local_to_scene = true
+script = ExtResource("7_vrex7")
+metadata/_custom_type_script = "uid://dmjhev2pahl57"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v1blb"]
 size = Vector2(12, 20)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_mxwn0"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uocxa"]
 resource_local_to_scene = true
 shader = ExtResource("2_vuvht")
 shader_parameter/active = false
@@ -200,23 +213,25 @@ size = Vector2(14, 22)
 size = Vector2(128, 8)
 
 [node name="ticket taker ghost" unique_id=1016638848 instance=ExtResource("1_v1blb")]
-currentMovementMode = 0
 can_see_player = true
 is_active = true
+shoot_bullet = ExtResource("2_pec2k")
 max_melee_range = 39.0
 max_shoot_range = 193.0
 default_state_on_awake = 1
 max_hp = 4
-idle_state = SubResource("Resource_q1xjc")
-move_state = SubResource("Resource_senlp")
-shoot_state = SubResource("Resource_1aiiw")
+idle_state = SubResource("Resource_h2awn")
+move_state = SubResource("Resource_h5l0d")
+shoot_state = SubResource("Resource_mvo78")
+falling_state = SubResource("Resource_gic42")
+damaged_state = SubResource("Resource_vk7r8")
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=900505443]
 position = Vector2(0, -10)
 shape = SubResource("RectangleShape2D_v1blb")
 
 [node name="Sprite2D" parent="." index="1" unique_id=90387062]
-material = SubResource("ShaderMaterial_mxwn0")
+material = SubResource("ShaderMaterial_uocxa")
 texture = ExtResource("3_okmm4")
 offset = Vector2(2, -16)
 hframes = 6
