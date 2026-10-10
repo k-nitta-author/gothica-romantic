@@ -1,6 +1,6 @@
 extends Control
 
-enum STATES {BASIC, SAVE_GAME_MODAL, SETTINGS, HIDDEN}
+enum STATES {BASIC, SAVE_GAME_MODAL, SETTINGS, HIDDEN, CREDITS}
 
 var current_state := STATES.BASIC: set = set_current_state
 
@@ -8,10 +8,11 @@ var current_state := STATES.BASIC: set = set_current_state
 signal start_level()
 
 # intiialize each button
-@onready var startButton := $startButton
-@onready var loadButton := $continueButton
-@onready var settingsButton := $settingsButton
-@onready var exitButton := $exitButton
+@onready var startButton: Button = $startButton
+@onready var loadButton: Button = $continueButton
+@onready var settingsButton: Button = $settingsButton
+@onready var exitButton: Button = $exitButton
+@onready var creditsButton: Button = $creditsButton
 
 # the save game modal
 var save_game_modal
@@ -20,6 +21,9 @@ var save_game_modal_scene : PackedScene = preload("uid://dy0j84bmvhox2")
 # the settigns modal 
 var settings_modal
 var settings_modal_scene : PackedScene = preload("uid://dkxidum8tt7pr")
+
+var credits_modal
+var credits_modal_scene: PackedScene = preload("uid://h3xcdqrct8og")
 
 var game : Game
 
@@ -32,6 +36,8 @@ func exit_old_state(value: STATES) -> void:
 		STATES.SETTINGS:
 			pass
 		STATES.HIDDEN:
+			pass
+		STATES.CREDITS:
 			pass
 
 func set_current_state(value: STATES) -> void:
@@ -55,6 +61,8 @@ func set_current_state(value: STATES) -> void:
 		STATES.HIDDEN:
 			pass
 			#hide()
+		STATES.CREDITS:
+			pass
 
 func bind_to_game(g: Game) -> void:
 	game = g
@@ -65,6 +73,7 @@ func _ready() -> void:
 	startButton.connect("pressed", start_game)
 	loadButton.connect("pressed", load_game)
 	settingsButton.connect("pressed", settings_menu)
+	creditsButton.connect("pressed", show_credits)
 	exitButton.connect("pressed", exit_game)
 
 # show the save game modal
@@ -99,6 +108,14 @@ func load_game() -> void: show_save_game_modal()
 
 # called when the settings button is clicked
 func settings_menu() -> void: show_settings_modal()
+
+func show_credits() -> void:
+	credits_modal = credits_modal_scene.instantiate()
+	credits_modal.connect("return_to_previous_screen", on_quit_credits)
+	add_child(credits_modal)
+
+func on_quit_credits() -> void:
+	credits_modal.queue_free()
 
 # called when the exit button is clicked
 func exit_game() -> void: get_tree().quit()
