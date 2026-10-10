@@ -128,6 +128,7 @@ size = Vector2(16, 32)
 size = Vector2(32, 16)
 
 [node name="mansion flame statue" unique_id=760342094 instance=ExtResource("1_wth0g")]
+collision_layer = 16384
 
 [node name="anim" parent="." index="0" unique_id=1267973547]
 libraries/ = SubResource("AnimationLibrary_3g6s0")
