@@ -102,17 +102,13 @@ func unload_stage() -> void:
 	stage.call_deferred("queue_free")
 
 # called whenever the start level signal
-func on_start_level(from_beginning: bool) -> void:
-
-	if from_beginning: start_screen.show_save_game_modal()
-
-	else:
-		effectLayer.play_transition(EffectsLayer.TRANS.WIPE_UP)
-		await effectLayer.transition_finished
-		
-		# now actually start the stage
-		start_game()
-		save()
+func on_start_level() -> void:
+	effectLayer.play_transition(EffectsLayer.TRANS.WIPE_UP)
+	await effectLayer.transition_finished
+			
+	# now actually start the stage
+	start_game()
+	save()
 
 # reset the current stage
 func reset_stage() -> void:
