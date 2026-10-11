@@ -28,6 +28,7 @@ offset_left = 16.0
 offset_top = 56.0
 offset_right = 64.0
 offset_bottom = 78.0
+disabled = true
 text = "Continue"
 
 [node name="settingsButton" type="Button" parent="." unique_id=1757406134]
@@ -40,8 +41,11 @@ text = "Settings"
 
 [node name="creditsButton" type="Button" parent="." unique_id=1134340004]
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 246.0
+offset_top = 114.0
+offset_right = 309.0
+offset_bottom = 145.0
+text = "Credits"
 
 [node name="exitButton" type="Button" parent="." unique_id=1266910165]
 layout_mode = 0
