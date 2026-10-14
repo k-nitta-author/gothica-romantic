@@ -5,6 +5,7 @@ extends BaseProp
 @export var current_item_drop := PropManager.DROPS.NONE
 
 signal spawn_collectible(dropped_item: PropManager.DROPS)
+signal spawn_effect(effect: EffectsManager.SPLATTER)
 
 func bind_dependencies(_stage: Stage) -> void:
 	connect("spawn_collectible", _stage.propManager.spawn_collectible)

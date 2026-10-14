@@ -1,7 +1,7 @@
 class_name EffectsManager
 extends Node2D
 
-enum SPLATTER {SHOOT, SLASH, BURST_1, BURST_2}
+enum SPLATTER {SHOOT, SLASH, BURST_1, BURST_2, BASE_EXPLOSION}
 
 @onready var shoot_splatter = preload("uid://bjjv01r2sxehu")
 @onready var slash_splatter = preload("uid://dam2cxs8um8t1")
