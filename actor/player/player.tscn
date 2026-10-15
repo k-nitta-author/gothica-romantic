@@ -1404,7 +1404,7 @@ size = Vector2(4.2426405, 21.213203)
 [node name="Player" unique_id=1016638848 instance=ExtResource("1_4flbx")]
 material = SubResource("ShaderMaterial_mm62y")
 collision_layer = 513
-collision_mask = 1921
+collision_mask = 34689
 floor_constant_speed = true
 floor_snap_length = 32.0
 script = ExtResource("2_pcoxj")

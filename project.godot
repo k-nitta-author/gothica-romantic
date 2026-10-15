@@ -132,6 +132,9 @@ interact={
 2d_physics/layer_13="prop_collectible"
 2d_physics/layer_14="prop_breakable"
 2d_physics/layer_15="prop_other"
+2d_physics/layer_16="effect_harm_player"
+2d_physics/layer_17="effect_harm_enemy"
+2d_physics/layer_18="effect_harm_prop"
 
 [rendering]
 

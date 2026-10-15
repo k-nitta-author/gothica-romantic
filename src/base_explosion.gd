@@ -12,7 +12,10 @@ extends Area2D
 
 func _ready() -> void: t.connect("timeout", on_timer_timeout)
 
-func on_timer_timeout() -> void: call_deferred("queue_free")
+func despawn() -> void:
+    call_deferred("queue_free")
+
+func on_timer_timeout() -> void: despawn()
 
 
 
