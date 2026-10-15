@@ -4,7 +4,7 @@ extends CharacterBody2D
 # collision mask constants for all actors to switch to as needed
 const COLLIDE_WITH_ONLY_NON_PLATFORMS = 128
 const COLLIDE_WITH_TILEMAP_MASK := 1152
-const COLLIDE_WITH_ENEMY_MASK := 112
+const COLLIDE_WITH_ENEMY_MASK := 32880
 
 var direction : Vector2
 # all the child nodes for the base actor

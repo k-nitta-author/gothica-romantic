@@ -1,7 +1,7 @@
 class_name BaseExplosion
 extends Area2D
 
-@export var duration := 0.0
+@export var duration := 5.0
 
 @onready var sprite : Sprite2D = $Sprite2D
 @onready var anim : AnimationPlayer = $AnimationPlayer

@@ -1,7 +1,6 @@
 class_name ActionOnCollide
 extends Resource
 
-
 # sets up the bullet to perform the collision
 func setup(b: BaseBullet, s: Stage) -> void:
 	b.connect("notify_attack_connection", s.effectsManager.spawn_effects)

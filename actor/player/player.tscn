@@ -1404,7 +1404,7 @@ size = Vector2(4.2426405, 21.213203)
 [node name="Player" unique_id=1016638848 instance=ExtResource("1_4flbx")]
 material = SubResource("ShaderMaterial_mm62y")
 collision_layer = 513
-collision_mask = 34689
+collision_mask = 1921
 floor_constant_speed = true
 floor_snap_length = 32.0
 script = ExtResource("2_pcoxj")
@@ -1445,7 +1445,7 @@ libraries/ = SubResource("AnimationLibrary_48f3x")
 libraries/ = SubResource("AnimationLibrary_qb7rd")
 
 [node name="Hitbox" parent="." index="3" unique_id=636899970]
-collision_mask = 121
+collision_mask = 32889
 
 [node name="CollisionShape2D" parent="Hitbox" index="0" unique_id=2047019247]
 position = Vector2(0, -14)
