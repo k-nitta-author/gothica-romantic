@@ -41,7 +41,9 @@ func get_save_dir() -> DirAccess:
 	var dir = DirAccess.open(USER_FILE_DIRECTORY)
 	var save_dir = dir.make_dir("save")
 
-	return save_dir
+	return DirAccess.open(SAVE_FILE_DIRECTORY)
+
+func save_files_exist() -> bool: return !get_save_dir().get_files().size() == 0
 
 # load save files into an array of SaveFileRefs 
 func load_data_from_save_files() -> Array[SaveDataRef]:

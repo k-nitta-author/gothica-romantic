@@ -37,6 +37,7 @@ func bind_to_game(g: Game) -> void:
 	game = g
 
 # return to the previous screen; meant to be used with the back button
-func on_back_button_pressed() -> void: 
+func on_back_button_pressed() -> void:
+
 	emit_signal("return_to_previous_screen")
 	queue_free()

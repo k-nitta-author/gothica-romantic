@@ -1,7 +1,7 @@
 extends Control
 
-@onready var BossHpBar: Sprite2D = $BossHpBar
-@onready var BossHpBarLabel = $"BossHpBar/small label2"
+@onready var BossHpBar: Sprite2D = $EnemyHpBar/BossHpBar
+@onready var BossHpBarLabel = $"EnemyHpBar/BossHpBar/small label2"
 @onready var BossHpProgressBar = $EnemyHpBar
 
 @onready var playerHpBar : ProgressBar = $PlayerHpBar

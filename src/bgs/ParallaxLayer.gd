@@ -4,7 +4,6 @@ extends Parallax2D
 @export var parallax_speed_x : float
 @export var parallax_speed_y : float
 
-
 @export var stopped: bool
 
 func _process(_delta: float) -> void:

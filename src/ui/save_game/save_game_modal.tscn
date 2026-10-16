@@ -38,12 +38,15 @@ grow_vertical = 2
 alignment = 1
 
 [node name="SaveSlotComponent" parent="HBoxContainer" unique_id=815052190 instance=ExtResource("2_3xrog")]
+visible = false
 layout_mode = 2
 
 [node name="SaveSlotComponent2" parent="HBoxContainer" unique_id=187994934 instance=ExtResource("2_3xrog")]
+visible = false
 layout_mode = 2
 
 [node name="SaveSlotComponent3" parent="HBoxContainer" unique_id=26800749 instance=ExtResource("2_3xrog")]
+visible = false
 layout_mode = 2
 
 [node name="backButton" type="Button" parent="." unique_id=1027829045]

@@ -9,7 +9,7 @@ extends Area2D
 @onready var lifeTimeCurrent: float
 @onready var sprite2D = $Sprite2D
 
-signal notify_attack_connection(collision_point: Vector2, flipped: bool, type: EffectsManager.SPLATTER)
+signal notify_attack_connection(collision_point: Vector2, flipped: bool, type: EffectsManager.EFFECT)
 
 @export var isInactive: bool: set = set_is_inactive
 

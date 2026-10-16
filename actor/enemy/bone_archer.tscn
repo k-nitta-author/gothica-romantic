@@ -2,17 +2,18 @@
 
 [ext_resource type="PackedScene" uid="uid://bthmcawypnud2" path="res://actor/enemy/platformer_enemy.tscn" id="1_ie7th"]
 [ext_resource type="Script" uid="uid://bxro0yfjng3td" path="res://src/state/actor/fallingState.gd" id="2_5g6p6"]
+[ext_resource type="PackedScene" uid="uid://e2tu7h4g44gn" path="res://src/bullet/enemy/bone_arrow.tscn" id="2_f2vfu"]
 [ext_resource type="Script" uid="uid://dmjhev2pahl57" path="res://src/state/actor/damagedState.gd" id="3_f2vfu"]
 [ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/shader/hitFlashShader.gdshader" id="4_568an"]
-[ext_resource type="Texture2D" uid="uid://c4pvc7wxerru6" path="res://assets/enemies/Bone Archer.png" id="5_sdhpl"]
+[ext_resource type="Texture2D" uid="uid://b8coeaxhuuxhr" path="res://assets/enemies/Bone Archer.png" id="5_sdhpl"]
 [ext_resource type="Animation" uid="uid://dc4oqu1m6whdy" path="res://actor/damaged.res" id="6_5g6p6"]
 
-[sub_resource type="Resource" id="Resource_mc4fd"]
+[sub_resource type="Resource" id="Resource_568an"]
 resource_local_to_scene = true
 script = ExtResource("2_5g6p6")
 metadata/_custom_type_script = "uid://bxro0yfjng3td"
 
-[sub_resource type="Resource" id="Resource_exui3"]
+[sub_resource type="Resource" id="Resource_sdhpl"]
 resource_local_to_scene = true
 script = ExtResource("3_f2vfu")
 metadata/_custom_type_script = "uid://dmjhev2pahl57"
@@ -20,7 +21,7 @@ metadata/_custom_type_script = "uid://dmjhev2pahl57"
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sdhpl"]
 size = Vector2(10, 16)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_2oqrj"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mc4fd"]
 resource_local_to_scene = true
 shader = ExtResource("4_568an")
 shader_parameter/active = false
@@ -89,17 +90,18 @@ size = Vector2(16, 22)
 size = Vector2(96, 18)
 
 [node name="bone archer" unique_id=1016638848 instance=ExtResource("1_ie7th")]
-collision_layer = 1152
-can_collide_with_enemies = false
-falling_state = SubResource("Resource_mc4fd")
-damaged_state = SubResource("Resource_exui3")
+collision_layer = 1150
+current_item_drop = 0
+shoot_bullet = ExtResource("2_f2vfu")
+falling_state = SubResource("Resource_568an")
+damaged_state = SubResource("Resource_sdhpl")
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=900505443]
 position = Vector2(-2, -8)
 shape = SubResource("RectangleShape2D_sdhpl")
 
 [node name="Sprite2D" parent="." index="1" unique_id=90387062]
-material = SubResource("ShaderMaterial_2oqrj")
+material = SubResource("ShaderMaterial_mc4fd")
 texture = ExtResource("5_sdhpl")
 offset = Vector2(0, -16)
 hframes = 10

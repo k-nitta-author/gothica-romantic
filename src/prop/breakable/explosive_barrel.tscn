@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://d3yx8igfga20n"]
+
+[ext_resource type="PackedScene" uid="uid://bfs1ij3f0vqhn" path="res://src/prop/breakable/breakable_prop.tscn" id="1_qr5wg"]
+[ext_resource type="Script" uid="uid://deaa4d0jrk8rh" path="res://src/prop/breakable/explosive_barrel.gd" id="2_poj6m"]
+
+[node name="ExplosiveBarrel" unique_id=1356046424 instance=ExtResource("1_qr5wg")]
+script = ExtResource("2_poj6m")

@@ -4,7 +4,7 @@ extends CharacterBody2D
 # collision mask constants for all actors to switch to as needed
 const COLLIDE_WITH_ONLY_NON_PLATFORMS = 128
 const COLLIDE_WITH_TILEMAP_MASK := 1152
-const COLLIDE_WITH_ENEMY_MASK := 112
+const COLLIDE_WITH_ENEMY_MASK := 32880
 
 var direction : Vector2
 # all the child nodes for the base actor
@@ -220,7 +220,7 @@ func notify_attack_connection() -> void:
 	if !attackRay.is_colliding(): return
 	if attackRay.get_collider().owner.isInactive: return
 
-	emit_signal("attacked_at_point", attackRay.get_collision_point(), is_flipped, EffectsManager.SPLATTER.SLASH)
+	emit_signal("attacked_at_point", attackRay.get_collision_point(), is_flipped, EffectsManager.EFFECT.SLASH)
 
 # bind all dependencies and connect relevant signals
 func bind_dependencies(s: Stage):

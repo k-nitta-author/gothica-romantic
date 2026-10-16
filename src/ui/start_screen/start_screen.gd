@@ -1,13 +1,18 @@
 extends Control
 
+enum STATES {BASIC, SAVE_GAME_MODAL, SETTINGS, HIDDEN, CREDITS}
+
+var current_state := STATES.BASIC: set = set_current_state
+
 # the start level signal
-signal start_level(from_beginning)
+signal start_level()
 
 # intiialize each button
-@onready var startButton := $startButton
-@onready var loadButton := $continueButton
-@onready var settingsButton := $settingsButton
-@onready var exitButton := $exitButton
+@onready var startButton: Button = $startButton
+@onready var loadButton: Button = $continueButton
+@onready var settingsButton: Button = $settingsButton
+@onready var exitButton: Button = $exitButton
+@onready var creditsButton: Button = $creditsButton
 
 # the save game modal
 var save_game_modal
@@ -17,22 +22,65 @@ var save_game_modal_scene : PackedScene = preload("uid://dy0j84bmvhox2")
 var settings_modal
 var settings_modal_scene : PackedScene = preload("uid://dkxidum8tt7pr")
 
+var credits_modal
+var credits_modal_scene: PackedScene = preload("uid://h3xcdqrct8og")
+
 var game : Game
+
+func exit_old_state(value: STATES) -> void:
+	match value:
+		STATES.BASIC:
+			pass
+		STATES.SAVE_GAME_MODAL:
+			pass
+		STATES.SETTINGS:
+			pass
+		STATES.HIDDEN:
+			pass
+		STATES.CREDITS:
+			pass
+
+func set_current_state(value: STATES) -> void:
+
+	var old_value = current_state
+	current_state = value
+
+	exit_old_state(old_value)
+	
+	match current_state:
+
+		STATES.BASIC:
+			pass
+			#show()
+		STATES.SAVE_GAME_MODAL:
+			pass
+			#show_save_game_modal()
+		STATES.SETTINGS:
+			pass
+			#show_settings_modal()
+		STATES.HIDDEN:
+			pass
+			#hide()
+		STATES.CREDITS:
+			pass
 
 func bind_to_game(g: Game) -> void:
 	game = g
+
+	loadButton.disabled = !game.saveManager.save_files_exist()
 
 func _ready() -> void:
 	startButton.connect("pressed", start_game)
 	loadButton.connect("pressed", load_game)
 	settingsButton.connect("pressed", settings_menu)
+	creditsButton.connect("pressed", show_credits)
 	exitButton.connect("pressed", exit_game)
 
 # show the save game modal
 func show_save_game_modal() -> void:
 	save_game_modal = save_game_modal_scene.instantiate()
 	save_game_modal.bind_to_game(game)
-	save_game_modal.connect("return_to_previous_screen", hide)
+	# save_game_modal.connect("return_to_previous_screen", hide)
 	add_child(save_game_modal)
 	save_game_modal.setup()
 
@@ -53,15 +101,21 @@ func on_quit_settings_game_modal() -> void: settings_modal.queue_free()
 func hide_save_game_modal() -> void: save_game_modal.queue_free()
 
 # called when the player clicks the start button
-func start_game() -> void: emit_signal("start_level", false)
+func start_game() -> void: emit_signal("start_level")
 
 # called when the load game button
-func load_game() -> void:
-	emit_signal("start_level", true)
-	show_save_game_modal()
+func load_game() -> void: show_save_game_modal()
 
 # called when the settings button is clicked
 func settings_menu() -> void: show_settings_modal()
+
+func show_credits() -> void:
+	credits_modal = credits_modal_scene.instantiate()
+	credits_modal.connect("return_to_previous_screen", on_quit_credits)
+	add_child(credits_modal)
+
+func on_quit_credits() -> void:
+	credits_modal.queue_free()
 
 # called when the exit button is clicked
 func exit_game() -> void: get_tree().quit()
