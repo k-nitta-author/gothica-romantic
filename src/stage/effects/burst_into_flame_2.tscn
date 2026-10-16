@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://4y0q6cwaf2vx"]
 
 [ext_resource type="Texture2D" uid="uid://bu8reywvp0vx7" path="res://assets/effects/burst into flame 2.png" id="1_ns7t5"]
+[ext_resource type="Script" uid="uid://wroapbavm055" path="res://src/stage/effects/base_effect.gd" id="2_4negh"]
 
 [sub_resource type="Animation" id="Animation_4negh"]
 length = 0.001
@@ -56,6 +57,7 @@ _data = {
 [node name="burst into flame 2" type="Sprite2D" unique_id=553212540]
 texture = ExtResource("1_ns7t5")
 hframes = 7
+script = ExtResource("2_4negh")
 
 [node name="anim" type="AnimationPlayer" parent="." unique_id=665788037]
 libraries/ = SubResource("AnimationLibrary_a1xc7")

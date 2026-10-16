@@ -3,14 +3,19 @@ extends Node2D
 
 enum EFFECT {SHOOT, SLASH, BURST_1, BURST_2, BASE_EXPLOSION}
 
+# effects to be loaded
 @onready var shoot_splatter = preload("uid://bjjv01r2sxehu")
 @onready var slash_splatter = preload("uid://dam2cxs8um8t1")
 
 @onready var burst_flame_1 = preload("uid://cydfoii50pto8")
 @onready var burst_flame_2 = preload("uid://4y0q6cwaf2vx")
 
-@onready var base_explosion = preload("res://src/base_explosion.tscn")
+@onready var base_explosion = preload("uid://dqb4gtr2188xm")
 
+# create an effect pool
+@onready var effect_pool : EffectPool = EffectPool.new()
+
+# instantiate effects
 func get_effect(splatter_type: EFFECT) -> Node:
 	var splatter = null
 	
