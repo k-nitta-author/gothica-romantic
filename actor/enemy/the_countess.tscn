@@ -1,48 +1,28 @@
-[gd_scene format=3 uid="uid://dpgoikpggg3ox"]
+[gd_scene format=3 uid="uid://bx6r5bywg8g68"]
 
-[ext_resource type="PackedScene" uid="uid://bjeudo4rvmvag" path="res://actor/enemy/base_enemy.tscn" id="1_5vvxa"]
-[ext_resource type="Script" uid="uid://c1v0lyb4ts7jh" path="res://actor/enemy/the_countess.gd" id="2_1r00c"]
-[ext_resource type="Script" uid="uid://cciei67yuitw5" path="res://src/state/actor/idleState.gd" id="2_khq6j"]
-[ext_resource type="Texture2D" uid="uid://dag24a0foiugu" path="res://assets/enemies/The Countess.png" id="2_rjxko"]
-[ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/shader/hitFlashShader.gdshader" id="2_wjf8b"]
-[ext_resource type="PackedScene" uid="uid://cmudwu6l6c42v" path="res://src/bullet/enemy/countess_bullet.tscn" id="3_1r00c"]
-[ext_resource type="Script" uid="uid://hhc8ylq4nvxy" path="res://src/state/actor/meleeState.gd" id="3_jwtr6"]
-[ext_resource type="Script" uid="uid://cgcwml08u6r0s" path="res://src/state/actor/walkState.gd" id="4_1r00c"]
-[ext_resource type="Script" uid="uid://wqfwvdiwfsfk" path="res://src/state/actor/jumpState.gd" id="4_ij788"]
-[ext_resource type="Animation" uid="uid://dc4oqu1m6whdy" path="res://actor/damaged.res" id="4_xo63i"]
-[ext_resource type="Script" uid="uid://bunbdgovyilxk" path="res://src/state/actor/shootState.gd" id="7_u7s03"]
+[ext_resource type="PackedScene" uid="uid://bthmcawypnud2" path="res://actor/enemy/platformer_enemy.tscn" id="1_41d70"]
+[ext_resource type="Script" uid="uid://bxro0yfjng3td" path="res://src/state/actor/fallingState.gd" id="2_khq6j"]
+[ext_resource type="Script" uid="uid://dmjhev2pahl57" path="res://src/state/actor/damagedState.gd" id="3_jwtr6"]
+[ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/shader/hitFlashShader.gdshader" id="4_1r00c"]
+[ext_resource type="Texture2D" uid="uid://cp7gaqoixcyg3" path="res://assets/enemies/The Countess.png" id="5_u7s03"]
+[ext_resource type="Animation" uid="uid://dc4oqu1m6whdy" path="res://actor/damaged.res" id="6_ij788"]
 
-[sub_resource type="Resource" id="Resource_bx0vb"]
-script = ExtResource("4_ij788")
-animantion_name = "high jump"
-metadata/_custom_type_script = "uid://wqfwvdiwfsfk"
-
-[sub_resource type="Resource" id="Resource_senlp"]
-script = ExtResource("2_khq6j")
-metadata/_custom_type_script = "uid://cciei67yuitw5"
-
-[sub_resource type="Resource" id="Resource_yy3ao"]
-script = ExtResource("3_jwtr6")
-stops_actor = true
-metadata/_custom_type_script = "uid://hhc8ylq4nvxy"
-
-[sub_resource type="Resource" id="Resource_3n4se"]
-script = ExtResource("4_1r00c")
-metadata/_custom_type_script = "uid://cgcwml08u6r0s"
-
-[sub_resource type="Resource" id="Resource_iatxe"]
-script = ExtResource("7_u7s03")
-animation_name = "jump back attack"
-metadata/_custom_type_script = "uid://bunbdgovyilxk"
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ewe00"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_4gdii"]
+[sub_resource type="Resource" id="Resource_41d70"]
 resource_local_to_scene = true
-shader = ExtResource("2_wjf8b")
+script = ExtResource("2_khq6j")
+metadata/_custom_type_script = "uid://bxro0yfjng3td"
+
+[sub_resource type="Resource" id="Resource_khq6j"]
+resource_local_to_scene = true
+script = ExtResource("3_jwtr6")
+metadata/_custom_type_script = "uid://dmjhev2pahl57"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jwtr6"]
+resource_local_to_scene = true
+shader = ExtResource("4_1r00c")
 shader_parameter/active = false
 
-[sub_resource type="Animation" id="Animation_wjf8b"]
+[sub_resource type="Animation" id="Animation_viuk7"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -59,295 +39,62 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("gun:z_index")
+tracks/1/path = NodePath("Sprite2D2:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [-1]
+"values": [false]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("gun:position")
+tracks/2/path = NodePath("Sprite2D2:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(7, -13)]
+"values": [Vector2(1, -23)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("gun:rotation")
+tracks/3/path = NodePath("Sprite2D2:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [-4.712389]
+"values": [-0.2617994]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("flash bang:visible")
+tracks/4/path = NodePath("gun:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Vector2(-13.999998, -24)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("flash bang:frame")
+tracks/5/path = NodePath("gun:rotation")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Sprite2D:offset")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, -16)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("parasol:position")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(8, -16)]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("parasol:rotation")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-5.4977875]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("parasol:frame")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("parasol:z_index")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("gun:visible")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/12/type = "value"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("parasol:visible")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/13/type = "value"
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/path = NodePath("Hitbox:position")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -10)]
-}
-tracks/14/type = "value"
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/path = NodePath("flash bang:position")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-24, -20)]
-}
-tracks/15/type = "value"
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/path = NodePath("flash bang:rotation")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/16/type = "value"
-tracks/16/imported = false
-tracks/16/enabled = true
-tracks/16/path = NodePath("firingPoint:position")
-tracks/16/interp = 1
-tracks/16/loop_wrap = true
-tracks/16/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-24, -20)]
-}
-tracks/17/type = "value"
-tracks/17/imported = false
-tracks/17/enabled = true
-tracks/17/path = NodePath(".:current_shoot_mode")
-tracks/17/interp = 1
-tracks/17/loop_wrap = true
-tracks/17/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/18/type = "value"
-tracks/18/imported = false
-tracks/18/enabled = true
-tracks/18/path = NodePath("Sprite2D:is_hit_flashing")
-tracks/18/interp = 1
-tracks/18/loop_wrap = true
-tracks/18/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="Animation" id="Animation_xo63i"]
-resource_name = "attack"
-length = 2.0
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.44999996, 0.6, 0.75, 0.79999995, 1, 1.0500001, 1.2, 1.25, 1.3000001, 1.35),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [2, 5, 6, 7, 8, 9, 3, 4, 5, 6, 7, 8, 9, 0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("gun:z_index")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.65000004, 1.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [-1, 1, -1]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("gun:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.5, 0.65000004, 0.75, 0.8, 1, 1.0500001, 1.25, 1.3000001, 1.35, 1.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [Vector2(7, -13), Vector2(9, -14), Vector2(10, -14), Vector2(0, -16), Vector2(0, -15), Vector2(-2.0000005, -13), Vector2(-2, -17), Vector2(-2.9999995, -18), Vector2(-2.9999995, -18), Vector2(-1, -17), Vector2(6, -16), Vector2(6, -16), Vector2(6, -14)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("gun:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.65000004, 0.75, 0.8, 1, 1.0500001),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [-4.712389, -5.4977875, -5.759587, -6.2831855, -5.4977875, -4.712389]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("flash bang:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 1, 1.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [false, true, false]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("flash bang:frame")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(1, 1.0500001, 1.1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [0, 1, 2]
+"values": [-0.2617994]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -359,12 +106,12 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("parasol:visible")
+tracks/7/path = NodePath("mussel flash:visible")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -376,75 +123,19 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("flash bang:position")
+tracks/8/path = NodePath("mussel flash:frame")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-24, -20)]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("flash bang:rotation")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/10/type = "method"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath(".")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0, 0.99842936, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"values": [{
-"args": [],
-"method": &"stop"
-}, {
-"args": [],
-"method": &"fire"
-}, {
-"args": [],
-"method": &"go"
-}]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("firingPoint:position")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(0.8),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-24, -20)]
-}
-tracks/12/type = "value"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath(".:current_shoot_mode")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
 }
 
-[sub_resource type="Animation" id="Animation_5vvxa"]
-resource_name = "high jump"
-length = 3.5000000000000004
+[sub_resource type="Animation" id="Animation_jn6o5"]
+resource_name = "attack1"
+length = 2.5000000000000004
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -453,299 +144,63 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1, 0.4, 0.6, 3, 3.2, 3.25, 3.3000002, 3.35),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.25, 0.3, 0.35, 0.5, 0.8, 0.95, 1.05, 1.3, 1.35, 1.75, 1.8, 1.8499999, 1.9499999, 2, 2.05, 2.2, 2.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [8, 10, 11, 12, 13, 12, 11, 10, 3, 2]
+"values": [0, 9, 10, 11, 8, 13, 6, 7, 13, 8, 5, 4, 3, 12, 14, 11, 8, 0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:offset")
+tracks/1/path = NodePath("Sprite2D2:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.6, 0.9, 1, 2.5, 3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0, -16), Vector2(0, -16), Vector2(0, -72), Vector2(0, -56), Vector2(0, -56), Vector2(0, -52), Vector2(0, -16)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("parasol:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1, 0.4, 0.6, 0.90000004, 2.5, 3, 3.15, 3.2, 3.25, 3.3000002, 3.35),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(8, -16), Vector2(8, -14.000001), Vector2(8, -14.000003), Vector2(8, -14.000003), Vector2(10.999996, -81.00001), Vector2(10.000003, -66), Vector2(10, -62.999992), Vector2(12.999997, -26), Vector2(11, -24), Vector2(5, -13), Vector2(6.0000005, -14), Vector2(11, -16), Vector2(12, -16)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("parasol:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1, 0.4, 0.6, 2.5, 3, 3.15, 3.2, 3.25, 3.3000002, 3.35),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [-5.4977875, -5.2359877, -5.759587, -5.759587, -6.021386, -6.2831855, -6.2831855, -6.2831855, -6.544985, -6.2831855, -6.2831855, -6.021386]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("parasol:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.7, 3.35),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [0, 1, 0]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("parasol:z_index")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("parasol:visible")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("gun:visible")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Hitbox:position")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0, 0.5, 0.6, 0.90000004, 2.5, 3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0, -10), Vector2(0, -10), Vector2(0, -69), Vector2(0, -53), Vector2(0, -48), Vector2(0, -10)]
-}
-
-[sub_resource type="Animation" id="Animation_o8nu8"]
-resource_name = "jump back attack"
-length = 3.5000000000000004
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 1.5, 1.55, 1.5999999, 1.75, 1.8499998, 1.9500002, 2.0500002, 2.15, 2.3000002, 2.4500003, 2.6, 2.75),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [2, 5, 6, 7, 11, 10, 0, 1, 2, 1, 0, 7, 8, 9, 2]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("gun:z_index")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-1]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("gun:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.5, 0.75, 0.85, 0.95000005, 1.5, 1.8, 2.25),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(7, -13), Vector2(9, -14), Vector2(10, -14), Vector2(32, -72), Vector2(32, -64), Vector2(32, -64), Vector2(40, -80), Vector2(47.999996, -71.99999), Vector2(40, -16), Vector2(40, -16), Vector2(5, -12)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("gun:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.5, 0.75, 0.85, 0.95000005, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [-4.712389, -4.712389, -6.806784, -6.806784, -5.4977875, -4.9741883, -5.4977875]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Sprite2D:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.5, 0.75, 0.85, 0.95000005, 1.5, 1.75, 2.3000002),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(24, -56), Vector2(32, -48), Vector2(32, -48), Vector2(40, -64), Vector2(42, -54), Vector2(40, 0), Vector2(40, 0), Vector2(0, 0)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("flash bang:visible")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.75, 0.95000005),
+"times": PackedFloat32Array(0, 0.5, 1.95),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
 }
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("flash bang:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0.75),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(11, -54.999996)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("flash bang:rotation")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0.75),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-0.5235988]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("flash bang:frame")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0.75, 0.8000001, 0.85),
-"transitions": PackedFloat32Array(1, 1, 1),
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.3, 0.5, 0.55, 0.6000001, 0.8, 0.95, 1.05, 1.3000001, 1.35, 1.75, 1.8000001, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2]
+"values": [Vector2(1, -23), Vector2(-3, -20.000002), Vector2(-1.9999993, -20), Vector2(-5, -22.999998), Vector2(-7.9999995, -23.000002), Vector2(-11.000002, -25.000002), Vector2(4, -23), Vector2(-2, -39.999996), Vector2(3.0000038, -45), Vector2(-14, -20), Vector2(-9.999998, -19.000002), Vector2(-11, -22), Vector2(-11, -22), Vector2(-12.000002, -28)]
 }
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("gun:visible")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D2:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.3, 0.5, 0.55, 0.6000001, 0.8, 0.95, 1.05, 1.3000001, 1.35, 1.75, 1.8000001, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [true]
+"values": [-3.1415927, -3.1415927, -3.1415927, -3.926991, -4.4505897, -4.9741883, -3.1415927, -3.403392, -3.403392, -0.2617994, -0.2617994, 0.0, 1.3089969, 1.8325958]
 }
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("Hitbox:position")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.5, 0.75, 0.85, 0.95000005, 1.5, 1.9499999, 2.4499998),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0, -10), Vector2(26, -66), Vector2(34, -58), Vector2(33.714287, -58.428574), Vector2(42, -74), Vector2(46, -66), Vector2(42, -10), Vector2(42, -10), Vector2(6, -10)]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("parasol:visible")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("mussel flash:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
 }
-tracks/12/type = "method"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath(".")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
-"times": PackedFloat32Array(0.7478032),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"fire"
-}]
-}
-tracks/13/type = "value"
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/path = NodePath(".:current_shoot_mode")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
-}
-tracks/14/type = "value"
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/path = NodePath("firingPoint:position")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/keys = {
-"times": PackedFloat32Array(0.5),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(12, -55)]
-}
 
-[sub_resource type="Animation" id="Animation_usipw"]
-resource_name = "walk"
-length = 1.1
-loop_mode = 1
+[sub_resource type="Animation" id="Animation_41d70"]
+resource_name = "attack2"
+length = 3.0000000000000004
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -754,10 +209,44 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.15, 0.2, 0.3, 2.5, 2.65),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 1]
+"values": [0, 3, 4, 2, 17, 2, 0]
+}
+
+[sub_resource type="Animation" id="Animation_khq6j"]
+resource_name = "jump"
+length = 2.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 1.9, 1.95, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [15, 8, 16, 15, 5, 3]
+}
+
+[sub_resource type="Animation" id="Animation_1r00c"]
+resource_name = "shoot"
+length = 2.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.4, 0.45000002, 0.6, 0.75, 0.9, 0.95, 1.25, 1.5, 1.5500001, 1.6, 1.8, 1.85, 1.9499999),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 12, 9, 10, 11, 12, 13, 14, 12, 10, 11, 12, 8, 0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -766,163 +255,131 @@ tracks/1/path = NodePath("gun:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0.95, 1.25, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [Vector2(5, -12), Vector2(5, -13), Vector2(5, -12), Vector2(5, -13)]
+"values": [Vector2(-13.999998, -24), Vector2(-8, -39), Vector2(-7, -34)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("gun:z_index")
+tracks/2/path = NodePath("gun:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.95, 1.25, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [-1]
+"values": [-0.2617994, 1.5707964, 2.3561945]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("flash bang:visible")
+tracks/3/path = NodePath("gun:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.95, 1.5500001),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [false]
+"values": [false, true, false]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("parasol:visible")
+tracks/4/path = NodePath("mussel flash:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.95, 1.25, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [true]
+"values": [false, true, false]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("parasol:z_index")
+tracks/5/path = NodePath("mussel flash:frame")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(1.25, 1.3000001, 1.35),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [-1]
+"values": [0, 1, 2]
 }
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("parasol:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+
+[sub_resource type="Animation" id="Animation_xdvcb"]
+resource_name = "walk"
+length = 0.45
+loop_mode = 2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [Vector2(8, -16), Vector2(8, -14), Vector2(8, -16), Vector2(8, -14)]
+"values": [0, 1, 2, 3]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_iubxs"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8quky"]
 _data = {
-&"RESET": SubResource("Animation_wjf8b"),
-&"attack": SubResource("Animation_xo63i"),
-&"damaged": ExtResource("4_xo63i"),
-&"high jump": SubResource("Animation_5vvxa"),
-&"jump back attack": SubResource("Animation_o8nu8"),
-&"walk": SubResource("Animation_usipw")
+&"RESET": SubResource("Animation_viuk7"),
+&"attack1": SubResource("Animation_jn6o5"),
+&"attack2": SubResource("Animation_41d70"),
+&"damaged": ExtResource("6_ij788"),
+&"jump": SubResource("Animation_khq6j"),
+&"shoot": SubResource("Animation_1r00c"),
+&"walk": SubResource("Animation_xdvcb")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gjj6f"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ij788"]
-size = Vector2(148.75, 52)
-
-[node name="The Countess" unique_id=1016638848 instance=ExtResource("1_5vvxa")]
-scale = Vector2(-1, 1)
-script = ExtResource("2_1r00c")
-current_shoot_mode = 0
-watching_for_player_attack = false
-is_boss = true
-shoot_bullet = ExtResource("3_1r00c")
-max_melee_range = 108.0
-max_shoot_range = 188.0
-default_state_on_awake = 1
-immune_to_stun = true
-speed = 40.0
-jump_state = SubResource("Resource_bx0vb")
-idle_state = SubResource("Resource_senlp")
-melee_state = SubResource("Resource_yy3ao")
-move_state = SubResource("Resource_3n4se")
-shoot_state = SubResource("Resource_iatxe")
-
-[node name="CollisionShape2D" parent="." index="0" unique_id=900505443]
-position = Vector2(5, -10)
-shape = SubResource("RectangleShape2D_ewe00")
-disabled = false
+[node name="the countess" unique_id=1016638848 instance=ExtResource("1_41d70")]
+collision_layer = 1150
+current_item_drop = 0
+falling_state = SubResource("Resource_41d70")
+damaged_state = SubResource("Resource_khq6j")
 
 [node name="Sprite2D" parent="." index="1" unique_id=90387062]
-material = SubResource("ShaderMaterial_4gdii")
-texture = ExtResource("2_rjxko")
-offset = Vector2(0, -16)
-hframes = 10
-vframes = 2
-is_hit_flashing = false
+material = SubResource("ShaderMaterial_jwtr6")
+position = Vector2(1, -30)
+texture = ExtResource("5_u7s03")
+hframes = 6
+vframes = 3
+region_enabled = true
+region_rect = Rect2(0, 0, 240, 180)
 
 [node name="anim" parent="." index="2" unique_id=783902006]
-libraries/ = SubResource("AnimationLibrary_iubxs")
+libraries/ = SubResource("AnimationLibrary_8quky")
 
-[node name="Hitbox" parent="." index="3" unique_id=636899970]
-position = Vector2(0, -10)
-
-[node name="CollisionShape2D" parent="Hitbox" index="0" unique_id=2047019247]
-shape = SubResource("RectangleShape2D_gjj6f")
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" parent="VisionArea" parent_id_path=PackedInt32Array(1796340020) index="0" unique_id=2039586838]
-position = Vector2(0, -26)
-shape = SubResource("RectangleShape2D_ij788")
-
-[node name="stateLabel" parent="." index="6" unique_id=1314498347]
-scale = Vector2(-1, 1)
-
-[node name="gun" type="Sprite2D" parent="." index="7" unique_id=568417229]
-z_index = -1
-position = Vector2(7, -13)
-rotation = -4.712389
-texture = ExtResource("2_rjxko")
-offset = Vector2(-10, -3)
-region_enabled = true
-region_rect = Rect2(288, 32, 32, 16)
-
-[node name="parasol" type="Sprite2D" parent="." index="8" unique_id=1732131428]
+[node name="Sprite2D2" type="Sprite2D" parent="." index="14" unique_id=1007499004]
 visible = false
-position = Vector2(8, -16)
-rotation = -5.4977875
-texture = ExtResource("2_rjxko")
-offset = Vector2(0, -11)
-hframes = 2
+position = Vector2(1, -23)
+rotation = -0.2617994
+texture = ExtResource("5_u7s03")
+offset = Vector2(-5, 4)
 region_enabled = true
-region_rect = Rect2(160, 32, 64, 32)
+region_rect = Rect2(0, 216, 56, 24)
 
-[node name="flash bang" type="Sprite2D" parent="." index="9" unique_id=1623980600]
+[node name="gun" type="Sprite2D" parent="." index="15" unique_id=958083707]
 visible = false
-position = Vector2(-24, -20)
-texture = ExtResource("2_rjxko")
-offset = Vector2(-16, 0)
+position = Vector2(-13.999998, -24)
+rotation = -0.2617994
+texture = ExtResource("5_u7s03")
+offset = Vector2(-5, 4)
+region_enabled = true
+region_rect = Rect2(56, 216, 40, 24)
+
+[node name="mussel flash" type="Sprite2D" parent="." index="16" unique_id=1028095156]
+visible = false
+position = Vector2(-46, -15)
+rotation = -0.2617994
+scale = Vector2(1.0000001, 1.0000001)
+texture = ExtResource("5_u7s03")
 hframes = 3
-frame = 1
 region_enabled = true
-region_rect = Rect2(224, 48, 96, 16)
-
-[node name="firingPoint" parent="." index="12" unique_id=698667958]
-position = Vector2(-24, -20)
+region_rect = Rect2(152, 224, 88, 16)
