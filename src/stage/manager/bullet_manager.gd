@@ -2,6 +2,10 @@ extends BaseManager
 
 @onready var children := get_children()
 
+# instantiate bullet pools for different types of bullet
+@onready var player_bullet_pool : BulletPool = BulletPool.new()
+@onready var enemy_bullet_pool : BulletPool = BulletPool.new()
+
 func add_bullet(bullet: BaseBullet, pos: Vector2) -> void:
 	var b : BaseBullet = bullet.bind_dependencies(stage).spawn_at(pos)
 	add_child(b)
