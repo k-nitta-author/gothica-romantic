@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://6s3sq6km46d1"]
 
 [ext_resource type="PackedScene" uid="uid://biu0bokceu48v" path="res://src/bullet/base_bullet.tscn" id="1_ujynv"]
-[ext_resource type="Script" uid="uid://ceqbnjs7oevbi" path="res://src/bullet/action_on_collide/ActionDisappear.gd" id="2_ukbrb"]
+[ext_resource type="Script" uid="uid://d4e13e4p8howu" path="res://src/bullet/action_on_collide/ActionExplode.gd" id="2_ukbrb"]
 
-[sub_resource type="Resource" id="Resource_d3bfg"]
+[sub_resource type="Resource" id="Resource_7yt36"]
+resource_local_to_scene = true
 script = ExtResource("2_ukbrb")
-metadata/_custom_type_script = "uid://ceqbnjs7oevbi"
+explosion_duration = 2.0
+metadata/_custom_type_script = "uid://d4e13e4p8howu"
 
 [sub_resource type="Animation" id="Animation_ukbrb"]
 length = 0.001
@@ -58,13 +60,7 @@ _data = {
 }
 
 [node name="BaseBomb" unique_id=483994798 instance=ExtResource("1_ujynv")]
-current_mode = SubResource("Resource_d3bfg")
+current_mode = SubResource("Resource_7yt36")
 
-[node name="explosionArea" type="Area2D" parent="." index="1" unique_id=636836423]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="explosionArea" index="0" unique_id=632222176]
-
-[node name="anim" type="AnimationPlayer" parent="." index="2" unique_id=924820548]
+[node name="anim" type="AnimationPlayer" parent="." index="1" unique_id=924820548]
 libraries/ = SubResource("AnimationLibrary_ukbrb")
-
-[node name="explosionSprite" type="Sprite2D" parent="." index="3" unique_id=487900451]

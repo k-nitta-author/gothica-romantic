@@ -1,16 +1,19 @@
 [gd_scene format=3 uid="uid://dqkimvsrb50gp"]
 
 [ext_resource type="PackedScene" uid="uid://6s3sq6km46d1" path="res://src/bullet/base_bomb.tscn" id="1_q1bat"]
+[ext_resource type="Script" uid="uid://d4e13e4p8howu" path="res://src/bullet/action_on_collide/ActionExplode.gd" id="2_salhm"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_f2rrq"]
-radius = 18.110771
+[sub_resource type="Resource" id="Resource_upoc7"]
+script = ExtResource("2_salhm")
+explosion_duration = 2.0
+metadata/_custom_type_script = "uid://d4e13e4p8howu"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uqb0r"]
 
 [node name="DirectorBomb" unique_id=483994798 instance=ExtResource("1_q1bat")]
+current_mode = SubResource("Resource_upoc7")
+speed = 4.0
+bullet_gravity = 0.1
 
-[node name="CollisionShape2D" parent="explosionArea" parent_id_path=PackedInt32Array(636836423) index="0" unique_id=632222176]
-shape = SubResource("CircleShape2D_f2rrq")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="4" unique_id=129770980]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2" unique_id=129770980]
 shape = SubResource("CircleShape2D_uqb0r")

@@ -18,7 +18,7 @@ func OnPropDestroyed(_prop: BaseProp, dropped_item: CollectibleProp) -> void:
 func bind_dependencies(_stage: Stage) -> void:
 	super(_stage)
 
-	for p in props:
+	for p: BaseProp in props:
 		p.bind_dependencies(stage)
 
 		if p is BreakableProp:
