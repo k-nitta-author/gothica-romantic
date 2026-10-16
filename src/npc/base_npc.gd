@@ -14,6 +14,7 @@ enum STATES {IDLE, TALKING, MOVING}
 @onready var toolTip: Node2D = $toolTip
 
 var is_player_interactible: bool
+var has_spoken_with: bool
 
 var current_dialog_idx := 0
 
@@ -41,6 +42,16 @@ func animate_state(state: STATES):
 
 	anim.play(anim_name)
 
+# when level is loaded; each npc must check their data and update according to their result
+# overwrite as needed in child class
+func setup_persistent_status(data: Dictionary) -> void:
+
+	var interactible : bool = data.get("interactible")
+	var spoken_with : bool = data.get("spoken_with")
+
+	visible = interactible
+	has_spoken_with = spoken_with
+
 func bind_dependencies(hud_layer: HudLayer) -> void:
 
 	if hud_layer == null: return
@@ -50,16 +61,16 @@ func bind_dependencies(hud_layer: HudLayer) -> void:
 func can_talk() -> bool:
 	return (dialog_array.size() > 0) and is_player_interactible
 
-func _ready() -> void:
-	interactionArea.connect("area_entered", on_area_entered)
-	interactionArea.connect("area_exited", on_area_exited)
-
 func next_dialog() -> String:
 	return dialog_array.pop_front() if dialog_array.size() > 0 else ""
 
 func interact() -> void:
 	var d = next_dialog()
 	emit_signal("notify_display_dialog", character_name, d)
+
+func _ready() -> void:
+	interactionArea.connect("area_entered", on_area_entered)
+	interactionArea.connect("area_exited", on_area_exited)
 
 func _unhandled_input(event: InputEvent) -> void:
 
