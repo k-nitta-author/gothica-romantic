@@ -21,7 +21,7 @@ const COLLIDE_WITH_ENEMY_AND_TILEMAP := 1150
 @export_range(0.0, 1000, 1.0) var max_shoot_range : float = 100: set = set_max_shoot_range
 
 @export_category("misc")
-@export var death_burst := EffectsManager.SPLATTER.BURST_1
+@export var death_burst := EffectsManager.EFFECT.BURST_1
 
 @export var melee_limit : float = 100
 
@@ -36,7 +36,7 @@ var player: Player
 @export var default_state_on_awake : BaseActor.STATES
 
 signal turn_around
-signal spawn_death_effects(pos: Vector2, is_flipped: int, splatter_type: EffectsManager.SPLATTER)
+signal spawn_death_effects(pos: Vector2, is_flipped: int, splatter_type: EffectsManager.EFFECT)
 
 func handle_death() -> void:
 	super()

@@ -6,7 +6,7 @@ func setup(b: BaseBullet, s: Stage) -> void:
 	b.connect("notify_attack_connection", s.effectsManager.spawn_effects)
 
 func act(b: BaseBullet, collision_point: Vector2) -> void:
-	b.emit_signal("notify_attack_connection",collision_point, b.velocity.y < 0, EffectsManager.SPLATTER.SHOOT)
+	b.emit_signal("notify_attack_connection",collision_point, b.velocity.y < 0, EffectsManager.EFFECT.SHOOT)
 	b.isInactive = true
 
 # meant to be overriden by child classes
