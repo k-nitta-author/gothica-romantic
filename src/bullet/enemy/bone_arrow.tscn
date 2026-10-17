@@ -1,5 +1,9 @@
 [gd_scene format=3 uid="uid://e2tu7h4g44gn"]
 
 [ext_resource type="PackedScene" uid="uid://40g6jm0jhmbr" path="res://src/bullet/enemy/enemy_bullet.tscn" id="1_cwpj4"]
+[ext_resource type="Texture2D" uid="uid://cy4epm1mtl4yp" path="res://assets/enemies/bullets/bone arrow.png" id="2_r1jsc"]
 
 [node name="bone_arrow" unique_id=483994798 instance=ExtResource("1_cwpj4")]
+
+[node name="Sprite2D" parent="." index="0" unique_id=1823953356]
+texture = ExtResource("2_r1jsc")

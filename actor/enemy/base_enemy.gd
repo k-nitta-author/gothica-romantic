@@ -143,7 +143,6 @@ func awaken() -> void:
 	can_see_player = true
 	is_active = true
 	is_awake = true
-	if anim.has_animation("awaken"): anim.play("awaken")
 	
 func on_vision_area_exited(_area: Area2D): pass
 
