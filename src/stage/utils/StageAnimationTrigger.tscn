@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://i3r12x6sp68h"]
+
+[ext_resource type="Script" uid="uid://cdm3x01yporp0" path="res://src/stage/utils/stage_animation_trigger.gd" id="1_kciaw"]
+
+[node name="StageAnimationTrigger" type="Node" unique_id=24711650]
+script = ExtResource("1_kciaw")

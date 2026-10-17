@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bjvf2yuwue25x"]
+
+[ext_resource type="Script" uid="uid://dqdj7t5fs74vg" path="res://src/stage/utils/stage_teleporter.gd" id="1_8xcvp"]
+
+[node name="StageTeleporter" type="Node" unique_id=1956478592]
+script = ExtResource("1_8xcvp")
