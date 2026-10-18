@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cg2dccirlmy4g"]
 
-[ext_resource type="PackedScene" uid="uid://bjeudo4rvmvag" path="res://actor/enemy/base_enemy.tscn" id="1_u8ngf"]
-[ext_resource type="Script" uid="uid://bbtssto6och2k" path="res://actor/enemy/the_necromancer.gd" id="2_73qie"]
+[ext_resource type="PackedScene" uid="uid://bjeudo4rvmvag" path="res://src/actor/enemy/base_enemy.tscn" id="1_u8ngf"]
+[ext_resource type="Script" uid="uid://bbtssto6och2k" path="res://src/actor/enemy/the_necromancer.gd" id="2_73qie"]
 [ext_resource type="Texture2D" uid="uid://dlinjvje6qbhk" path="res://assets/enemies/The Necromancer.png" id="2_kabjl"]
 [ext_resource type="PackedScene" uid="uid://twkdx826uwnk" path="res://src/bullet/enemy/bone_bullet.tscn" id="3_60x3o"]
 [ext_resource type="Script" uid="uid://cciei67yuitw5" path="res://src/state/actor/idleState.gd" id="3_gulix"]
@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://bunbdgovyilxk" path="res://src/state/actor/shootState.gd" id="6_ya0f1"]
 [ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/shader/hitFlashShader.gdshader" id="7_kwd8c"]
 [ext_resource type="Script" uid="uid://bxro0yfjng3td" path="res://src/state/actor/fallingState.gd" id="8_a4p0e"]
-[ext_resource type="Animation" uid="uid://dc4oqu1m6whdy" path="res://actor/damaged.res" id="9_fkvp5"]
+[ext_resource type="Animation" uid="uid://dc4oqu1m6whdy" path="res://src/actor/damaged.res" id="9_fkvp5"]
 [ext_resource type="Script" uid="uid://dmjhev2pahl57" path="res://src/state/actor/damagedState.gd" id="9_vub8o"]
 
 [sub_resource type="Resource" id="Resource_7jktm"]

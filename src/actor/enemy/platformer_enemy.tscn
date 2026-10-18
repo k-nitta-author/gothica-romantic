@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bthmcawypnud2"]
 
-[ext_resource type="PackedScene" uid="uid://bjeudo4rvmvag" path="res://actor/enemy/base_enemy.tscn" id="1_tcqml"]
-[ext_resource type="Script" uid="uid://bxthdcpdc3xyu" path="res://actor/enemy/platformer_enemy.gd" id="2_7kgjq"]
+[ext_resource type="PackedScene" uid="uid://bjeudo4rvmvag" path="res://src/actor/enemy/base_enemy.tscn" id="1_tcqml"]
+[ext_resource type="Script" uid="uid://bxthdcpdc3xyu" path="res://src/actor/enemy/platformer_enemy.gd" id="2_7kgjq"]
 [ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/shader/hitFlashShader.gdshader" id="3_oiip2"]
 [ext_resource type="Script" uid="uid://bxro0yfjng3td" path="res://src/state/actor/fallingState.gd" id="3_y2h6d"]
 [ext_resource type="Script" uid="uid://dmjhev2pahl57" path="res://src/state/actor/damagedState.gd" id="4_2cq51"]

@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://ctd4kyqrp1s6l"]
 
-[ext_resource type="PackedScene" uid="uid://bthmcawypnud2" path="res://actor/enemy/platformer_enemy.tscn" id="1_5wlpe"]
+[ext_resource type="PackedScene" uid="uid://bthmcawypnud2" path="res://src/actor/enemy/platformer_enemy.tscn" id="1_5wlpe"]
 [ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/shader/hitFlashShader.gdshader" id="2_5f6hq"]
 [ext_resource type="Texture2D" uid="uid://bhd4l5o50wxak" path="res://assets/enemies/The Director.png" id="2_dq0x4"]
 [ext_resource type="Script" uid="uid://cciei67yuitw5" path="res://src/state/actor/idleState.gd" id="2_pku2g"]
 [ext_resource type="Script" uid="uid://hhc8ylq4nvxy" path="res://src/state/actor/meleeState.gd" id="3_xlkoo"]
 [ext_resource type="Script" uid="uid://cgcwml08u6r0s" path="res://src/state/actor/walkState.gd" id="4_g35jg"]
 [ext_resource type="Script" uid="uid://bunbdgovyilxk" path="res://src/state/actor/shootState.gd" id="5_ubxil"]
-[ext_resource type="Animation" uid="uid://dc4oqu1m6whdy" path="res://actor/damaged.res" id="8_xlkoo"]
+[ext_resource type="Animation" uid="uid://dc4oqu1m6whdy" path="res://src/actor/damaged.res" id="8_xlkoo"]
 
 [sub_resource type="Resource" id="Resource_5f6hq"]
 script = ExtResource("2_pku2g")

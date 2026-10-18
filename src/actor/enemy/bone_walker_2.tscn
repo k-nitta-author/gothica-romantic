@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://b61j80iimhqu1"]
 
-[ext_resource type="PackedScene" uid="uid://bjeudo4rvmvag" path="res://actor/enemy/base_enemy.tscn" id="1_oomqi"]
+[ext_resource type="PackedScene" uid="uid://bjeudo4rvmvag" path="res://src/actor/enemy/base_enemy.tscn" id="1_oomqi"]
 [ext_resource type="Script" uid="uid://cciei67yuitw5" path="res://src/state/actor/idleState.gd" id="2_5hoc6"]
 [ext_resource type="Texture2D" uid="uid://dnb18c8cyr0nm" path="res://assets/enemies/Bone Walker.png" id="2_a8e7q"]
-[ext_resource type="Script" uid="uid://bxthdcpdc3xyu" path="res://actor/enemy/platformer_enemy.gd" id="2_m0wve"]
+[ext_resource type="Script" uid="uid://bxthdcpdc3xyu" path="res://src/actor/enemy/platformer_enemy.gd" id="2_m0wve"]
 [ext_resource type="Script" uid="uid://cgcwml08u6r0s" path="res://src/state/actor/walkState.gd" id="3_ua142"]
 [ext_resource type="Script" uid="uid://bxro0yfjng3td" path="res://src/state/actor/fallingState.gd" id="4_awo14"]
 [ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/shader/hitFlashShader.gdshader" id="5_5xplo"]
 [ext_resource type="Script" uid="uid://dmjhev2pahl57" path="res://src/state/actor/damagedState.gd" id="6_2g5vl"]
-[ext_resource type="Animation" uid="uid://dc4oqu1m6whdy" path="res://actor/damaged.res" id="7_e652v"]
+[ext_resource type="Animation" uid="uid://dc4oqu1m6whdy" path="res://src/actor/damaged.res" id="7_e652v"]
 
 [sub_resource type="Resource" id="Resource_y8pw5"]
 script = ExtResource("2_5hoc6")

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d1gb1oeipfp1x"]
 
-[ext_resource type="PackedScene" uid="uid://bthmcawypnud2" path="res://actor/enemy/platformer_enemy.tscn" id="1_hqj5s"]
+[ext_resource type="PackedScene" uid="uid://bthmcawypnud2" path="res://src/actor/enemy/platformer_enemy.tscn" id="1_hqj5s"]
 [ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/shader/hitFlashShader.gdshader" id="2_6u8qd"]
 [ext_resource type="Texture2D" uid="uid://vk7fo6k7j3ul" path="res://assets/enemies/Fire Imp.png" id="3_qooev"]
 

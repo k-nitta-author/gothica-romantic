@@ -1,15 +1,15 @@
 [gd_scene format=4 uid="uid://dyhfxktgfaktb"]
 
-[ext_resource type="PackedScene" uid="uid://bthmcawypnud2" path="res://actor/enemy/platformer_enemy.tscn" id="1_8220d"]
+[ext_resource type="PackedScene" uid="uid://bthmcawypnud2" path="res://src/actor/enemy/platformer_enemy.tscn" id="1_8220d"]
 [ext_resource type="Script" uid="uid://cciei67yuitw5" path="res://src/state/actor/idleState.gd" id="2_igp7a"]
 [ext_resource type="Script" uid="uid://hhc8ylq4nvxy" path="res://src/state/actor/meleeState.gd" id="3_15w3k"]
 [ext_resource type="Script" uid="uid://cgcwml08u6r0s" path="res://src/state/actor/walkState.gd" id="4_kh23g"]
 [ext_resource type="Script" uid="uid://bxro0yfjng3td" path="res://src/state/actor/fallingState.gd" id="6_6ndwb"]
 [ext_resource type="Script" uid="uid://dmjhev2pahl57" path="res://src/state/actor/damagedState.gd" id="7_ul6a7"]
 [ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/shader/hitFlashShader.gdshader" id="8_u3kas"]
-[ext_resource type="Texture2D" uid="uid://dtkw2v0by5v2v" path="res://assets/enemies/papal striker.png" id="9_8220d"]
+[ext_resource type="Texture2D" uid="uid://htrm00garxdb" path="res://assets/enemies/papal striker.png" id="9_8220d"]
 [ext_resource type="AudioStream" uid="uid://camxc30dnre2w" path="res://assets/sound/sfx/noise5.wav" id="10_igp7a"]
-[ext_resource type="Animation" uid="uid://dc4oqu1m6whdy" path="res://actor/damaged.res" id="12_teena"]
+[ext_resource type="Animation" uid="uid://dc4oqu1m6whdy" path="res://src/actor/damaged.res" id="12_teena"]
 [ext_resource type="AudioStream" uid="uid://sorepoioavl7" path="res://assets/sound/sfx/noise1.wav" id="13_dl2px"]
 
 [sub_resource type="Resource" id="Resource_abmyv"]

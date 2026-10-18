@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://cfg2w736ksfo7"]
 
-[ext_resource type="PackedScene" uid="uid://bthmcawypnud2" path="res://actor/enemy/platformer_enemy.tscn" id="1_ed7m6"]
+[ext_resource type="PackedScene" uid="uid://bthmcawypnud2" path="res://src/actor/enemy/platformer_enemy.tscn" id="1_ed7m6"]
 [ext_resource type="Script" uid="uid://hhc8ylq4nvxy" path="res://src/state/actor/meleeState.gd" id="2_b2grh"]
 [ext_resource type="Script" uid="uid://cciei67yuitw5" path="res://src/state/actor/idleState.gd" id="2_c0kx8"]
 [ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/shader/hitFlashShader.gdshader" id="2_ci15a"]
-[ext_resource type="Texture2D" uid="uid://bx2gq3hayw83s" path="res://assets/enemies/demon axemen.png" id="3_b2grh"]
+[ext_resource type="Texture2D" uid="uid://c2os7uiu01vap" path="res://assets/enemies/demon axemen.png" id="3_b2grh"]
 [ext_resource type="Script" uid="uid://cgcwml08u6r0s" path="res://src/state/actor/walkState.gd" id="3_c0kx8"]
 [ext_resource type="AudioStream" uid="uid://sorepoioavl7" path="res://assets/sound/sfx/noise1.wav" id="7_d7lg7"]
-[ext_resource type="Animation" uid="uid://dc4oqu1m6whdy" path="res://actor/damaged.res" id="7_m646d"]
+[ext_resource type="Animation" uid="uid://dc4oqu1m6whdy" path="res://src/actor/damaged.res" id="7_m646d"]
 
 [sub_resource type="Resource" id="Resource_b2grh"]
 script = ExtResource("2_c0kx8")

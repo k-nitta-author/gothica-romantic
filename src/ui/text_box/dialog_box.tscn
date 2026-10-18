@@ -24,3 +24,5 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="anim" type="AnimationPlayer" parent="." unique_id=402660526]
+
+[node name="typingAudio" type="AudioStreamPlayer" parent="." unique_id=188814986]

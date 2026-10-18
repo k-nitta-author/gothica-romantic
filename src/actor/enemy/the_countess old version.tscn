@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dpgoikpggg3ox"]
 
-[ext_resource type="PackedScene" uid="uid://bjeudo4rvmvag" path="res://actor/enemy/base_enemy.tscn" id="1_5vvxa"]
-[ext_resource type="Script" uid="uid://c1v0lyb4ts7jh" path="res://actor/enemy/the_countess.gd" id="2_1r00c"]
+[ext_resource type="PackedScene" uid="uid://bjeudo4rvmvag" path="res://src/actor/enemy/base_enemy.tscn" id="1_5vvxa"]
+[ext_resource type="Script" uid="uid://c1v0lyb4ts7jh" path="res://src/actor/enemy/the_countess.gd" id="2_1r00c"]
 [ext_resource type="Script" uid="uid://cciei67yuitw5" path="res://src/state/actor/idleState.gd" id="2_khq6j"]
 [ext_resource type="Texture2D" uid="uid://dag24a0foiugu" path="res://assets/enemies/The Countess.png" id="2_rjxko"]
 [ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/shader/hitFlashShader.gdshader" id="2_wjf8b"]
@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://hhc8ylq4nvxy" path="res://src/state/actor/meleeState.gd" id="3_jwtr6"]
 [ext_resource type="Script" uid="uid://cgcwml08u6r0s" path="res://src/state/actor/walkState.gd" id="4_1r00c"]
 [ext_resource type="Script" uid="uid://wqfwvdiwfsfk" path="res://src/state/actor/jumpState.gd" id="4_ij788"]
-[ext_resource type="Animation" uid="uid://dc4oqu1m6whdy" path="res://actor/damaged.res" id="4_xo63i"]
+[ext_resource type="Animation" uid="uid://dc4oqu1m6whdy" path="res://src/actor/damaged.res" id="4_xo63i"]
 [ext_resource type="Script" uid="uid://bunbdgovyilxk" path="res://src/state/actor/shootState.gd" id="7_u7s03"]
 
 [sub_resource type="Resource" id="Resource_bx0vb"]

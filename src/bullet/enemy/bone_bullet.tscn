@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://twkdx826uwnk"]
 
 [ext_resource type="PackedScene" uid="uid://40g6jm0jhmbr" path="res://src/bullet/enemy/enemy_bullet.tscn" id="1_ycivr"]
-[ext_resource type="PackedScene" uid="uid://cbvhks3dybpch" path="res://actor/enemy/bone_walker_1.tscn" id="2_45goe"]
-[ext_resource type="Texture2D" uid="uid://cpvpf4bfa8ewg" path="res://assets/enemies/bullets/necro bone.png" id="2_77crr"]
+[ext_resource type="PackedScene" uid="uid://cbvhks3dybpch" path="res://src/actor/enemy/bone_walker_1.tscn" id="2_45goe"]
+[ext_resource type="Texture2D" uid="uid://gxlpiq4ng0dx" path="res://assets/enemies/bullets/necro bone.png" id="2_77crr"]
 [ext_resource type="Script" uid="uid://c80jy25exf2g2" path="res://src/bullet/action_on_collide/ActionSpawn.gd" id="3_o7v63"]
 
 [sub_resource type="Resource" id="Resource_o7v63"]

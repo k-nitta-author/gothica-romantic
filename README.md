@@ -1,6 +1,6 @@
-# Foobar
+# Gothica Romantic
 
-Gothica Romantic is a (Currently in development) game written in GDScript for the Godot Engine in the style of classic era Castlevania from the 8-bit and 16 bit eras. 
+Gothica Romantic is a (Currently in development) platformer action game written in *GDScript* for the [Godot Engine] (https://godotengine.org/) in the style of classic Castlevania from the pre-PSX era. 
 
 ## Installation
 

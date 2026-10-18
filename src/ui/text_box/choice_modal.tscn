@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://diiq0av1wxh6u"]
 
-[ext_resource type="Script" path="res://choice_modal.gd" id="1_qcw5n"]
+[ext_resource type="Script" uid="uid://w0bnpj3lx8ig" path="res://src/ui/text_box/choice_modal.gd" id="1_qcw5n"]
 
 [node name="ChoiceModal" type="Control" unique_id=1433086697]
 layout_mode = 3

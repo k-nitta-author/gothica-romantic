@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://clmrwyoew55ep"]
 
-[ext_resource type="PackedScene" uid="uid://bthmcawypnud2" path="res://actor/enemy/platformer_enemy.tscn" id="1_accsr"]
+[ext_resource type="PackedScene" uid="uid://bthmcawypnud2" path="res://src/actor/enemy/platformer_enemy.tscn" id="1_accsr"]
 [ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/shader/hitFlashShader.gdshader" id="2_7rkme"]
 [ext_resource type="Script" uid="uid://cciei67yuitw5" path="res://src/state/actor/idleState.gd" id="2_r0x20"]
 [ext_resource type="Texture2D" uid="uid://do2r6q65abhqj" path="res://assets/enemies/papal knight.png" id="3_8xb32"]
@@ -8,7 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://cwjmqvf8xdyb2" path="res://assets/sound/sfx/beep1.wav" id="4_8xb32"]
 [ext_resource type="Script" uid="uid://cgcwml08u6r0s" path="res://src/state/actor/walkState.gd" id="4_dmh2n"]
 [ext_resource type="AudioStream" uid="uid://sorepoioavl7" path="res://assets/sound/sfx/noise1.wav" id="5_pixtw"]
-[ext_resource type="Animation" uid="uid://dc4oqu1m6whdy" path="res://actor/damaged.res" id="9_inpl4"]
+[ext_resource type="Animation" uid="uid://dc4oqu1m6whdy" path="res://src/actor/damaged.res" id="9_inpl4"]
 
 [sub_resource type="Resource" id="Resource_senlp"]
 script = ExtResource("2_r0x20")

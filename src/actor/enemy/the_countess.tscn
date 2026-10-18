@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://bx6r5bywg8g68"]
 
-[ext_resource type="PackedScene" uid="uid://bthmcawypnud2" path="res://actor/enemy/platformer_enemy.tscn" id="1_41d70"]
+[ext_resource type="PackedScene" uid="uid://bthmcawypnud2" path="res://src/actor/enemy/platformer_enemy.tscn" id="1_41d70"]
 [ext_resource type="Script" uid="uid://bxro0yfjng3td" path="res://src/state/actor/fallingState.gd" id="2_khq6j"]
 [ext_resource type="Script" uid="uid://dmjhev2pahl57" path="res://src/state/actor/damagedState.gd" id="3_jwtr6"]
 [ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/shader/hitFlashShader.gdshader" id="4_1r00c"]
-[ext_resource type="Texture2D" uid="uid://cp7gaqoixcyg3" path="res://assets/enemies/The Countess.png" id="5_u7s03"]
-[ext_resource type="Animation" uid="uid://dc4oqu1m6whdy" path="res://actor/damaged.res" id="6_ij788"]
+[ext_resource type="Texture2D" uid="uid://dag24a0foiugu" path="res://assets/enemies/The Countess.png" id="5_u7s03"]
+[ext_resource type="Animation" uid="uid://dc4oqu1m6whdy" path="res://src/actor/damaged.res" id="6_ij788"]
 
 [sub_resource type="Resource" id="Resource_41d70"]
 resource_local_to_scene = true

@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://cu58nwvpv00p5"]
 
-[ext_resource type="PackedScene" uid="uid://bthmcawypnud2" path="res://actor/enemy/platformer_enemy.tscn" id="1_3xb5l"]
-[ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/hitFlashShader.gdshader" id="2_oocw0"]
-[ext_resource type="Texture2D" uid="uid://8b81y2pkva3h" path="res://assets/enemies/high priest.png" id="3_nutcg"]
+[ext_resource type="PackedScene" uid="uid://bthmcawypnud2" path="res://src/actor/enemy/platformer_enemy.tscn" id="1_3xb5l"]
+[ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/shader/hitFlashShader.gdshader" id="2_oocw0"]
+[ext_resource type="Texture2D" uid="uid://c7dg3ful64c2s" path="res://assets/enemies/high priest.png" id="3_nutcg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_85m4r"]
 resource_local_to_scene = true
