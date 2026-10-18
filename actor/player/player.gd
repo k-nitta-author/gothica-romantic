@@ -134,5 +134,4 @@ func walk() -> void:
 	velocity.x = Input.get_axis("move_left", "move_right") * speed
 
 # overrides the parent's shoot method
-func shoot():
-	gunManager.shoot()
+func shoot(): gunManager.shoot()

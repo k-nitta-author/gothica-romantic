@@ -250,6 +250,8 @@ func update(_delta):
 
 	move_and_slide()
 
+func teleport(new_position: Vector2) -> void: global_position = new_position
+
 # method to be triggered in the event of trigger area activation
 func on_triggered() -> void:
 	pass

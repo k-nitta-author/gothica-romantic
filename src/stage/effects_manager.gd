@@ -27,7 +27,11 @@ func get_effect(splatter_type: EFFECT) -> Node:
 		EFFECT.BASE_EXPLOSION: splatter = base_explosion
 
 	return splatter.instantiate()
-	
+
+func clear_all_effects() -> void:
+	for c: BaseEffect in get_children():
+		c.queue_free()
+
 # spawn a given effect at this location
 func spawn_effects(pos: Vector2, is_flipped: int, splatter_type: EFFECT) -> void:
 

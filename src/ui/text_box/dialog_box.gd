@@ -4,6 +4,7 @@ extends Panel
 @onready var richTextLabel : RichTextLabel = $bodyLabel
 @onready var headerTextLabel : Label = $headerLabel
 @onready var anim: AnimationPlayer = $anim
+@onready var typingAudio: AudioStreamPlayer = $typingAudio
 
 @onready var t: WeakRef
 

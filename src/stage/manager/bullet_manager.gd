@@ -10,7 +10,11 @@ func add_bullet(bullet: BaseBullet, pos: Vector2) -> void:
 	var b : BaseBullet = bullet.bind_dependencies(stage).spawn_at(pos)
 	add_child(b)
 	children.append(b)
-	
+
+func clear_all() -> void:
+	for b: BaseBullet in get_children():
+		b.queue_free()
+
 func bind_dependencies(s: Stage):	
 	super(s)
 
