@@ -40,6 +40,8 @@ enum STATE {
 			STATE.DIALOG:
 				dialogBox.visible = true
 
+		emit_signal("state_changed", currentState)
+
 @onready var dialogBox : DialogBox = $Control/DialogBox
 @onready var startScreen = $Control/StartScreen
 
@@ -56,17 +58,24 @@ var effectLayer: EffectsLayer
 
 var game
 
+signal state_changed(current_state: STATE)
+
 func _ready() -> void:
 	pauseGamePanel.connect("return_to_previous_screen", on_game_paused)
 	pauseGamePanel.connect("return_to_main_menu", on_main_menu)
 
 	diedScreen.setup(self)
 
-func display_dialog(header_name: String, body: String) -> void:
+func display_dialog(dialog_array: Array[Dictionary]) -> void:
 	
 	currentState = STATE.DIALOG
 
-	dialogBox.display(header_name, body)
+	dialogBox.display(dialog_array)
+
+func conceal_dialog() -> void:
+	currentState = STATE.RESUMED
+
+	dialogBox.conceal()
 
 func reset() -> void:
 	battleControl.reset()

@@ -7,7 +7,6 @@ enum STATES {IDLE, TALKING, MOVING}
 
 @export var character_name : String
 @export_multiline var dialog_body : String
-@onready var dialog_array : Array = dialog_body.split("\n")
 
 @onready var interactionArea: Area2D = $interactArea
 @onready var bodySprite: Sprite2D = $body
@@ -15,11 +14,13 @@ enum STATES {IDLE, TALKING, MOVING}
 @onready var toolTip: Node2D = $toolTip
 
 var is_player_interactible: bool
+var is_talking_with : bool
 var has_spoken_with: bool
 
 var current_dialog_idx := 0
 
-signal notify_display_dialog(name: String, body: String)
+signal notify_start_dialog(dialog_array: Array[Dictionary])
+signal notify_conceal_dialog()
 
 # set up interaction area
 func _ready() -> void:
@@ -65,23 +66,38 @@ func bind_dependencies(hud_layer: HudLayer) -> void:
 
 	if hud_layer == null: return
 
-	connect("notify_display_dialog", hud_layer.display_dialog)
+	connect("notify_start_dialog", hud_layer.display_dialog)
+	connect("notify_conceal_dialog", hud_layer.conceal_dialog)
+
+func on_hud_state_changed(current_hud_state: HudLayer.STATE) -> void:
+	is_talking_with = false
 
 # returns whether the npc can talk
 func can_talk() -> bool:
-	return (dialog_array.size() > 0) and is_player_interactible and visible
+	return is_player_interactible and visible and !is_talking_with
 
 # resets dialog to allow player to review a character's dialog
 func reset_dialog() -> void: pass
 
-# get the next dialog item
-func next_dialog() -> String:
-	return dialog_array.pop_front() if dialog_array.size() > 0 else ""
+func get_dialog_array(raw_dialog: String) -> Array[Dictionary]:
+
+	var dialog_array : Array = raw_dialog.split("\n")
+
+	var a : Array[Dictionary]
+
+	for d in dialog_array:
+		
+		var new_dialog_entry := {"header_name": character_name, "body": d}
+
+		a.append(new_dialog_entry)
+
+	return a
 
 # called when player presses interact
 func interact() -> void:
-	var d = next_dialog()
-	emit_signal("notify_display_dialog", character_name, d)
+	var dialog_array = get_dialog_array(dialog_body)
+	emit_signal("notify_start_dialog", dialog_array)
+	is_talking_with = true
 
 func _unhandled_input(event: InputEvent) -> void:
 
@@ -93,13 +109,16 @@ func _unhandled_input(event: InputEvent) -> void:
 		interact()
 		toolTip.visible = can_talk()
 
-func on_area_exited(_area: Area2D) -> void:
-	is_player_interactible = false
-	toolTip.visible = can_talk()
-
 func on_area_entered(_area: Area2D) -> void:
 	is_player_interactible = true
 	toolTip.visible = can_talk()
+
+func on_area_exited(_area: Area2D) -> void:
+	is_player_interactible = false
+	toolTip.visible = can_talk()
+	is_talking_with = false
+
+	emit_signal("notify_conceal_dialog")
 
 # method to be triggered in the event of trigger area activation
 func on_triggered() -> void: pass
