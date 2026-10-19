@@ -14,6 +14,8 @@ const GRAVITY = 1 # determine best value later on
 @export var next_level_scene: PackedScene
 @onready var start_screen : Control = $HudLayer.get_start_screen()
 
+var persistence_service : PersistenceService = PersistenceService.new()
+
 var previous_stage_scene: PackedScene
 
 # the current_save_index

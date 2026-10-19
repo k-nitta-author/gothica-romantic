@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cgfy72jphr4l3"]
+
+[ext_resource type="Script" uid="uid://bpmv2huubpngd" path="res://src/stage/utils/flag_checker.gd" id="1_7aydh"]
+
+[node name="FlagChecker" type="Node" unique_id=976875486]
+script = ExtResource("1_7aydh")
