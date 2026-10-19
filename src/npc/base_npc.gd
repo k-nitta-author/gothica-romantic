@@ -108,6 +108,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
 		interact()
 		toolTip.visible = can_talk()
+		get_viewport().set_input_as_handled()
 
 func on_area_entered(_area: Area2D) -> void:
 	is_player_interactible = true

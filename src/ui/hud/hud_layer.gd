@@ -45,7 +45,6 @@ enum STATE {
 @onready var dialogBox : DialogBox = $Control/DialogBox
 @onready var startScreen = $Control/StartScreen
 
-@onready var textBox: TextBox = $Control/TextBox
 @onready var anim: AnimationPlayer = $anim
 @onready var autoSaveIcon: TextureRect = $Control/autoSaveIcon
 
