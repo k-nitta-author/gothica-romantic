@@ -6,13 +6,13 @@
 [ext_resource type="Script" uid="uid://comt54346nx8i" path="res://src/stage/manager/bullet_manager.gd" id="3_0x10x"]
 [ext_resource type="Script" uid="uid://deuob81fl0d5d" path="res://src/stage/camera_2d.gd" id="3_c4gdh"]
 [ext_resource type="PackedScene" uid="uid://dxrsyek2feu0u" path="res://src/actor/player/player.tscn" id="3_ont0r"]
-[ext_resource type="Script" uid="uid://cmoeo744be65l" path="res://src/stage/npc_manager.gd" id="4_0stxo"]
+[ext_resource type="Script" uid="uid://cmoeo744be65l" path="res://src/stage/manager/npc_manager.gd" id="4_0stxo"]
 [ext_resource type="Script" uid="uid://ryiprrdaay88" path="res://src/stage/base_stage.gd" id="5_0x10x"]
 [ext_resource type="Script" uid="uid://dmjhev2pahl57" path="res://src/state/actor/damagedState.gd" id="5_8ytu5"]
 [ext_resource type="Script" uid="uid://ylkbae7fwvfe" path="res://src/stage/manager/check_point_manager.gd" id="8_lk3ft"]
-[ext_resource type="Script" uid="uid://c71oc3hlcb4gr" path="res://src/stage/utils_manager.gd" id="9_82kvf"]
-[ext_resource type="Script" uid="uid://b6sfgqwn6lgdv" path="res://src/stage/exit_manager.gd" id="11_0stxo"]
-[ext_resource type="Script" uid="uid://clef11cei8r8q" path="res://src/stage/effects_manager.gd" id="11_1h5j1"]
+[ext_resource type="Script" uid="uid://c71oc3hlcb4gr" path="res://src/stage/manager/utils_manager.gd" id="9_82kvf"]
+[ext_resource type="Script" uid="uid://b6sfgqwn6lgdv" path="res://src/stage/manager/exit_manager.gd" id="11_0stxo"]
+[ext_resource type="Script" uid="uid://clef11cei8r8q" path="res://src/stage/manager/effects_manager.gd" id="11_1h5j1"]
 
 [sub_resource type="Resource" id="Resource_2rrgm"]
 script = ExtResource("5_8ytu5")

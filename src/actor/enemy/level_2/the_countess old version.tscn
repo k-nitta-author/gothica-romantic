@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dpgoikpggg3ox"]
 
 [ext_resource type="PackedScene" uid="uid://bjeudo4rvmvag" path="res://src/actor/enemy/base_enemy.tscn" id="1_5vvxa"]
-[ext_resource type="Script" uid="uid://c1v0lyb4ts7jh" path="res://src/actor/enemy/the_countess.gd" id="2_1r00c"]
+[ext_resource type="Script" uid="uid://c1v0lyb4ts7jh" path="res://src/actor/enemy/level_2/the_countess.gd" id="2_1r00c"]
 [ext_resource type="Script" uid="uid://cciei67yuitw5" path="res://src/state/actor/idleState.gd" id="2_khq6j"]
 [ext_resource type="Texture2D" uid="uid://dag24a0foiugu" path="res://assets/enemies/The Countess.png" id="2_rjxko"]
 [ext_resource type="Shader" uid="uid://cuhhs7yn1jh2l" path="res://src/shader/hitFlashShader.gdshader" id="2_wjf8b"]

@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://clvcbegfjryqm" path="res://src/stage/base_stage.tscn" id="1_0w63r"]
 [ext_resource type="PackedScene" uid="uid://dypo3elyxj3en" path="res://src/bgs/town_forest.tscn" id="2_dqdwb"]
-[ext_resource type="PackedScene" uid="uid://cbvhks3dybpch" path="res://src/actor/enemy/bone_walker_1.tscn" id="3_80i3g"]
+[ext_resource type="PackedScene" uid="uid://cbvhks3dybpch" path="res://src/actor/enemy/level_1/bone_walker_1.tscn" id="3_80i3g"]
 [ext_resource type="TileSet" uid="uid://chlkvpl8s80h7" path="res://src/stage/tileset.tres" id="3_t7i7j"]
-[ext_resource type="PackedScene" uid="uid://b61j80iimhqu1" path="res://src/actor/enemy/bone_walker_2.tscn" id="4_bykgl"]
+[ext_resource type="PackedScene" uid="uid://b61j80iimhqu1" path="res://src/actor/enemy/level_1/bone_walker_2.tscn" id="4_bykgl"]
 [ext_resource type="Script" uid="uid://dmjhev2pahl57" path="res://src/state/actor/damagedState.gd" id="5_lfhfl"]
 [ext_resource type="PackedScene" uid="uid://c2c24l2a15l2m" path="res://src/prop/collidable/graveyard_gate.tscn" id="7_ooj5y"]
 [ext_resource type="PackedScene" uid="uid://j3myqaq8nbkq" path="res://src/stage/trigger_area/trigger_area.tscn" id="8_lfhfl"]
