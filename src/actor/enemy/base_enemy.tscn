@@ -8,17 +8,17 @@
 [ext_resource type="Animation" uid="uid://dc4oqu1m6whdy" path="res://src/actor/damaged.res" id="5_0wmbo"]
 [ext_resource type="Script" uid="uid://bdk03xab8qtyc" path="res://src/actor/enemy/enemy_sprite.gd" id="5_psi1y"]
 
-[sub_resource type="Resource" id="Resource_fsouq"]
+[sub_resource type="Resource" id="Resource_yl6gb"]
 resource_local_to_scene = true
 script = ExtResource("3_fsouq")
 metadata/_custom_type_script = "uid://bxro0yfjng3td"
 
-[sub_resource type="Resource" id="Resource_dfsjj"]
+[sub_resource type="Resource" id="Resource_m6t3r"]
 resource_local_to_scene = true
 script = ExtResource("3_sffo0")
 metadata/_custom_type_script = "uid://dmjhev2pahl57"
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_mqagq"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lv8jb"]
 resource_local_to_scene = true
 shader = ExtResource("3_wpd7q")
 shader_parameter/active = false
@@ -114,12 +114,12 @@ melee_limit = 100.0
 default_state_on_awake = 0
 actorType = 1
 speed = 19.655
-falling_state = SubResource("Resource_fsouq")
-damaged_state = SubResource("Resource_dfsjj")
+falling_state = SubResource("Resource_yl6gb")
+damaged_state = SubResource("Resource_m6t3r")
 is_stunned = true
 
 [node name="Sprite2D" parent="." index="1" unique_id=90387062]
-material = SubResource("ShaderMaterial_mqagq")
+material = SubResource("ShaderMaterial_lv8jb")
 script = ExtResource("5_psi1y")
 is_hit_flashing = true
 
