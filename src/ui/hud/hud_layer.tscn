@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bdcci6pdtx3ff" path="res://src/ui/hud/hud_layer.gd" id="1_726iu"]
 [ext_resource type="Theme" uid="uid://bysunrkf7sfea" path="res://src/ui/theme/main style theme.tres" id="2_ljwg0"]
 [ext_resource type="PackedScene" uid="uid://k7hwpleofqsj" path="res://src/ui/hud/battle_control.tscn" id="3_7rq8x"]
-[ext_resource type="Script" uid="uid://c66qx3v5fansn" path="res://src/ui/hud/cutscene_control.gd" id="4_x80v2"]
+[ext_resource type="PackedScene" uid="uid://bd2wseiq0hkpj" path="res://src/ui/hud/cutscene_control.tscn" id="4_x80v2"]
 [ext_resource type="PackedScene" uid="uid://doo0jtrqthdcn" path="res://src/ui/died_screen/died_screen.tscn" id="8_iad6j"]
 [ext_resource type="PackedScene" uid="uid://carswg5f74xjc" path="res://src/ui/text_box/dialog_box.tscn" id="8_sov1n"]
 [ext_resource type="Script" uid="uid://d201ywlxtoh5t" path="res://src/ui/hud/hud_state_manager.gd" id="9_x80v2"]
@@ -27,30 +27,8 @@ metadata/_edit_lock_ = true
 visible = false
 layout_mode = 0
 
-[node name="CutsceneControl" type="Control" parent="Control" unique_id=1981846008]
+[node name="CutsceneControl" parent="Control" unique_id=187591873 instance=ExtResource("4_x80v2")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("4_x80v2")
-metadata/_edit_lock_ = true
-
-[node name="DialogBox" parent="Control/CutsceneControl" unique_id=1979808780 instance=ExtResource("8_sov1n")]
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -153.5
-offset_top = -71.0
-offset_right = 153.5
-offset_bottom = -3.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="DialogBox" parent="Control" unique_id=510864784 instance=ExtResource("8_sov1n")]
 visible = false
