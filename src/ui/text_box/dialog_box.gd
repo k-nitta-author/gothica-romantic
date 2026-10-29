@@ -15,6 +15,9 @@ var dialog_array : Array[Dictionary]
 
 var is_typing := false # set to true when the dialog is still in progress
 
+func setup(ccontrol :CutsceneControl) -> void:
+	pass
+
 # called when the dialog is loaded into the dialogbox
 func setup_dialog_body(raw_text: String) -> void:
 	dialog_raw_text = raw_text 

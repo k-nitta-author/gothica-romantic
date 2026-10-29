@@ -52,6 +52,7 @@ enum STATE {
 @onready var diedScreen : Control = $Control/diedScreen
 
 @onready var battleControl : Control = $Control/BattleControl
+@onready var cutsceneControl : CutsceneControl = $Control/CutsceneControl
 
 var effectLayer: EffectsLayer
 
